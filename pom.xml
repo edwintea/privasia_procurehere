@@ -1,0 +1,1362 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.privasia.procurehere</groupId>
+	<artifactId>procurehere-core</artifactId>
+	<packaging>war</packaging>
+	<version>1.160.68</version>
+
+	<name>Privasia Procurehere Application V7</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- *************************** -->
+		<!-- Export Dependencies -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>html2pdf</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.10.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.10.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- *************************** -->
+		<!-- FileUpload -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+
+		<!-- *************************** -->
+		<!-- Testing Dependencies -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- *************************** -->
+		<!-- Spring Dependencies -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Joda Time Library -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- Required by Spring for proxying controllers for JSF if annotated by
+			@ManagedBean -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<!-- ************************************ -->
+		<!-- Spring Security Dependencies -->
+		<!-- ************************************ -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-acl</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- *************************** -->
+		<!-- Hibernate Dependencies -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.18.2-GA</version>
+		</dependency>
+
+
+		<!-- *************************** -->
+		<!-- External Dependencies -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.32</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- *************************************** -->
+		<!-- DB DRIVERS -->
+		<!-- *************************************** -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.31</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>21.7.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.3</version>
+		</dependency>
+
+		<!-- *************************************** -->
+		<!-- DB CONNECTION POOLING DEPENDENCIES -->
+		<!-- *************************************** -->
+		<!-- C3P0 -->
+		<!-- <dependency> <groupId>com.mchange</groupId> <artifactId>c3p0</artifactId>
+			<version>0.9.5</version> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5</version>
+		</dependency>
+
+
+		<!-- BoneCP -->
+		<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp</artifactId>
+			<version>0.8.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp-spring</artifactId>
+			<version>0.8.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+		<!-- *************************** -->
+		<!-- Quartz Dependencies -->
+		<!-- *************************** -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>c3p0</groupId>
+					<artifactId>c3p0</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- ********************** -->
+		<!-- FOR EMAIL TEMPLATE -->
+		<!-- ********************** -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>sendgrid-java</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>java-http-client</artifactId>
+			<version>2.3.4</version>
+		</dependency>
+
+		<!-- ********************** -->
+		<!-- Jackson JSON Processor -->
+		<!-- ********************** -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		-->
+
+		<!-- ********************** -->
+		<!-- Apache Tiles -->
+		<!-- ********************** -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+
+		<!-- For ReCaptcha -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+
+		<!-- PayPal SDK -->
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+		<!-- dependency> <groupId>com.paypal.sdk</groupId> <artifactId>rest-api-sdk</artifactId>
+			<version>LATEST</version> </dependency -->
+
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.4.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.lowagie</groupId>
+					<artifactId>itext</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.olap4j</groupId>
+					<artifactId>olap4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.olap4j</groupId>
+			<artifactId>olap4j</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.4.01</version>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>com.github.librepdf</groupId>
+			<artifactId>openpdf</artifactId>
+			<version>1.3.30</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- ********************** -->
+		<!-- FREEMARKER FOR EMAIL TEMPLATE -->
+		<!-- ********************** -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.23</version>
+		</dependency>
+
+		<!-- ********************** -->
+		<!-- WEBSOCKETS -->
+		<!-- ********************** -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- *********************** -->
+		<!-- JWT -->
+		<!-- *********************** -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>2.0.8.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-net</artifactId>
+			<version>2.0.8.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.0.33.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-broker</artifactId>
+			<version>5.15.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+			<version>5.15.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.15.5</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<!-- *********************** -->
+		<!-- PH-1567 - Stripe dependency -->
+		<!-- *********************** -->
+		<!-- https://mvnrepository.com/artifact/com.stripe/stripe-java -->
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>20.32.0</version>
+		</dependency>
+
+		<!-- *********************** -->
+		<!-- PH-1889 - CSV dependency -->
+		<!-- *********************** -->
+		<!-- https://mvnrepository.com/artifact/net.sf.supercsv/super-csv -->
+		<dependency>
+			<groupId>net.sf.supercsv</groupId>
+			<artifactId>super-csv</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>${war.file.name}</finalName>
+		<plugins>
+			<!-- Jar export for closing account agent.... -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<forceCreation>true</forceCreation>
+					<includes>
+						<include>**/core/**</include>
+						<include>**/templates/**</include>
+					</includes>
+					<excludes>
+						<exclude>
+							**/core/parsers/**
+						</exclude>
+
+						<exclude>
+							**/*CustomTokenRepositoryDaoImpl**
+						</exclude>
+
+						<exclude>
+							**/*SecurityTokenDaoImpl**
+						</exclude>
+						<exclude>
+							**/*SecurityTokenDao**
+						</exclude>
+
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<!-- Eclipse project -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<!-- Always download and attach dependencies source code -->
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<!-- Avoid type mvn eclipse:eclipse -Dwtpversion=2.0 -->
+					<wtpversion>2.0</wtpversion>
+				</configuration>
+			</plugin>
+			<!-- *************************** -->
+			<!-- MAVEN PLUGIN -->
+			<!-- *************************** -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>ws-artifacts</directory>
+							<includes>
+								<include>*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.44.v20210927</version> <!-- Downgraded version -->
+				<configuration>
+					<!-- <scanIntervalSeconds>3</scanIntervalSeconds> -->
+					<stopKey>foo</stopKey>
+					<stopPort>9966</stopPort>
+					<webApp>
+						<contextPath>/procurehere</contextPath>
+						<maxFormContentSize>600000</maxFormContentSize>
+					</webApp>
+					<httpConnector>
+						<port>9090</port>
+					</httpConnector>
+				</configuration>
+				<dependencies>
+					<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-websocket</artifactId>
+						<version>8.2.0.v20160908</version> </dependency> -->
+					<dependency>
+						<groupId>org.eclipse.jetty.websocket</groupId>
+						<artifactId>websocket-api</artifactId>
+						<version>9.4.44.v20210927</version> <!-- Downgraded version -->
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.jetty.websocket</groupId>
+						<artifactId>websocket-server</artifactId>
+						<version>9.4.44.v20210927</version> <!-- Downgraded version -->
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>jasper</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<!--
+					<webResources>
+						<resource>
+							<directory>${project.build.directory}/minify</directory>
+						</resource>
+					</webResources>
+					-->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>TomcatServer</server>
+					<path>/procurehere</path>
+				</configuration>
+			</plugin>
+
+
+			<!--
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
+				<version>1.5.1</version>
+				<executions>
+					<execution>
+						<id>default-minify</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>compress</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<nosuffix>true</nosuffix>
+					<encoding>UTF-8</encoding>
+					<cssSourceDir>resources</cssSourceDir>
+					<jsSourceDir>resources</jsSourceDir>
+					<webappDirectory>${project.build.directory}/minify</webappDirectory>
+					<excludes>
+						<exclude>**/*.min.js</exclude>
+						<exclude>**/*.min.css</exclude>
+						<exclude>**/supplierEnglishSubmission.js</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			-->
+
+			<!-- ... -->
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.template</exclude>
+					<exclude>**/*.xls</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.template</include>
+					<include>**/*.xls</include>
+				</includes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.xls</exclude>
+					<exclude>**/*.template</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.template</include>
+					<include>**/*.xls</include>
+				</includes>
+			</testResource>
+		</testResources>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>production</id>
+			<properties>
+				<war.file.name>ROOT</war.file.name>
+				<environment-key></environment-key>
+				<db.mode>false</db.mode>
+				<db.schema>proc_prod_db</db.schema>
+				<db.jpa.type>POSTGRESQL</db.jpa.type>
+				<db.driver>org.postgresql.Driver</db.driver>
+				<db.url>jdbc:postgresql://postgresql-production-instance-1.canfpdbpl4v3.ap-southeast-1.rds.amazonaws.com:5432/proc_prod_db?currentSchema=proc_prod_db</db.url>
+				<db.username>phprod_app</db.username>
+				<db.password>382GPG/mku/wF7xjQXqjHffL1SBLO1/r</db.password>
+				<db.dialect>org.hibernate.dialect.PostgreSQL9Dialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1</db.test.query>
+				<log.path>${catalina.base}/logs/</log.path>
+
+				<app.url>https://app.procurehere.com</app.url>
+				<app.root.url>https://www.procurehere.com</app.root.url>
+				<paypal.url>https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=</paypal.url>
+				<paypal.merchant.id>4RK2NUWUWEUFS</paypal.merchant.id>
+				<paypal.api.username>paypal.procurehere7_api1.privasia.biz</paypal.api.username>
+				<paypal.api.password>UG5AKEPZFF8XMUJF</paypal.api.password>
+				<paypal.api.signature>A3bAhH7hYYbBaspktcRrL84N-lxjAB5aJZyeasyld9QzJRxnVU85SUyA</paypal.api.signature>
+				<paypal.api.endpoint.url>https://api-3t.paypal.com/nvp</paypal.api.endpoint.url>
+				<paypal.app.id>APP-5VL37458HR5666010</paypal.app.id>
+				<paypal.adaptive-payments.url>https://svcs.paypal.com/AdaptivePayments/</paypal.adaptive-payments.url>
+				<paypal.ipn.url>https://www.paypal.com/cgi-bin/webscr</paypal.ipn.url>
+				<paypal.environment>production</paypal.environment>
+
+				<email.sendgrid.api.key>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</email.sendgrid.api.key>
+				<email.mail.from>no-reply@procurehere.com</email.mail.from>
+				<public.mail.from>contact@procurehere.com</public.mail.from>
+
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+
+				<google.analytics.tracking.id>UA-99609490-2</google.analytics.tracking.id>
+
+				<clickstream.analytics.tracker.name>PROCUREHERE_WEB</clickstream.analytics.tracker.name>
+				<clickstream.analytics.app.id>70b65ac8-e798-4af7-a907-96f4a64d10b1</clickstream.analytics.app.id>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+
+				<activemq.host.id>172.31.79.227</activemq.host.id>
+				<activemq.port>8161</activemq.port>
+
+				<activemq.broker-url>tcp://172.31.79.227:61616</activemq.broker-url>
+				<activemq.user>admin</activemq.user>
+				<activemq.password>admin</activemq.password>
+				<stripe.publish>pk_live_X1AudmmAo9YXO7UH4wz7UXNH00SEnV8p83</stripe.publish>
+				<stripe.secret>sk_live_6bHowCOm818DetxyY5kazB9400t4ulRel4</stripe.secret>
+
+				<financehere.api.url>https://app.finanshere.com/api/</financehere.api.url>
+				<financehere.api.key>production</financehere.api.key>
+
+				<enginemailer.userKey>f44b4e22-a71f-41f0-83f7-3a6e7dd937e1</enginemailer.userKey>
+				<enginemailer.apikey>a62824e3-ede6-4fcf-b195-30a50dedf64f</enginemailer.apikey>
+				<enginemailer.url>https://api.enginemailer.com/RESTAPI/Submission/SendEmail</enginemailer.url>
+				<enginemailer.from.mail>no-reply@procurehere.com</enginemailer.from.mail>
+			</properties>
+		</profile>
+		<profile>
+			<id>demo</id> <!-- demo.procurehere.com -->
+			<properties>
+				<war.file.name>ROOT</war.file.name>
+				<environment-key>demo</environment-key>
+				<db.mode>false</db.mode>
+				<db.schema>proc_demo_db</db.schema>
+				<db.jpa.type>POSTGRESQL</db.jpa.type>
+				<db.driver>org.postgresql.Driver</db.driver>
+				<db.url>jdbc:postgresql://postgresql-demo.cluster-canfpdbpl4v3.ap-southeast-1.rds.amazonaws.com:5432/proc_demo_db?currentSchema=proc_demo_db</db.url>
+				<db.username>postgres</db.username>
+				<db.password>privasia</db.password>
+				<db.dialect>org.hibernate.dialect.PostgreSQL9Dialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1</db.test.query>
+				<log.path>${catalina.base}/logs/</log.path>
+
+				<app.url>https://demo.procurehere.com</app.url>
+				<app.root.url>https://www.procurehere.com</app.root.url>
+				<paypal.url>https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&amp;token=</paypal.url>
+				<paypal.merchant.id>ZJ5B75PX9GDD4</paypal.merchant.id>
+				<paypal.api.username>soalen-facilitator_api1.privasia.com</paypal.api.username>
+				<paypal.api.password>DFSX5A3UC5A2DCE5</paypal.api.password>
+				<paypal.api.signature>AFcWxV21C7fd0v3bYYYRCpSSRl31ARD...EmczuqA1SO.EoMMGxkiQcq</paypal.api.signature>
+				<paypal.api.endpoint.url>https://api-3t.sandbox.paypal.com/nvp</paypal.api.endpoint.url>
+				<paypal.app.id>APP-80W284485P519543T</paypal.app.id>
+				<paypal.adaptive-payments.url>https://svcs.sandbox.paypal.com/AdaptivePayments/</paypal.adaptive-payments.url>
+
+
+				<email.sendgrid.api.key>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</email.sendgrid.api.key>
+				<email.mail.from>no-reply-sandbox@procurehere.com</email.mail.from>
+				<public.mail.from>contact@procurehere.com</public.mail.from>
+
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+
+
+				<google.analytics.tracking.id>UA-99609490-4</google.analytics.tracking.id>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<activemq.host.id>172.31.41.111</activemq.host.id>
+				<activemq.port>8161</activemq.port>
+
+				<activemq.broker-url>tcp://172.31.41.111:61616</activemq.broker-url>
+				<activemq.user>admin</activemq.user>
+				<activemq.password>admin</activemq.password>
+
+				<enginemailer.userKey>e2b5c5d9-c19c-45ab-b12b-db13d38dfda7</enginemailer.userKey>
+				<enginemailer.apikey>d93368ba-2b81-47d2-9771-5cac02cd198e</enginemailer.apikey>
+				<enginemailer.url>https://api.enginemailer.com/RESTAPI/Submission/SendEmail</enginemailer.url>
+				<enginemailer.from.mail>no-reply-sandbox@procurehere.com</enginemailer.from.mail>
+
+			</properties>
+		</profile>
+
+		<profile>
+			<id>uat1</id>
+			<properties>
+				<supplier.onboarding.only>false</supplier.onboarding.only>
+				<war.file.name>ROOT</war.file.name>
+				<db.mode>false</db.mode>
+				<db.schema>proc_test_db</db.schema>
+				<environment-key>test2-</environment-key>
+				<db.jpa.type>POSTGRESQL</db.jpa.type>
+				<db.driver>org.postgresql.Driver</db.driver>
+				<db.url>jdbc:postgresql://postgresql-test.cluster-canfpdbpl4v3.ap-southeast-1.rds.amazonaws.com:5432/proc_test_db?currentSchema=proc_test_db</db.url>
+				<db.username>postgres</db.username>
+				<db.password>privasia</db.password>
+				<db.dialect>org.hibernate.dialect.PostgreSQL9Dialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1</db.test.query>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>https://testtwo.procurehere.com</app.url>
+				<app.root.url>http://www.procurehere.com</app.root.url>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+				<activemq.host.id>172.31.47.186</activemq.host.id>
+				<activemq.port>8161</activemq.port>
+
+				<activemq.broker-url>tcp://172.31.47.186:61616</activemq.broker-url>
+				<activemq.user>admin</activemq.user>
+				<activemq.password>admin</activemq.password>
+
+				<enginemailer.userKey>e2b5c5d9-c19c-45ab-b12b-db13d38dfda7</enginemailer.userKey>
+				<enginemailer.apikey>6cef179f-9c47-446b-9eb8-394afa707feb</enginemailer.apikey>
+				<enginemailer.url>https://api.enginemailer.com/RESTAPI/Submission/SendEmail</enginemailer.url>
+				<enginemailer.from.mail>no-reply-sandbox@procurehere.com</enginemailer.from.mail>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id> <!-- test.procurehere.com -->
+			<properties>
+				<supplier.onboarding.only>false</supplier.onboarding.only>
+				<war.file.name>ROOT</war.file.name>
+				<db.mode>false</db.mode>
+				<db.schema>proc_test_db</db.schema>
+				<environment-key>test-</environment-key>
+				<db.jpa.type>POSTGRESQL</db.jpa.type>
+				<db.driver>org.postgresql.Driver</db.driver>
+				<db.url>jdbc:postgresql://postgresql-test.cluster-canfpdbpl4v3.ap-southeast-1.rds.amazonaws.com:5432/proc_test_db?currentSchema=proc_test_db</db.url>
+				<db.username>postgres</db.username>
+				<db.password>privasia</db.password>
+				<db.dialect>org.hibernate.dialect.PostgreSQL9Dialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1</db.test.query>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>https://test.procurehere.com</app.url>
+				<app.root.url>http://www.procurehere.com</app.root.url>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+				<activemq.host.id>172.31.47.186</activemq.host.id>
+				<activemq.port>8161</activemq.port>
+
+				<activemq.broker-url>tcp://172.31.47.186:61616</activemq.broker-url>
+				<activemq.user>admin</activemq.user>
+				<activemq.password>admin</activemq.password>
+
+				<enginemailer.userKey>e2b5c5d9-c19c-45ab-b12b-db13d38dfda7</enginemailer.userKey>
+				<enginemailer.apikey>6cef179f-9c47-446b-9eb8-394afa707feb</enginemailer.apikey>
+				<enginemailer.url>https://api.enginemailer.com/RESTAPI/Submission/SendEmail</enginemailer.url>
+				<enginemailer.from.mail>no-reply-sandbox@procurehere.com</enginemailer.from.mail>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>dev1</id>
+			<properties>
+				<supplier.onboarding.only>false</supplier.onboarding.only>
+				<war.file.name>ROOT</war.file.name>
+				<db.mode>false</db.mode>
+				<db.schema>procurehere</db.schema>
+				<db.jpa.type>ORACLE</db.jpa.type>
+				<db.driver>oracle.jdbc.OracleDriver</db.driver>
+				<db.url>jdbc:oracle:thin:@192.168.0.137:1521:orcl</db.url>
+				<db.username>procurehere</db.username>
+				<db.password>+at+47QNsW8wkDshxZidmabrAaHqer3e</db.password>
+				<db.dialect>org.hibernate.dialect.Oracle12cDialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>http://localhost:9090/procurehere</app.url>
+				<app.root.url>http://localhost:9090/procurehere</app.root.url>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<activemq.host.id>192.168.0.30</activemq.host.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>test_NOT_IN_USE</id>
+			<properties>
+				<war.file.name>testhere</war.file.name>
+				<db.mode>true</db.mode>
+				<db.schema>procurehere</db.schema>
+				<db.jpa.type>ORACLE</db.jpa.type>
+				<db.driver>oracle.jdbc.OracleDriver</db.driver>
+				<db.url>jdbc:oracle:thin:@phereorcl.crtv0notolbn.ap-southeast-1.rds.amazonaws.com:1521:orcl</db.url>
+				<db.username>procurehere</db.username>
+				<db.password>+at+47QNsW8wkDshxZidmabrAaHqer3e</db.password>
+				<db.dialect>org.hibernate.dialect.Oracle10gDialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>http://52.77.51.77/testhere</app.url>
+				<app.root.url>http://52.77.51.77/testhere</app.root.url>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+
+				<activemq.broker-url>ssl://b-ef6202f9-1291-4f58-a16d-ed98f73893b7-1.mq.ap-southeast-1.amazonaws.com:61617</activemq.broker-url>
+				<activemq.user>prd_ph_amq_web</activemq.user>
+				<activemq.password>prd_ph_amq_web$9600</activemq.password>
+			</properties>
+		</profile>
+		<!-- ************************************** -->
+		<!-- CARGO PLUGIN TO DEPLOY TO REMOTE TOMCAT -->
+		<!-- ************************************** -->
+		<profile>
+			<id>deploydev</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.goldin.plugins</groupId>
+						<artifactId>maven-copy-plugin</artifactId>
+						<version>0.2.3.5</version>
+						<executions>
+							<execution>
+								<id>deploy-archive</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<resources>
+										<resource>
+											<targetPath>scp://ubuntu:u6un7u!23@192.168.0.30:/opt/apache-tomcat-9.0.0.M9/webapps/</targetPath>
+											<file>${project.build.directory}/procurehere.war</file>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.goldin.plugins</groupId>
+						<artifactId>maven-sshexec-plugin</artifactId>
+						<version>0.2.3.5</version>
+						<executions>
+							<execution>
+								<id>shutdown-tomcat</id>
+								<phase>clean</phase>
+								<goals>
+									<goal>sshexec</goal>
+								</goals>
+								<configuration>
+									<location>scp://ubuntu:u6un7u!23@192.168.0.30:/opt/apache-tomcat-9.0.0.M9/bin/</location>
+									<commands>
+										<command>/bin/bash -l ./shutdown.sh</command>
+										<command>sleep 10</command>
+										<command>rm -rf ../webapps/procurehere*</command>
+										<command>rm -rf ../logs/*</command>
+										<command>rm -rf ../work/*</command>
+									</commands>
+									<echoCommands>true</echoCommands>
+								</configuration>
+							</execution>
+							<execution>
+								<id>start-tomcat</id>
+								<phase>install</phase>
+								<goals>
+									<goal>sshexec</goal>
+								</goals>
+								<configuration>
+									<location>scp://ubuntu:u6un7u!23@192.168.0.30:/opt/apache-tomcat-9.0.0.M9/bin/</location>
+									<command>/bin/bash -l ./startup.sh</command>
+									<echoCommands>true</echoCommands>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<properties>
+				<db.mode>true</db.mode>
+				<db.jpa.type>MYSQL</db.jpa.type>
+				<db.driver>com.mysql.jdbc.Driver</db.driver>
+				<db.url>jdbc:mysql://192.168.0.30:3306/procurehere</db.url>
+				<db.username>root</db.username>
+				<db.password>hkqAvfuNjIdoS4kwuMH8sQ==</db.password>
+				<db.dialect>org.hibernate.dialect.MySQLDialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<log.path>${catalina.home}/logs/</log.path>
+				<app.url>http://procurehere.dhriti-solution.com/procurehere</app.url>
+				<app.root.url>http://procurehere.dhriti-solution.com/procurehere</app.root.url>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<environment-key>local</environment-key>
+				<db.mode>false</db.mode>
+				<db.schema>procurehere</db.schema>
+				<db.jpa.type>ORACLE</db.jpa.type>
+				<db.driver>oracle.jdbc.OracleDriver</db.driver>
+				<db.url>jdbc:oracle:thin:@192.168.0.137:1521:orcl</db.url>
+				<db.username>procurehere</db.username>
+				<db.password>+at+47QNsW8wkDshxZidmabrAaHqer3e</db.password>
+				<db.dialect>org.hibernate.dialect.Oracle12cDialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1 FROM dual</db.test.query>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>http://procurehere.dhriti-solution.com/procurehere</app.url>
+				<app.root.url>http://procurehere.dhriti-solution.com/procurehere</app.root.url>
+
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+
+
+				<google.analytics.tracking.id>UA-106793983-1</google.analytics.tracking.id>
+
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<activemq.host.id>192.168.0.30</activemq.host.id>
+				<activemq.port>61613</activemq.port>
+
+				<activemq.broker-url>tcp://192.168.0.30:61616</activemq.broker-url>
+				<activemq.user>admin</activemq.user>
+				<activemq.password>admin</activemq.password>
+			</properties>
+		</profile>
+
+
+		<profile>
+			<id>qa</id>
+			<properties>
+				<environment-key>qa-</environment-key>
+				<db.mode>false</db.mode>
+				<db.schema>procurehere</db.schema>
+				<db.jpa.type>ORACLE</db.jpa.type>
+				<db.driver>oracle.jdbc.OracleDriver</db.driver>
+				<db.url>jdbc:oracle:thin:@192.168.0.137:1521:orcl</db.url>
+				<db.username>procurehere</db.username>
+				<db.password>+at+47QNsW8wkDshxZidmabrAaHqer3e</db.password>
+				<db.dialect>org.hibernate.dialect.Oracle12cDialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1 FROM dual</db.test.query>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>http://procurehere1.dhriti-solution.com/procurehere</app.url>
+				<app.root.url>http://procurehere1.dhriti-solution.com/procurehere</app.root.url>
+
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+
+
+				<google.analytics.tracking.id>UA-106793983-1</google.analytics.tracking.id>
+
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<activemq.host.id>192.168.0.30</activemq.host.id>
+				<activemq.port>61613</activemq.port>
+
+				<activemq.broker-url>tcp://192.168.0.30:61616</activemq.broker-url>
+				<activemq.user>admin</activemq.user>
+				<activemq.password>admin</activemq.password>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>local</id>
+			<properties>
+				<db.mode>false</db.mode>
+				<db.schema>procurehere</db.schema>
+				<db.jpa.type>MYSQL</db.jpa.type>
+				<db.driver>com.mysql.jdbc.Driver</db.driver>
+				<db.url>jdbc:mysql://localhost:3306/procurehere</db.url>
+				<db.username>root</db.username>
+				<db.password>root</db.password>
+				<db.dialect>org.hibernate.dialect.MySQLDialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<db.test.query>select 1</db.test.query>
+			</properties>
+		</profile>
+		<profile>
+			<id>localTest</id>
+			<properties>
+				<supplier.onboarding.only>false</supplier.onboarding.only>
+				<war.file.name>ROOT</war.file.name>
+				<db.mode>false</db.mode>
+				<db.schema>proc_test_db</db.schema>
+				<environment-key>local-</environment-key>
+				<db.jpa.type>POSTGRESQL</db.jpa.type>
+				<db.driver>org.postgresql.Driver</db.driver>
+
+				<!--
+				<db.url>jdbc:postgresql://localhost:5432/proc_test_db6</db.url>
+				<db.username>postgres</db.username>
+				<db.password>sa</db.password>
+				-->
+
+
+
+				<db.url>jdbc:postgresql://postgresql-test.cluster-canfpdbpl4v3.ap-southeast-1.rds.amazonaws.com:5432/proc_test_db?currentSchema=proc_test_db</db.url>
+				<db.username>postgres</db.username>
+				<db.password>privasia</db.password>
+
+
+				<db.dialect>org.hibernate.dialect.PostgreSQL9Dialect</db.dialect>
+				<db.connection.timeout>10000</db.connection.timeout>
+				<log.path>${catalina.base}/logs/</log.path>
+				<app.url>http://localhost/procurehere</app.url>
+				<app.root.url>http://localhost/procurehere</app.root.url>
+				<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+				<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+				<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+				<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+			</properties>
+		</profile>
+
+
+		<!-- profile> <id>dev</id> <properties> <db.mode>true</db.mode> <db.jpa.type>MYSQL</db.jpa.type>
+		<db.driver>com.mysql.jdbc.Driver</db.driver> <db.url>jdbc:mysql://192.168.0.30:3306/procurehere</db.url>
+		<db.username>root</db.username> <db.password>root</db.password> <db.dialect>org.hibernate.dialect.MySQLDialect</db.dialect>
+		<db.connection.timeout>10000</db.connection.timeout> <log.path>${catalina.home}/logs/</log.path>
+		<app.url>http://procurehere.dhriti-solution.com/procurehere</app.url> </properties>
+		</profile -->
+	</profiles>
+
+	<properties>
+		<war.file.name>ROOT</war.file.name>
+		<environment-key>local</environment-key>
+		<supplier.onboarding.only>false</supplier.onboarding.only>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<spring.version>4.3.18.RELEASE</spring.version>
+		<spring-security.version>4.1.0.RELEASE</spring-security.version>
+		<hibernate.version>5.1.0.Final</hibernate.version>
+		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
+		<db.mode>false</db.mode>
+		<db.schema>proc_prod_db</db.schema>
+		<environment-key>pgprod</environment-key>
+		<db.jpa.type>POSTGRESQL</db.jpa.type>
+		<db.driver>org.postgresql.Driver</db.driver>
+		<db.url>jdbc:postgresql://postgresql-production-instance-1.canfpdbpl4v3.ap-southeast-1.rds.amazonaws.com:5432/proc_prod_db?currentSchema=proc_prod_db</db.url>
+		<db.username>phprod_app</db.username>
+		<db.password>382GPG/mku/wF7xjQXqjHffL1SBLO1/r</db.password>
+		<db.dialect>org.hibernate.dialect.PostgreSQL9Dialect</db.dialect>
+		<db.connection.timeout>10000</db.connection.timeout>
+		<db.test.query>select 1</db.test.query>
+		<log.path>${user.home}/logs/</log.path>
+		<app.url>http://localhost:9090/procurehere</app.url>
+		<app.root.url>https://www.procurehere.blog</app.root.url>
+		<email.host>mail.recstech.com</email.host>
+		<email.port>587</email.port>
+		<email.user>testapp@recstech.com</email.user>
+		<email.password>admin@123</email.password>
+
+		<paypal.url>https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&amp;token=</paypal.url>
+		<paypal.merchant.id>ADC8VMHLUNQZ8</paypal.merchant.id>
+		<paypal.api.username>sb-dy70b1144791_api1.business.example.com</paypal.api.username>
+		<paypal.api.password>CGE76VC7UU8859KD</paypal.api.password>
+		<paypal.api.signature>ADpiH29GKfIPb1GId42zotH8JOJIA093lhxDCRGUPx3E.Rxn9n0rtc-n</paypal.api.signature>
+		<paypal.api.endpoint.url>https://api-3t.sandbox.paypal.com/nvp</paypal.api.endpoint.url>
+		<paypal.app.id>AX1Tnzi0Etd6eT79PSDkwHml5ducx33rhhxRikkRCXW4VqEV32LEZNnHZk1Y0mbgmZfk9m08PA174Um2</paypal.app.id>
+		<paypal.adaptive-payments.url>https://svcs.sandbox.paypal.com/AdaptivePayments/</paypal.adaptive-payments.url>
+		<paypal.ipn.url>https://www.sandbox.paypal.com/cgi-bin/webscr</paypal.ipn.url>
+		<paypal.environment>sandbox</paypal.environment>
+
+		<email.sendgrid.api.key>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</email.sendgrid.api.key>
+		<email.mail.from>no-reply-sandbox@procurehere.com</email.mail.from>
+		<public.mail.from>contact@procurehere.com</public.mail.from>
+
+		<push.notification.url>https://onesignal.com/api/v1/notifications</push.notification.url>
+		<push.notification.app.id>6c52a92f-621c-43ad-b735-252e5eb8ef24</push.notification.app.id>
+		<push.notification.app.password>MzVlZWE1NDUtOTk0ZC00ZGY4LTlkODEtYzkyOGVjZDY3YTI5</push.notification.app.password>
+
+		<google.analytics.tracking.id>UA-99609490-5</google.analytics.tracking.id>
+		<clickstream.analytics.tracker.name></clickstream.analytics.tracker.name>
+		<clickstream.analytics.app.id></clickstream.analytics.app.id>
+		<trial.bcc.mail>freetrial@procurehere.com</trial.bcc.mail>
+		<activemq.host.id>localhost</activemq.host.id>
+		<activemq.port>8161</activemq.port>
+
+		<!-- <activemq.broker-url>ssl://b-ef6202f9-1291-4f58-a16d-ed98f73893b7-1.mq.ap-southeast-1.amazonaws.com:61617</activemq.broker-url>
+			<activemq.user>prd_ph_amq_web</activemq.user> <activemq.password>prd_ph_amq_web$9600</activemq.password> -->
+		<activemq.broker-url>tcp://localhost:61616</activemq.broker-url>
+		<activemq.user>admin</activemq.user>
+		<activemq.password>admin</activemq.password>
+		<stripe.publish>pk_test_51GryCSDr3YsVOxWA41AUMqYGsLgTvMHhZM3PbA5rGlHzvpIaxDfpTcXm30CM3F1tUjCseBXxootOleJ4z2Fi0ww000kJo2xMXr</stripe.publish>
+		<stripe.secret>sk_test_51GryCSDr3YsVOxWA4Thils77AuKG3CucfppoIqXtZNIQbNuQOgbnsjD6w9XEBijiAAQ8Fprffy5ToiJENddfCKnP00cZEkHHRA</stripe.secret>
+		<financehere.api.url>http://172.31.42.111:9090/api/</financehere.api.url>
+		<financehere.api.key>test</financehere.api.key>
+
+
+		<enginemailer.userKey>e2b5c5d9-c19c-45ab-b12b-db13d38dfda7</enginemailer.userKey>
+		<enginemailer.apikey>6cef179f-9c47-446b-9eb8-394afa707feb</enginemailer.apikey>
+		<enginemailer.url>https://api.enginemailer.com/RESTAPI/Submission/SendEmail</enginemailer.url>
+		<enginemailer.from.mail>no-reply-sandbox@procurehere.com</enginemailer.from.mail>
+	</properties>
+	<!-- select 'drop table ' || TNAME || ' cascade constraints;' from tab -->
+</project>
