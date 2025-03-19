@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" packages="">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %-5p %C{1}:%L - %m%n"/>
+        </Console>
+
+        <RollingFile name="appFileAppender" fileName="${sys:catalina.base:-.}/logs/procurehere.log"
+                     filePattern="${sys:catalina.base:-.}/logs/procurehere.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p %C{1}:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="adminFileAppender" fileName="${sys:catalina.base:-.}/logs/admin.log"
+                     filePattern="${sys:catalina.base:-.}/logs/admin.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="auctionFileAppender" fileName="${sys:catalina.base:-.}/logs/auction.log"
+                     filePattern="${sys:catalina.base:-.}/logs/auction.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="integrationFileAppender" fileName="${sys:catalina.base:-.}/logs/integration.log"
+                     filePattern="${sys:catalina.base:-.}/logs/integration.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="subscriptionFileAppender" fileName="${sys:catalina.base:-.}/logs/subscription.log"
+                     filePattern="${sys:catalina.base:-.}/logs/subscription.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="prFileAppender" fileName="${sys:catalina.base:-.}/logs/pr.log"
+                     filePattern="${sys:catalina.base:-.}/logs/pr.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="emailFileAppender" fileName="${sys:catalina.base:-.}/logs/email.log"
+                     filePattern="${sys:catalina.base:-.}/logs/email.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="supplierFileAppender" fileName="${sys:catalina.base:-.}/logs/supplier.log"
+                     filePattern="${sys:catalina.base:-.}/logs/supplier.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="buyerFileAppender" fileName="${sys:catalina.base:-.}/logs/buyer.log"
+                     filePattern="${sys:catalina.base:-.}/logs/buyer.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="financeCompanyFileAppender" fileName="${sys:catalina.base:-.}/logs/financeCompany.log"
+                     filePattern="${sys:catalina.base:-.}/logs/financeCompany.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="apiFileAppender" fileName="${sys:catalina.base:-.}/logs/api.log"
+                     filePattern="${sys:catalina.base:-.}/logs/api.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="errorFileAppender" fileName="${sys:catalina.base:-.}/logs/error.log"
+                     filePattern="${sys:catalina.base:-.}/logs/error.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="rfsFileAppender" fileName="${sys:catalina.base:-.}/logs/rfs.log"
+                     filePattern="${sys:catalina.base:-.}/logs/rfs.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="erpFileAppender" fileName="${sys:catalina.base:-.}/logs/erp.log"
+                     filePattern="${sys:catalina.base:-.}/logs/erp.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="doFileAppender" fileName="${sys:catalina.base:-.}/logs/do.log"
+                     filePattern="${sys:catalina.base:-.}/logs/do.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="invFileAppender" fileName="${sys:catalina.base:-.}/logs/invoice.log"
+                     filePattern="${sys:catalina.base:-.}/logs/invoice.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="downloadFileAppender" fileName="${sys:catalina.base:-.}/logs/downloads.log"
+                     filePattern="${sys:catalina.base:-.}/logs/downloads.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+        <RollingFile name="grnFileAppender" fileName="${sys:catalina.base:-.}/logs/grn.log"
+                     filePattern="${sys:catalina.base:-.}/logs/grn.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="contractFileAppender" fileName="${sys:catalina.base:-.}/logs/contract.log"
+                     filePattern="${sys:catalina.base:-.}/logs/contract.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+        <RollingFile name="tatFileAppender" fileName="${sys:catalina.base:-.}/logs/tat.log"
+                     filePattern="${sys:catalina.base:-.}/logs/tat.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d %-5p [%C{1}]:%L %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+    </Appenders>
+    <!-- Hibernate Categories -->
+    <!-- org.hibernate.SQL Log all SQL DML statements as they are executed org.hibernate.type
+        Log all JDBC parameters org.hibernate.tool.hbm2ddl Log all SQL DDL statements
+        as they are executed org.hibernate.pretty Log the state of all entities (max
+        20 entities) associated with the session at flush time org.hibernate.cache
+        Log all second-level cache activity org.hibernate.transaction Log transaction
+        related activity org.hibernate.jdbc Log all JDBC resource acquisition org.hibernate.hql.ast.AST
+        Log HQL and SQL ASTs during query parsing org.hibernate.secure Log all JAAS
+        authorization requests org.hibernate Log everything (a lot of information,
+        but very useful for troubleshooting) -->
+    <!-- Define Loggers for Different Packages -->
+    <Loggers>
+        <Logger name="org.hibernate" level="INFO" additivity="false">
+            <AppenderRef ref="appFileAppender"/>
+        </Logger>
+
+        <Logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="appFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+       <Logger name="javax.persistence" level="INFO" additivity="false">
+            <AppenderRef ref="appFileAppender"/>
+        </Logger>
+
+        <Logger name="org.springframework.security" level="INFO" additivity="false">
+            <AppenderRef ref="appFileAppender"/>
+        </Logger>
+
+        <Logger name="org.springframework.transaction" level="INFO" additivity="false">
+            <AppenderRef ref="appFileAppender"/>
+        </Logger>
+
+        <Logger name="supplierLog" level="INFO" additivity="false">
+            <AppenderRef ref="supplierFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="buyerLog" level="INFO" additivity="false">
+            <AppenderRef ref="buyerFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="adminLog" level="INFO" additivity="false">
+            <AppenderRef ref="adminFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="auctionLog" level="INFO" additivity="false">
+            <AppenderRef ref="auctionFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="integrationLog" level="INFO" additivity="false">
+            <AppenderRef ref="integrationFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="subscriptionLog" level="INFO" additivity="false">
+            <AppenderRef ref="subscriptionFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="prLog" level="INFO" additivity="false">
+            <AppenderRef ref="prFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="emailLog" level="INFO" additivity="false">
+            <AppenderRef ref="emailFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="financeCompanyLog" level="INFO" additivity="false">
+            <AppenderRef ref="financeCompanyFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="apiLog" level="INFO" additivity="false">
+            <AppenderRef ref="apiFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="errorLog" level="INFO" additivity="false">
+            <AppenderRef ref="errorFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="rfsLog" level="INFO" additivity="false">
+            <AppenderRef ref="rfsFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="erpLog" level="INFO" additivity="false">
+            <AppenderRef ref="erpFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="doLog" level="INFO" additivity="false">
+            <AppenderRef ref="doFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="invLog" level="INFO" additivity="false">
+            <AppenderRef ref="invFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="downloadLog" level="INFO" additivity="false">
+            <AppenderRef ref="downloadFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="grnLog" level="INFO" additivity="false">
+            <AppenderRef ref="grnFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="contractLog" level="INFO" additivity="false">
+            <AppenderRef ref="contractFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="tatLog" level="INFO" additivity="false">
+            <AppenderRef ref="tatFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="INFO">
+            <AppenderRef ref="appFileAppender"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+

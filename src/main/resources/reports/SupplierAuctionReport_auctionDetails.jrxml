@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BuyerAuctionReport_auctionDetails" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="65b7bc5e-d222-421b-8222-a4408469435b">
+	<property name="ireport.zoom" value="1.6105100000000039"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="border">
+		<box>
+			<pen lineWidth="0.15" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<subDataset name="BiddingPrice" uuid="97006499-6e6a-4f94-9854-bc9ddfeee7aa">
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="bidderName" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="remark" class="java.lang.String"/>
+		<field name="preAuctionPrice" class="java.math.BigDecimal"/>
+		<field name="postAuctionprice" class="java.math.BigDecimal"/>
+		<field name="saving" class="java.math.BigDecimal"/>
+		<field name="percentage" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="BidHistoryDetails" uuid="ce2e430d-ca26-4453-96bc-6823a6dfc836">
+		<field name="dateTime" class="java.lang.String"/>
+		<field name="bidPrice" class="java.math.BigDecimal"/>
+		<field name="companyName" class="java.lang.String"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<field name="auctionId" class="java.lang.String"/>
+	<field name="auctionName" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="auctionType" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="auctionStartDate" class="java.lang.String"/>
+	<field name="dateTime" class="java.lang.String"/>
+	<field name="auctionPublishDate" class="java.lang.String"/>
+	<field name="auctionEndDate" class="java.lang.String"/>
+	<field name="currencyCode" class="java.lang.String"/>
+	<field name="auctionExtension" class="java.lang.String"/>
+	<field name="totalExtension" class="java.lang.Integer"/>
+	<field name="auctionStatus" class="java.lang.String"/>
+	<field name="supplierInvited" class="java.lang.Integer"/>
+	<field name="supplierParticipated" class="java.lang.String"/>
+	<field name="totalBilds" class="java.lang.Integer"/>
+	<field name="buyerName" class="java.lang.String"/>
+	<field name="bidHistory" class="java.util.List"/>
+	<field name="biddingPrice" class="java.util.List"/>
+	<field name="auctionTitle" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="254" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="16" y="21" width="297" height="20" uuid="3ec63b01-f479-4e3b-b828-834b5cde9748"/>
+				<box leftPadding="3"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER AUCTION REPORT]]></text>
+			</staticText>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="16" y="52" width="520" height="25" uuid="6298e6f7-5584-44f9-90cb-ba2cd8e16dcf"/>
+				<staticText>
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="3" y="0" width="105" height="25" isPrintWhenDetailOverflows="true" uuid="81dca434-95aa-4fbe-8eb8-64ae00d84585"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Auction ID]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="107" y="0" width="397" height="25" isPrintWhenDetailOverflows="true" uuid="fe750ffc-d6a1-4819-801f-8293ef96188a"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{auctionId}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="16" y="77" width="520" height="25" uuid="8419d9f3-4328-4226-be7a-e7c2fcada316"/>
+				<staticText>
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="3" y="0" width="105" height="25" isPrintWhenDetailOverflows="true" uuid="fa7b866b-70f6-4a1c-bad1-53fe2e4dc6a0"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Reference Number]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="107" y="0" width="397" height="25" isPrintWhenDetailOverflows="true" uuid="3c887efb-c0f1-441f-9ef4-1799ff6ee5bf"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{referenceNo}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="16" y="102" width="520" height="25" uuid="5ae33966-a750-48da-975c-dc4fb5252a41"/>
+				<staticText>
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="3" y="0" width="105" height="25" isPrintWhenDetailOverflows="true" uuid="7eb920e4-a2fc-4cc0-8088-faa3c42e358b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Auction Name]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="107" y="0" width="397" height="25" isPrintWhenDetailOverflows="true" uuid="f3fdb468-7d24-42f0-8be8-594e94defcf1"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{auctionName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="16" y="127" width="520" height="25" uuid="59cbcf35-5425-488a-9ec5-c59cb069eb4a"/>
+				<staticText>
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="3" y="0" width="105" height="25" isPrintWhenDetailOverflows="true" uuid="a23396cc-64e5-454b-846f-e6816fe10f74"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Auction Owner]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="107" y="0" width="397" height="25" isPrintWhenDetailOverflows="true" uuid="e00a3958-81b0-4525-ae99-5292d371907b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="16" y="152" width="520" height="25" uuid="69234dd8-0c5e-461b-bc90-6c89d72c630f"/>
+				<staticText>
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="3" y="0" width="105" height="25" isPrintWhenDetailOverflows="true" uuid="926e9914-5c98-4a06-939e-72b298c3625b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Date & Time]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="107" y="0" width="397" height="25" isPrintWhenDetailOverflows="true" uuid="a23e7e44-b966-4dae-8828-938b41378a98"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dateTime}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="16" y="177" width="520" height="25" uuid="61e0056e-b27a-4dac-9e8c-8a07916c3cbc"/>
+				<staticText>
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="3" y="0" width="105" height="25" isPrintWhenDetailOverflows="true" uuid="55a8b9c6-f742-4058-a945-85c8860ce039"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Auction Type]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="border" positionType="Float" stretchType="RelativeToBandHeight" x="107" y="0" width="397" height="25" isPrintWhenDetailOverflows="true" uuid="32be9c2c-160b-419e-8986-9f75168f1692"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{auctionType}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSubmissionReport_supplierCqBq" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e7dcecaf-54b3-4050-a851-97af58fe98e8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<subDataset name="cqDetails" uuid="13536ef1-dd95-4244-a933-0f15831fa4ed">
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="bqDetails" uuid="cf9da7de-faa5-4b53-911a-cf45a30a60eb">
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="submissionDate" class="java.util.Date"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="cqs" class="java.util.List"/>
+	<field name="submittedBy" class="java.lang.String"/>
+	<field name="bqs" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="3" y="0" width="296" height="30" uuid="1655c1eb-1105-4804-8682-5dc873c1ae88"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="275" splitType="Stretch">
+			<line>
+				<reportElement positionType="Float" x="2" y="-7" width="580" height="1" uuid="9ad040c0-06c5-4258-8e8a-475e3a83de14"/>
+			</line>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="16" y="8" width="544" height="30" uuid="5e44eb03-7b5c-48d1-a75e-0d178e310580"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Submission History]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="16" y="38" width="280" height="30" uuid="0edc6c52-f7ec-4c3c-bcbb-c9f2637fcc63"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Submission Date & Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="296" y="38" width="264" height="30" uuid="3e4177a3-f5c2-4eb2-9354-1337645aa750"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Submitted By]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table1" positionType="Float" x="16" y="68" width="280" height="30" uuid="08d80c01-6b50-4d76-b736-e007926cd782"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{submissionDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table1" positionType="Float" x="296" y="68" width="264" height="30" uuid="fcd50ff5-82af-49a9-9130-0d65d0c12eff"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{submittedBy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="5" y="106" width="121" height="30" uuid="0d029b1f-bac2-4d68-bd8a-5e8e58182ba2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Submitted Item]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="36" y="163" width="524" height="31" isRemoveLineWhenBlank="true" uuid="1a20151c-1e69-4b5f-8f9b-dea735e934b2"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="cqDetails" uuid="e3231426-4f3d-427e-81f6-3e959634ee69">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqs}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="31" width="524">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="55" y="3" width="447" height="25" isPrintWhenDetailOverflows="true" uuid="a40abd5d-dc43-4220-a3ed-cb7b0f0f4c38"/>
+							<box topPadding="3" leftPadding="2" bottomPadding="3"/>
+							<textElement verticalAlignment="Top">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="25" y="3" width="30" height="25" isPrintWhenDetailOverflows="true" uuid="115ff61b-57b6-4206-b01b-bbb37aa836b7"/>
+							<box topPadding="3" leftPadding="2" bottomPadding="3"/>
+							<textElement textAlignment="Center" verticalAlignment="Top">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="19" y="140" width="107" height="20" isRemoveLineWhenBlank="true" uuid="aa0ce526-0ca1-48dc-8711-155b8ea16249">
+					<printWhenExpression><![CDATA[$F{cqs}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Questionnaire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="201" width="126" height="20" isRemoveLineWhenBlank="true" uuid="59ebfa44-9748-45ee-a19e-a4162a58f80b">
+					<printWhenExpression><![CDATA[$F{bqs}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Bill of Quantity]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="36" y="221" width="524" height="31" isRemoveLineWhenBlank="true" uuid="c4bda010-d0eb-4c51-a7ce-1b802dbbaf9e"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="bqDetails" uuid="58eb23c8-8065-463e-a2b5-46c98fb970cf">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqs}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="31" width="524">
+						<textField>
+							<reportElement positionType="Float" x="55" y="2" width="447" height="25" isPrintWhenDetailOverflows="true" uuid="94dc1bea-881b-4a36-9b21-c35247fa4141"/>
+							<box topPadding="3" leftPadding="2" bottomPadding="3"/>
+							<textElement>
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement positionType="Float" x="25" y="2" width="30" height="25" isPrintWhenDetailOverflows="true" uuid="29b71a71-b990-4028-ab5d-167b8c5ba182"/>
+							<box topPadding="3" leftPadding="2" bottomPadding="3"/>
+							<textElement textAlignment="Center" verticalAlignment="Top">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="5" y="255" width="582" height="20" isRemoveLineWhenBlank="true" forecolor="#999999" uuid="39c2d158-7b78-4689-b2dd-0d942e854baa">
+					<printWhenExpression><![CDATA[$F{cqs}.size() <=0 && $F{bqs}.size() <=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier has not submitted Questionnaire & Bill Of Quantity]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demo1" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2f8402af-4e6f-4208-8195-af0a0e934ca6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="bqName" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="decimal" class="java.lang.String"/>
+	<parameter name="supplierName" class="java.lang.String"/>
+	<parameter name="supplierName1" class="java.lang.String"/>
+	<parameter name="supplierName2" class="java.lang.String"/>
+	<parameter name="currencyCode" class="java.lang.String"/>
+	<parameter name="Parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="topSupplierItemList" class="java.util.List"/>
+	<field name="totalAfterTax" class="java.math.BigDecimal"/>
+	<field name="additionalTax" class="java.math.BigDecimal"/>
+	<field name="grandTotal" class="java.math.BigDecimal"/>
+	<field name="totalAfterTax1" class="java.math.BigDecimal"/>
+	<field name="additionalTax1" class="java.math.BigDecimal"/>
+	<field name="grandTotal1" class="java.math.BigDecimal"/>
+	<field name="totalAfterTax2" class="java.math.BigDecimal"/>
+	<field name="additionalTax2" class="java.math.BigDecimal"/>
+	<field name="grandTotal2" class="java.math.BigDecimal"/>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="supplierName1" class="java.lang.String"/>
+	<field name="supplierName2" class="java.lang.String"/>
+	<field name="revisedBidSubmitted" class="java.lang.Boolean"/>
+	<field name="revisedBidSubmitted1" class="java.lang.Boolean"/>
+	<field name="revisedBidSubmitted2" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="1" width="200" height="28" isPrintWhenDetailOverflows="true" uuid="8d25b2bc-6abf-4303-8791-cbf2233f2760"/>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$P{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierName">
+					<subreportParameterExpression><![CDATA[$F{supplierName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierName1">
+					<subreportParameterExpression><![CDATA[$F{supplierName1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierName2">
+					<subreportParameterExpression><![CDATA[$F{supplierName2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currencyCode">
+					<subreportParameterExpression><![CDATA[$P{currencyCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bqName">
+					<subreportParameterExpression><![CDATA[$P{bqName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{topSupplierItemList},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"demoDetail.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AuctionEvaluationCqSupplierList" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e12087c7-ce49-4ece-a9f4-38ea152c2f93">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="table1">
+		<box>
+			<pen lineWidth="0.25" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="name" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="answer" class="java.lang.String"/>
+	<field name="attachments" class="java.lang.String"/>
+	<field name="comments" class="java.util.List"/>
+	<field name="evaluatorComments" class="java.lang.String"/>
+	<field name="evalComment" class="java.lang.String"/>
+	<field name="scores" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="372" y="0" width="92" height="30" backcolor="#DCDCDC" uuid="0a97720b-f794-4dde-b606-13dff35c1359"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Attachments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="261" y="0" width="111" height="30" backcolor="#DCDCDC" uuid="258de7dd-2915-4aad-80c0-2d2eabcf8447"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Review]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="27" height="30" backcolor="#DCDCDC" uuid="6b71fdff-873a-4f71-accb-dd62b1145a3b"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="27" y="0" width="131" height="30" backcolor="#DCDCDC" uuid="ca8fdabb-f92e-4c53-98ef-e4f5f5afe9af"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="158" y="0" width="103" height="30" backcolor="#DCDCDC" uuid="2150bad5-b246-4e03-945c-6d9114fba582"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Answer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="464" y="0" width="91" height="30" backcolor="#DCDCDC" uuid="f04480c1-c46a-4413-a6b2-8c1acf000bfb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Scores]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="25" uuid="f4c968a8-84d9-4fe2-bbd2-94d7ee0a171d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="27" height="25" isPrintWhenDetailOverflows="true" uuid="ea90d04b-46b0-4636-9462-8c47c169b887"/>
+					<box topPadding="2" leftPadding="3" rightPadding="3">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="27" y="0" width="131" height="25" isPrintWhenDetailOverflows="true" uuid="3c08c6d1-e530-4ed8-b84f-038d93d49ae7"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="158" y="0" width="103" height="25" isPrintWhenDetailOverflows="true" uuid="740e078f-465a-4162-9c67-59c2f91d38b3"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{answer}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="261" y="0" width="111" height="25" isPrintWhenDetailOverflows="true" uuid="52481dfe-3b9d-434d-87a2-9ddc7ee66f5c"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{evalComment}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="372" y="0" width="92" height="25" isPrintWhenDetailOverflows="true" uuid="22000c70-950e-4bb4-b19a-a4544c7e9014"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{attachments}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="261" y="0" width="111" height="25" isPrintWhenDetailOverflows="true" uuid="be62befc-8fd6-4f4f-951a-35bfbf752ed7"/>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="464" y="0" width="91" height="25" isPrintWhenDetailOverflows="true" uuid="c01d73ec-8b90-405d-8970-8103dfe92dd3"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{scores}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

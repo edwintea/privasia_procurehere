@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationConclusionReport_Actions" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5090ceb3-7b9a-4400-b3e4-19f713e11ade">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="EVALUATION_CONCLUSION" class="java.util.Collection"/>
+	<parameter name="generatedOn" class="java.lang.String"/>
+	<field name="fileName" class="java.lang.String"/>
+	<field name="fileDescription" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="concludedDate" class="java.lang.String"/>
+	<field name="evaluationConclusionUserList" class="java.util.List"/>
+	<field name="userName" class="java.lang.String"/>
+	<field name="userIndex" class="java.lang.Integer"/>
+	<detail>
+		<band height="270">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="5" width="9" height="25" uuid="54969b52-8b35-4bd9-9fbb-1e8fc5fa40e1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{userIndex}+"."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="12" y="5" width="544" height="25" uuid="54969b52-8b35-4bd9-9fbb-1e8fc5fa40e1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userName}+" - ("+$F{concludedDate}+")"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="12" y="58" width="544" height="25" uuid="e7187b39-7891-4f14-bc08-e6537559239f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="80" y="83" width="476" height="25" isPrintWhenDetailOverflows="true" uuid="e7187b39-7891-4f14-bc08-e6537559239f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fileName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="100" y="108" width="456" height="25" isPrintWhenDetailOverflows="true" uuid="54969b52-8b35-4bd9-9fbb-1e8fc5fa40e1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fileDescription}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="33" width="118" height="25" uuid="50417a1a-a0eb-45cc-8a5b-4074d470b755"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="83" width="72" height="25" uuid="4e54f875-3169-430f-91eb-d4b7450ec6fb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Attachment:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="108" width="88" height="25" uuid="bc042189-9738-4c88-b46d-2342826f9e9d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[File Description:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

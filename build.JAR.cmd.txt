@@ -1,0 +1,6 @@
+
+mvn jar:jar
+scp -rp    target/ROOT.jar      target/procurehere.jar
+mvn install:install-file -Dfile=target/procurehere.jar -DgroupId=com.privasia.procurehere -DartifactId=procurehere-core -Dversion=1.0 -Dpackaging=jar
+
+

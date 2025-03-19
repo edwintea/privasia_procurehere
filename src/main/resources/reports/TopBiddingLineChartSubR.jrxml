@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TopBiddingLineChartSubR" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="20" bottomMargin="20" uuid="d3ffed28-d59a-44c2-a62a-ab628d2ab50c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<subDataset name="bidderPriceList" uuid="8381899a-31f6-4e48-a539-46c398d272fd">
+		<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="submitedDate" class="java.lang.String"/>
+		<field name="priceSubmission" class="java.math.BigDecimal"/>
+		<field name="priceReduction" class="java.math.BigDecimal"/>
+		<field name="percentage" class="java.math.BigDecimal"/>
+		<field name="bidderName" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="bidNumber" class="java.lang.Integer"/>
+		<field name="displayValue" class="java.lang.String"/>
+		<variable name="total_reduction" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{priceReduction}]]></variableExpression>
+		</variable>
+		<variable name="total_percentage" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{percentage}]]></variableExpression>
+		</variable>
+		<variable name="BidderName" class="java.lang.String">
+			<variableExpression><![CDATA[$F{bidderName}]]></variableExpression>
+		</variable>
+		<group name="Group1">
+			<groupExpression><![CDATA[$F{bidderName}]]></groupExpression>
+		</group>
+		<group name="Group2">
+			<groupExpression><![CDATA[$F{bidNumber}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="evaluationSupplierBidsPojoList" class="java.util.List"/>
+	<detail>
+		<band height="201">
+			<lineChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="1" width="555" height="200" uuid="f783fb9b-80e2-439c-9a61-227422382395">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset incrementType="Group" incrementGroup="Group1">
+						<datasetRun subDataset="bidderPriceList" uuid="15f75a3d-d479-48c0-9107-a7c0530ff2f0">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{evaluationSupplierBidsPojoList},false)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{bidderName}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bidNumber}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{priceSubmission}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+		</band>
+	</detail>
+</jasperReport>

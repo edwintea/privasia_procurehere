@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Abstract_Book" pageWidth="595" pageHeight="842" sectionType="Part" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="d2716064-8ae4-40cf-a575-33afba400e3a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
+	<property name="com.jaspersoft.studio.book.group.cover.header" value="Cover and Table of Contents"/>
+	<property name="com.jaspersoft.studio.book.group.cover.footer" value="Backcover"/>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="generatedOn" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Auction Report"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="buyerName" class="java.lang.String"/>
+	<group name="cover">
+		<groupHeader>
+			<part evaluationTime="Report" uuid="87db0961-fd9b-467c-bec6-e8577e655015">
+				<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+					<subreportParameter name="generatedOn">
+						<subreportParameterExpression><![CDATA[$P{generatedOn}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="reportName">
+						<subreportParameterExpression><![CDATA[$P{reportName}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="REPORT_DATA_SOURCE">
+						<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="buyerName">
+						<subreportParameterExpression><![CDATA[$F{buyerName}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportExpression><![CDATA["coverPage.jasper"]]></subreportExpression>
+				</p:subreportPart>
+			</part>
+			<part evaluationTime="Report" uuid="56ab525c-754f-4f48-a52c-7cc23934be3d">
+				<property name="net.sf.jasperreports.bookmarks.data.source.parameter" value="REPORT_DATA_SOURCE"/>
+				<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+					<subreportParameter name="generatedOn">
+						<subreportParameterExpression><![CDATA[$P{generatedOn}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="reportName">
+						<subreportParameterExpression><![CDATA[$P{reportName}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="REPORT_DATA_SOURCE">
+						<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="buyerName">
+						<subreportParameterExpression><![CDATA[$F{buyerName}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportExpression><![CDATA["Abstract_Book_toc.jasper"]]></subreportExpression>
+				</p:subreportPart>
+			</part>
+			<part uuid="6228e2b4-660c-4b83-a7d4-6403b7c9220e">
+				<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+					<subreportParameter name="AUCTION_SUMMARY">
+						<subreportParameterExpression><![CDATA[$P{AUCTION_SUMMARY}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="generatedOn">
+						<subreportParameterExpression><![CDATA[$P{generatedOn}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="REPORT_DATA_SOURCE">
+						<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="SUBREPORT_DIR">
+						<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportExpression><![CDATA["BiddingEnglishReport.jasper"]]></subreportExpression>
+				</p:subreportPart>
+			</part>
+		</groupHeader>
+	</group>
+	<detail>
+		<part uuid="b73eac70-d38d-43a1-9d53-815cd0c9999d">
+			<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+				<subreportParameter name="AUCTION_SUMMARY">
+					<subreportParameterExpression><![CDATA[$P{AUCTION_SUMMARY}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="generatedOn">
+					<subreportParameterExpression><![CDATA[$P{generatedOn}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="REPORT_DATA_SOURCE">
+					<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA["biddingEnglishTocDetailR.jasper"]]></subreportExpression>
+			</p:subreportPart>
+		</part>
+	</detail>
+</jasperReport>

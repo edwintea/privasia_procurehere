@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_timeline" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5d496690-c77b-41bd-af4a-5746b8007f31">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="eventDate" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="7" width="113" height="30" backcolor="#F1F1F1" uuid="6ad1e0d7-4ed4-46b4-933d-d080d573abe0"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date & Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="121" y="7" width="342" height="30" backcolor="#F1F1F1" uuid="9b969b24-a5fe-4ec4-8f10-6a29b58118e4"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="463" y="7" width="123" height="30" backcolor="#F1F1F1" uuid="d8baec66-d356-40ac-b7a7-5612e3cc09e3"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="8" y="0" width="113" height="30" uuid="c620b65b-0611-4408-82a8-3115145d2cad"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eventDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="342" height="30" uuid="01eabb4b-0141-4a97-86a0-b3d6714f0626"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="0" width="123" height="30" uuid="ff864573-c12f-43fb-babb-6eba91005291"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

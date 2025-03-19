@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_eventAudit" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d68bcd75-343e-4191-a17b-41a5faee2022">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="auctionDate" class="java.lang.String"/>
+	<field name="auctionBy" class="java.lang.String"/>
+	<field name="auction" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="29">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="3" width="112" height="25" backcolor="#CCCCCC" uuid="1dd3567c-5428-4535-ae67-82f4ddc2051f"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Action Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="114" y="3" width="150" height="25" backcolor="#CCCCCC" uuid="5027b802-b309-4dc8-8eb0-1e94cbcdb67b"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Action By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="264" y="3" width="100" height="25" backcolor="#CCCCCC" uuid="c8d609d8-34fc-4031-957d-7d76ffed2a35"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Action]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="364" y="3" width="188" height="25" backcolor="#CCCCCC" uuid="958f2dd4-0945-489c-8430-185419cc48e3"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="0" width="112" height="25" isPrintWhenDetailOverflows="true" uuid="0df724a3-64ad-4eb9-9403-35d9c46ced7e"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{auctionDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="114" y="0" width="150" height="25" isPrintWhenDetailOverflows="true" uuid="cc39a6c3-d903-410c-9a33-bf22afd28374"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{auctionBy}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="264" y="0" width="100" height="25" isPrintWhenDetailOverflows="true" uuid="cd63a699-9c4d-4bc6-a68b-09f4415b2b64"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{auction} == "SuspendApprove"  ?  "Suspend Approve" : $F{auction}  == "SuspendReject"  ? "Suspend Reject" : $F{auction}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="363" y="0" width="188" height="25" isPrintWhenDetailOverflows="true" uuid="b9680811-8067-48b8-991a-e4c1d7ea475f"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

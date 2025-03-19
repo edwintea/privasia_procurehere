@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateSourcingSummaryReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b90246a1-4bcf-429e-8f05-b825e48f068c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="RFS_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="sourcingFormName" class="java.lang.String"/>
+	<field name="createdDate" class="java.lang.String"/>
+	<field name="referencenumber" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="requester" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="costCenter" class="java.lang.String"/>
+	<field name="businesUnit" class="java.lang.String"/>
+	<field name="budgetAmount" class="java.math.BigDecimal"/>
+	<field name="historicaAmount" class="java.math.BigDecimal"/>
+	<field name="sourcingTeam" class="java.util.Collection"/>
+	<field name="documents" class="java.util.Collection"/>
+	<field name="approvalDocuments" class="java.util.Collection"/>
+	<field name="cqs" class="java.util.Collection"/>
+	<field name="bqs" class="java.util.Collection"/>
+	<field name="requestAuditPojo" class="java.util.Collection"/>
+	<field name="approvals" class="java.util.Collection"/>
+	<field name="approvalComments" class="java.util.Collection"/>
+	<field name="sourcingId" class="java.lang.String"/>
+	<field name="groupCode" class="java.lang.String"/>
+	<field name="baseCurrency" class="java.lang.String"/>
+	<field name="enableApprovalReminder" class="java.lang.Boolean"/>
+	<field name="reminderAfterHour" class="java.lang.Integer"/>
+	<field name="reminderCount" class="java.lang.Integer"/>
+	<field name="notifyEventOwner" class="java.lang.Boolean"/>
+	<field name="estimatedBudget" class="java.math.BigDecimal"/>
+	<field name="procurementCategories" class="java.lang.String"/>
+	<field name="procurementMethod" class="java.lang.String"/>
+	<field name="minimumSupplierRating" class="java.math.BigDecimal"/>
+	<field name="maximumSupplierRating" class="java.math.BigDecimal"/>
+	<field name="sors" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement x="0" y="39" width="555" height="39" uuid="163f2c50-1d58-4f48-9671-83c8a0929ba3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sourcingFormName}]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="555" height="39" uuid="0f8f8be1-9843-4309-990f-c58844d6698e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RFS SUMMARY"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="630" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="555" height="350" uuid="1315c984-0a51-4d1d-9026-755f94bfb473">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<frame>
+					<reportElement positionType="Float" x="0" y="550" width="554" height="30" uuid="d94b6010-41de-4fde-a50f-21c0f2188dd7"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="4b33b07c-825f-41a2-95c3-f9d80d08fcef"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Cost Center ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="1794b652-5add-4674-a620-ac8086c984f8"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="2" width="345" height="30" uuid="74c6ab4c-f13d-4df5-8b6b-c95776fe0deb"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{costCenter}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField bookmarkLevel="1">
+					<reportElement x="0" y="0" width="555" height="20" uuid="45711b95-b7a1-4edd-9dd8-e790dddce01b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["General Information"]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+				</textField>
+				<frame>
+					<reportElement x="0" y="20" width="555" height="30" uuid="69ba4d25-c80a-4903-bfed-a69b28ccd8f8"/>
+					<staticText>
+						<reportElement x="0" y="0" width="190" height="30" uuid="14596395-b8a5-4ea2-a101-90c976eecd2c"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Sourcing Request ID]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="200" y="0" width="355" height="30" uuid="42c4e0c8-34c8-405b-bdd1-e54e26905dfb"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{sourcingId}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="190" y="0" width="10" height="30" uuid="87d1ff5b-0a21-46b8-826b-945170179462"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="370" width="555" height="30" uuid="4d91cb06-24e1-4a98-9766-4861f13cd40d"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="9625099b-4721-4d63-87f6-af8d1ee1909a"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Available Budget]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="0" width="355" height="30" uuid="d62550ff-9cc0-4ba1-9363-b6a714423fba"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{budgetAmount}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="f5e9d1e4-1b14-41d0-a806-6e14d294909e"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="140" width="555" height="30" uuid="beecf193-89a3-44ac-8cf4-67c12c2c7726"/>
+					<staticText>
+						<reportElement x="0" y="0" width="190" height="30" uuid="3ac62c67-223d-4419-8e4f-1df9a1e48f9f"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Description]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="200" y="0" width="355" height="30" uuid="a7b1812e-8ebc-49c4-853a-dc7c8f12db38"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="190" y="0" width="10" height="30" uuid="fc8828b4-5d79-4dc0-8549-5ac689154566"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="110" width="555" height="30" uuid="eb08000a-96aa-48f7-a1e2-1d16a8b0f173"/>
+					<staticText>
+						<reportElement x="0" y="0" width="190" height="30" uuid="229138af-2d3f-4e79-bb46-3668e425792c">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<box leftPadding="3"/>
+						<text><![CDATA[Sourcing Requestor]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="200" y="0" width="355" height="30" uuid="4780f6be-b529-4b7f-a3ec-0561d0078d82">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{requester}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="190" y="0" width="10" height="30" uuid="e007d082-c25f-4dfb-94f2-99338afc6377"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="50" width="555" height="30" uuid="95167e87-a6f2-4eb4-a578-34cc2f1cc94d"/>
+					<staticText>
+						<reportElement x="0" y="0" width="190" height="30" uuid="b9370d31-06cd-4c8d-9006-33f4c38e4bad"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Reference Number]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="200" y="0" width="355" height="30" uuid="7517e853-141b-4625-bfd0-4f54749f67f0"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{referencenumber}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="190" y="0" width="10" height="30" uuid="901b39a5-f62e-41f9-b3ea-817b826c11b6"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="336" width="555" height="30" uuid="17d1dd51-6807-42f2-8e90-439360bd9aa6"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="90bd021e-c36c-4abf-8dc9-002551081768">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<box leftPadding="3"/>
+						<text><![CDATA[Decimal]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="0" width="355" height="30" uuid="5a428ff8-477e-4852-aad5-1679c135bebb">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{decimal}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="2335a192-0b39-46be-b92a-37936921bd1c"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<frame>
+						<reportElement positionType="Float" x="0" y="-30" width="555" height="30" isRemoveLineWhenBlank="true" uuid="67b94686-c859-492b-b466-a56f53aef294">
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<staticText>
+							<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="2" width="190" height="30" isRemoveLineWhenBlank="true" uuid="a7c5ee77-c84d-4a6b-80f8-f897428656ee">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+							</reportElement>
+							<box leftPadding="3"/>
+							<text><![CDATA[Base Currency]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" isPrintRepeatedValues="false" x="200" y="0" width="355" height="30" isRemoveLineWhenBlank="true" uuid="caeec095-6483-419f-8a15-6b98cac83199">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+								<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+							</reportElement>
+							<box rightPadding="3"/>
+							<textFieldExpression><![CDATA[$F{baseCurrency}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement positionType="Float" isPrintRepeatedValues="false" x="190" y="2" width="10" height="30" isRemoveLineWhenBlank="true" uuid="1558d2c5-2d78-4781-b1e1-89e237d0a670">
+								<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<text><![CDATA[:]]></text>
+						</staticText>
+					</frame>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="80" width="555" height="30" uuid="6183be5e-1178-4b84-b3be-bf469f40677a"/>
+					<staticText>
+						<reportElement x="0" y="0" width="190" height="30" uuid="8c83cf6b-c444-4ddc-af2c-a57f8c674d5f"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Date & Time]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="200" y="0" width="355" height="30" uuid="a5c9c151-effe-456c-a1bf-b2209d10cea0"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{createdDate}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="190" y="0" width="10" height="30" uuid="16bd269f-1de0-480d-b4f7-425338d56e80"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<textField bookmarkLevel="1">
+					<reportElement positionType="Float" x="0" y="273" width="555" height="30" uuid="c8ed6f15-8dd1-4016-ab46-16a204670083">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Finance Information"]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+				</textField>
+				<frame>
+					<reportElement positionType="Float" x="0" y="522" width="554" height="30" uuid="a7622d4e-9639-48af-b374-75c47f05e27f"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="a3eb3f09-e64b-47fe-8423-e50d31513cb3"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Business Unit]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="f0235a56-744a-40fc-9fe6-3e9de94c2a27"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="2" width="345" height="30" uuid="1f8c4f82-8255-4dee-8eba-1a575adf13ae"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{businesUnit}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="582" width="554" height="30" uuid="3caf66d2-ed6f-4998-9143-664cfd9ee8b7"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="c772ba87-ddca-4ef6-9fee-2589f020e1b2"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Group Code]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="e7be5d51-54a2-441a-9ee2-51353e2f4b8d"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="2" width="345" height="30" uuid="264eb8be-6589-441d-8ee3-702cdc4e5b39"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{groupCode}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="403" width="555" height="30" uuid="5979d9b6-858d-4c6c-9c10-95e4954b4674"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="bf3efa21-7487-4c6e-99dc-2b6fc003cd5c"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Estimated Budget]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="0" width="355" height="30" uuid="cf4d3a97-cbb5-4edd-99c3-7c162e3d4ec2"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{estimatedBudget}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="7b61d6ad-de98-47c5-8031-9a888b915a90"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="436" width="555" height="30" uuid="3558c152-0120-42c5-bc35-a96bed33d0f0"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="50a34733-38a1-4431-acb1-58230da84447"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Historic Amount]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="0" width="355" height="30" uuid="63f407a9-b82d-41e1-9b24-d67e10c23819"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{historicaAmount}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="9b431633-d840-43e7-a53c-bae25f8ce0e9"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<textField bookmarkLevel="1">
+					<reportElement positionType="Float" x="0" y="172" width="555" height="30" uuid="4929e8f4-8180-4450-9bca-73812177a73f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Procurement Information"]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+				</textField>
+				<frame>
+					<reportElement positionType="Float" x="0" y="243" width="555" height="30" isRemoveLineWhenBlank="true" uuid="a9e97086-e015-42ea-887b-b35a79800a3a">
+						<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+					</reportElement>
+					<staticText>
+						<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="2" width="190" height="30" isRemoveLineWhenBlank="true" uuid="6b90f7ec-5c65-4a49-a335-0a756ac954c5">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="3"/>
+						<text><![CDATA[Procurement Category]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" isPrintRepeatedValues="false" x="200" y="0" width="355" height="30" isRemoveLineWhenBlank="true" uuid="ac1d459c-b0a3-4c4d-b9e3-b5e0f4468345">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{procurementCategories}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" isPrintRepeatedValues="false" x="190" y="2" width="10" height="30" isRemoveLineWhenBlank="true" uuid="fa313978-e593-4843-8f5a-bff5fe9a5bec">
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="210" width="555" height="30" isRemoveLineWhenBlank="true" uuid="668a7fce-1a90-4b97-8a01-13f19ab69136">
+						<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+					</reportElement>
+					<staticText>
+						<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="2" width="190" height="30" isRemoveLineWhenBlank="true" uuid="b34b1552-2b01-4e5c-a5f5-f1d32a0aa073">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="3"/>
+						<text><![CDATA[Procurement Method]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" isPrintRepeatedValues="false" x="200" y="0" width="355" height="30" isRemoveLineWhenBlank="true" uuid="f0567992-68ce-471d-97c0-beed9e395f51">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{procurementMethod}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" isPrintRepeatedValues="false" x="190" y="2" width="10" height="30" isRemoveLineWhenBlank="true" uuid="aa7a0d8f-7fea-4de5-9f21-72ea8b3eb315">
+							<printWhenExpression><![CDATA[$F{baseCurrency}!=null]]></printWhenExpression>
+						</reportElement>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="463" width="555" height="30" uuid="a008c026-4dc0-4d4f-88a5-5f1e08386c74"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="f7654ac6-a04a-4a10-a680-97d1ebe690bf"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Minimum Supplier Rating/Grade]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="0" width="355" height="30" uuid="f0a52629-eda8-439b-91a5-7bc9905147b3"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{minimumSupplierRating}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="27010597-dc5a-4e76-8027-e5784bb2a5d4"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="492" width="555" height="30" uuid="aac0ee0a-2f04-4abd-82d3-8cd7000b4c50"/>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="2" width="190" height="30" uuid="07409100-0cd3-4ec8-8b57-99ec36b12c27"/>
+						<box leftPadding="3"/>
+						<text><![CDATA[Maximum Supplier Rating/Grade]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="200" y="0" width="355" height="30" uuid="304b3c70-11f5-47d9-b7c2-e28198e46064"/>
+						<box rightPadding="3"/>
+						<textFieldExpression><![CDATA[$F{maximumSupplierRating}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="190" y="2" width="10" height="30" uuid="7e9e5c9c-63e5-4de4-b702-13ce68fc09ed"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+			</frame>
+		</band>
+		<band height="60">
+			<printWhenExpression><![CDATA[$F{sourcingTeam}.size()!=0]]></printWhenExpression>
+			<frame>
+				<reportElement x="0" y="0" width="554" height="30" uuid="c4551c81-1cfe-4376-822a-013979df6e06"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="545" height="30" uuid="9e3fa9d2-25db-4850-a812-6b6028aff0d0"/>
+					<box rightPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Team Members"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="30" width="200" height="30" uuid="b1d9d480-01aa-4bac-8e67-17003f33d6a4"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sourcingTeam}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"GenerateSourcingSummaryTeamMember.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="60">
+			<printWhenExpression><![CDATA[$F{documents}.size()!=0]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="30" width="200" height="30" uuid="65315d98-af66-4387-9055-83ea03a7f432"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documents}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"GenerateSourcingSummaryRfsDocumentReport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="545" height="30" uuid="49be083a-7e65-42ec-b526-0d3139fe14e8"/>
+				<box rightPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Documents"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$F{cqs}.size()!=0]]></printWhenExpression>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="179" height="15" uuid="b61815d7-1bd1-4033-a1f1-fe633178afd4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Questionnaires"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="15" width="200" height="35" uuid="3ced6739-78a1-42a6-8cc3-226ab0870e16"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqs},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"GenerateSourcingSummaryReportCq.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$F{bqs}.size()!=0]]></printWhenExpression>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="179" height="15" uuid="d785b40d-d3fe-426c-9c73-5d1962323896">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Bill of Quantity"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="15" width="200" height="35" uuid="16aeaab9-caa0-4494-ad69-16819caa1c9b"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqs},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"GenerateSourcingSummaryBqReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<printWhenExpression><![CDATA[$F{sors}.size()!=0]]></printWhenExpression>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="179" height="15" uuid="3d834352-b8c8-490f-bf86-ac4528fce6a3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Schedule Of Rate"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="15" width="200" height="35" uuid="97613fe4-80c6-4846-81ef-ebaea3811adc"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sors},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"GenerateSourcingSummarySorReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="104">
+			<printWhenExpression><![CDATA[$F{approvals}.size()!=0]]></printWhenExpression>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="179" height="15" uuid="158b55a8-779e-4529-b35c-8886c23efc24">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Approvals Route"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="16" width="185" height="15" isRemoveLineWhenBlank="true" uuid="fbd45080-3112-4db7-867f-893f2d97afec">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{enableApprovalReminder} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Reminder Settings:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="30" width="410" height="14" isRemoveLineWhenBlank="true" uuid="4f08ecc8-dff0-4642-b9f0-a24b57353b34">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{enableApprovalReminder} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reminder emails sent every  "+$F{reminderAfterHour} +" hours."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="44" width="415" height="14" isRemoveLineWhenBlank="true" uuid="4f08ecc8-dff0-4642-b9f0-a24b57353b34">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{enableApprovalReminder} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Maximum "+$F{reminderCount} +" reminder emails."]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="70" width="545" height="34" isPrintWhenDetailOverflows="true" uuid="a7a0c381-71ab-4a1b-9b80-fbce81c97bec"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{approvals},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA["GenerateSourcingSummaryApprovalReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="2" y="58" width="415" height="14" isRemoveLineWhenBlank="true" uuid="0ae944dd-4507-4409-bb2d-add478459ac2">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{notifyEventOwner} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false" isUnderline="false" pdfFontName="Helvetica" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Notification to Request Owner upon final reminder for each approval level]]></text>
+			</staticText>
+		</band>
+		<band height="54">
+			<printWhenExpression><![CDATA[$F{approvalComments}.size()!=0]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="20" width="200" height="34" isRemoveLineWhenBlank="true" uuid="4c8e4f31-8d7c-47b1-a843-e083c62098d6"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{approvalComments}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_commentDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="179" height="20" uuid="051ae4a1-7921-4981-b6d6-404fecce741c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comments"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$F{approvalDocuments}.size()!=0]]></printWhenExpression>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="-2" width="179" height="15" uuid="74009a8c-b66c-4e88-91e6-b6aab948496a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Approval Documents"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="13" width="200" height="35" uuid="0b2a0838-07f3-4450-a233-804306ffa91a"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{approvalDocuments},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA["GenerateSourcingSummaryApprovalDocumentReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="74">
+			<printWhenExpression><![CDATA[$F{requestAuditPojo}.size()!=0]]></printWhenExpression>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="-1" width="179" height="30" uuid="d5ebd725-0a7b-4e93-a757-c04e59f46707">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["History"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Questionnaires"]]></anchorNameExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="29" width="200" height="44" uuid="1b031bf9-2e79-4e77-952a-ab180c907223"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{requestAuditPojo},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA["GenerateSourcingSummaryHistorReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="19">
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="434" y="-1" width="80" height="20" forecolor="#CCCCCC" uuid="30c41751-1f87-499c-8d28-0c42c0f82ed0"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="514" y="-1" width="40" height="20" forecolor="#CCCCCC" uuid="08d980b4-16f6-49e6-9a8d-f6280016c24b"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

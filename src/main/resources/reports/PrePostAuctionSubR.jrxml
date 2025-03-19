@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrePostAuctionSubR" pageWidth="555" pageHeight="850" columnWidth="515" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="725fec21-4ba1-426d-95b0-a0186311333f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="BiddingPrice" uuid="b80b21d3-a73c-4056-8d38-60bff4083fe4">
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="bidderName" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="remark" class="java.lang.String"/>
+		<field name="preAuctionPrice" class="java.math.BigDecimal"/>
+		<field name="preAuctionStrPrice" class="java.lang.String"/>
+		<field name="postAuctionprice" class="java.math.BigDecimal"/>
+		<field name="postAuctionStrPrice" class="java.lang.String"/>
+		<field name="saving" class="java.math.BigDecimal"/>
+		<field name="percentage" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="biddingPrice" class="java.util.List"/>
+	<field name="auctionTitle" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="350" splitType="Stretch">
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="0" width="515" height="350" uuid="a9c24766-aa12-46f4-988c-c50584d85ba7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<barChart>
+				<chart isShowLegend="true" renderType="draw" theme="default">
+					<reportElement positionType="Float" x="7" y="42" width="500" height="299" isPrintWhenDetailOverflows="true" uuid="f3c74aae-27e4-49be-a987-b8cb852a9f9a"/>
+					<chartTitle position="Bottom">
+						<titleExpression><![CDATA[$F{auctionTitle}]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="BiddingPrice" uuid="595202c1-3c4f-44ff-b56b-60bacdabebd6">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{biddingPrice}, false)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["POST AUCTION PRICE ("+$F{currencyCode}+")"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bidderName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{postAuctionprice}]]></valueExpression>
+						<labelExpression><![CDATA[$F{postAuctionStrPrice}]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["PRE AUCTION PRICE ("+$F{currencyCode}+")"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bidderName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{preAuctionPrice}]]></valueExpression>
+						<labelExpression><![CDATA[$F{preAuctionStrPrice}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true" isShowTickLabels="true" isShowTickMarks="true">
+					<plot labelRotation="-45.0">
+						<seriesColor seriesOrder="0" color="#4CA877"/>
+						<seriesColor seriesOrder="1" color="#24BDFF"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="-45.0">
+						<axisFormat verticalTickLabels="true"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat verticalTickLabels="false"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<staticText>
+				<reportElement x="0" y="0" width="280" height="30" uuid="12867253-2d63-48dd-8072-a217ac3834fd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Top 5 fully completed bids]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

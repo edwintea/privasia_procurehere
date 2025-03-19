@@ -1,0 +1,1077 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<sec:authorize access="hasRole('ROLE_ADMIN_READONLY')" var="buyerReadOnlyAdmin" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/elements/procurehere1.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/elements/cq_form.css"/>">
+<spring:message var="rfxCreateBq" code="application.rfx.create.bill.of.quantities" />
+<spring:message var="rfaCreateBq" code="application.rfa.create.bill.of.quantities" />
+<sec:authentication property="principal.bqPageLength" var="bqPageLength" />
+
+<script type="text/javascript">
+zE(function() {
+  zE.setHelpCenterSuggestions({ labels: [${rfxCreateBq},${rfaCreateBq}] });
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $(".width_300 a").on('click', function(event) {
+
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+console.log("hash :" +hash);
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1000, function(){
+      window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+<input type="hidden" id="bqPageLength" value="${bqPageLength}">
+<div id="page-content-wrapper">
+	<div id="page-content">
+		<div class="container">
+			<!-- pageging  block -->
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/buyer/buyerDashboard"><spring:message code="application.dashboard" /></a></li>
+				<li class="active">${eventType.value}</li>
+			</ol>
+			<input type="hidden" class="addBillOfQuantityControl" value="${event.addBillOfQuantity}">
+			<section class="create_list_sectoin">
+				<div class="Section-title title_border gray-bg">
+					<h2 class="trans-cap">
+						<i aria-hidden="true" class="glyph-icon icon-list-alt"></i> <spring:message code="bq.list.create.item" />
+					</h2>
+					<h2 class="trans-cap pull-right"><spring:message code="application.status" /> : ${event.status}</h2>
+				</div>
+				<jsp:include page="eventHeader.jsp"></jsp:include>
+				<div class="clear"></div>
+				<jsp:include page="/WEB-INF/views/jsp/templates/ajaxMessage.jsp" />
+				<div class="clear"></div>
+				<jsp:include page="/WEB-INF/views/jsp/templates/message.jsp" />
+				<div class="white-bg border-all-side float-left width-100 pad_all_15 marg-bottom-10">
+					<div class="margin-bottom-10">
+						<div class="meeting2-heading">
+							<h3 id="bqTitleId"><spring:message code="buyeraddress.caption.title" />:&nbsp;&nbsp;${eventBq.name}</h3>
+							<button class="pull-right btn ph_btn_midium btn-info toggleCreateBq hvr-pop hvr-rectangle-out editBqItem" type="button" data-toggle="tooltip" data-id="${eventBq.id}" data-original-title='<spring:message code="tooltip.edit.bq" />' style="margin-right: 20px; margin-top: 7px; height: 30px; line-height: 1;"><spring:message code="event.edit.bq" /></button>
+						</div>
+						<div class="import-supplier-inner-first-new pad_all_15 global-list form-middle" id="bqDisplay" style="display: none;">
+							<form id="bqFormAddEdit" class="form-horizontal bordered-row has-validation-callback" action="" method="post">
+								<input type="hidden" name="eventId" id="eventId" value="${event.id}"> <input type="hidden" name="eventType" id="eventType" value="${eventType}"> <input id="bqId" name="id" value="${eventBq.id}" type="hidden"> <input id="editBqName" name="editBqName" value="${eventBq.name}" type="hidden"> <input id="editBqDesc" name="editBqDesc" value="${eventBq.description}" type="hidden"> <input id="eventDecimal" value="${event.decimal}" type="hidden">
+								<header class="form_header"></header>
+								<jsp:include page="createAddBq.jsp" />
+								<input type="hidden" name="supplierBqCount" id="supplierBqCount" value="${supplierBqCount}">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="upload_download_wrapper">
+					<div class="row">
+						<c:if test="${eventType eq 'RFA' and event.auctionType != 'FORWARD_DUTCH' and event.auctionType != 'REVERSE_DUTCH' and auctionRules.preBidBy == 'BUYER' and supplierBqCount and event.status == 'DRAFT'}">
+							<b class="col-md-12" style="color: #2b2b2b !important"><spring:message code="bq.initial.price.note" /></b>
+						</c:if>
+					</div>
+					<h4 class="text_message"><spring:message code="bq.use.excel.list" /></h4>
+					<div class="upload_download_button ">
+						<button class="btn btn-default hvr-pop hvr-rectangle-out3" id="downloadTemplate">
+							<i class="excel_icon"></i> <spring:message code="application.download.excel.button" />
+						</button>
+						<button class="btn green-btn hvr-pop hvr-rectangle-out2" id="uploadBqItems">
+							<i class="upload_icon"></i> <spring:message code="application.upload.listitem.button" />
+						</button>
+						<div data-provides="fileinput" class="fileinput hide fileinput-new input-group">
+							<spring:message code="event.doc.file.required" var="required" />
+							<spring:message code="event.doc.file.length" var="filelength" />
+							<spring:message code="event.doc.file.mimetypes" var="mimetypes" />
+							<div data-trigger="fileinput" class="form-control">
+								<i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename show_name"></span>
+							</div>
+							<span class="input-group-addon btn btn-black btn-file"> <span class="fileinput-new"> <spring:message code="event.document.selectfile" />
+							</span> <span class="fileinput-exists"> <spring:message code="event.document.change" />
+							</span> <input type="file" data-buttonName="btn-black" id="uploadBqItemFile" name="uploadBqItemFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+							</span>
+						</div>
+						<button style="visibility: hidden" id="uploadbqItemsFile"></button>
+					</div>
+				</div>
+				<form:form class="bordered-row" id="demo-form1" method="post" modelAttribute="rftBqItem">
+					<div class="column_button_bar">
+						<div class="left_button">
+							<button class="btn btn-info ph_btn_midium hvr-pop hvr-rectangle-out" id="s1_tender_addsection_btn">
+								<spring:message code="label.rftbq.button.addsection" />
+							</button>
+							<c:if test="${event.status eq 'DRAFT' || event.suspensionType eq 'DELETE_NOTIFY' || event.suspensionType eq 'DELETE_NO_NOTIFY'}">
+								<button id="s1_tender_delete_btn" class="btn btn-black ph_btn_midium disabled ph_btn_midium hvr-pop hvr-rectangle-out1">
+									<spring:message code="label.rftbq.button.delete" />
+								</button>
+							</c:if>
+						</div>
+						<input id="suspensiontype" name="suspensiontype" value="${event.suspensionType}" type="hidden"> <input id="eventstatus" name="eventstatus" value="${event.status}" type="hidden">
+						<div class="right_button">
+							<button class="btn btn-default ph_btn_midium hvr-pop hvr-rectangle-out3" id="s1_tender_adddel_btn">
+								<spring:message code="label.rftbq.button.deletecolumn" />
+							</button>
+						</div>
+
+						<div class="right_button">
+							<button class="btn btn-info ph_btn_midium hvr-pop hvr-rectangle-out ${(event.status == 'SUSPENDED' and (event.suspensionType == 'KEEP_NOTIFY' or event.suspensionType == 'KEEP_NO_NOTIFY'))?'disabled':''}" id="resetButton"><spring:message code="application.reset" /></button>
+						</div>
+
+						<div class="pull-right ${(event.status == 'SUSPENDED' and (event.suspensionType == 'KEEP_NOTIFY' or event.suspensionType == 'KEEP_NO_NOTIFY'))?'disabled':''}">
+							<div class="row" style="margin-right: 0px;">
+								<input name="bqItemSearch" type="search" id="bqItemSearch" placeholder='<spring:message code="bq.search.itemname.placeholder" />' class="form-control" />
+							</div>
+						</div>
+
+					</div>
+					<label class="label-top pull-right"> <spring:message code="application.recordsperpage" /> </label>
+					<div class="col-md-1-5 col-sm-1 col-xs-1 pull-right marg-right-10 ${(event.status == 'SUSPENDED' and (event.suspensionType == 'KEEP_NOTIFY' or event.suspensionType == 'KEEP_NO_NOTIFY'))?'disabled':''}" style="padding-left: 0px; padding-right: 0px;">
+						<select class="disablesearch chosen-select" name="" data-parsley-id="0644" id="selectPageLen">
+							<option value="10">10</option>
+							<option value="30">30</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+							<option value="500">500</option>
+							<option value="9999"><spring:message code="application.all2" /></option>
+						</select>
+					</div>
+					<div>
+						<label class="label-top pull-left marg-right-10">&nbsp; &nbsp; Jump to item </label>
+						<div class="col-md-1-5 col-sm-1 col-xs-1 ${(event.status == 'SUSPENDED' and (event.suspensionType == 'KEEP_NOTIFY' or event.suspensionType == 'KEEP_NO_NOTIFY'))?'disabled':''}" style="padding-left: 0px; padding-right: 0px;">
+							<select path="" class="chosen-select" id="chooseSection">
+								<option value="">&nbsp;</option>
+								<c:forEach items="${leveLOrderList}" var="bqItemPojo">
+									<option value="">${bqItemPojo.level}.${bqItemPojo.order}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+
+					<div class="pull-right marg-right-10">
+						<div aria-label="Page navigation" style="margin-top: -13px;">
+							<ul class="pagination" id="pagination"></ul>
+						</div>
+					</div>
+		</div>
+
+		<!-- EVENT BQ ITEM LIST -->
+		<section class="s1_white_panel s1_pad_25_all s1_creat_itmeBox hidecolumnoption" id="creat_seaction_form">
+			<input type="hidden" name="eventId" id="eventId" value="${eventId}"> <input type="hidden" id="sectionBqId" value="${bqId}"> <input type="hidden" name="parentId" id="parentId" value=""> <input type="hidden" name="itemId" id="itemId" value="">
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<h3 class="s1_box_title"><spring:message code="application.create.new.section" /></h3>
+				</div>
+				<form id="addEditSectionForm">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<div class="col-md-7 col-sm-7 col-xs-12">
+						<div class="s1_creatItem_inlineControl">
+							<div class="form-group">
+								<input type="hidden" name="sectionId" id="sectionId" />
+								<spring:message code="event.bqsection.required" var="required" />
+								<input type="text" class="form-control" data-validation="required" data-validation-error-msg-required="${required}" id="sectionName" placeholder='<spring:message code="event.document.sectionname" />' name="sectionName" maxlength="250" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7 col-sm-7 col-xs-12">
+						<div class="s1_creatItem_inlineControl">
+							<div class="form-group">
+								<textarea type="text" class="form-control" id="sectionDescription" name="sectionDescription" placeholder='<spring:message code="section.description.placeholder" />' maxlength="1000"></textarea>
+								<span class="sky-blue"><spring:message code="dashboard.valid.max2.characters" /></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<div class="s1__frmbtn_block">
+							<button type="submit" class="btn btn-info ph_btn_midium" id="saveBqSection"><spring:message code="application.save" /></button>
+							<button class="btn ph_btn_midium btn-black hvr-pop hvr-rectangle-out1 bqCancelSec"><spring:message code="application.cancel" /></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+		<section class="s1_white_panel s1_pad_25_all s1_creat_itmeBox hidecolumnoption" id="creat_subitem_form">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<h3 class="s1_box_title">
+						<spring:message code="label.rftbq.createnewitem" />
+					</h3>
+				</div>
+				<form name="addNewItems" id="addNewItems" method="post">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <input type="hidden" name="eventId" id="eventId" value="${eventId}"> <input type="hidden" id="bqIdNewItems" value="${eventBq.id}"> <input type="hidden" name="parentId" id="parentId" value=""> <input type="hidden" name="itemId" id="itemId" value="">
+					<spring:message code="event.document.itemname" var="itemName" />
+					<spring:message code="event.document.quantity" var="quantity" />
+					<spring:message code="event.document.unitpricing" var="unitpricing" />
+					<spring:message code="event.document.description" var="description" />
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<label><spring:message code="label.rftbq.th.itemname" /></label> <input type="text" data-validation="required" class="form-control" name="itemName" id="itemName" placeholder="${itemName}" maxlength="250">
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<label><spring:message code="label.rftbq.th.uom" /></label>
+								<form:select path="uom" name="itemUnit" data-validation="required" id="itemUnit" items="${uomList}" itemValue="uom" itemLabel="uom" class="chosen-select" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<label class="marg-bottom-10"><spring:message code="bq.price.type" /></label>
+								<form:select path="priceType" data-validation="required" id="pricingTypes" name="pricingTypes" items="${pricingTypes}" itemLabel="value" class="chosen-select disablesearch" />
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group unitPriceClass">
+								<label class="marg-bottom-10"><spring:message code="product.unit.price" /></label>
+								<c:choose>
+									<c:when test="${event.decimal==1}">
+										<c:set var="decimalSet" value="0,0.0"></c:set>
+									</c:when>
+									<c:when test="${event.decimal==2}">
+										<c:set var="decimalSet" value="0,0.00"></c:set>
+									</c:when>
+									<c:when test="${event.decimal==3}">
+										<c:set var="decimalSet" value="0,0.000"></c:set>
+									</c:when>
+									<c:when test="${event.decimal==4}">
+										<c:set var="decimalSet" value="0,0.0000"></c:set>
+									</c:when>
+									<c:when test="${event.decimal==5}">
+										<c:set var="decimalSet" value="0,0.00000"></c:set>
+									</c:when>
+									<c:when test="${event.decimal==6}">
+										<c:set var="decimalSet" value="0,0.000000"></c:set>
+									</c:when>
+								</c:choose>
+								<input type="text" data-validation="custom required" class="form-control" disabled="true" name="unitPrice" id="itemUnitPrice" placeholder="${unitpricing}" data-validation-ignore="," data-validation-regexp="^(?:\d+)(?:(?:\d+)|(?:(?:,\d+)?))+(?:\.\d{1,${event.decimal}})?$" data-validation-error-msg-custom="Only numbers allowed, length should be less then 10 and after decimal ${event.decimal} digits allowed" ">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<label><spring:message code="label.rftbq.th.quantity.only" /></label> <input type="text" data-validation="custom, required" name="quantity" class="form-control" id="itemQuantity" placeholder="${quantity}" data-validation-ignore="," data-validation-regexp="^(?:\d+)(?:(?:\d+)|(?:(?:,\d+)?))+(?:\.\d{1,${event.decimal}})?$" data-validation-error-msg="Only numbers allowed, length should be less then 10 and after decimal ${event.decimal} digits allowed" >
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<label class="marg-bottom-10"><spring:message code="application.description"/></label>
+								<textarea class="form-control" id="itemDesc" name="itemDescription" placeholder='<spring:message code="event.bq.enter.description" />' maxlength="2000"></textarea>
+								<span class="sky-blue"><spring:message code="createrfi.event.description.max.chars" /></span>
+							</div>
+						</div>
+					</div>
+					<div class="row extraFields" id="extraFields"></div>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="s1__frmbtn_block">
+							<button type="button" class="btn btn-info ph_btn_midium" id="itemSave">
+								<spring:message code="label.rftbq.button.save" />
+							</button>
+							<button type="button" class="btn ph_btn_midium btn-black hvr-pop hvr-rectangle-out1 bqCancelSec"><spring:message code="application.cancel" /></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+		<section class="s1_white_panel s1_del_addcolumn hidecolumnoption" id="add_delete_column">
+			<input type="hidden" name="bqFilledBy" id="bqFilledBy" value="${bqFilledBy}">
+			<h4 class="s1_box_title"><spring:message code="bq.add.delete.column" /></h4>
+			<form:form id="newFieldForm" modelAttribute="eventBq">
+				<div class="table-responsive-old">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="width_300"><spring:message code="bq.table.column.name" /></th>
+								<th class="width_300"><spring:message code="bq.table.filled.in" /></th>
+								<th class="width_100"><spring:message code="bq.table.supplier.view" /></th>
+								<th class="width_100 text_table_center"><spring:message code="bq.table.required" /></th>
+								<th class="width_100"><spring:message code="bq.table.remove" /></th>
+							</tr>
+						</thead>
+						<tbody class="columnsExtra">
+							<c:if test="${not empty eventBq.field1Label}">
+								<tr class="addColumsBlock" data-pos="1">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field1Label" name="field1" data-validation="required length" data-validation-length="max32" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field1Label}">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field1FilledBy" data-validation="required" id="field1FilledBy" name="field1FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field1ToShowSupplier" id="field1ToShowSupplier" name="field1ToShowSupplier" class="custom-checkbox"></form:checkbox>
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field1Required" id="field1Required" name="field1Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove1" name="fieldRemove1"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field2Label}">
+								<tr class="addColumsBlock" data-pos="2">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field2Label" name="field2" data-validation="required length" data-validation-length="max32" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field2Label}">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field2FilledBy" data-validation="required" id="field2FilledBy" name="field2FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field2ToShowSupplier" id="field2ToShowSupplier" name="field2ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field2Required" id="field2Required" name="field2Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove2" name="fieldRemove2"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field3Label}">
+								<tr class="addColumsBlock" data-pos="3">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field3Label" name="field3" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field3Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field3FilledBy" data-validation="required" id="field3FilledBy" name="field3FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field3ToShowSupplier" id="field3ToShowSupplier" name="field3ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field3Required" id="field3Required" name="field3Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove3" name="fieldRemove3"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field4Label}">
+								<tr class="addColumsBlock" data-pos="4">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field4Label" name="field4" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field4Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field4FilledBy" data-validation="required" id="field4FilledBy" name="field4FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field4ToShowSupplier" id="field4ToShowSupplier" name="field4ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field4Required" id="field4Required" name="field4Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove4" name="fieldRemove4"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+
+							<c:if test="${not empty eventBq.field5Label}">
+								<tr class="addColumsBlock" data-pos="5">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field5Label" name="field5" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field5Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field5FilledBy" data-validation="required" id="field5FilledBy" name="field5FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field5ToShowSupplier" id="field5ToShowSupplier" name="field5ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field5Required" id="field5Required" name="field5Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove5" name="fieldRemove5"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field6Label}">
+								<tr class="addColumsBlock" data-pos="6">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field6Label" name="field6" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field6Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field6FilledBy" data-validation="required" id="field6FilledBy" name="field6FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field6ToShowSupplier" id="field6ToShowSupplier" name="field6ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field6Required" id="field6Required" name="field6Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove6" name="fieldRemove6"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field7Label}">
+								<tr class="addColumsBlock" data-pos="7">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field7Label" name="field7" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field7Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field7FilledBy" data-validation="required" id="field7FilledBy" name="field7FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field7ToShowSupplier" id="field7ToShowSupplier" name="field7ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field7Required" id="field7Required" name="field7Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove7" name="fieldRemove7"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field8Label}">
+								<tr class="addColumsBlock" data-pos="8">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field8Label" name="field8" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field8Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field8FilledBy" data-validation="required" id="field8FilledBy" name="field8FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field8ToShowSupplier" id="field8ToShowSupplier" name="field8ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field8Required" id="field8Required" name="field8Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove8" name="fieldRemove8"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field9Label}">
+								<tr class="addColumsBlock" data-pos="9">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field9Label" name="field9" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field9Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field9FilledBy" data-validation="required" id="field9FilledBy" name="field9FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field9ToShowSupplier" id="field9ToShowSupplier" name="field9ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field9Required" id="field9Required" name="field9Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove9" name="fieldRemove9"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+							<c:if test="${not empty eventBq.field10Label}">
+								<tr class="addColumsBlock" data-pos="10">
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<input type="text" class="form-control" id="field10Label" name="field10" placeholder='<spring:message code="prtemplate.name.placeholder" />' value="${eventBq.field10Label}" data-validation="required length" data-validation-length="max32">
+										</div>
+									</td>
+									<td class="width_300">
+										<div class="form-group s1-mrg-10">
+											<form:select path="field10FilledBy" data-validation="required" id="field10FilledBy" name="field10FilledBy" items="${bqFilledBy}" class="chosen-select" />
+										</div>
+									</td>
+									<td class="width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field10ToShowSupplier" id="field10ToShowSupplier" name="field10ToShowSupplier" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class="text_table_center width_100">
+										<div class="checkbox checkbox-info checkbox_td_center s1-mrg-15">
+											<label> <form:checkbox path="field10Required" id="field10Required" name="field10Required" class="custom-checkbox" />
+											</label>
+										</div>
+									</td>
+									<td class=" width_100"><a href="javascript:void(0)" class="s1_remove_tr" id="fieldRemove10" name="fieldRemove10"> <i aria-hidden="true" class="glyph-icon icon-close"></i>
+									</a></td>
+								</tr>
+							</c:if>
+
+							<tr>
+								<td colspan="5">
+									<button class="btn btn-black ph_btn s1_mrg-r-20" type="button" id="AddColumnsToList"><spring:message code="label.rftbq.button.addcolumns" /></button>
+									<button type="button" class="btn btn-info ph_btn" id="newFieldsSave">
+										<spring:message code="label.rftbq.button.save" />
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form:form>
+		</section>
+		<div class="main_table_wrapper float-left width-100">
+			<div class="table_fix_header">
+				<table class="header_table header bq_font" width="100%" cellpadding="0" cellspacing="0" id="table_id">
+					<tr>
+						<th class="hed_1 width_50 width_50_fix"><a href="javascript:void(0);"> <i aria-hidden="true" class="glyph-icon icon-arrows move_icon"></i>
+						</a></th>
+						<th class="hed_2 width_50 width_50_fix ">
+							<div class="checkbox checkbox-info">
+								<label> <c:if test="${event.status eq 'DRAFT' || event.suspensionType eq 'DELETE_NOTIFY' || event.suspensionType eq 'DELETE_NO_NOTIFY'}">
+										<input type="checkbox" id="inlineCheckbox115" class="custom-checkbox checkallcheckbox">
+									</c:if>
+
+								</label>
+							</div>
+						</th>
+
+						<th class="hed_1 width_100_fix_custom"><spring:message code="label.rftbq.th.No" /></th>
+
+						<th class="hed_4 width_200 width_200_fix"><spring:message code="label.rftbq.th.itemname" /></th>
+						<th class="hed_5 width_100 width_100_fix align_center "><spring:message code="label.rftbq.th.uom" /></th>
+						<th class="hed_5 width_100 width_115_fix align_center "><spring:message code="label.rftbq.th.quantity.only" /></th>
+						<th class="hed_5 width_100 width_115_fix align_center "><spring:message code="label.rftbq.th.unitprice" /></th>
+						<c:if test="${not empty eventBq.field1Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field1Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field2Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field2Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field3Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field3Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field4Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field4Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field5Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field5Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field6Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field6Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field7Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field7Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field8Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field8Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field9Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field9Label}</th>
+						</c:if>
+						<c:if test="${not empty eventBq.field10Label}">
+							<th class="hed_4 width_200 width_200_fix extraFieldHeaders">${eventBq.field10Label}</th>
+						</c:if>
+						<th class="hed_6 width_300 width_300_fix align_center"></th>
+					</tr>
+				</table>
+			</div>
+			<div class="marg-for-cq-table ${eventPermissions.viewer or buyerReadOnlyAdmin ? 'disabled' : ''}" style="margin-top: 56px;">
+				<section id="demo">
+					<ol class="sortable ui-sortable mjs-nestedSortable-branch mjs-nestedSortable-expanded" id="bqitemList">
+						<c:forEach items="${bqList}" var="bq">
+							<li style="display: list-item;" class="mjs-nestedSortable-leaf" id="menuItem_1" data-item="${bq.id}" data-parent="" data-level="${bq.level}" data-order="${bq.order}">
+								<div class="menuDiv">
+									<%-- <c:if test="${empty bq.parent.id}"> --%>
+									<table class="table data ph_table diagnosis_list sorted_table" id="table_id" style=" background: #fff;">
+										<tr class="sub_item item_${bq.level}_${bq.order}" data-id="${bq.id}" data-priceType="${bq.priceType}">
+											<td  rowspan="2" class="width_50 width_50_fix move_col align-left"><a href="javascript:void(0);"> <i aria-hidden="true" class="glyph-icon icon-arrows move_icon"></i>
+											</a></td>
+											<td  rowspan="2" class="width_50 width_50_fix align-left">
+												<div class="checkbox checkbox-info">
+													<label> <c:if test="${event.status eq 'DRAFT' || event.suspensionType eq 'DELETE_NOTIFY' || event.suspensionType eq 'DELETE_NO_NOTIFY'}">
+															<input type="checkbox" id="inlineCheckbox116" class="custom-checkbox checksubcheckbox" value="${bq.id}">
+														</c:if>
+													</label>
+												</div>
+											</td>
+											<td  rowspan="2" class="width_100_fix_custom align-left"><span class="item_name sectionD">${bq.level}.${bq.order}</span></td>
+											<td class="width_200 width_200_fix align-left"><span class="item_name sectionD">${bq.itemName}</span> <c:if test="${not empty bq.itemDescription}">
+													<span class=" s2_view_desc"><spring:message code="application.view.description" /></span>
+													<p class="s1_tent_tb_description s2_text_small">${bq.itemDescription}</p>
+												</c:if></td>
+											<td class="width_100 width_100_fix align-center">&nbsp;</td>
+											<td class="width_100 width_115_fix align-center">&nbsp;</td>
+											<td class="width_100 width_115_fix align-center">&nbsp;</td>
+											<c:if test="${not empty eventBq.field1Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field2Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field3Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field4Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field5Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field6Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field7Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field8Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field9Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<c:if test="${not empty eventBq.field10Label}">
+												<td class="width_200 width_200_fix align-center">&nbsp;</td>
+											</c:if>
+											<td class="width_300 width_300_fix"><a title="" class="btn btn-sm edit-btn-table ph_btn_small hvr-pop hvr-rectangle-out1 Edit_section_table" href="#creat_seaction_form" style="display: inline-block;"><spring:message code="application.edit" /></a> <a title="" class="btn btn-sm ph_btn_small btn-info marg-left-10 add_question_table" href="#creat_subitem_form"><spring:message code="label.rftbq.button.additem" /></a></td>
+										</tr>
+										<tr class="row-boder s2_view" style=" background: #fff;">
+											<td colspan="5" style=" background: #fff; border-bottom: 0 !important;"><p class="s1_tent_tb_description s2_text_small item_detail">${bq.itemDescription}</p></td>
+										</tr>
+									</table>
+									<%-- </c:if> --%>
+								</div> <c:if test="${not empty bq.children}">
+									<ol>
+										<c:forEach items="${bq.children}" var="bqchild">
+											<li style="display: list-item;" class="mjs-nestedSortable-branch mjs-nestedSortable-expanded" id="menuItem_2_1" data-foo="baz" data-item="${bqchild.id}" data-parent="${bq.id}" data-level="${bqchild.order}" data-order="${bqchild.order}">
+												<div class="menuDiv sub-color-change">
+													<table style=" background: #eef7fc;" class="table data ph_table diagnosis_list sorted_table" id="table_id">
+														<tr class="sub_item item_${bqchild.level}_${bqchild.order}"  data-id="${bqchild.id}" data-priceType="${bqchild.priceType}" data-parent="${bq.id}">
+															<td rowspan="2" class="width_50 width_50_fix move_col align-left"><a href="javascript:void(0);"> <i aria-hidden="true" class="glyph-icon icon-arrows move_icon"></i>
+															</a></td>
+															<td rowspan="2" class="width_50 width_50_fix align-left">
+																<div class="checkbox checkbox-info">
+																	<label> <c:if test="${event.status eq 'DRAFT' || event.suspensionType eq 'DELETE_NOTIFY' || event.suspensionType eq 'DELETE_NO_NOTIFY'}">
+																			<input type="checkbox" id="inlineCheckbox116" class="custom-checkbox checksubcheckbox" value="${bqchild.id}">
+																		</c:if>
+																	</label>
+																</div>
+															</td>
+															<td rowspan="2" class="width_100_fix_custom align-left"><span class="item_name itemNameD">${bqchild.level}.${bqchild.order}</span></td>
+															<td class="width_200 width_200_fix align-left"><span class="item_name itemNameD"> <c:if test="${bqchild.priceType == 'TRADE_IN_PRICE'}">
+																		<span class="bs-label label-info"><spring:message code="eventsummary.bq.trade.price" /></span>&nbsp;
+																			</c:if> <c:if test="${bqchild.priceType == 'BUYER_FIXED_PRICE'}">
+																		<span class="bs-label label-success"><spring:message code="eventsummary.bq.buyer.fixedprice" /></span>&nbsp;
+																			</c:if> ${bqchild.itemName}
+															</span><c:if test="${not empty bqchild.itemDescription}"><span class=" s2_view_desc"><spring:message code="application.view.description" /></span></c:if> 
+																<p class="s1_tent_tb_description s2_text_small">${bqchild.itemDescription}</p></td>
+															<td class="width_100 width_100_fix align-center">${bqchild.uom.uom}</td>
+															<td class="width_100 width_115_fix align-center"><fmt:formatNumber type="number" minFractionDigits="${event.decimal}" maxFractionDigits="${event.decimal}" value="${bqchild.quantity}" /></td>
+															<td class="width_100 width_115_fix align-center"><fmt:formatNumber type="number" minFractionDigits="${event.decimal}" maxFractionDigits="${event.decimal}" value="${bqchild.unitPrice}" /></td>
+															<c:if test="${not empty eventBq.field1Label}">
+																<td  class="width_200 width_200_fix  align-center">${bqchild.field1}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field2Label}">
+																<td class="width_200 width_200_fix  align-center">${bqchild.field2}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field3Label}">
+																<td class="width_200 width_200_fix  align-center">${bqchild.field3}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field4Label}">
+																<td class="width_200 width_200_fix align-center">${bqchild.field4}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field5Label}">
+																<td class="width_200 width_200_fix  align-center">${bqchild.field5}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field6Label}">
+																<td class="width_200 width_200_fix  align-center">${bqchild.field6}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field7Label}">
+																<td class="width_200 width_200_fix  align-center">${bqchild.field7}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field8Label}">
+																<td class="width_200 width_200_fix align-center">${bqchild.field8}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field9Label}">
+																<td class="width_200 width_200_fix  align-center">${bqchild.field9}</td>
+															</c:if>
+															<c:if test="${not empty eventBq.field10Label}">
+																<td  class="width_200 width_200_fix align-center">${bqchild.field10}</td>
+															</c:if>
+															<td class="width_300 width_300_fix"><a title="" class="btn btn-sm ph_btn_small edit-btn-table hvr-pop hvr-rectangle-out1 Edit_subitme_table" href="#creat_subitem_form" style="display: inline-block;"><spring:message code="application.edit" /></a> <a title="" class="btn btn-sm add-btn-table ph_btn_small btn-default marg-left-10" style="visibility: hidden" href="javascript:void(0)"></a></td>
+														</tr>
+														<tr class="s2_view" style=" background: #eef7fc;">
+															<td colspan="5" style=" background: #eef7fc; border-bottom: 0 !important;"><p  class="s1_tent_tb_description s2_text_small item_detail">${bqchild.itemDescription}</p></td>
+														</tr>
+													</table>
+												</div>
+											</li>
+										</c:forEach>
+									</ol>
+								</c:if>
+							</li>
+						</c:forEach>
+					</ol>
+				</section>
+			</div>
+
+		</div>
+		</form:form>
+		<div class="clear"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table_f_action_btn">
+					<form class="bordered-row" id="submitPriviousForm" method="post" style="float: left;" action="${pageContext.request.contextPath}/buyer/${eventType}/bqListPrevious">
+						<input type="hidden" id="eventId" value="${eventId}" name="eventId"> <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<button type="submit" class="btn btn-lg btn-black hvr-pop hvr-rectangle-out1" value="Previous" name="previous" id="priviousStep"><spring:message code="application.previous" /></button>
+					</form>
+					<form class="bordered-row" id="submitNextForm" method="post" style="float: left;" action="${pageContext.request.contextPath}/buyer/${eventType}/bqNext">
+						<input type="hidden" id="eventId" value="${eventId}" name="eventId"> <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<button type="submit" class="btn hvr-pop hvr-rectangle-out btn-lg btn-info hvr-pop hvr-rectangle-out" value="Next" id="nextStep"><spring:message code="application.next" /></button>
+					</form>
+				</div>
+			</div>
+		</div>
+		</section>
+	</div>
+</div>
+</div>
+<div class="modal fade" id="myModalDeleteColum" role="dialog">
+	<div class="modal-dialog for-delete-all reminder">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>
+					<spring:message code="application.confirm.delete" />
+				</h3>
+				<button class="close for-absulate" type="button" data-dismiss="modal">×</button>
+			</div>
+			<div class="modal-body">
+				<label><spring:message code="bq.sure.delete.column" /></label> <input type="hidden" name="deleteColpos" id="deleteColpos" />
+			</div>
+			<div class="modal-footer pad_all_15 float-left width-100 border-top-width-1">
+				<button type="button" class="btn btn-info ph_btn_small hvr-pop hvr-rectangle-out" id="idConfirmDelete">
+					<spring:message code="application.delete" />
+				</button>
+				<button type="button" class="btn btn-black btn-default ph_btn_small hvr-pop hvr-rectangle-out1 pull-right" data-dismiss="modal">
+					<spring:message code="application.cancel" />
+				</button>
+			</div>
+		</div>
+		<c:set var="suspended" value="${event.status == 'SUSPENDED' and (event.suspensionType == 'KEEP_NOTIFY' or event.suspensionType == 'KEEP_NO_NOTIFY')}"></c:set>
+		<input type="hidden" value="${suspended}" id="suspendedEvent">
+	</div>
+</div>
+<div class="modal fade" id="myModalDeleteBQs" role="dialog">
+	<div class="modal-dialog for-delete-all reminde.postin-wrepper {
+	position: relative!important;
+	margin-top: 9px;
+	border: 1px solid #ddd;
+	overflow-x: scroll;
+	
+}
+
+.chosen-results {
+	height: 170px !important;
+}
+	r">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>
+					<spring:message code="application.confirm.delete" />
+				</h3>
+				<button class="close for-absulate" type="button" data-dismiss="modal">×</button>
+			</div>
+			<div class="modal-body">
+				<label><spring:message code="bq.sure.delete.selected.item" /></label>
+			</div>
+			<div class="modal-footer pad_all_15 float-left width-100 border-top-width-1">
+				<button type="button" class="btn btn-info ph_btn_small hvr-pop hvr-rectangle-out pull-left" id="idConfirmDeleteBQs">
+					<spring:message code="application.delete" />
+				</button>
+				<button type="button" class="btn btn-black btn-default ph_btn_small hvr-pop hvr-rectangle-out1 pull-right" data-dismiss="modal">
+					<spring:message code="application.cancel" />
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+.addColumsBlock .checkbox.checkbox-info label {
+	padding: 0;
+}
+.border-b-0 {
+	border-bottom: 0 !important;
+}
+.s1_remove_tr {
+	padding-left: 20px;
+}
+
+.extraFieldHeaders {
+	text-align: center;
+}
+
+.score-spinner1.ui-spinner-input {
+	float: right;
+	height: 31px;
+	width: 75px;
+}
+
+#bqItemSearch {
+	width: 287px;
+}
+
+ul.pagination {
+	/* margin-bottom: 10px !important; */
+	
+}
+
+.width_115_fix {
+	width: 115px;
+}
+
+.width_100_fix_custom {
+	min-width: 80px !important;
+	width: 80px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.itemNameD {
+	color: #3b3b3b;
+	font-family: 'open_sansregular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+.sectionD {
+	color: #3b3b3b;
+	font-family: 'open_sanssemibold';
+	font-size: 14px;
+}
+.ph_table td a {
+	color: #ffffff !important;
+}
+</style>
+<script type="text/javascript" src="<c:url value="/resources/assets/js-core/jquery.form-validator.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/jquery.twbsPagination.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/numeral.min.js"/>"></script>
+<script>
+var totalPage = 500;
+var visiblePage = 5;
+var totalBqItemCount = '${totalBqItemCount}';
+var bqPageLength = $('#bqPageLength').val();
+if( bqPageLength === undefined || bqPageLength === ''){
+	bqPageLength = 50;
+}
+console.log("totalBqItemCount :" + totalBqItemCount + "== bqPageLength :" + bqPageLength+ "===totalBqItemCount/bqPageLength :" + totalBqItemCount/bqPageLength);
+
+
+
+totalPage = Math.ceil(totalBqItemCount/bqPageLength);
+
+if(totalPage == 0 ||  totalPage === undefined || totalPage === ''){
+	totalPage = 1;
+}
+
+if(totalPage < 5){
+visiblePage = totalPage;
+}
+	$.validate({
+		lang : 'en',
+		modules : 'file,sanitize'
+	});
+	// itemQuantity
+	// BUYER_FIXED_PRICE
+	
+		$(function (e) {
+//		e.preventDefault();
+	    $('#pagination').twbsPagination({
+	        totalPages: totalPage,
+	        visiblePages: visiblePage
+	    });
+	});
+
+	    $(document).delegate('.page-link', 'click', function(e) {
+	 	   e.preventDefault();
+	 	  var searchVal = $('#bqItemSearch').val();
+  		var choosenVal = $('#chooseSection option:selected').text();
+  		var page = $('#pagination').find('li.active').text();
+          var pageNo = parseInt(page);
+  		var pageLen = "50";
+          if ($('#selectPageLen option:selected').text()) {
+          	pageLen = $('#selectPageLen').val();
+  		}
+  		var pageLength = parseInt(pageLen);
+//          console.log("searchVal :"+searchVal + " choosenVal  : "+choosenVal +" page :"+pageNo + " pageLength : "+pageLength) ;
+
+  		var isPageEnable = false;
+  		if(searchVal === "" || choosenVal === ""){
+  		isPageEnable = true; 
+  		}
+          searchFilterBqItem(choosenVal , searchVal ,pageNo ,pageLength, isPageEnable);
+	     });
+</script>
+
+<script type="text/javascript" src="<c:url value="/resources/assets/widgets/file-input/file-input.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/assets/js-core/nested-sortable-tests.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/view/eventBQ.js?1"/>"></script>
+<script>
+	<c:if test="${supplierBqCount or (eventType != 'RFA' and event.status == 'SUSPENDED' and (event.suspensionType == 'KEEP_NOTIFY' or event.suspensionType == 'KEEP_NO_NOTIFY')) or (eventType == 'RFA' and event.status == 'SUSPENDED')}">
+		var allowedFields = '#nextStep,#priviousStep,.s2_view_desc,#idViewButton,#bubble ,#resetButton,#bqItemSearch,#selectPageLen ,#chooseSection';
+	$(window).bind('load', function() {
+		//var disableAnchers = ['#reloadMsg'];        
+		disableFormFields(allowedFields);
+	});
+	</c:if>
+	<c:if test="${eventPermissions.viewer or buyerReadOnlyAdmin or eventPermissions.approverUser}">
+	var allowedFields = '#nextStep,#priviousStep,.s2_view_desc,#bubble, #downloadTemplate ,#resetButton,#bqItemSearch,#selectPageLen,#chooseSection';
+	$(window).bind('load', function() {
+		//var disableAnchers = ['#reloadMsg'];        
+		disableFormFields(allowedFields);
+	});
+	</c:if>
+	
+	<c:if test="${!event.addBillOfQuantity}">
+	$(window).bind('load', function() {
+		var allowedFields = '#priviousStep,#nextStep,.s1_view_desc,#idViewButton,#bubble,#addBqSupp';
+		//var disableAnchers = ['#reloadMsg'];        
+		disableFormFields(allowedFields);
+	});
+	</c:if>
+	/* $('html,body').animate({
+	    scrollTop : showTable.offset().top
+	   }, 'slow'); */
+	
+	
+</script>
+
+<style>
+.label-top {
+	margin-top: 10px;
+}
+
+ .main_table_wrapper .table>tbody>tr>td { 
+ 	border-top: 1px solid #ddd;
+ 	border-bottom: 1px solid #edf7fb; 
+ 	/* border-top: 0; */
+ }
+ 
+ .main_table_wrapper .table>tbody .row-boder { 
+ 	border-top: 2px solid #fff !important;
+ 	border-bottom: 2px solid #fff; 
+ 	/* border-top: 0; */
+ } 
+ 
+ .main_table_wrapper .table>tr>th { 
+ 	/* border-top: 1px solid red !important; */
+ 	border-bottom: 1px solid #edf7fb; 
+ 	/* border-top: 0; */
+ } 
+
+.s2_text_small {
+    margin: 5px 0 0 0;
+    font-size: 11px;
+    display: none;
+    max-height: 150px; 
+    text-align: left;
+    margin-top: -1%;
+    }
+      
+.s2_view
+	{
+  	 display: none;
+   	 border-bottom: 1px solid #e8e8e8;" 
+   	 
+   }
+   	
+.s3_text_small
+		{
+			margin: 5px 0 0 0;
+		    font-size: 11px;
+		    display: none;
+		    max-height: 150px;
+		    text-align: left;
+		    margin-top: -2%;
+		}  
+.bq_font
+{
+ font-family: 'open_sanssemibold'; font-weight:normal;	
+} 	
+</style>

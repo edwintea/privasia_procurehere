@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_cqItemsDetails" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="de20b14c-28e2-4441-8ba1-337efa8e515a">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="cqOptionDetails" uuid="6f3c39f5-9284-4838-bb97-30d031198b0e">
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<field name="level" class="java.lang.String"/>
+	<field name="itemName" class="java.lang.String"/>
+	<field name="itemDescription" class="java.lang.String"/>
+	<field name="answer" class="java.lang.String"/>
+	<field name="optionType" class="java.lang.String"/>
+	<field name="isSection" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="2" y="2" width="565" height="20" uuid="120a129d-c1f1-46d5-b32e-61290609176f">
+					<printWhenExpression><![CDATA[$F{isSection}==true]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="28" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="9cd9af76-a70a-4224-8bb0-058b48925dee"/>
+					<box topPadding="1" leftPadding="3"/>
+					<textElement>
+						<font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="28" y="0" width="530" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="8955e85b-4c10-43e0-92a9-c7b79519eb97"/>
+					<box topPadding="1" leftPadding="3"/>
+					<textElement>
+						<font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{optionType} != null ? $F{itemName} + "   ("+ $F{optionType} + ")" : $F{itemName}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{optionType} != null ? $F{itemName} + "   ("+ $F{optionType} + ")" : $F{itemName}]]></patternExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="2" y="2" width="565" height="20" uuid="120a129d-c1f1-46d5-b32e-61290609176f">
+					<printWhenExpression><![CDATA[$F{isSection}==false]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="28" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="9cd9af76-a70a-4224-8bb0-058b48925dee"/>
+					<box topPadding="1" leftPadding="3"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="28" y="0" width="530" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="8955e85b-4c10-43e0-92a9-c7b79519eb97"/>
+					<box topPadding="1" leftPadding="3"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{optionType} != null ? $F{itemName} + "   ("+ $F{optionType} + ")" : $F{itemName}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{optionType} != null ? $F{itemName} + "   ("+ $F{optionType} + ")" : $F{itemName}]]></patternExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="2" y="22" width="565" height="12" isRemoveLineWhenBlank="true" uuid="cfcc8be1-db42-4fcb-a99d-2298ad8d31c9">
+					<printWhenExpression><![CDATA[$F{itemDescription}.length()>0]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="28" y="0" width="530" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="abb67935-d5a7-40bc-a6f7-514c27751c8c">
+						<printWhenExpression><![CDATA[$F{itemDescription}.length() > 0]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="0" leftPadding="3"/>
+					<textFieldExpression><![CDATA[$F{itemDescription}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="2" y="34" width="565" height="20" uuid="8df9caf9-e64a-46f0-9cba-56c713c4418c"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="28" y="0" width="530" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="de726291-62a2-451d-9fe6-2defc656e9e3">
+						<printWhenExpression><![CDATA[$F{answer}.length() > 0]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="2" leftPadding="3"/>
+					<textFieldExpression><![CDATA[$F{answer}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

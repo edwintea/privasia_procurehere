@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_meetingDetails" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="90f0cbaf-1095-4fb9-bcdc-3610f1c6371e">
+	<property name="ireport.zoom" value="1.650000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="contactDetails" uuid="a8b23520-3ba5-475f-b4fe-59840b9c70e3">
+		<field name="contactName" class="java.lang.String"/>
+		<field name="contactEmail" class="java.lang.String"/>
+		<field name="contactNumber" class="java.lang.String"/>
+		<field name="imagePath" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="documentDetails" uuid="8497c7c5-00c3-435e-9e64-85f4f6df1b64">
+		<field name="fileName" class="java.lang.String"/>
+		<field name="size" class="java.lang.Double"/>
+	</subDataset>
+	<field name="title" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="venue" class="java.lang.String"/>
+	<field name="appointmentDateTime" class="java.util.Date"/>
+	<field name="meetingContacts" class="java.util.List"/>
+	<field name="meeingInviteSupplier" class="java.util.List"/>
+	<field name="meetingDocuments" class="java.util.List"/>
+	<field name="response" class="java.lang.String"/>
+	<field name="mandatoryMeeting" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="225">
+			<frame>
+				<reportElement positionType="Float" x="5" y="25" width="585" height="25" uuid="01222033-1775-4be5-8291-46975f9aa8bc"/>
+				<textField isStretchWithOverflow="true" pattern="E dd/MM/yyyy hh:mm a" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="821767ef-0dc0-469b-b055-4afa5b27a2c4"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{appointmentDateTime}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="215" y="0" width="200" height="25" isPrintWhenDetailOverflows="true" uuid="8a1b5d94-ccc4-46f9-bf20-c93ad66bb391"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="419" y="0" width="161" height="25" uuid="977e7b53-f28c-48cb-9712-32c901355a38"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="219" y="55" width="201" height="91" uuid="0867bd5b-d64a-40be-86c3-65139c6e5419"/>
+				<componentElement>
+					<reportElement positionType="Float" x="1" y="1" width="196" height="90" isPrintWhenDetailOverflows="true" uuid="350057f5-73f5-4d69-bf39-9cc2c132d678"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="contactDetails" uuid="5c4c18ea-6fce-4d3d-bcdc-d891724f37d5">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{meetingContacts}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="90" width="196">
+							<image>
+								<reportElement x="14" y="11" width="14" height="14" uuid="4e1ef1f7-2375-4fa7-9212-e4c1dc559c35"/>
+								<imageExpression><![CDATA[$F{imagePath}+"/meeting_profile.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="33" y="8" width="163" height="25" isPrintWhenDetailOverflows="true" uuid="ab0fd9c9-62c0-4335-bf8d-a9def9655de4"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{contactName}]]></textFieldExpression>
+							</textField>
+							<image>
+								<reportElement x="14" y="39" width="14" height="14" uuid="73a63174-9b2c-4fcc-9014-202c1f143f5c"/>
+								<imageExpression><![CDATA[$F{imagePath}+"/meeting_message.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="33" y="33" width="163" height="25" isPrintWhenDetailOverflows="true" uuid="3f493900-d50d-463e-b8b3-d0cda5616e39"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{contactEmail}]]></textFieldExpression>
+							</textField>
+							<image>
+								<reportElement x="14" y="66" width="14" height="14" uuid="44a882ec-0a93-4d63-8d8e-9f0d407c9522"/>
+								<imageExpression><![CDATA[$F{imagePath}+"/meeting_phone.png"]]></imageExpression>
+							</image>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="33" y="61" width="163" height="25" isPrintWhenDetailOverflows="true" uuid="267c1fc4-c845-440b-9aa0-995a70ec668e"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{contactNumber}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="5" y="81" width="200" height="20" uuid="3d694464-3e03-4134-8566-05a1adefcbb8"/>
+				<staticText>
+					<reportElement x="0" y="0" width="107" height="20" uuid="7eee78bc-0c1d-4373-a8b7-365141b3cac9"/>
+					<box leftPadding="4"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Remarks]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="5" y="101" width="200" height="25" uuid="1caf9a8c-c119-444a-b567-d753d07eb388"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="197" height="25" isPrintWhenDetailOverflows="true" uuid="f996b645-607c-43c5-8ee7-d4d922f21059"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement verticalAlignment="Top">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="424" y="140" width="164" height="20" uuid="0150e4d6-0e39-483a-ac9b-97e807e90691"/>
+				<staticText>
+					<reportElement x="1" y="0" width="99" height="20" uuid="5be26fe5-867f-4948-be71-29e136320c21"/>
+					<box leftPadding="4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Attachment]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="424" y="160" width="164" height="30" uuid="b668c81e-fb48-492e-a116-98e38f01aac0"/>
+				<componentElement>
+					<reportElement positionType="Float" x="0" y="2" width="164" height="28" isPrintWhenDetailOverflows="true" uuid="a896a4a7-0af4-49cd-aaaf-678f5da1cf26"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="documentDetails" uuid="c8de67a8-aa69-4024-a2ee-a88e661f8ae5">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{meetingDocuments}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="28" width="164">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="24" y="2" width="136" height="25" isPrintWhenDetailOverflows="true" uuid="06c4f207-dd19-46e8-a751-11e327b34363"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression><![CDATA[$F{fileName} + "("+ $F{size} +" KB)"]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="6" y="2" width="18" height="25" uuid="1d4489d8-b67a-4036-b056-770607ba9196"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement verticalAlignment="Top">
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="424" y="55" width="166" height="43" isPrintWhenDetailOverflows="true" uuid="00d0aeae-3fa0-4ec3-bc64-d09d2156bed0"/>
+				<frame>
+					<reportElement positionType="Float" x="0" y="20" width="163" height="20" uuid="43c4b698-d2fa-41e7-9d80-297c53f699c6"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="0" y="0" width="160" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="3551c719-a00c-4edc-a13d-38957bc54edb"/>
+						<box topPadding="3" leftPadding="4"/>
+						<textFieldExpression><![CDATA[$F{venue}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="69" height="20" uuid="d42f004a-7d93-4755-be90-f17f93ad452d"/>
+					<box leftPadding="5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Venue]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="5" y="56" width="210" height="20" uuid="2f9fe05e-6a4f-4819-9ae8-979b6f5023ea"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="54" height="20" uuid="9b0af54c-fe6c-48af-8536-d3e6ba683b35"/>
+					<box topPadding="3" leftPadding="4" rightPadding="0"/>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Response]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="53" y="0" width="156" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="26508f4d-d38f-4f0f-b5c1-0ef3e9309c18"/>
+					<box topPadding="3" leftPadding="4" rightPadding="0"/>
+					<textFieldExpression><![CDATA[$F{response}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="5" y="2" width="100" height="20" uuid="21099756-4af1-4e9b-8db0-d9f2aba289db"/>
+				<box topPadding="3" leftPadding="4" rightPadding="0"/>
+				<textElement>
+					<font size="13" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Meeting]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="7" y="21" width="560" height="1" forecolor="#F0F0F0" uuid="4e3068ea-2c6a-4c07-8cf5-3d46d4b7c0a9"/>
+			</line>
+			<frame>
+				<reportElement positionType="Float" x="424" y="98" width="166" height="42" isPrintWhenDetailOverflows="true" uuid="bd182220-4fad-445a-8834-3d931df49a18"/>
+				<frame>
+					<reportElement positionType="Float" x="0" y="20" width="163" height="22" uuid="b4843e25-1dc5-4789-bba4-98e28894093e"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" x="0" y="0" width="160" height="22" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="67292674-4dcc-4338-8cbe-ba3fafb79fa2"/>
+						<box topPadding="3" leftPadding="4"/>
+						<textFieldExpression><![CDATA[$F{mandatoryMeeting}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="90" height="20" uuid="6070ffef-09bb-49eb-a97a-a5cc10e3763c"/>
+					<box leftPadding="5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Mandatory]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

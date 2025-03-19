@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PublicEventsSummary" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3ea7d782-bb99-4399-a293-a5e8edd69a41">
+	<property name="ireport.zoom" value="1.0245201830476058"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table"/>
+	<style name="table_TH" mode="Opaque" backcolor="#DCDCDC"/>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF"/>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF"/>
+	<subDataset name="ContactDetails" uuid="7d9475c9-666f-4a53-aaf0-e76c37277e85">
+		<field name="title" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="comunicationEmail" class="java.lang.String"/>
+		<field name="designation" class="java.lang.String"/>
+		<field name="contactNumber" class="java.lang.String"/>
+		<field name="mobileNumber" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="supplierDetails" uuid="fb18a5a5-98d4-49c3-b393-af38b0e3afe6">
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="email" class="java.lang.String"/>
+		<field name="contactNo" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="meetingDetails" uuid="b506e098-b790-4444-bc02-b03f780e4979">
+		<field name="title" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="remarks" class="java.lang.String"/>
+		<field name="venue" class="java.lang.String"/>
+		<field name="appointmentDateTime" class="java.util.Date"/>
+		<field name="meetingContacts" class="java.util.List"/>
+		<field name="meeingInviteSupplier" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="documentDetails" uuid="f53931aa-b910-45e6-9367-b83170cd8436">
+		<field name="fileName" class="java.lang.String"/>
+		<field name="description" class="java.lang.String"/>
+		<field name="uploadDate" class="java.util.Date"/>
+		<field name="size" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="PUBIC_EVENT_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="referenceId" class="java.lang.String"/>
+	<field name="eventStart" class="java.lang.String"/>
+	<field name="eventEnd" class="java.lang.String"/>
+	<field name="publishDate" class="java.lang.String"/>
+	<field name="visibility" class="java.lang.String"/>
+	<field name="validityDays" class="java.lang.Integer"/>
+	<field name="participationFee" class="java.math.BigDecimal"/>
+	<field name="category" class="java.lang.String"/>
+	<field name="eventName" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="correspondAddress" class="java.lang.String"/>
+	<field name="contacts" class="java.util.List"/>
+	<field name="baseCurrency" class="java.lang.String"/>
+	<field name="paymentTerm" class="java.lang.String"/>
+	<field name="costCenter" class="java.lang.String"/>
+	<field name="businesUnit" class="java.lang.String"/>
+	<field name="historicAmt" class="java.math.BigDecimal"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="budgetAmt" class="java.math.BigDecimal"/>
+	<field name="suppliers" class="java.util.List"/>
+	<field name="meetings" class="java.util.List"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="cqs" class="java.util.List"/>
+	<field name="bqs" class="java.util.List"/>
+	<field name="envelops" class="java.util.List"/>
+	<field name="evaluationTeam" class="java.util.List"/>
+	<field name="approvals" class="java.util.List"/>
+	<field name="timelines" class="java.util.List"/>
+	<field name="deliveryAddress" class="java.lang.String"/>
+	<field name="documents" class="java.util.List"/>
+	<field name="comments" class="java.util.List"/>
+	<field name="auctionRules" class="java.util.List"/>
+	<field name="auditDetails" class="java.util.List"/>
+	<field name="eventOwner" class="java.lang.String"/>
+	<field name="isMask" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="3" y="2" width="573" height="20" uuid="6b565d72-1316-4de6-8ca4-fac70823bfd1"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="1" y="0" width="559" height="20" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="3ac72f6d-d1a4-4f0f-8022-f6247f49b61c"/>
+					<box leftPadding="5"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{type}+": "+$F{eventName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="432" y="3" width="80" height="20" forecolor="#CCCCCC" uuid="0e7e407d-0395-4587-b493-5284a81e7ade"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="512" y="3" width="40" height="20" forecolor="#CCCCCC" uuid="8d736fbc-39e6-455f-adbd-decafa90a775"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="124" splitType="Immediate">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="83" width="200" height="41" isRemoveLineWhenBlank="true" uuid="c61c59ad-30bf-4262-9495-d02ae7a079f3">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{bqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqs}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PublicEventSummary_bqDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="80" width="100" height="1" uuid="4eb3f82f-d1df-4f8a-b004-f7b8e2dcac38">
+					<printWhenExpression><![CDATA[$F{suppliers}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="4" width="282" height="35" uuid="7bda024b-fc9a-4e86-944c-92f64bb70a9a"/>
+				<subreportParameter name="EVALUATION_SUMMARY">
+					<subreportParameterExpression><![CDATA[$P{PUBIC_EVENT_SUMMARY}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{PUBIC_EVENT_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PublicEventSummary_eventDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="41" width="100" height="1" isRemoveLineWhenBlank="true" uuid="664537fb-01f4-4d80-9dee-4446bc8a9548">
+					<printWhenExpression><![CDATA[$F{auctionRules}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="43" width="200" height="35" isRemoveLineWhenBlank="true" uuid="c41c1258-6e66-4756-854a-d7a5ba67c28f">
+					<printWhenExpression><![CDATA[$F{auctionRules}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{auctionRules}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_auctionRules.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

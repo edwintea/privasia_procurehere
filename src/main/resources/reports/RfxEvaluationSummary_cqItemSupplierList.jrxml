@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSummary_cqItemSupplierList" pageWidth="590" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="590" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5519a0ac-73eb-4217-a176-ea1f86699e9e">
+	<property name="ireport.zoom" value="1.9965000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table1">
+		<box>
+			<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<subDataset name="cqItemSuppliers" uuid="e2f3fb7f-294b-426e-8cff-6ec947a7c88b">
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="answer" class="java.lang.String"/>
+		<field name="attachments" class="java.lang.String"/>
+		<field name="comments" class="java.util.List"/>
+		<field name="evalComment" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="cqItemComments" uuid="0c04ad59-1cff-4dfc-88ee-0b053655625c">
+		<field name="commentBy" class="java.lang.String"/>
+		<field name="comment" class="java.lang.String"/>
+	</subDataset>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="answer" class="java.lang.String"/>
+	<field name="attachments" class="java.lang.String"/>
+	<field name="comments" class="java.util.List"/>
+	<field name="evaluatorComments" class="java.lang.String"/>
+	<field name="evalComment" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="97">
+			<staticText>
+				<reportElement style="table1" x="29" y="67" width="170" height="30" uuid="c4249cd7-1fb7-41b8-a8d8-519c462ed17f"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" x="199" y="67" width="120" height="30" uuid="d79cf7d0-64c2-486f-bf50-cf4882022249"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Answer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" x="2" y="67" width="27" height="30" uuid="33e93006-98be-4cee-97ec-4cfa63d99c2c"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" x="319" y="67" width="152" height="30" uuid="39b13852-0663-4b0c-9a7c-0f30937861ef"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Review]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" x="471" y="67" width="92" height="30" uuid="75461ce4-efc1-47fa-ba9d-08c61317e1cd"/>
+				<box leftPadding="3" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Attachments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="2" y="37" width="561" height="30" uuid="027bb822-e912-40c0-bbb3-96cf9ca84195"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" x="2" y="7" width="561" height="30" uuid="71a0f750-5756-4328-ba93-51ef066e4f8e"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lead Evaluator Review]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="2" y="37" width="561" height="30" isPrintWhenDetailOverflows="true" uuid="cddf8c7e-c2b8-4fc0-a7f2-bd941187f991"/>
+				<box topPadding="2" leftPadding="3"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{evaluatorComments}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25">
+			<frame>
+				<reportElement positionType="Float" x="2" y="0" width="561" height="25" uuid="fce4e55f-45a6-4fe4-8ec1-a63c0254356b"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="27" height="25" isPrintWhenDetailOverflows="true" uuid="9e64b66c-55cd-4ae9-aa1c-11e019e779c8"/>
+					<box topPadding="2" leftPadding="3" rightPadding="3">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="27" y="0" width="170" height="25" isPrintWhenDetailOverflows="true" uuid="2a5c818a-77c9-4099-99c7-af338107eb6f"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="197" y="0" width="120" height="25" isPrintWhenDetailOverflows="true" uuid="5fad4f5d-2794-4a69-b982-717c92681c09"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{answer}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="317" y="0" width="152" height="25" isPrintWhenDetailOverflows="true" uuid="5fad4f5d-2794-4a69-b982-717c92681c09"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{evalComment}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="469" y="0" width="92" height="25" isPrintWhenDetailOverflows="true" uuid="041346cc-85b7-4038-9b32-e00cea5e5641"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{attachments}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="317" y="0" width="152" height="25" isPrintWhenDetailOverflows="true" uuid="304c60b9-cefb-4daf-a89e-e1ab4a518c4c"/>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

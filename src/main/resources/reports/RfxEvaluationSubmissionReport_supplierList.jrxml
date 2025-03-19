@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSubmissionReport_supplierList" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ed6e0799-36b7-4663-83d0-b1f41463858e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="contactName" class="java.lang.String"/>
+	<field name="contactNo" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="73">
+			<line>
+				<reportElement x="0" y="37" width="575" height="1" uuid="e2603b4e-3549-4ed3-b44b-c44b4b6a92e4"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="4" width="149" height="30" uuid="841b673c-e466-4c0c-9348-f399d7cd6273"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier List]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="41" width="124" height="30" uuid="f84d4613-908a-4bb2-afea-068a2d01e3f4"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="41" width="131" height="30" uuid="ecf8ba3c-7fd6-4dc7-83b7-beffbbdc0f12"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="41" width="120" height="30" uuid="12826397-7622-4bc5-a09f-4869c18e7d8f"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Primary Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="41" width="92" height="30" uuid="aa8ab351-2d57-4294-b4f1-4ab8ebce692e"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contact No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="41" width="81" height="30" uuid="f18168fc-bbba-4a61-b0b9-80dbbe014b6f"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="41" width="26" height="30" uuid="7877cd8c-4ace-4dcc-bf6e-5c6c1bdffdec"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="5" width="26" height="30" uuid="0372bb94-a852-4fa6-b396-200a0efcb8a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="28" y="5" width="123" height="30" uuid="67e5ce9a-35ea-4d5e-8cf4-ea612b3b5a89"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="153" y="5" width="120" height="30" uuid="9cc3168f-7383-4443-8d4a-c1ae9ddf9ecf"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contactName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="273" y="5" width="131" height="30" forecolor="#6666FF" uuid="b470f980-adb5-41a7-9a4c-ce681155f63d"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="404" y="5" width="92" height="30" uuid="fa341d9c-556d-4fef-a187-c5be6df555f0"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contactNo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="496" y="5" width="81" height="30" uuid="885589df-9e73-4077-824c-fda518842a1a"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,2120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="full-definition"
+		template="/WEB-INF/views/jsp/layouts/defaultLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/defaultHeader.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/jsp/templates/defaultMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultFooter.jsp" />
+	</definition>
+
+	<!-- Subscription Definition -->
+	<definition name="subscription-definition"
+		template="/WEB-INF/views/jsp/layouts/subscriptionLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/subscriptionHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultTestimonialFooter.jsp" />
+	</definition>
+
+	<!--Procurhere public website Definition -->
+	<definition name="public-definition"
+		template="/WEB-INF/views/jsp/layouts/publicLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/publicHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/publicFooter.jsp" />
+	</definition>
+
+	<!--Procurhere Buyer Specific Supplier Signup -->
+	<definition name="supplier-signup-definition"
+		template="/WEB-INF/views/jsp/layouts/publicLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/supplierRegistrationHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/publicFooter.jsp" />
+	</definition>
+
+	<!-- Public Event Definition -->
+	<definition name="publicEvent-definition"
+		template="/WEB-INF/views/jsp/layouts/publicEventLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/publicEventHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultTestimonialFooter.jsp" />
+	</definition>
+
+
+
+	<!-- Simple Layout -->
+	<definition name="simple-definition"
+		template="/WEB-INF/views/jsp/layouts/simpleLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+	<!--Blank Defination -->
+	<definition name="blank-definition"
+		template="/WEB-INF/views/jsp/layouts/blankLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<!-- Base Definition -->
+	<definition name="header-definition"
+		template="/WEB-INF/views/jsp/layouts/headerLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/blankHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultFooter.jsp" />
+	</definition>
+
+	<definition name="registration-definition"
+		template="/WEB-INF/views/jsp/layouts/headerLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/blankHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/publicFooter.jsp" />
+	</definition>
+
+	<!-- error pages -->
+	<definition name="400_error" extends="blank-definition">
+		<put-attribute name="title" value="Browser refresh not Allowed" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/400_error.jsp" />
+	</definition>
+	<definition name="404_error" extends="blank-definition">
+		<put-attribute name="title" value="Not Found" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/404_error.jsp" />
+	</definition>
+	<definition name="403_error" extends="blank-definition">
+		<put-attribute name="title" value="Not Authorized" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/403_error.jsp" />
+	</definition>
+	<definition name="500_error" extends="blank-definition">
+		<put-attribute name="title" value="Server Error" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/500_error.jsp" />
+	</definition>
+	<definition name="invalid_event" extends="blank-definition">
+		<put-attribute name="title" value="Not Authorized" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/invalid_event_error.jsp" />
+	</definition>
+
+	<!-- Index Page <definition name="index" extends="blank-definition"> <put-attribute 
+		name="title" value="Procurehere" /> <put-attribute name="body" value="/index.jsp" 
+		/> </definition> -->
+	<!-- <definition name="index" extends="simple-definition"> <put-attribute 
+		name="title" value="Procurehere Login" /> <put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" 
+		/> </definition> Login Page <definition name="login" extends="simple-definition"> 
+		<put-attribute name="title" value="Procurehere Login" /> <put-attribute name="body" 
+		value="/WEB-INF/views/jsp/login.jsp" /> </definition> -->
+
+
+	<definition name="index" extends="public-definition">
+		<put-attribute name="title" value="Procurehere Login" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/login-new.jsp" />
+	</definition>
+	<!-- Login Page -->
+	<definition name="login" extends="public-definition">
+		<put-attribute name="title" value="Procurehere Login" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/login-new.jsp" />
+	</definition>
+
+
+
+	<definition name="confirmation" extends="simple-definition">
+		<put-attribute name="title" value="Supplier Registration Confirmation" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/confirmation.jsp" />
+	</definition>
+
+	<!-- Forgot Password -->
+	<definition name="resetPassword" extends="header-definition">
+		<put-attribute name="title" value="Reset Password Request" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/resetPassword.jsp" />
+	</definition>
+
+	<!-- Supplier Registration -->
+	<definition name="supplierSignup" extends="header-definition">
+		<put-attribute name="title" value="Supplier Registration Request" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierSignup.jsp" />
+	</definition>
+
+	<definition name="supplierProfile" extends="header-definition">
+		<put-attribute name="title" value="Supplier Registration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/registration.jsp" />
+	</definition>
+
+	<!-- Supplier Po -->
+	<definition name="supplierPoList" extends="full-definition">
+		<put-attribute name="title" value="Supplier PO List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierPoList.jsp" />
+	</definition>
+
+	<!-- Supplier Pr View -->
+	<definition name="supplierPrView" extends="full-definition">
+		<put-attribute name="title" value="Supplier PO View" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierPrView.jsp" />
+	</definition>
+
+
+	<definition name="supplierProfileDetails" extends="full-definition">
+		<put-attribute name="title" value="Supplier Profile Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierProfileDetails.jsp" />
+	</definition>
+
+
+	<definition name="supplierProfileCategory" extends="full-definition">
+		<put-attribute name="title" value="Supplier Profile Category" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierProfileCategory.jsp" />
+	</definition>
+
+
+	<definition name="suppCompProfileAttachments" extends="full-definition">
+		<put-attribute name="title"
+			value="Supplier Company Profile Attachments" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/suppCompProfileAttachments.jsp" />
+	</definition>
+
+
+	<definition name="suppAddEditTrackRecord" extends="full-definition">
+		<put-attribute name="title" value="Supplier Profile Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/suppAddEditTrackRecord.jsp" />
+	</definition>
+
+	<definition name="supplierProfileInfo" extends="full-definition">
+		<put-attribute name="title" value="Supplier Profile Info" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierProfileInfo.jsp" />
+	</definition>
+
+	<definition name="suppBoardOfDirectors" extends="full-definition">
+		<put-attribute name="title" value="Organizational Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/suppBoardOfDirectors.jsp" />
+	</definition>
+
+	<definition name="suppFinancialInformation" extends="full-definition">
+		<put-attribute name="title" value="Finanical Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/suppFinancialInformation.jsp" />
+	</definition>
+
+	<!-- <definition name="supplierTrackRecord" extends="header-definition"> 
+		<put-attribute name="title" value="Supplier Track Record" /> <put-attribute 
+		name="body" value="/WEB-INF/views/jsp/supplierregistration/supplierTrackRecord.jsp" 
+		/> </definition> -->
+
+	<definition name="forceChangePassword" extends="header-definition">
+		<put-attribute name="title" value="Change Password" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/password/changePassword.jsp" />
+	</definition>
+
+	<definition name="transaction" extends="full-definition">
+		<put-attribute name="title" value="Transaction " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/owner/transactions.jsp" />
+	</definition>
+
+	<definition name="ownerDashboard" extends="full-definition">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/owner/ownerDashboard.jsp" />
+	</definition>
+
+	<definition name="supplierSignupList" extends="full-definition">
+		<put-attribute name="title" value="Supplier Registration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierSignupList.jsp" />
+	</definition>
+
+	<definition name="supplierDetails" extends="full-definition">
+		<put-attribute name="title" value="Supplier Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierDetails.jsp" />
+	</definition>
+
+	<definition name="changePassword" extends="full-definition">
+		<put-attribute name="title" value="Change Password" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/password/changePassword.jsp" />
+	</definition>
+
+	<!-- Country Admin -->
+	<definition name="listCountry" extends="full-definition">
+		<put-attribute name="title" value="Country List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/country/countryList.jsp" />
+	</definition>
+	<definition name="country" extends="full-definition">
+		<put-attribute name="title" value="Country" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/country/createCountry.jsp" />
+	</definition>
+
+	<!-- Regions Admin -->
+	<definition name="regionList" extends="full-definition">
+		<put-attribute name="title" value="Region List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/regions/regionList.jsp" />
+	</definition>
+	<definition name="regionCreate" extends="full-definition">
+		<put-attribute name="title" value="Region" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/regions/createRegions.jsp" />
+	</definition>
+
+	<!-- State Admin -->
+	<definition name="listState" extends="full-definition">
+		<put-attribute name="title" value="State List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/State/stateList.jsp" />
+	</definition>
+	<definition name="state" extends="full-definition">
+		<put-attribute name="title" value="State " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/State/stateForm.jsp" />
+	</definition>
+
+	<definition name="emailSettings" extends="full-definition">
+		<put-attribute name="title" value="EmailSettings " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/EmailSettings/emailSettings.jsp" />
+	</definition>
+
+	<!-- CompanyStatus Admin -->
+
+	<definition name="companyStatus" extends="full-definition">
+		<put-attribute name="title" value="company Status" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/companyStatus/companyStatusForm.jsp" />
+	</definition>
+
+	<definition name="listCompanyStatus" extends="full-definition">
+		<put-attribute name="title" value="company Status" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/companyStatus/companyStatusList.jsp" />
+	</definition>
+
+	<!-- ServiceCategory Admin -->
+	<definition name="serviceCategory" extends="full-definition">
+		<put-attribute name="title" value="Service Category" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/serviceCategory/serviceCategory.jsp" />
+	</definition>
+	<definition name="listServiceCategory" extends="full-definition">
+		<put-attribute name="title" value="State List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/serviceCategory/listServiceCategory.jsp" />
+	</definition>
+
+	<!-- UserRole Admin -->
+	<definition name="role" extends="full-definition">
+		<put-attribute name="title" value="User Role" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/userRole/userRoleCreate.jsp" />
+	</definition>
+	<definition name="listRole" extends="full-definition">
+		<put-attribute name="title" value="User Role List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/userRole/userRoleList.jsp" />
+	</definition>
+
+
+	<!-- User Admin -->
+	<definition name="user" extends="full-definition">
+		<put-attribute name="title" value="User" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/user/userCreate.jsp" />
+	</definition>
+	<definition name="listUser" extends="full-definition">
+		<put-attribute name="title" value="User List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/user/userList.jsp" />
+	</definition>
+
+	<!-- Dashboards -->
+	<definition name="dashboard" extends="full-definition">
+		<put-attribute name="title" value="Owner Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/dashboard.jsp" />
+	</definition>
+
+	<!-- <definition name="supplierDashboard" extends="full-definition"> <put-attribute 
+		name="title" value="Supplier Dashboard" /> <put-attribute name="body" value="/WEB-INF/views/jsp/admin/supplierDashboard.jsp" 
+		/> </definition> -->
+
+	<definition name="buyerDashboard" extends="full-definition">
+		<put-attribute name="title" value="Buyer Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/buyerDashboard.jsp" />
+	</definition>
+
+	<!-- IndustryCategory Admin -->
+	<definition name="naics" extends="full-definition">
+		<put-attribute name="title" value="NAICS" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/industryCategory/naics.jsp" />
+	</definition>
+	<definition name="naicsList" extends="full-definition">
+		<put-attribute name="title" value="NAICS List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/industryCategory/naicsList.jsp" />
+	</definition>
+
+	<!-- TimeZone Admin -->
+	<definition name="timeZone" extends="full-definition">
+		<put-attribute name="title" value="Time Zone" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/timeZone/timeZoneCreate.jsp" />
+	</definition>
+	<definition name="listTimeZone" extends="full-definition">
+		<put-attribute name="title" value="Time Zone List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/timeZone/timeZoneList.jsp" />
+	</definition>
+
+	<!-- Basic Currency -->
+	<definition name="baseCurrency" extends="full-definition">
+		<put-attribute name="title" value="Basic Currency" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/baseCurrency/baseCurrency.jsp" />
+	</definition>
+	<definition name="baseCurrencyList" extends="full-definition">
+		<put-attribute name="title" value="Basic Currency List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/baseCurrency/baseCurrencyList.jsp" />
+	</definition>
+
+	<!-- Uom -->
+	<definition name="uom" extends="full-definition">
+		<put-attribute name="title" value="Uom" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/uom/uomCreate.jsp" />
+	</definition>
+	<definition name="uomList" extends="full-definition">
+		<put-attribute name="title" value="Uom List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/uom/uomList.jsp" />
+	</definition>
+
+	<!-- Agreement Type -->
+	<definition name="agreementType" extends="full-definition">
+		<put-attribute name="title" value="Agreement Type" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/agreementType/agreementTypeCreate.jsp" />
+	</definition>
+	<definition name="agreementTypeList" extends="full-definition">
+		<put-attribute name="title" value="Agreement Type List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/agreementType/agreementTypeList.jsp" />
+	</definition>
+
+	<!-- Cost Center -->
+	<definition name="costCenter" extends="full-definition">
+		<put-attribute name="title" value="CostCenter" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/costCenter/costCenter.jsp" />
+	</definition>
+	<definition name="listCostCenter" extends="full-definition">
+		<put-attribute name="title" value="CostCenter List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/costCenter/listCostCenter.jsp" />
+	</definition>
+
+	<!--Business Unit -->
+	<definition name="businessUnitCreate" extends="full-definition">
+		<put-attribute name="title" value="Business Unit" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/businessUnit/businessUnitCreate.jsp" />
+	</definition>
+	<definition name="listBusinessUnit" extends="full-definition">
+		<put-attribute name="title" value="Business Unit List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/businessUnit/businessUnitList.jsp" />
+	</definition>
+
+	<!-- Buyer Settings -->
+	<definition name="buyerSettings" extends="full-definition">
+		<put-attribute name="title" value="Buyer Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/buyerSettings/buyerSettings.jsp" />
+	</definition>
+	<definition name="transferOwnership" extends="full-definition">
+		<put-attribute name="title" value="Transfer Ownership" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/buyerSettings/transferOwnership.jsp" />
+	</definition>
+	<definition name="listBuyerSettings" extends="full-definition">
+		<put-attribute name="title" value="Buyer Settings List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/buyerSettings/listBuyerSettings.jsp" />
+	</definition>
+
+	<!-- Buyer Profile Setup -->
+	<definition name="buyerProfileSetup" extends="blank-definition">
+		<put-attribute name="title" value="Buyer Profile Setup" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/buyerProfileSetup.jsp" />
+	</definition>
+
+	<!-- <definition name="buyerProfileSetup" extends="public-definition"> <put-attribute 
+		name="title" value="Buyer Profile Setup" /> <put-attribute name="body" value="/WEB-INF/views/jsp/buyer/buyerProfileSetup.jsp" 
+		/> </definition> -->
+
+	<definition name="buyerTermsOfUse" extends="blank-definition">
+		<put-attribute name="title" value="Buyer Terms of Use" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/buyerTermsOfUse.jsp" />
+	</definition>
+
+	<!-- <definition name="buyerTermsOfUse" extends="public-definition"> <put-attribute 
+		name="title" value="Buyer Terms of Use" /> <put-attribute name="body" value="/WEB-INF/views/jsp/buyer/buyerTermsOfUse.jsp" 
+		/> </definition> -->
+	<definition name="supplierTermsOfUse" extends="blank-definition">
+		<put-attribute name="title" value="Supplier Terms of Use" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierTermsOfUse.jsp" />
+	</definition>
+
+	<!-- <definition name="supplierTermsOfUse" extends="public-definition"> 
+		<put-attribute name="title" value="Supplier Terms of Use" /> <put-attribute 
+		name="body" value="/WEB-INF/views/jsp/supplier/supplierTermsOfUse.jsp" /> 
+		</definition> -->
+	<!-- Buyer -->
+	<definition name="buyerList" extends="full-definition">
+		<put-attribute name="title" value="Buyer Listing" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/buyerList.jsp" />
+	</definition>
+
+	<definition name="buyerDetails" extends="full-definition">
+		<put-attribute name="title" value="Buyer Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/buyerDetails.jsp" />
+	</definition>
+
+	<definition name="buyerCreation" extends="full-definition">
+		<put-attribute name="title" value="Buyer Creation" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/buyerCreation.jsp" />
+	</definition>
+
+
+	<!-- Compose Message -->
+	<definition name="composeMessage" extends="full-definition">
+		<put-attribute name="title" value="Compose Message" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/composeMessage/composeMessage.jsp" />
+	</definition>
+
+	<!-- Supplier Dashboard -->
+	<definition name="supplierDashboard" extends="full-definition">
+		<put-attribute name="title" value="Supplier Admin Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierDashboard.jsp" />
+	</definition>
+
+	<!-- Rft Event -->
+	<definition name="createEventDetails" extends="full-definition">
+		<put-attribute name="title" value="Create Event" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventDetails.jsp" />
+	</definition>
+
+	<definition name="eventDescription" extends="full-definition">
+		<put-attribute name="title" value="Create Event" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventDescription.jsp" />
+	</definition>
+
+	<definition name="createEventDocuments" extends="full-definition">
+		<put-attribute name="title" value="Event Documents" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventDocuments.jsp" />
+	</definition>
+
+	<!-- Rft Meeting -->
+	<definition name="createMeeting" extends="full-definition">
+		<put-attribute name="title" value="Create/Edit Meeting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/createMeeting.jsp" />
+	</definition>
+	<definition name="summaryEventMeetingEdit" extends="full-definition">
+		<put-attribute name="title" value="Edit Meeting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/summaryEventMeetingEdit.jsp" />
+	</definition>
+	<definition name="viewMeeting" extends="full-definition">
+		<put-attribute name="title" value="View Meeting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/viewMeeting.jsp" />
+	</definition>
+
+	<definition name="meetingList" extends="full-definition">
+		<put-attribute name="title" value="Meeting List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/listMeetings.jsp" />
+	</definition>
+
+	<definition name="createBQList" extends="full-definition">
+		<put-attribute name="title" value="Event Bill of Quantity" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventBqList.jsp" />
+	</definition>
+
+	<definition name="createSorList" extends="full-definition">
+		<put-attribute name="title" value="Event Schedule of Rate" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventSorList.jsp" />
+	</definition>
+
+	<definition name="createEventBQ" extends="full-definition">
+		<put-attribute name="title" value="Event Bill of Quantity" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventCreateBQ.jsp" />
+	</definition>
+
+	<definition name="createEventSor" extends="full-definition">
+		<put-attribute name="title" value="Event Schedule of Rate" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/rfx/eventCreateSor.jsp" />
+	</definition>
+
+	<!-- BUYER RFX Progress -->
+	<definition name="eventProgress" extends="full-definition">
+		<put-attribute name="title" value="Event Progress" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventProgress.jsp" />
+	</definition>
+
+	<!-- Rfx Add and import Supplier -->
+	<definition name="importSupplier" extends="full-definition">
+		<put-attribute name="title" value="Suppliers" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/importSupplier.jsp" />
+	</definition>
+
+	<definition name="addSupplier" extends="full-definition">
+		<put-attribute name="title" value="Supplier Import" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/AddSupplier.jsp" />
+	</definition>
+
+	<!-- CQ -->
+	<definition name="eventCqList" extends="full-definition">
+		<put-attribute name="title" value="Event  Questionnaire" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventCqList.jsp" />
+	</definition>
+
+	<definition name="eventCqItemList" extends="full-definition">
+		<put-attribute name="title" value="Event  Questionnaire" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventCqItemList.jsp" />
+	</definition>
+
+	<!-- Rft Envelop -->
+	<definition name="envelop" extends="full-definition">
+		<put-attribute name="title" value="Create Envelop" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/createEnvelop.jsp" />
+	</definition>
+
+	<definition name="ongoingEnvelopList" extends="full-definition">
+		<put-attribute name="title" value="Envelop List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/ongoingEnvelopList.jsp" />
+	</definition>
+
+	<definition name="envelopList" extends="full-definition">
+		<put-attribute name="title" value="Envelope list" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/envelopList.jsp" />
+	</definition>
+
+	<!-- BuyerIndustry Category -->
+	<definition name="industryCategory" extends="full-definition">
+		<put-attribute name="title" value="Industry Category" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/industryCategory/industryCategory.jsp" />
+	</definition>
+	<definition name="listIndustryCategory" extends="full-definition">
+		<put-attribute name="title" value="Industry Category List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/industryCategory/listIndustryCategory.jsp" />
+	</definition>
+
+	<!-- Buyer Address -->
+	<definition name="buyerAddress" extends="full-definition">
+		<put-attribute name="title" value="Create Buyer Address" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/buyerAddress/buyerAddress.jsp" />
+	</definition>
+
+	<definition name="listBuyerAddress" extends="full-definition">
+		<put-attribute name="title" value="List Buyer Address" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/buyerAddress/buyerAddressList.jsp" />
+	</definition>
+
+	<!-- Product Category Maintenance -->
+	<definition name="productCategoryMaintenance" extends="full-definition">
+		<put-attribute name="title" value="Product Category Maintenance" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productCategoryMaintenance/productCategoryMaintenance.jsp" />
+	</definition>
+	<definition name="productCategoryMaintenanceList" extends="full-definition">
+		<put-attribute name="title" value="Product Category Maintenance List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productCategoryMaintenance/productCategoryMaintenanceList.jsp" />
+	</definition>
+
+
+	<!-- Product List Maintenance -->
+	<definition name="productListMaintenance" extends="full-definition">
+		<put-attribute name="title" value="Product List Maintenance" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productListMaintenance/productListMaintenance.jsp" />
+	</definition>
+	<definition name="productListMaintenanceList" extends="full-definition">
+		<put-attribute name="title" value="Product List Maintenance List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productListMaintenance/productListMaintenanceList.jsp" />
+	</definition>
+
+	<!-- Rft Summary -->
+	<definition name="eventSummary" extends="full-definition">
+		<put-attribute name="title" value="Event Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventSummary.jsp" />
+	</definition>
+	<definition name="viewSummary" extends="full-definition">
+		<put-attribute name="title" value="Event Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/viewSummary.jsp" />
+	</definition>
+
+
+	<!-- Supplier Event -->
+	<definition name="supplierEvent" extends="full-definition">
+		<put-attribute name="title" value="Supplier Event" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierEventDetails.jsp" />
+	</definition>
+
+	<definition name="viewSupplierTeam" extends="full-definition">
+		<put-attribute name="title" value="Event Team Member" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierEventTeamMembers.jsp" />
+	</definition>
+
+
+	<definition name="viewSupplierDocument" extends="full-definition">
+		<put-attribute name="title" value="Supplier Document" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierEventDocument.jsp" />
+	</definition>
+
+	<definition name="viewSupplierEventMessages" extends="full-definition">
+		<put-attribute name="title" value="Event Messages" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierEventMessages.jsp" />
+	</definition>
+
+	<definition name="viewSupplierEventSummary" extends="full-definition">
+		<put-attribute name="title" value="Supplier Event Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierEventSummary.jsp" />
+	</definition>
+
+	<definition name="viewSupplierMeeting" extends="full-definition">
+		<put-attribute name="title" value="Supplier Document" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierEventMeeting.jsp" />
+	</definition>
+
+	<definition name="viewSupplierQuestionnaire" extends="full-definition">
+		<put-attribute name="title" value="supplier Questionnaire" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierEventQuestionnaire.jsp" />
+	</definition>
+
+	<definition name="viewBqList" extends="full-definition">
+		<put-attribute name="title" value="supplier BillOfQuantity" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/supplierBq.jsp" />
+	</definition>
+
+
+	<definition name="viewSorList" extends="full-definition">
+		<put-attribute name="title" value="supplier ScheduleOfRate" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/supplierregistration/supplierSor.jsp" />
+	</definition>
+
+
+	<!-- RFX Template -->
+	<definition name="rfxTemplateList" extends="full-definition">
+		<put-attribute name="title" value="RFX Template" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/rfxTemplate/rfxTemplateList.jsp" />
+	</definition>
+	<definition name="rfxTemplate" extends="full-definition">
+		<put-attribute name="title" value="Rfx Template" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/rfxTemplate/rfxTemplate.jsp" />
+	</definition>
+
+	<definition name="rfxTemplateDocuments" extends="full-definition">
+		<put-attribute name="title" value="RFXTemplate Documents" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/buyer/rfxTemplate/rfxTemplateDocument.jsp" />
+	</definition>
+
+	<!-- Payment Transaction -->
+	<definition name="paymentTransactionList" extends="full-definition">
+		<put-attribute name="title" value="Payment Transactions" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/owner/paymentTransactionList.jsp" />
+	</definition>
+	<definition name="paymentTransaction" extends="full-definition">
+		<put-attribute name="title" value="Transaction Detail" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/owner/paymentTransaction.jsp" />
+	</definition>
+
+	<!-- Plan -->
+	<definition name="planList" extends="full-definition">
+		<put-attribute name="title" value="Plan Administration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/plan/planList.jsp" />
+	</definition>
+	<definition name="plan" extends="full-definition">
+		<put-attribute name="title" value="Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/plan/plan.jsp" />
+	</definition>
+	<!-- revised buyer plan -->
+	<definition name="buyerPlan" extends="full-definition">
+		<put-attribute name="title" value="Buyer Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/plan/BuyerPlan.jsp" />
+	</definition>
+
+	<!-- Supplier Plan -->
+	<definition name="supplierplanList" extends="full-definition">
+		<put-attribute name="title" value="Supplier Plan Administration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/supplierplan/supplierplanList.jsp" />
+	</definition>
+	<definition name="supplierplan" extends="full-definition">
+		<put-attribute name="title" value="Supplier Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/supplierplan/supplierplan.jsp" />
+	</definition>
+
+	<!-- Buyer Billing -->
+	<definition name="buyerAccountOverview" extends="full-definition">
+		<put-attribute name="title" value="Account Overview" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/accountOverview.jsp" />
+	</definition>
+	<definition name="buyerBilling" extends="full-definition">
+		<put-attribute name="title" value="Billing" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/billing.jsp" />
+	</definition>
+	<definition name="renewPlan" extends="full-definition">
+		<put-attribute name="title" value="Renew Subscription" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/renewPlan.jsp" />
+	</definition>
+	<definition name="renewPlanConfirm" extends="full-definition">
+		<put-attribute name="title" value="Renew Plan Confirmation" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/renewPlanConfirm.jsp" />
+	</definition>
+	<definition name="renewalSuccess" extends="full-definition">
+		<put-attribute name="title" value="Renew Successful" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/renewalSuccess.jsp" />
+	</definition>
+	<definition name="changePlan" extends="full-definition">
+		<put-attribute name="title" value="Change Subscription Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/changePlan.jsp" />
+	</definition>
+	<definition name="changePlanConfirm" extends="full-definition">
+		<put-attribute name="title" value="Change Plan Confirmation" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/changePlanConfirm.jsp" />
+	</definition>
+	<definition name="changePlanSuccess" extends="full-definition">
+		<put-attribute name="title" value="Change Plan Successful" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/billing/changePlanSuccess.jsp" />
+	</definition>
+
+	<!-- Subscription -->
+	<definition name="selectPlan" extends="subscription-definition">
+		<put-attribute name="title" value="Choose Subscription Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/selectPlan.jsp" />
+	</definition>
+	<definition name="buyPlan" extends="subscription-definition">
+		<put-attribute name="title" value="Purchase Subscription" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/buyPlan.jsp" />
+	</definition>
+	<definition name="confirmSubscription" extends="subscription-definition">
+		<put-attribute name="title" value="Confirm Subscription" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/confirmSubscription.jsp" />
+	</definition>
+
+	<definition name="subscriptionSuccess" extends="subscription-definition">
+		<put-attribute name="title" value="Subscription Successul" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/subscriptionSuccess.jsp" />
+	</definition>
+
+
+	<definition name="subscriptionError" extends="subscription-definition">
+		<put-attribute name="title" value="Subscription Error" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/subscriptionError.jsp" />
+	</definition>
+
+	<!-- Supplier Subscription -->
+
+	<definition name="subscribePlan" extends="full-definition">
+		<put-attribute name="title" value="Choose Subscription Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/subscribePlan.jsp" />
+	</definition>
+
+	<definition name="selectSupplierPlan" extends="subscription-definition">
+		<put-attribute name="title" value="Choose Subscription Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/selectSupplierPlan.jsp" />
+	</definition>
+	<!-- After login -->
+	<definition name="showSupplierConfirmSubscription" extends="full-definition">
+		<put-attribute name="title" value="Confirm Subscription" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/confirmSubscription.jsp" />
+	</definition>
+	<!-- From Outside -->
+	<definition name="supplierConfirmSubscription" extends="subscription-definition">
+		<put-attribute name="title" value="Confirm Subscription" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/confirmSubscription.jsp" />
+	</definition>
+	<!-- After Login -->
+	<definition name="showSupplierSubscriptionSuccess" extends="full-definition">
+		<put-attribute name="title" value="Subscription Successul" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/subscriptionSuccess.jsp" />
+	</definition>
+	<!-- From outside -->
+	<definition name="supplierSubscriptionSuccess" extends="subscription-definition">
+		<put-attribute name="title" value="Subscription Successul" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/subscriptionSuccess.jsp" />
+	</definition>
+	<!-- After Login -->
+	<definition name="showSupplierSubscriptionError" extends="full-definition">
+		<put-attribute name="title" value="Subscription Error" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/subscriptionError.jsp" />
+	</definition>
+	<!-- From outside -->
+	<definition name="supplierSubscriptionError" extends="subscription-definition">
+		<put-attribute name="title" value="Subscription Error" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/subscriptionError.jsp" />
+	</definition>
+
+	<!-- Event Creation Page -->
+	<definition name="createEvent" extends="full-definition">
+		<put-attribute name="title" value="Create Event" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/createEvent.jsp" />
+	</definition>
+
+	<!-- Profile Setting -->
+	<definition name="profileSetting" extends="full-definition">
+		<put-attribute name="title" value="Profile Setting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/profileSetting/profileSetting.jsp" />
+	</definition>
+
+	<!-- Pr -->
+	<definition name="createPrDetails" extends="full-definition">
+		<put-attribute name="title" value="PR Detail" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prCreate.jsp" />
+	</definition>
+
+	<definition name="prDocument" extends="full-definition">
+		<put-attribute name="title" value="PR Document" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prDocument.jsp" />
+	</definition>
+
+
+	<definition name="prSupplier" extends="full-definition">
+		<put-attribute name="title" value="PR Supplier Detail" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prSupplier.jsp" />
+	</definition>
+
+	<definition name="prDelivery" extends="full-definition">
+		<put-attribute name="title" value="PR Delivery Detail" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prDelivery.jsp" />
+	</definition>
+
+	<definition name="prPurchaseItem" extends="full-definition">
+		<put-attribute name="title" value="PR Purchase Item" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prPurchaseItem.jsp" />
+	</definition>
+
+	<definition name="prRemark" extends="full-definition">
+		<put-attribute name="title" value="PR Remark" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prRemark.jsp" />
+	</definition>
+
+	<definition name="prSummary" extends="full-definition">
+		<put-attribute name="title" value="PR Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prSummary.jsp" />
+	</definition>
+
+	<!-- Pr Approvals -->
+	<definition name="approvalList" extends="full-definition">
+		<put-attribute name="title" value="Approvers" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/approval/approvalList.jsp" />
+	</definition>
+
+	<!-- Pr View -->
+	<definition name="prView" extends="full-definition">
+		<put-attribute name="title" value="PR View" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/prView.jsp" />
+	</definition>
+
+	<!-- Pr Draft -->
+	<definition name="prDraftList" extends="full-definition">
+		<put-attribute name="title" value="PR Draft List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prDraftList.jsp" />
+	</definition>
+
+	<!-- Po -->
+	<definition name="poCreate" extends="full-definition">
+		<put-attribute name="title" value="PO Create" />
+		<put-attribute name="body"  value="/WEB-INF/views/jsp/prpo/poCreate.jsp" />
+	</definition>
+
+	<definition name="poDocumentView" extends="full-definition">
+		<put-attribute name="title" value="PO Document" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/poDocumentView.jsp" />
+	</definition>
+
+	<definition name="poSupplier" extends="full-definition">
+		<put-attribute name="title" value="PO Supplier Detail" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/prpo/poSupplier.jsp" />
+	</definition>
+
+	<definition name="poDelivery" extends="full-definition">
+		<put-attribute name="title" value="PO Delivery Detail" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/prpo/poDelivery.jsp" />
+	</definition>
+
+	<definition name="poPurchaseItem" extends="full-definition">
+		<put-attribute name="title" value="PO Purchase Item" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/prpo/poPurchaseItem.jsp" />
+	</definition>
+
+	<definition name="poRemark" extends="full-definition">
+		<put-attribute name="title" value="PO Remark" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/prpo/poRemark.jsp" />
+	</definition>
+
+	<definition name="poSummaryView" extends="full-definition">
+		<put-attribute name="title" value="PO Summary" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/prpo/poSummaryView.jsp" />
+	</definition>
+
+	<definition name="poSummary" extends="full-definition">
+		<put-attribute name="title" value="PO Summary" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/prpo/poSummary.jsp" />
+	</definition>
+
+
+	<definition name="poList" extends="full-definition">
+		<put-attribute name="title" value="PO List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/poList.jsp" />
+	</definition>
+
+	<!-- Po Report List -->
+	<definition name="poReportList" extends="full-definition">
+		<put-attribute name="title" value="PO Report List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/poReportList.jsp" />
+	</definition>
+
+	<!-- Pr Report List -->
+	<definition name="prReportList" extends="full-definition">
+		<put-attribute name="title" value="PR Report List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prReportList.jsp" />
+	</definition>
+
+
+	<!-- Pr Report List -->
+	<!-- <definition name="eventReportList" extends="full-definition"> <put-attribute 
+		name="title" value="Event Report List" /> <put-attribute name="body" value="/WEB-INF/views/jsp/prpo/eventReportList.jsp" 
+		/> </definition> -->
+	<!-- Pr Template -->
+	<definition name="prTemplate" extends="full-definition">
+		<put-attribute name="title" value="PR Template" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prTemplate.jsp" />
+	</definition>
+
+	<!-- Pr Template list -->
+	<definition name="prTemplateList" extends="full-definition">
+		<put-attribute name="title" value="PR Template List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/prTemplateList.jsp" />
+	</definition>
+
+	<!-- Pr Creation page -->
+	<definition name="createPr" extends="full-definition">
+		<put-attribute name="title" value="PR" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/createPr.jsp" />
+	</definition>
+
+	<definition name="createRfi" extends="full-definition">
+		<put-attribute name="title" value="RFX Template" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/createRfi.jsp" />
+	</definition>
+
+	<definition name="submissionReport" extends="full-definition">
+		<put-attribute name="title" value="Submission Report" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/submissionReport.jsp" />
+	</definition>
+	<!-- Rfx Public Events -->
+
+	<definition name="publicEvents" extends="subscription-definition">
+		<put-attribute name="title" value="Public Events" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/publicEvents.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultFooter.jsp" />
+	</definition>
+
+	<definition name="publicEvents" extends="publicEvent-definition">
+		<put-attribute name="title" value="Public Events" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/publicEvents.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultFooter.jsp" />
+	</definition>
+
+	<!-- Rft Event -->
+	<definition name="auctionRules" extends="full-definition">
+		<put-attribute name="title" value="Auction Rules" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/auctionRules.jsp" />
+	</definition>
+
+	<!-- Supplier Settings -->
+	<definition name="supplierSettings" extends="full-definition">
+		<put-attribute name="title" value="Supplier Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierSettings/supplierSettings.jsp" />
+	</definition>
+
+	<!-- Owner Settings -->
+	<definition name="ownerSettings" extends="full-definition">
+		<put-attribute name="title" value="Owner Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/ownerSettings/ownerSettings.jsp" />
+	</definition>
+
+	<definition name="approvalRoute" extends="full-definition">
+		<put-attribute name="title" value="create Approver" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/approval/createApprover.jsp" />
+	</definition>
+
+	<!-- Dutch Auction Console -->
+	<definition name="dutchAuctionConsole" extends="full-definition">
+		<put-attribute name="title" value="Auction Hall" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/auctionConsole/dutchAuctionConsole.jsp" />
+	</definition>
+
+	<!-- English Auction Console -->
+	<definition name="supplierEnglishAuctionConsole" extends="full-definition">
+		<put-attribute name="title" value="Auction Hall" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/auctionConsole/supplierEnglishAuctionConsole.jsp" />
+	</definition>
+
+	<!-- Global Search -->
+	<definition name="globalSearch" extends="full-definition">
+		<put-attribute name="title" value="Global Search" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/globalSearch/globalSearch.jsp" />
+	</definition>
+
+	<!--List Audit Trail -->
+	<definition name="listAuditTrail" extends="full-definition">
+		<put-attribute name="title" value="Audit Trail" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/auditTrail/ownerAuditTrail.jsp" />
+	</definition>
+
+	<!-- Buyer Profile Form -->
+	<definition name="buyerProfileForm" extends="full-definition">
+		<put-attribute name="title" value="Buyer Profile" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/buyerProfileForm.jsp" />
+	</definition>
+
+
+	<!-- Buyer English Auction Console -->
+	<definition name="buyerEnglishAuctionConsole" extends="full-definition">
+		<put-attribute name="title" value="Auction Hall" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/auctionConsole/buyerEnglishAuctionConsole.jsp" />
+	</definition>
+
+	<!-- Buyer Bq For Supplier -->
+	<definition name="eventBqForSupplier" extends="full-definition">
+		<put-attribute name="title" value="Bill of Quantity For Supplier" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/buyerBqForSupplier.jsp" />
+	</definition>
+
+	<!-- Buyer viewMailBox -->
+	<definition name="viewMailBox" extends="full-definition">
+		<put-attribute name="title" value="View MailBox" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/viewMailBox.jsp" />
+	</definition>
+
+	<!-- Supplier Billing -->
+	<definition name="supplierAccountOverview" extends="full-definition">
+		<put-attribute name="title" value="Account Overview" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/billing/supplierAccountOverview.jsp" />
+	</definition>
+	<definition name="supplierBilling" extends="full-definition">
+		<put-attribute name="title" value="Billing" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/billing/supplierBilling.jsp" />
+	</definition>
+
+	<definition name="buyerPlanList" extends="full-definition">
+		<put-attribute name="title" value="Plan Administration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/plan/BuyerPlanList.jsp" />
+	</definition>
+
+	<!-- Id Settings -->
+	<definition name="idSettingsList" extends="full-definition">
+		<put-attribute name="title" value="List ID Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/idSettingsList.jsp" />
+	</definition>
+	<definition name="idSettings" extends="full-definition">
+		<put-attribute name="title" value="ID Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/idSettingsCreate.jsp" />
+	</definition>
+
+	<!-- Promotional Code -->
+	<definition name="promotionalCode" extends="full-definition">
+		<put-attribute name="title" value="Promotional Code" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/plan/promotionalCode.jsp" />
+	</definition>
+
+	<definition name="promotionalCodeList" extends="full-definition">
+		<put-attribute name="title" value="Promotional Code List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/plan/promotionalCodeList.jsp" />
+	</definition>
+
+	<definition name="changeBuyerPlan" extends="full-definition">
+		<put-attribute name="title" value="Change Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/ChangeBuyerPlan.jsp" />
+	</definition>
+
+
+	<!-- Public Event Summary -->
+	<definition name="publicEventSummary" extends="publicEvent-definition">
+		<put-attribute name="title" value="Public Event Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/publicEventSummary.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultFooter.jsp" />
+	</definition>
+	<!-- Event AWARD -->
+	<definition name="eventAwardDetailForSAP" extends="full-definition">
+		<put-attribute name="title" value="Event Award" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/rfx/eventAward.jsp" />
+	</definition>
+
+	<!-- ERP setting -->
+	<definition name="erpSetup" extends="full-definition">
+		<put-attribute name="title" value="ERP Setup" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/erpSetup.jsp" />
+	</definition>
+
+	<definition name="erpEventDetail" extends="full-definition">
+		<put-attribute name="title" value="Event ERP Detail" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/erpEventDetail.jsp" />
+	</definition>
+
+	<definition name="erpManualList" extends="full-definition">
+		<put-attribute name="title" value="Event Manual ERP List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/erpManualList.jsp" />
+	</definition>
+
+	<!-- Logout Page -->
+	<definition name="logout" extends="public-definition">
+		<put-attribute name="title" value="Procurehere Logout" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/logout.jsp" />
+	</definition>
+
+	<definition name="forgetPasswordPage" extends="public-definition">
+		<put-attribute name="title" value="Forget Password" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/forgetPassword-new.jsp" />
+	</definition>
+
+	<definition name="forgetPasswordThankYou" extends="public-definition">
+		<put-attribute name="title" value="Thank You" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/forgetPasswordThankYou.jsp" />
+	</definition>
+
+	<definition name="freeTrialPlan" extends="public-definition">
+		<put-attribute name="title" value="Choose Subscription Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/freeTrialPlan.jsp" />
+	</definition>
+
+	<definition name="freeTrialSignup" extends="public-definition">
+		<put-attribute name="title" value="Sign Up" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/freeTrialSignup.jsp" />
+	</definition>
+
+	<definition name="freeTrialThankyou" extends="public-definition">
+		<put-attribute name="title" value="Thank You" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/freeTrialThankyou.jsp" />
+	</definition>
+
+	<definition name="userBasedBuyerCheckout" extends="public-definition">
+		<put-attribute name="title" value="User Base Buyer Checkout" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/userBasedBuyerCheckout.jsp" />
+	</definition>
+
+	<definition name="buyerSubscriptionThankyou" extends="public-definition">
+		<put-attribute name="title" value="Thank You" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/buyerSubscriptionThankyou.jsp" />
+	</definition>
+
+	<definition name="eventBasedBuyerCheckout" extends="public-definition">
+		<put-attribute name="title" value="Event Base Buyer Checkout" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/eventBasedBuyerCheckout.jsp" />
+	</definition>
+
+	<definition name="supplierCheckout" extends="public-definition">
+		<put-attribute name="title" value="Supplier Checkout" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/supplierCheckout.jsp" />
+	</definition>
+
+	<definition name="supplierCheckoutThankyou" extends="public-definition">
+		<put-attribute name="title" value="Supplier Thank You" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/supplierCheckoutThankyou.jsp" />
+	</definition>
+
+	<definition name="eventReportList" extends="full-definition">
+		<put-attribute name="title" value="Event Report List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/eventReportList.jsp" />
+	</definition>
+
+	<definition name="auctionReportList" extends="full-definition">
+		<put-attribute name="title" value="Auction Summary Report List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/auctionReportList.jsp" />
+	</definition>
+
+	<!-- Sourcing Form Template Creation -->
+
+	<definition name="sourceTemplateList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/sourceTemplateList.jsp" />
+	</definition>
+
+
+	<!-- Sourcing Form Template Edit -->
+
+	<definition name="updateSourcingForm" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Edit" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/updateSourcingForm.jsp" />
+	</definition>
+
+	<!-- Sourcing Form Questionnaries Creation -->
+
+	<definition name="AddSourcingFormCqList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Questionnaire" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/AddSourcingFormCqList.jsp" />
+	</definition>
+
+	<definition name="sourcingFormCqList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Questionnaire" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/sourcingFormCqList.jsp" />
+	</definition>
+
+
+	<definition name="sourcingTemplateDetails" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Details " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/sourcingTemplateDetails.jsp" />
+	</definition>
+
+	<definition name="sourcingCqItemList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Questionnaire " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/sourcingCqItemList.jsp" />
+	</definition>
+
+	<definition name="sourcingTemplateDocument" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Template Documents " />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/sourcingForm/sourcingTemplateDocument.jsp" />
+	</definition>
+
+	<!-- Sourcing Form Creation -->
+
+	<definition name="createSourcingFormRequest" extends="full-definition">
+		<put-attribute name="title" value="Create Sourcing Form" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/createSourcingFormRequest.jsp" />
+	</definition>
+
+	<definition name="createSourcingFormDetails" extends="full-definition">
+		<put-attribute name="title" value="Create Sourcing Form Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingFormRequestDetails.jsp" />
+	</definition>
+
+	<!-- Sourcing Form Summery -->
+	<definition name="sourcingRequestSummary" extends="full-definition">
+		<put-attribute name="title" value="Create Sourcing Form Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingRequestSummary.jsp" />
+	</definition>
+
+	<definition name="viewSourcingRequestSummary" extends="full-definition">
+		<put-attribute name="title" value="Create Sourcing Form Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/viewSourcingRequestSummary.jsp" />
+	</definition>
+	<!-- CQ -->
+	<definition name="sourcingFormRequestCqList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form Questionnaire" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingFormRequestCqsList.jsp" />
+	</definition>
+
+	<!-- BQ -->
+	<definition name="sourcingFormRequestBqList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Bill of Quantity" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingFormReqBqList.jsp" />
+	</definition>
+
+	<definition name="sourcingFormRequestSorList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Schedule of Rate" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingFormReqSorList.jsp" />
+	</definition>
+
+	<definition name="sourcingFormCreateBQ" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Bill of Quantity" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingFormCreateBQ.jsp" />
+	</definition>
+
+
+	<definition name="sourcingFormCreateSor" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Schedule of Rate" />
+		<put-attribute name="body"
+					   value="/WEB-INF/views/jsp/sourcingFormRequest/sourcingFormCreateSor.jsp" />
+	</definition>
+
+
+	<!-- Finance Company creation -->
+	<definition name="financeCompanyCreation" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Creation" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeCompanyCreation.jsp" />
+	</definition>
+
+	<definition name="financeCompanyList" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Listing" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeCompanyList.jsp" />
+	</definition>
+
+
+	<definition name="financeCompanyTermsOfUse" extends="blank-definition">
+		<put-attribute name="title" value="Finance Terms of Use" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeCompanyTermsOfUse.jsp" />
+	</definition>
+
+	<definition name="financeCompanyProfileSetup" extends="blank-definition">
+		<put-attribute name="title" value="Finance Company Profile Setup" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeCompanyProfileSetup.jsp" />
+	</definition>
+
+
+	<definition name="financeCompanyProfileForm" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Profile" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeCompanyProfileForm.jsp" />
+	</definition>
+	<definition name="financeDetails" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Listing" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeDetails.jsp" />
+	</definition>
+
+	<definition name="financeDashboard" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financedashbord/financeDashboard.jsp" />
+	</definition>
+	<definition name="financeSettings" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/financesettings/financeSettings.jsp" />
+
+	</definition>
+
+	<definition name="financeSupplierList" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Suppliers" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeSupplierList.jsp" />
+
+	</definition>
+
+	<definition name="financeSupplierDetails" extends="full-definition">
+		<put-attribute name="title" value="Finance Company Suppliers Details" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeSupplierDetails.jsp" />
+
+	</definition>
+
+	<definition name="financePoList" extends="full-definition">
+		<put-attribute name="title" value="Shared PO" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financePoList.jsp" />
+
+	</definition>
+
+
+	<definition name="financeRequestedPoList" extends="full-definition">
+		<put-attribute name="title" value="Requested PO" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financeRequestedPoList.jsp" />
+
+	</definition>
+
+
+
+	<definition name="financePOView" extends="full-definition">
+		<put-attribute name="title" value="PO View" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financePOView.jsp" />
+
+	</definition>
+
+
+	<definition name="financePoListForAdmin" extends="full-definition">
+		<put-attribute name="title" value="PO List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/financeCompany/financePoListForAdmin.jsp" />
+
+	</definition>
+
+	<definition name="buyerPlanPage" extends="full-definition">
+		<put-attribute name="title" value="Buyer Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/ChangeBuyerPlanTo.jsp" />
+
+	</definition>
+
+
+	<definition name="eventBasedBuyerPlan" extends="full-definition">
+		<put-attribute name="title" value="Buyer Event Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/eventBasedBuyerPlan.jsp" />
+
+	</definition>
+
+	<definition name="userBasedBuyerPlan" extends="full-definition">
+		<put-attribute name="title" value="Buyer User Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/subscription/userBasedBuyerPlan.jsp" />
+	</definition>
+
+	<definition name="buyPlan" extends="full-definition">
+		<put-attribute name="title" value="Buy Supplier Plan" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/buyPlan.jsp" />
+	</definition>
+
+
+	<definition name="supplierPlanCheckout" extends="full-definition">
+		<put-attribute name="title" value="Supplier Checkout" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/suppliersubscription/supplierPlanCheckout.jsp" />
+
+	</definition>
+
+	<definition name="apiSettings" extends="full-definition">
+		<put-attribute name="title" value="api Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/apiSettings.jsp" />
+	</definition>
+
+
+	<definition name="sourcingFormList" extends="full-definition">
+		<put-attribute name="title" value="Sourcing Form List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingForm/sourcingFormList.jsp" />
+	</definition>
+
+	<!-- Password Setting -->
+	<definition name="passwordSetting" extends="full-definition">
+		<put-attribute name="title" value="Password Setting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/passwordSetting/passwordSetting.jsp" />
+	</definition>
+
+
+
+	<!-- RfS Category -->
+
+	<definition name="rfsCategory" extends="full-definition">
+		<put-attribute name="title" value="Rfs Category" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/rfsCategory/rfsCategory.jsp" />
+	</definition>
+	<definition name="rfsCategoryList" extends="full-definition">
+		<put-attribute name="title" value="Rfs Category List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/rfsCategory/rfsCategoryList.jsp" />
+	</definition>
+
+	<!-- RfS Docuemnt -->
+
+	<definition name="rfsDocument" extends="full-definition">
+		<put-attribute name="title" value="RFS Document" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/sourcingFormRequest/rfsDocument.jsp" />
+	</definition>
+
+
+	<!-- Announcement -->
+	<definition name="announcementList" extends="full-definition">
+		<put-attribute name="title" value="Announcement List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/announcement/announcementList.jsp" />
+	</definition>
+	<definition name="announcementCreate" extends="full-definition">
+		<put-attribute name="title" value="Announcement" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/buyer/announcement/announcementCreate.jsp" />
+	</definition>
+	<!-- Supplier Tags -->
+	<definition name="supplierTags" extends="full-definition">
+		<put-attribute name="title" value="Supplier Tags" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/supplierTags/supplierTags.jsp" />
+	</definition>
+	<definition name="listSupplierTags" extends="full-definition">
+		<put-attribute name="title" value="Supplier Tags List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/supplierTags/listSupplierTags.jsp" />
+	</definition>
+
+	<definition name="productContractList" extends="full-definition">
+		<put-attribute name="title" value="Product Contract List  " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productContract/productContractList.jsp" />
+	</definition>
+
+	<definition name="productContractUpdate" extends="full-definition">
+		<put-attribute name="title" value="Product Contract" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/admin/productContract/productContractUpdate.jsp" />
+	</definition>
+
+	<definition name="productContractItemList" extends="full-definition">
+		<put-attribute name="title" value="Product Contract Item List  " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productContract/productContractItemList.jsp" />
+	</definition>
+	
+	<!-- Product Contract Summary -->
+	<definition name="productContractSummary" extends="full-definition">
+		<put-attribute name="title" value="Product Contract Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productContract/productContractSummary.jsp" />
+	</definition>
+	
+	<definition name="contractView" extends="full-definition">
+		<put-attribute name="title" value="Product Contract View" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/productContract/contractView.jsp" />
+	</definition>
+	
+
+	<!-- Declaration -->
+	<definition name="declarationList" extends="full-definition">
+		<put-attribute name="title" value="Declaration Configuration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/declaration/declarationList.jsp" />
+	</definition>
+	<definition name="declarationCreate" extends="full-definition">
+		<put-attribute name="title" value="Declaration Configuration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/declaration/declarationCreate.jsp" />
+	</definition>
+
+	<!-- Supplier Associated Buyer -->
+	<definition name="associatedBuyerList" extends="full-definition">
+		<put-attribute name="title" value="Buyers" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/associatedBuyerList.jsp" />
+	</definition>
+	<definition name="viewRequestedAssociateBuyer" extends="full-definition">
+		<put-attribute name="title" value="Buyers" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/viewRequestedAssociateBuyer.jsp" />
+	</definition>
+	<definition name="requestToAssociateBuyer" extends="full-definition">
+		<put-attribute name="title" value="Buyers" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/requestToAssociateBuyer.jsp" />
+	</definition>
+
+	<definition name="budgetDashboard" extends="full-definition">
+		<put-attribute name="title" value="Budget Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/budgetPlanner/budgetDashboard.jsp" />
+	</definition>
+	<definition name="manageBudget" extends="full-definition">
+		<put-attribute name="title" value="Budget List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/budgetPlanner/listBudget.jsp" />
+	</definition>
+	<definition name="transactionLogs" extends="full-definition">
+		<put-attribute name="title" value="Transaction Logs" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/budgetPlanner/transactionLogs.jsp" />
+	</definition>
+	<definition name="createBudget" extends="full-definition">
+		<put-attribute name="title" value="Budget" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/budgetPlanner/createBudget.jsp" />
+	</definition>
+	<definition name="budgetSummary" extends="full-definition">
+		<put-attribute name="title" value="Budget Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/budgetPlanner/budgetSummary.jsp" />
+	</definition>
+	<definition name="viewBudget" extends="full-definition">
+		<put-attribute name="title" value="View Budget" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/budgetPlanner/viewBudget.jsp" />
+	</definition>
+
+	<!-- Po View -->
+	<definition name="poView" extends="full-definition">
+		<put-attribute name="title" value="PO View" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/poView.jsp" />
+	</definition>
+
+	<!-- Supplier Id Settings -->
+	<definition name="supplierIdSettingsList" extends="full-definition">
+		<put-attribute name="title" value="List ID Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierIdSettingsList.jsp" />
+	</definition>
+	<definition name="supplierIdSettings" extends="full-definition">
+		<put-attribute name="title" value="ID Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp//supplier/supplieridSettingsCreate.jsp" />
+	</definition>
+
+	<!-- Supplier Do -->
+	<definition name="deliveryOrderList" extends="full-definition">
+		<put-attribute name="title" value="Delivery Order List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/deliveryOrderList.jsp" />
+	</definition>
+		<!-- Supplier DO View -->
+	<definition name="deliveryOrderView" extends="full-definition">
+		<put-attribute name="title" value="Delivery Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/deliveryOrderView.jsp" />
+	</definition>
+
+	<!-- Supplier Invoice -->
+	<definition name="invoiceList" extends="full-definition">
+		<put-attribute name="title" value="Invoice List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/invoiceList.jsp" />
+	</definition>
+		<!-- Supplier DO View -->
+	<definition name="invoiceView" extends="full-definition">
+		<put-attribute name="title" value="Invoice View" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/invoiceView.jsp" />
+	</definition>
+
+	<!-- Buyer DO List-->
+	<definition name="buyerDeliveryOrderList" extends="full-definition">
+		<put-attribute name="title" value="DO List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/buyerDeliveryOrderList.jsp" />
+	</definition>
+	
+	<!-- Buyer DO View -->
+	<definition name="buyerDeliveryOrderView" extends="full-definition">
+		<put-attribute name="title" value="Delivery Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/prpo/buyerDeliveryOrderView.jsp" />
+	</definition>
+
+	<!-- Buyer Invoice -->
+	<definition name="buyerInvoiceList" extends="full-definition">
+		<put-attribute name="title" value="Invoice List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/buyerInvoiceList.jsp" />
+	</definition>
+
+	<!-- Buyer Invoice Finance Request List -->
+	<definition name="buyerInvoiceFinanceRequestList" extends="full-definition">
+		<put-attribute name="title" value="Invoice Finance Request List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/invoicefinance/buyerInvoiceFinanceRequestList.jsp" />
+	</definition>
+	
+	<!-- Supplier Invoice Finance Request List -->
+	<definition name="supplierInvoiceFinanceRequestList" extends="full-definition">
+		<put-attribute name="title" value="Invoice Finance Request List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/invoicefinance/supplierInvoiceFinanceRequestList.jsp" />
+	</definition>
+	
+		<!-- Buyer Invoice View -->
+	<definition name="buyerInvoiceView" extends="full-definition">
+		<put-attribute name="title" value="Invoice View" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prpo/buyerInvoiceView.jsp" />
+	</definition>	
+		<!-- Supplier Footer Settting List -->
+	<definition name="footerList" extends="full-definition">
+		<put-attribute name="title" value="Footer List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/footerList.jsp" />
+	</definition>
+
+		<!-- Supplier Footer Cretae -->
+	<definition name="footerCreate" extends="full-definition">
+		<put-attribute name="title" value="Footer List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/footerCreate.jsp" />
+	</definition>
+
+	<!-- Supplier Forms -->
+	<definition name="supplierFormsList" extends="full-definition">
+		<put-attribute name="title" value="Supplier Forms List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/buyer/supplierForms/supplierFormsList.jsp" />
+	</definition>	
+	<definition name="supplierFormCreate" extends="full-definition">
+		<put-attribute name="title" value="Supplier Form" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/buyer/supplierForms/supplierFormCreate.jsp" />
+	</definition>	
+	<definition name="supplierFormSubmission" extends="full-definition">
+		<put-attribute name="title" value="Supplier Form" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/supplierFormSubmission.jsp" />
+	</definition>
+	<definition name="buyerSupplierFormSubView" extends="full-definition">
+		<put-attribute name="title" value="Supplier Form Submission" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/buyer/supplierForms/buyerSupplierFormSubView.jsp" />
+	</definition>
+
+	<!-- spent analysis -->
+	<definition name="spentAnalysis" extends="full-definition">
+		<put-attribute name="title" value="Spend Analysis" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/spentAnalysis/spentAnalysis.jsp" />
+	</definition>
+	
+	<definition name="grnList" extends="full-definition">
+		<put-attribute name="title" value="Goods Receipt Note List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/buyer/grn/grnList.jsp" />
+	</definition>
+	<definition name="grnBuyerView" extends="full-definition">
+		<put-attribute name="title" value="Goods Receipt Note View" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/buyer/grn/grnBuyerView.jsp" />
+	</definition>
+	<definition name="supplierGrnView" extends="full-definition">
+		<put-attribute name="title" value="Goods Receipt Note View" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/supplierGrnView.jsp" />
+	</definition>
+		<definition name="supplierGrnList" extends="full-definition">
+		<put-attribute name="title" value="Goods Receipt Note List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/supplierGrnList.jsp" />
+	</definition>
+
+	<definition name="buyerReportList" extends="full-definition">
+		<put-attribute name="title" value="Buyer Report" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/ownerSettings/reports/buyerReportList.jsp" />
+	</definition>
+	
+	<definition name="supplierReportList" extends="full-definition">
+		<put-attribute name="title" value="Supplier Report" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/ownerSettings/reports/supplierReportList.jsp" />
+	</definition>
+	
+	<!-- Payment Termes -->
+	<definition name="paymentTermes" extends="full-definition">
+		<put-attribute name="title" value="PaymentTerms" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/paymentTermes/paymentTermes.jsp" />
+	</definition>
+	
+	<definition name="listPaymentTerms" extends="full-definition">
+		<put-attribute name="title" value="PaymentTerms List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/paymentTermes/listPaymentTermes.jsp" />
+	</definition>
+	
+	<definition name="procurementMethodList" extends="full-definition">
+		<put-attribute name="title" value="Procurement Method List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/procurementMethod/procurementMethodList.jsp" />
+	</definition>
+	
+	<definition name="procurementMethod" extends="full-definition">
+		<put-attribute name="title" value="Procurement Method" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/procurementMethod/createProcurementMethod.jsp" />
+	</definition>
+	
+	<definition name="procurementCategoriesList" extends="full-definition">
+		<put-attribute name="title" value="Procurement Categories List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/procurementMethod/procurementCategoriesList.jsp" />
+	</definition>
+	
+	<definition name="procurementCategories" extends="full-definition">
+		<put-attribute name="title" value="Procurement Categories" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/procurementMethod/createProcurementCategories.jsp" />
+	</definition>
+
+	<definition name="register" extends="supplier-signup-definition">
+		<put-attribute name="title" value="Supplier Registration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/register.jsp" />
+	</definition>
+	<definition name="buyerSupplierCreationThankyou" extends="public-definition">
+		<put-attribute name="title" value="Supplier Thank You" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierregistration/buyerSupplierCreationThankyou.jsp" />
+	</definition>
+
+	<definition name="onBoardSupplierFormSubmission" extends="header-definition">
+		<put-attribute name="title" value="Supplier Form" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplier/supplierFormSubmission.jsp" />
+	</definition>
+	
+		<!-- Group Code -->
+	<definition name="groupCodeList" extends="full-definition">
+		<put-attribute name="title" value="Group Code List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/groupCode/groupCodeList.jsp" />
+	</definition>
+	
+	<definition name="groupCode" extends="full-definition">
+		<put-attribute name="title" value="GroupCode" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/groupCode/createGroupCode.jsp" />
+	</definition>
+	
+	<!-- TAT Report -->
+	<definition name="tatReportList" extends="full-definition">
+		<put-attribute name="title" value="TAT Report" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/buyer/tatReportList.jsp" />
+	</definition>
+	
+	<!-- RFX Analytics -->
+	<definition name="rfxAnalytics" extends="full-definition">
+		<put-attribute name="title" value="RFX Analytics" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/rfxAnalytics/rfxAnalytics.jsp" />
+	</definition>
+	
+	<!-- Sourcing Form Template Creation -->
+	<definition name="spTemplateList" extends="full-definition">
+		<put-attribute name="title" value="SP Template List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/spTemplateList.jsp" />
+	</definition>
+
+	<definition name="performanceTemplateDetails" extends="full-definition">
+		<put-attribute name="title" value="Performance Template Details " />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/spTemplateDetails.jsp" />
+	</definition>
+	
+	<definition name="scoreRatingList" extends="full-definition">
+		<put-attribute name="title" value="Score Rating" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/scoreRating/scoreRatingList.jsp" />
+	</definition>
+	
+	<definition name="scoreRating" extends="full-definition">
+		<put-attribute name="title" value="Score Rating" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/admin/scoreRating/scoreRatingCreate.jsp" />
+	</definition>
+	
+	<definition name="supplierPerformanceTemplateCriteriaList" extends="full-definition">
+		<put-attribute name="title" value="SP Template Criteria List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/spTemplateCriteriaList.jsp" />
+	</definition>
+	<definition name="supplierPerformanceList" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/supplierPerformanceList.jsp" />
+	</definition>
+	<definition name="supplierPerformanceSummary" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance Form Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/supplierPerformanceSummary.jsp" />
+	</definition>
+	<definition name="supplierPerformanceEvaluationDetails" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/supplierPerformanceEvaluationDetails.jsp" />
+	</definition>
+	
+	<definition name="viewSPFormSummary" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance Form Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/viewSPFormSummary.jsp" />
+	</definition>
+	
+	<definition name="evaluationProgress" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance Form Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/evaluationProgress.jsp" />
+	</definition>
+	
+	<definition name="evaluationScoreTab" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance Form Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/evaluationScoreTab.jsp" />
+	</definition>
+	
+	<definition name="viewEvaluatorFormSummary" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance Form Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/viewEvaluatorFormSummary.jsp" />
+	</definition>
+	
+	<definition name="viewEvaluatorApprovalSummary" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance Form Summary" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplierPerformance/viewEvaluatorApprovalSummary.jsp" />
+	</definition>
+	
+	<!-- Supplier Performance -->
+	<definition name="supplierPerformance" extends="full-definition">
+		<put-attribute name="title" value="Supplier Performance" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/supplier/supplierPerformance.jsp" />
+	</definition>
+	
+	<!-- SP Analytics -->
+	<definition name="supplierPerformanceAnalytics" extends="full-definition">
+		<put-attribute name="title" value="SP Analytics" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/supplierPerformance/supplierPerformanceAnalytics.jsp" />
+	</definition>
+	
+</tiles-definitions>

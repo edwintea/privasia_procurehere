@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_evaluationConclusion" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="1" bottomMargin="1" uuid="3c89d98f-37fe-4691-8898-95a76d5cdb6e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="evaluationConclusionUsers" uuid="a8b23520-3ba5-475f-b4fe-59840b9c70e3">
+		<field name="userIndex" class="java.lang.Integer"/>
+		<field name="userName" class="java.lang.String"/>
+		<field name="concludedDate" class="java.lang.String"/>
+		<field name="remark" class="java.lang.String"/>
+		<field name="fileName" class="java.lang.String"/>
+		<field name="fileDescription" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="EVALUATION_SUMMARY" class="java.util.Collection"/>
+	<field name="envelopeEvaluatedCount" class="java.lang.Integer"/>
+	<field name="envelopeNonEvaluatedCount" class="java.lang.Integer"/>
+	<field name="disqualifiedSupplierCount" class="java.lang.Integer"/>
+	<field name="remainingSupplierCount" class="java.lang.Integer"/>
+	<field name="evaluationConclusionUsersList" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="120" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="203" y="20" width="385" height="20" uuid="88436690-c8c9-4ef2-8317-82581268c0fe">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{envelopeEvaluatedCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="203" y="40" width="387" height="20" uuid="88436690-c8c9-4ef2-8317-82581268c0fe">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{envelopeNonEvaluatedCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="203" y="60" width="385" height="20" uuid="88436690-c8c9-4ef2-8317-82581268c0fe">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{disqualifiedSupplierCount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="203" y="80" width="387" height="20" uuid="88436690-c8c9-4ef2-8317-82581268c0fe"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{remainingSupplierCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="0" width="200" height="20" uuid="27311d2f-432d-40d1-aede-142546f8bd10">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Evaluation Concluded Prematurely]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="203" y="0" width="385" height="20" uuid="27311d2f-432d-40d1-aede-142546f8bd10">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="20" width="200" height="20" uuid="27311d2f-432d-40d1-aede-142546f8bd10">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Envelopes Evaluated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="40" width="200" height="20" uuid="27311d2f-432d-40d1-aede-142546f8bd10">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Envelopes Un-Evaluated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="60" width="200" height="20" uuid="27311d2f-432d-40d1-aede-142546f8bd10">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Disqualified Suppliers]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="80" width="200" height="20" uuid="27311d2f-432d-40d1-aede-142546f8bd10">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Remaining Qualified Suppliers]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="100" width="366" height="20" uuid="5422e96d-f3c5-44d4-ab98-f1593446b33a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Evaluation Conclusion Owners]]></text>
+			</staticText>
+		</band>
+		<band height="128" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="2" y="0" width="556" height="128" isRemoveLineWhenBlank="true" uuid="350057f5-73f5-4d69-bf39-9cc2c132d678"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="evaluationConclusionUsers" uuid="5c4c18ea-6fce-4d3d-bcdc-d891724f37d5">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{evaluationConclusionUsersList}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="128" width="556">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="2" y="0" width="11" height="25" uuid="54969b52-8b35-4bd9-9fbb-1e8fc5fa40e1"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{userIndex}+"."]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="14" y="0" width="542" height="25" uuid="54969b52-8b35-4bd9-9fbb-1e8fc5fa40e1"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{userName}+" - ("+$F{concludedDate}+")"]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="14" y="50" width="542" height="25" uuid="e7187b39-7891-4f14-bc08-e6537559239f"/>
+							<textElement textAlignment="Justified" verticalAlignment="Middle">
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="85" y="75" width="471" height="25" uuid="e7187b39-7891-4f14-bc08-e6537559239f">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{fileName}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="105" y="103" width="446" height="25" uuid="54969b52-8b35-4bd9-9fbb-1e8fc5fa40e1">
+								<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Justified" verticalAlignment="Top">
+								<font size="9" isBold="false" isItalic="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{fileDescription}!=null?$F{fileDescription}:"N/A"]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement positionType="Float" x="14" y="25" width="118" height="25" uuid="50417a1a-a0eb-45cc-8a5b-4074d470b755"/>
+							<textElement verticalAlignment="Middle">
+								<font size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+							</textElement>
+							<text><![CDATA[Remarks:]]></text>
+						</staticText>
+						<staticText>
+							<reportElement positionType="Float" x="14" y="75" width="71" height="25" uuid="4e54f875-3169-430f-91eb-d4b7450ec6fb"/>
+							<textElement verticalAlignment="Middle">
+								<font size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+							</textElement>
+							<text><![CDATA[Attachment:]]></text>
+						</staticText>
+						<staticText>
+							<reportElement positionType="Float" x="14" y="103" width="93" height="25" uuid="bc042189-9738-4c88-b46d-2342826f9e9d"/>
+							<textElement verticalAlignment="Top">
+								<font size="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+							</textElement>
+							<text><![CDATA[File Description:]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

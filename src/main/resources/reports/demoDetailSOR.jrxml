@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demoDetail" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3e3a179b-220e-4761-baa7-011e41c8af09">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{itemName}.equals( "Grand Total Before Additional Charges" ) ||$F{itemName}.equals( "Additional Charges" )||$F{itemName}.equals( "Grand Total After Additional Charges" )]]></conditionExpression>
+			<style isBold="true" pdfFontName="Helvetica-Bold"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="decimal" class="java.lang.String"/>
+	<parameter name="supplierName" class="java.lang.String"/>
+	<parameter name="supplierName1" class="java.lang.String"/>
+	<parameter name="supplierName2" class="java.lang.String"/>
+	<parameter name="currencyCode" class="java.lang.String"/>
+	<parameter name="sorName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="itemName" class="java.lang.String"/>
+	<field name="uom" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="supplier1TotalAmt" class="java.math.BigDecimal"/>
+	<field name="supplier2TotalAmt" class="java.math.BigDecimal"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<field name="revisedBidSubmitted" class="java.lang.Boolean"/>
+	<field name="revisedBidSubmitted1" class="java.lang.Boolean"/>
+	<field name="revisedBidSubmitted2" class="java.lang.Boolean"/>
+	<field name="level" class="java.lang.String"/>
+	<pageHeader>
+		<band height="30">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.intValue() == 1)]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true" bookmarkLevel="2">
+				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="0" y="0" width="554" height="30" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="5e6a764c-8b0d-4091-b748-405cc80a5571">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="2">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Top 3 Suppliers Comparison Table" +"  : "+$P{sorName}]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Summary and Comparison Table  "+$P{sorName}]]></anchorNameExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="70">
+			<frame>
+				<reportElement isPrintRepeatedValues="false" x="0" y="0" width="555" height="70" isPrintInFirstWholeBand="true" uuid="a6db6d97-e233-40cd-a884-3a38f55ee633">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<frame>
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="217" y="0" width="338" height="70" isPrintInFirstWholeBand="true" uuid="594f18e0-c29d-4bb5-9f7e-32af6525c86c"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="0" y="0" width="109" height="30" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="5a9edfa2-76b2-41e8-9c9c-97a98bc027f4"/>
+						<box topPadding="6">
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{supplierName}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="109" y="0" width="109" height="30" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="9ee22881-e92e-4a8f-b34e-3a4bb5cfcb47">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<box topPadding="6">
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{supplierName1}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" mode="Opaque" x="218" y="0" width="119" height="30" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="78168d2e-a7af-407a-88f9-f02d613534e2">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<box topPadding="6">
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{supplierName2}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" isPrintRepeatedValues="false" mode="Opaque" x="0" y="30" width="109" height="40" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="9124c0ab-ef67-407c-9014-4bf389d0e2f1">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box topPadding="2" leftPadding="1">
+							<pen lineWidth="0.25"/>
+							<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Rate"]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" isPrintRepeatedValues="false" mode="Opaque" x="109" y="30" width="109" height="40" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="cbd4379e-8daa-49b4-9183-a6a8d4400ac3">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box topPadding="2" leftPadding="1">
+							<pen lineWidth="0.25"/>
+							<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Rate"]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement positionType="Float" isPrintRepeatedValues="false" mode="Opaque" x="218" y="30" width="119" height="40" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="0f7c3b87-0559-4821-b4a1-451ca4f3eecc">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box topPadding="2" leftPadding="1">
+							<pen lineWidth="0.25"/>
+							<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center">
+							<font isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Rate"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" stretchType="ContainerHeight" isPrintRepeatedValues="false" x="0" y="0" width="217" height="70" isPrintInFirstWholeBand="true" uuid="5cc49890-e3fe-48c0-bf49-c6b512de519b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<staticText>
+						<reportElement positionType="Float" stretchType="ContainerHeight" isPrintRepeatedValues="false" mode="Opaque" x="140" y="0" width="77" height="70" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="762d9964-ac1d-4e5b-9053-025eb58f2a35"/>
+						<box topPadding="6" leftPadding="5" rightPadding="5">
+							<pen lineWidth="0.25"/>
+							<topPen lineWidth="0.25"/>
+							<leftPen lineWidth="0.25"/>
+							<bottomPen lineWidth="0.25"/>
+							<rightPen lineWidth="0.25"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[UOM]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" stretchType="ContainerHeight" isPrintRepeatedValues="false" mode="Opaque" x="0" y="0" width="40" height="70" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="cc6af4ee-937f-4f51-8d2c-1e73b8de8454"/>
+						<box topPadding="6" leftPadding="5" rightPadding="5">
+							<pen lineWidth="0.25"/>
+							<topPen lineWidth="0.25"/>
+							<leftPen lineWidth="0.25"/>
+							<bottomPen lineWidth="0.25"/>
+							<rightPen lineWidth="0.25"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[No.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" stretchType="ContainerHeight" isPrintRepeatedValues="false" mode="Opaque" x="40" y="0" width="100" height="70" isPrintInFirstWholeBand="true" backcolor="#DCDCDC" uuid="d949025d-56b3-41f1-ba60-c610e806b12a"/>
+						<box topPadding="6" leftPadding="5" rightPadding="5">
+							<pen lineWidth="0.25"/>
+							<topPen lineWidth="0.25"/>
+							<leftPen lineWidth="0.25"/>
+							<bottomPen lineWidth="0.25"/>
+							<rightPen lineWidth="0.25"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[Item]]></text>
+					</staticText>
+				</frame>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Style1" stretchType="RelativeToTallestObject" x="0" y="0" width="40" height="30" uuid="45800b89-7370-47ae-931f-f0f3c1d49706"/>
+				<box topPadding="2" leftPadding="1">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Style1" stretchType="RelativeToTallestObject" x="40" y="0" width="100" height="30" uuid="ddd82b39-d615-4ed3-8dc2-2713e26cd89f"/>
+				<box topPadding="2" leftPadding="1">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Style1" stretchType="RelativeToTallestObject" x="140" y="0" width="77" height="30" uuid="36cda6cd-4568-4e41-8587-514249d85e51"/>
+				<box topPadding="2" leftPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uom}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="217" y="0" width="109" height="30" uuid="afd03c3f-f064-40ed-942e-24c16e438dea">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Style1" stretchType="RelativeToTallestObject" x="0" y="0" width="109" height="30" uuid="5c42e1d7-7f89-42ce-b8bb-70033348f534">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="2" rightPadding="1">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{amount}!=null?$F{amount}:""]]></textFieldExpression>
+					<patternExpression><![CDATA[$P{decimal}.equals("1") ? "#,###,###,##0.0" : $P{decimal}.equals("2") ? "#,###,###,##0.00" : $P{decimal}.equals("3") ? "#,###,###,##0.000" : $P{decimal}.equals("4") ? "#,###,###,##0.0000" : 
+$P{decimal}.equals("5") ? "#,###,###,##0.00000" : $P{decimal}.equals("6") ? "#,###,###,##0.000000" :
+"#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="102" y="0" width="6" height="30" forecolor="#FF0400" uuid="e0b9fc0a-829b-427c-a0b5-d37c195151f5">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{revisedBidSubmitted}!=null &&$F{revisedBidSubmitted}.booleanValue() == false&&$F{amount}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="2"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{revisedBidSubmitted}!=null &&$F{revisedBidSubmitted}.booleanValue() == false?"*":""]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="326" y="0" width="109" height="30" uuid="cf1d54ec-3231-4fa5-bf40-25cbc8eb1f80">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Style1" stretchType="RelativeToTallestObject" x="0" y="0" width="109" height="32" uuid="3bcb1468-164e-439a-ad14-ffa0d38b7111">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="2" rightPadding="2">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{supplier1TotalAmt}!=null ?$F{supplier1TotalAmt}:""]]></textFieldExpression>
+					<patternExpression><![CDATA[$P{decimal}.equals("1") ? "#,###,###,##0.0" : $P{decimal}.equals("2") ? "#,###,###,##0.00" : $P{decimal}.equals("3") ? "#,###,###,##0.000" : $P{decimal}.equals("4") ? "#,###,###,##0.0000" : 
+$P{decimal}.equals("5") ? "#,###,###,##0.00000" : $P{decimal}.equals("6") ? "#,###,###,##0.000000" :
+"#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="101" y="0" width="6" height="30" forecolor="#FF0400" uuid="b9c0147a-70af-49e8-9f65-1d4c17cad868">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{revisedBidSubmitted1}!=null &&$F{revisedBidSubmitted1}.booleanValue() == false&&$F{supplier1TotalAmt}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="2"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{revisedBidSubmitted1}!=null &&$F{revisedBidSubmitted1}.booleanValue() == false?"*":""]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="435" y="0" width="120" height="30" uuid="dee5de8b-60c7-41d6-bdd7-3c177bcadb8d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Style1" stretchType="RelativeToTallestObject" x="0" y="0" width="120" height="32" uuid="8b0213a3-ab08-4506-9e28-92921cc595aa">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="2" rightPadding="2">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{supplier2TotalAmt}!=null ? $F{supplier2TotalAmt}:""]]></textFieldExpression>
+					<patternExpression><![CDATA[$P{decimal}.equals("1") ? "#,###,###,##0.0" : $P{decimal}.equals("2") ? "#,###,###,##0.00" : $P{decimal}.equals("3") ? "#,###,###,##0.000" : $P{decimal}.equals("4") ? "#,###,###,##0.0000" : 
+$P{decimal}.equals("5") ? "#,###,###,##0.00000" : $P{decimal}.equals("6") ? "#,###,###,##0.000000" :
+"#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="112" y="0" width="6" height="30" forecolor="#FF0400" uuid="cd151ab8-b41d-479c-95d5-ee61ce042ae3">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{revisedBidSubmitted2}!=null &&$F{revisedBidSubmitted2}.booleanValue() == false&&$F{supplier2TotalAmt}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="2"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{revisedBidSubmitted2}!=null &&$F{revisedBidSubmitted2}.booleanValue() == false?"*":""]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band height="35">
+			<textField>
+				<reportElement mode="Transparent" x="0" y="0" width="554" height="35" isRemoveLineWhenBlank="true" forecolor="#FF0E0A" uuid="793d45a9-d0e7-4024-9748-7d81b7e139e1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[($F{revisedBidSubmitted}!=null &&$F{revisedBidSubmitted}.booleanValue() == false)||($F{revisedBidSubmitted1}!=null &&$F{revisedBidSubmitted1}.booleanValue() == false)||
+($F{revisedBidSubmitted2}!=null &&$F{revisedBidSubmitted2}.booleanValue() == false)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Note :  *  The supplier has not submitted its revised price yet. The unit prices reflect the unrevised pre-auction prices. Refer to the Lump Sum Grand Total after additional charges price for the Post Auction Total"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

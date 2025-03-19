@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateSourcingSummaryTeamMember" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="75c831a5-ae16-4e5c-a19f-eec323f066c9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="owner" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="teamMemberType" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="199" height="30" backcolor="#F1F1F1" uuid="e9a99966-0bc2-4739-8dfe-dbbf50793dd1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f351e3de-3e5f-4006-a5be-4e482ae84511"/>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[User Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="199" y="0" width="198" height="30" backcolor="#F1F1F1" uuid="53f86656-f35f-48e3-843e-097bd6bb1b09">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03a1d668-9b5a-47ab-9323-6e7bfabdd937"/>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Login Email	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="397" y="0" width="168" height="30" backcolor="#F1F1F1" uuid="4c5e8b49-d5ed-418b-8b64-0712adfbc54e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a23e4c6-8322-4722-9c29-a8e061957cfd"/>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Access]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="199" height="30" uuid="2604996f-9df7-4816-88ba-addbe2b5922a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f351e3de-3e5f-4006-a5be-4e482ae84511"/>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="199" y="0" width="198" height="30" uuid="d232420a-f1e6-4a90-8fc9-a3ded26065c0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03a1d668-9b5a-47ab-9323-6e7bfabdd937"/>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="397" y="0" width="168" height="30" uuid="9701e5fb-5b82-4ce7-becd-6cc7dd2870a3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a23e4c6-8322-4722-9c29-a8e061957cfd"/>
+				</reportElement>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teamMemberType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

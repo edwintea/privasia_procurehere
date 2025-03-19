@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>1.0</tlib-version>
+	<short-name>Functions for template</short-name>
+	<function>
+		<name>contains</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean contains(java.util.List, java.lang.Object)
+		</function-signature>
+	</function>
+	<function>
+		<name>defaultValue</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>java.lang.String defaultValue(java.util.List, com.privasia.procurehere.core.enums.RfxTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>visibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(java.util.List, com.privasia.procurehere.core.enums.RfxTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>readonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(java.util.List, com.privasia.procurehere.core.enums.RfxTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>required</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(java.util.List, com.privasia.procurehere.core.enums.RfxTemplateFieldName)
+		</function-signature>
+	</function>
+	
+	<function>
+		<name>prDefaultValue</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>java.lang.String defaultValue(java.util.List, com.privasia.procurehere.core.enums.PrTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>prVisibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(java.util.List, com.privasia.procurehere.core.enums.PrTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>prReadonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(java.util.List, com.privasia.procurehere.core.enums.PrTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>prRequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(java.util.List, com.privasia.procurehere.core.enums.PrTemplateFieldName)
+		</function-signature>
+	</function>
+	
+		<function>
+		<name>prApprovalVisibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(com.privasia.procurehere.core.entity.PrTemplate)
+		</function-signature>
+	</function>
+	<function>
+		<name>prApprovalReadonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(com.privasia.procurehere.core.entity.PrTemplate)
+		</function-signature>
+	</function>
+	<function>
+		<name>prApprovalRequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(com.privasia.procurehere.core.entity.PrTemplate)
+		</function-signature>
+	</function>
+	<function>
+		<name>prMinimumApprovalCountOptional</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(com.privasia.procurehere.core.entity.PrTemplate)
+		</function-signature>
+	</function>
+	<function>
+		<name>prMinimumApprovalCountRequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(com.privasia.procurehere.core.entity.PrTemplate)
+		</function-signature>
+	</function>
+	
+
+
+<function>
+    <name>poApprovalVisibility</name>
+    <function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+    <function-signature>boolean visibility(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+</function>
+<function>
+    <name>poApprovalReadonly</name>
+    <function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+    <function-signature>boolean readonly(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+</function>
+<function>
+    <name>poApprovalRequired</name>
+    <function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+    <function-signature>boolean required(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+</function>
+
+	<function>
+		<name>grApprovalVisibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+	</function>
+	<function>
+		<name>grApprovalReadonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+	</function>
+	<function>
+		<name>grApprovalRequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+	</function>
+
+	<function>
+		<name>invoiceApprovalVisibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+	</function>
+	<function>
+		<name>invoiceApprovalReadonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+	</function>
+	<function>
+		<name>invoiceApprovalRequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(com.privasia.procurehere.core.entity.PrTemplate)</function-signature>
+	</function>
+
+	<function>
+		<name>rfxApprovalVisibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(com.privasia.procurehere.core.entity.RfxTemplate)
+		</function-signature>
+	</function>
+	<function>
+		<name>rfxApprovalReadonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(com.privasia.procurehere.core.entity.RfxTemplate)
+		</function-signature>
+	</function>
+	<function>
+		<name>rfxApprovalRequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(com.privasia.procurehere.core.entity.RfxTemplate)
+		</function-signature>
+	</function>
+	
+	<function>
+		<name>rfsdefaultValue</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>java.lang.String defaultValue(java.util.List, com.privasia.procurehere.core.enums.SourcingTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>rfsvisibility</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean visibility(java.util.List, com.privasia.procurehere.core.enums.SourcingTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>rfsreadonly</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean readonly(java.util.List, com.privasia.procurehere.core.enums.SourcingTemplateFieldName)
+		</function-signature>
+	</function>
+	<function>
+		<name>rfsrequired</name>
+		<function-class>com.privasia.procurehere.core.utils.TemplateUtils</function-class>
+		<function-signature>boolean required(java.util.List, com.privasia.procurehere.core.enums.SourcingTemplateFieldName)
+		</function-signature>
+	</function>
+</taglib>

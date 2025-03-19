@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_commentDetails" pageWidth="595" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="075f3cad-3571-4aa7-bc26-e8e5655d4ac5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="comment" class="java.lang.String"/>
+	<field name="createdBy" class="java.lang.String"/>
+	<field name="createdDate" class="java.util.Date"/>
+	<field name="imgPath" class="java.lang.String"/>
+	<field name="approved" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="56" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="17" y="10" width="183" height="25" uuid="d6df72e8-c032-4d6f-bc1c-baef2949fe24"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{createdBy}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="E dd/MM/yyyy hh:mm a" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="200" y="10" width="244" height="25" uuid="335646c2-6756-46bb-9dbe-2354c5ba5802"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{createdDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="17" y="35" width="483" height="20" forecolor="#CCCCCC" uuid="975e91e8-db57-4c35-b39a-ab45ccd436fb"/>
+				<box leftPadding="3"/>
+				<textFieldExpression><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,16 @@
+/.idea/
+/dist/
+/TEMP/
+/src/main/webapp/WEB-INF/classes/
+/src/main/webapp/WEB-INF/lib/
+*.bak
+
+/target/
+/.apt_generated/
+/.factorypath
+.settings
+/bin
+.metadata
+.project
+.classpath
+.vscode/

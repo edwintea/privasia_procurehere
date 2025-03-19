@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_auctionRules" pageWidth="595" pageHeight="1100" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="736b7ef7-5768-45cc-a2c9-ebd2af63e634">
+	<property name="ireport.zoom" value="1.610510000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="reminderDetails" uuid="8ddf9c69-c0bb-46eb-a882-67e93b729b77">
+		<field name="reminderDate" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="notifyDetails" uuid="8ddf9c69-c0bb-46eb-a882-67e93b729b77">
+		<field name="userName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="CONTRACT_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="items" class="java.util.Collection"/>
+	<field name="contractId" class="java.lang.String"/>
+	<field name="contractName" class="java.lang.String"/>
+	<field name="eventId" class="java.lang.String"/>
+	<field name="contractCreator" class="java.lang.String"/>
+	<field name="sapContractNumber" class="java.lang.String"/>
+	<field name="referenceNumber" class="java.lang.String"/>
+	<field name="previousContractNumber" class="java.lang.String"/>
+	<field name="businessUnit" class="java.lang.String"/>
+	<field name="groupCode" class="java.lang.String"/>
+	<field name="supplier" class="java.lang.String"/>
+	<field name="procurementCategory" class="java.lang.String"/>
+	<field name="agreementType" class="java.lang.String"/>
+	<field name="contractStartDate" class="java.lang.String"/>
+	<field name="contractEndDate" class="java.lang.String"/>
+	<field name="baseCurrency" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="contractValue" class="java.lang.String"/>
+	<field name="contractExpiryReminder" class="java.util.List"/>
+	<field name="reminderNotifyUser" class="java.util.List"/>
+	<field name="items" class="java.util.List"/>
+	<field name="contractAudit" class="java.util.List"/>
+	<field name="documents" class="java.util.List"/>
+	<field name="approvalList" class="java.util.List"/>
+	<field name="renewalContract" class="java.lang.String"/>
+	<field name="approvalComments" class="java.util.List"/>
+	<field name="teamMembers" class="java.util.List"/>
+	<field name="documentDate" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<detail>
+		<band height="630" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="2" width="567" height="23" uuid="e35f96e3-2dcc-4016-ac80-424f418c8282">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box topPadding="3" leftPadding="0"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[CONTRACT SUMMARY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="25" width="567" height="20" uuid="548b2e18-23a3-44e5-89a7-51a484baf7ac"/>
+				<box topPadding="3" leftPadding="0"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Contract Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="45" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Contract ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="191" y="45" width="386" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0"/>
+				<textFieldExpression><![CDATA[$F{contractId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="65" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Contract Name]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="191" y="65" width="386" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0"/>
+				<textFieldExpression><![CDATA[$F{contractName}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="10" y="85" width="577" height="20" isRemoveLineWhenBlank="true" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[($F{eventId}).length()>0]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" isRemoveLineWhenBlank="true" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<text><![CDATA[Event ID]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="181" y="0" width="386" height="20" isRemoveLineWhenBlank="true" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[($F{eventId}).length()>0]]></printWhenExpression>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{eventId}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="105" width="577" height="20" isRemoveLineWhenBlank="true" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<text><![CDATA[Contract Creator]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="181" y="0" width="386" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{contractCreator}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="132" width="577" height="20" isRemoveLineWhenBlank="true" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="013d9bf4-f836-4e64-a396-2468f6051ab3">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<printWhenExpression><![CDATA[($F{sapContractNumber}).length()>0]]></printWhenExpression>
+					</reportElement>
+					<text><![CDATA[SAP Contract Number]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="181" y="0" width="386" height="20" uuid="7312a140-03e8-4d00-bbed-b6da1d85cb56">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{sapContractNumber}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="155" width="581" height="20" uuid="6f021489-9c63-4710-a8ae-dfd55132f94e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="3" leftPadding="0"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Contract Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="175" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Renewal Contract]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="175" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0"/>
+				<textFieldExpression><![CDATA[$F{renewalContract}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="195" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Reference Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="190" y="195" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{referenceNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="215" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Previous Contract Number]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="215" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{previousContractNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="235" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Business Unit]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="235" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{businessUnit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="255" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Group Code]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="255" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{groupCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="275" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Supplier]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="275" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{supplier}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="295" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Procurement Category]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="295" width="387" height="20" uuid="a0790006-a7e5-47ca-bb5c-c4de548646b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{procurementCategory}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="315" width="180" height="20" uuid="6a127c87-5015-4742-92ca-16e0781052c5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Aggrement Type]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="315" width="387" height="20" uuid="63a39914-a928-44fd-9709-2ad7e5a8c337">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{agreementType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="362" width="581" height="20" uuid="8b62f80a-1dd7-4f9a-bc76-1b865027f5cd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="3" leftPadding="0"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Contract Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="382" width="180" height="20" uuid="6a127c87-5015-4742-92ca-16e0781052c5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<text><![CDATA[Contract Start Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="382" width="387" height="20" uuid="63a39914-a928-44fd-9709-2ad7e5a8c337">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{contractStartDate}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="10" y="405" width="577" height="20" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="9ecce3ef-7663-4c4e-bf00-978e568b1630">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<text><![CDATA[Contract End Date]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="180" y="-1" width="387" height="20" uuid="63a39914-a928-44fd-9709-2ad7e5a8c337">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{contractEndDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="428" width="577" height="20" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" uuid="b48b32a2-b86f-4754-a48c-e2f0b85982a5">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<text><![CDATA[Contract Expiry Reminder]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement positionType="Float" x="180" y="-1" width="387" height="20" isPrintWhenDetailOverflows="true" uuid="208964c3-7a80-4ea5-a0b7-4177231abdf8">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="reminderDetails" uuid="330fc340-9015-4361-b250-6b43a8586768">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{contractExpiryReminder}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="387">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="385" height="20" uuid="ec4c4a15-5db9-428e-97e6-f6b12e06aa38">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textFieldExpression><![CDATA[$F{reminderDate}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="453" width="577" height="20" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="-1" width="180" height="20" uuid="e3e29f75-4a3e-44b1-8d59-316731367698">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<text><![CDATA[Reminder Notify User]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement positionType="Float" x="180" y="-1" width="387" height="20" uuid="208964c3-7a80-4ea5-a0b7-4177231abdf8">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="notifyDetails" uuid="330fc340-9015-4361-b250-6b43a8586768">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{reminderNotifyUser}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="387">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="385" height="20" isPrintWhenDetailOverflows="true" uuid="ec4c4a15-5db9-428e-97e6-f6b12e06aa38"/>
+								<textFieldExpression><![CDATA[$F{userName}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="477" width="577" height="20" isRemoveLineWhenBlank="true" uuid="c2137dc1-a2ff-49f8-8a2c-0c88847539b7">
+					<printWhenExpression><![CDATA[($F{documentDate}).length()>0]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" isRemoveLineWhenBlank="true" uuid="6a127c87-5015-4742-92ca-16e0781052c5"/>
+					<text><![CDATA[Document Date]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="180" y="-2" width="387" height="20" isRemoveLineWhenBlank="true" uuid="63a39914-a928-44fd-9709-2ad7e5a8c337">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{documentDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="500" width="567" height="20" uuid="0eb2775c-3244-46f5-a114-b1b77c33b8d1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="3" leftPadding="0"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Contract Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="520" width="180" height="20" uuid="d57c623d-20e1-4b36-85cc-f2780dbb9363">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Base Currency]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="520" width="380" height="20" uuid="f784ba76-955d-4bf3-94be-f240dd7d4cd4">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{baseCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="540" width="180" height="20" uuid="d57c623d-20e1-4b36-85cc-f2780dbb9363">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Decimal]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="540" width="380" height="20" uuid="f784ba76-955d-4bf3-94be-f240dd7d4cd4">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{decimal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="560" width="180" height="20" uuid="d57c623d-20e1-4b36-85cc-f2780dbb9363">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Contract Value]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="190" y="560" width="380" height="20" uuid="f784ba76-955d-4bf3-94be-f240dd7d4cd4">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{contractValue}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="10" y="580" width="285" height="21" uuid="588f2f37-24b3-4e6f-aff7-bde79d9cdd8f"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{CONTRACT_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ContractDocument.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="337" width="180" height="20" uuid="242e90e0-d798-4f17-8cab-8eaf2ef6b825">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="190" y="337" width="387" height="20" uuid="ac474242-7136-4e6a-a6ab-449b7b003988">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

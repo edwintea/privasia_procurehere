@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Email</title>
+
+<style>
+.email_bttn{width:100%; float:left; border:1px solid #0095d5; text-align:center; font-size:16px; color:#0095d5; text-decoration:none; padding:15px 0}
+.email_bttn:hover {background:#0095d5; color:#fff;}
+.footer{ text-align:center; color:#fff; font-size:12px; line-height:15px; padding:13px 0}
+.help{ text-align:center; color:#595959; font-size:12px; line-height:15px; padding:8px 0; border-bottom:5px solid #fff;}
+.help a {color:#0095d5; text-decoration:none}
+.help a:hover {color:#ffa019; text-decoration:none}
+
+</style>
+
+</head>
+
+<body style="font-family:Verdana, Geneva, sans-serif;">
+<table width="600" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #a1d0e4;">
+  <tr>
+    <td style="background:#0095d5;"><table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin:0 2%">
+      <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td style="font-size:13px; color:#fff; padding:10px 0"><b>PROCUREHERE</b><!-- <a href="#" style="color:#fff; text-decoration:none;">View in Browser</a> --> </td>
+             <td style="font-size:13px; color:#fff; padding:10px 0; text-align:right">${date}</td>
+          </tr>
+        </table></td>
+      </tr>
+     
+    </table></td>
+  </tr>
+  <tr>
+    <td style="background:#ededed; border-top:2px solid #fff;"><table width="96%" border="0" cellspacing="0" cellpadding="0"  style="margin:0 2%">
+      <tr>
+        <td style="text-align:center; padding:20px 0; font-size:16px; font-weight:bold; color:#303030;">NEW SUPPLIER REGISTRATION REQUEST</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin:25px 2% 0 2%;">
+      <tr>
+        <td width="31%" style="font-size:14px; color:#525252; line-height:21px; text-align:left; padding:10px 10px"><strong>Contact Person</strong></td>
+        <td width="4%" style="font-size:14px; color:#525252; line-height:21px; text-align:center;padding:10px 10px">&nbsp;</td>
+        <td width="65%" style="font-size:14px; color:#525252; line-height:21px; text-align:left;">${contactPerson}</td>
+      </tr>
+      <tr>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:left; padding:10px 10px"><strong>Company Name</strong></td>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:center;padding:10px 10px">&nbsp;</td>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:left;">${companyName}</td>
+      </tr>
+      <tr>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:left; padding:10px 10px"><strong>Email Address</strong></td>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:center;padding:10px 10px">&nbsp;</td>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:left;">${comunicationEmail}</td>
+      </tr>
+      <tr>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:left; padding:10px 10px"><strong>Phone Number</strong></td>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:center;padding:10px 10px">&nbsp;</td>
+        <td style="font-size:14px; color:#525252; line-height:21px; text-align:left;">${mobileNumber}</td>
+      </tr>
+      <!-- tr>
+        <td colspan="3" style="font-size:14px; color:#525252; line-height:21px; text-align:left;  padding:20px 10px"><strong>This company names sounds like</strong><br /> [list of companies already in the database if any that sound like this]</td>
+        </tr -->
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin:0 2%">
+      
+      <tr>
+	  <td width="20%">&nbsp;</td>
+        <td style="padding:0 0 30px 0"><a href="${app_url}" class="email_bttn">CLICK HERE TO VIEW SUPPLIER DETAILS </a></td>
+		<td width="20%">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>  
+  <tr>
+    <td style="background:#0095d5"><table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin:0 2%">
+      <tr>
+        <td class="footer">&copy; 2018 Privasia Sdn Bhd.</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_auctionRules" pageWidth="585" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="736b7ef7-5768-45cc-a2c9-ebd2af63e634">
+	<property name="ireport.zoom" value="1.610510000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1"/>
+	<field name="eventName" class="java.lang.String"/>
+	<field name="auctionType" class="java.lang.String"/>
+	<field name="dutchStartPrice" class="java.math.BigDecimal"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="minPrice" class="java.math.BigDecimal"/>
+	<field name="maxPrice" class="java.lang.String"/>
+	<field name="fowardAuction" class="java.lang.Boolean"/>
+	<field name="amountPerIncrementDecrement" class="java.math.BigDecimal"/>
+	<field name="interval" class="java.lang.Integer"/>
+	<field name="intervalType" class="java.lang.String"/>
+	<field name="preBidBy" class="java.lang.String"/>
+	<field name="isPreBidHigherPrice" class="java.lang.Boolean"/>
+	<field name="isPreBidSameBidPrice" class="java.lang.Boolean"/>
+	<field name="itemizedBiddingWithTax" class="java.lang.Boolean"/>
+	<field name="biddingMinValue" class="java.lang.String"/>
+	<field name="biddingMinValueType" class="java.lang.String"/>
+	<field name="isBiddingPriceHigherLeadingBid" class="java.lang.Boolean"/>
+	<field name="biddingPriceHigherLeadingBidType" class="java.lang.String"/>
+	<field name="lumsumBiddingWithTax" class="java.lang.Boolean"/>
+	<field name="biddingPriceHigherLeadingBidValue" class="java.lang.String"/>
+	<field name="isBiddingAllowSupplierSameBid" class="java.lang.Boolean"/>
+	<field name="isBiddingMinValueFromPrevious" class="java.lang.Boolean"/>
+	<field name="auctionConsolePriceType" class="java.lang.String"/>
+	<field name="auctionConsoleVenderType" class="java.lang.String"/>
+	<field name="auctionConsoleRankType" class="java.lang.String"/>
+	<field name="isStartGate" class="java.lang.String"/>
+	<field name="supplierMustProvide" class="java.lang.String"/>
+	<field name="biddingType" class="java.lang.String"/>
+	<field name="ownPrevious" class="java.lang.String"/>
+	<field name="leadBid" class="java.lang.String"/>
+	<field name="prebidByTitle" class="java.lang.String"/>
+	<field name="buyerAuctionConsolePriceType" class="java.lang.String"/>
+	<field name="buyerAuctionConsoleVenderType" class="java.lang.String"/>
+	<field name="buyerAuctionConsoleRankType" class="java.lang.String"/>
+	<field name="supplierAuctionSetting" class="java.lang.String"/>
+	<field name="prebidAsFirstBid" class="java.lang.String"/>
+	<field name="preBidSameBidPriceValue" class="java.lang.String"/>
+	<field name="preSetSamePreBidForAllSuppValue" class="java.lang.String"/>
+	<field name="isPreSetSamePreBidForAllSupp" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="528">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" x="6" y="26" width="450" height="20" isRemoveLineWhenBlank="true" uuid="10d95285-161d-4b33-b593-b8a0d9bfdc8e">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="130" height="20" isPrintWhenDetailOverflows="true" uuid="6d142db1-518a-4656-82ef-197ed627c5ed"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Pre-Bid Settings :]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="47" width="525" height="20" isRemoveLineWhenBlank="true" uuid="e0f9d7be-3deb-4f4d-a396-e318ba59ad5f">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="91743eb8-0e1d-4a72-a98f-ecae24fb5a0d"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{preBidBy}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="211ddb49-9c21-4ff2-b0c6-506e081e286e"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="119bee9b-6748-4766-8bb1-3c4cb40aee04"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{prebidByTitle}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="2" width="119" height="20" uuid="9ea90008-9665-4d7a-823b-7a9dcf7e740d"/>
+				<box topPadding="3" leftPadding="4"/>
+				<textElement>
+					<font size="13" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Auction Rules]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="5" y="21" width="550" height="1" forecolor="#F0F0F0" uuid="60fe6d7b-226f-4f5d-ba72-e27237686e74"/>
+			</line>
+			<frame>
+				<reportElement positionType="Float" x="6" y="127" width="450" height="20" isRemoveLineWhenBlank="true" uuid="b9b99a7f-f993-49d2-8654-65ab8db32fce">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="193" height="20" isPrintWhenDetailOverflows="true" uuid="28df5deb-31d0-4df8-a67e-b9aa18697a0b"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Bidding-Price Settings :]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="147" width="525" height="20" isRemoveLineWhenBlank="true" uuid="262838df-a5b9-4640-9170-d13b52122820">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="82b05ba9-2709-4206-b6cc-0d2c29ca9458"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Bidding Type]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="b3daf3ca-2174-43ff-aa93-209d80985bb4"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{biddingType}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="1690042d-6922-4f33-aa55-8ed1a5a6a03f"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="207" width="525" height="20" isRemoveLineWhenBlank="true" uuid="92477b2a-84f3-4bf7-8c4b-fb9df34488ff">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="45ad75b2-884d-4b2d-890f-ed1398a86a0f">
+						<printWhenExpression><![CDATA[$F{isStartGate}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Start Gate]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="51dab415-73a7-4622-b302-c5196d9d21e8"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{isStartGate}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="dc73a7ca-044a-4c43-9140-afc870ebae1b"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="247" width="525" height="20" isRemoveLineWhenBlank="true" uuid="0be1e9f9-20ed-4c74-926d-8bedc59add09">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="37c305ad-5e23-43c0-904c-aa257a445c53">
+						<printWhenExpression><![CDATA[$F{isBiddingAllowSupplierSameBid}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{isBiddingAllowSupplierSameBid} == Boolean.TRUE ? " Allowed ":"Not Allowed"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="2b9e63ec-e778-4d16-9b34-6f71f6e5c043">
+						<printWhenExpression><![CDATA[$F{isBiddingAllowSupplierSameBid} != null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{isBiddingAllowSupplierSameBid}!=null ? "Allow Supplier to have same bid price" : ""]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="5a48022f-d415-4f06-86bf-2a91b4f33869"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="287" width="525" height="20" isRemoveLineWhenBlank="true" uuid="f359dcb7-0924-4086-bdb4-705d3a96d110">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("Dutch")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="e78ad8fe-7742-47bc-8516-8d3562811486"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Auction Start Price]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="f694cbf1-15f1-4c04-b2ca-de5ffd2ab119"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{dutchStartPrice}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="6824391d-4072-4db7-9453-6a96117c1d61"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="327" width="525" height="20" isRemoveLineWhenBlank="true" uuid="bd7f6a66-3f37-4f16-a1ed-2f74060c314e">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("Dutch") && $F{fowardAuction} != null]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="7e0be636-044f-4b19-a9d2-8e6948b3527c">
+						<printWhenExpression><![CDATA[$F{fowardAuction} != null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{amountPerIncrementDecrement}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="b8800af0-5ae9-49aa-9c55-7a9df054099d"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fowardAuction} == Boolean.TRUE ? "Amount Per-Decrement" : "Amount Per-Increment"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="388c12c8-ec3c-46c6-aa20-3fd29b44e16a"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="347" width="525" height="20" isRemoveLineWhenBlank="true" uuid="68e9c1c1-f0b4-4e7f-a4c1-05ae7ff8509b">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("Dutch")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="064c02da-133f-4b38-9bd1-133459b01d15"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Interval Per Bid]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="9759f3f0-8a6f-4ec6-ba5c-f3006ae07e9a"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{interval} +" - "+ $F{intervalType}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="3233a323-9145-4ffd-a6d7-67a138fba3ee"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="267" width="450" height="20" isRemoveLineWhenBlank="true" uuid="b9910ed0-6359-4055-aa97-80745999ad87">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("Dutch")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="207" height="20" isPrintWhenDetailOverflows="true" uuid="047e176b-2a2a-4c38-9ed2-e3eede76c06d"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Auction Rules  :]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="187" width="525" height="20" isRemoveLineWhenBlank="true" uuid="00d245a2-9a8a-4ef7-9a45-3a450c066d17">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" uuid="b7bd459e-6725-4505-8bc9-21a7e9c327cb">
+						<printWhenExpression><![CDATA[$F{isBiddingMinValueFromPrevious} == Boolean.TRUE]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{biddingMinValueType}+" - "+$F{biddingMinValue}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isRemoveLineWhenBlank="true" uuid="ce38212a-37c5-4a0d-875e-d27094061c05"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ownPrevious}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" isRemoveLineWhenBlank="true" uuid="5491b1f7-d505-4765-9540-763917069fd4">
+						<printWhenExpression><![CDATA[$F{ownPrevious}.length()>0]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="227" width="525" height="20" isRemoveLineWhenBlank="true" uuid="7b5a31d9-6179-4984-80ae-d8c3ee8077bb">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isRemoveLineWhenBlank="true" uuid="b58d8c08-b64e-4a30-a51a-0e6a11af9772">
+						<printWhenExpression><![CDATA[$F{isBiddingPriceHigherLeadingBid} == Boolean.TRUE]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{leadBid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isRemoveLineWhenBlank="true" uuid="2c4efafc-1774-49fd-a038-67445e454e9e">
+						<printWhenExpression><![CDATA[$F{isBiddingPriceHigherLeadingBid} == Boolean.TRUE]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{biddingPriceHigherLeadingBidType} + " - "+ $F{biddingPriceHigherLeadingBidValue}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" isRemoveLineWhenBlank="true" uuid="981a4933-9c6b-48cd-86f3-2ea75e0fa41e">
+						<printWhenExpression><![CDATA[$F{isBiddingPriceHigherLeadingBid} == Boolean.TRUE]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="307" width="525" height="20" isRemoveLineWhenBlank="true" uuid="0bc54b6d-461a-43e7-92d5-ec63ed0afd1b">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("Dutch")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="73aeb8de-7300-4024-9077-35dd5f212e49">
+						<printWhenExpression><![CDATA[$F{fowardAuction} != null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{minPrice}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isRemoveLineWhenBlank="true" uuid="f76ff28a-5452-43e0-95bb-04c7a76bea27"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fowardAuction} != null && $F{fowardAuction} ==  Boolean.TRUE ? "Auction Minimum Price" : "Auction Maximum Price"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="4952fbec-a922-4ca1-9449-f76f54317772"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="487" width="525" height="20" isRemoveLineWhenBlank="true" uuid="19d558c7-b253-4eaf-8ebb-495aae47ed37">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="0c340e16-ac42-4f46-92ec-1da56e4bc0af"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{auctionConsoleVenderType}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="65361c97-10a3-4383-a081-16e6c2881b9a"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Supplier]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="f7e5a1e9-c303-4c6c-b574-245ae08467a7"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="467" width="525" height="20" isRemoveLineWhenBlank="true" uuid="3f3faa1e-551c-42a9-8bd2-cce1cf8f4bea">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="4f308650-53fd-4215-8731-120e352615ee"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Price]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="2266dcde-428a-48cf-a9b8-8aeabfadaa79"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{auctionConsolePriceType}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="55eeb5d7-187e-4ade-a15e-f273e571db02"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="447" width="450" height="20" isRemoveLineWhenBlank="true" uuid="8266baf0-5dc6-48d0-b197-b95cd7bb6649">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField>
+					<reportElement x="1" y="0" width="277" height="20" uuid="982ea461-d084-49f0-a89d-c81899c5c6c9">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierAuctionSetting}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="367" width="450" height="20" isRemoveLineWhenBlank="true" uuid="355fb07e-d77d-434b-9557-74c1ccb066e4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[($F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed") ) && $F{buyerAuctionConsolePriceType}!= null]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="277" height="20" isPrintWhenDetailOverflows="true" uuid="03712fac-4cc0-48db-b693-a2eb1ad28dfd"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Buyer Auction Console Settings  :]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="387" width="525" height="20" isRemoveLineWhenBlank="true" uuid="0fed4b10-a539-4c86-9df8-8b8728c231a2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[($F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed") )&& $F{buyerAuctionConsolePriceType}!=null]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="14d6ec8b-ac85-4384-9bff-afb040e94142"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Price]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="e3d2268c-6bc3-4761-8e6d-6d2f0d6c05d5"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="62e9dcfe-64b6-4081-a23b-31927d769d30"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{buyerAuctionConsolePriceType}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="407" width="525" height="20" isRemoveLineWhenBlank="true" uuid="2b216f6f-79de-4666-84bd-a5a1a2351810">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[($F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed") )&& $F{buyerAuctionConsoleVenderType}!=null]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="e540f0bf-6063-499f-8af9-e766c65eab5d"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Buyer]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="659beedd-2424-4fc6-9f7f-efc188ed906f"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="c5926da5-5900-4c41-8b6d-058210e50a7e"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{buyerAuctionConsoleVenderType}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="427" width="525" height="20" isRemoveLineWhenBlank="true" uuid="3597b0b8-3c4d-462e-9949-02e7caaaeb15">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[($F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed") )&& $F{buyerAuctionConsoleRankType}!=null]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="c2644863-fa2e-4c3f-8e73-880386c338b3"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Rank]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="80fd541f-303b-4a35-828d-18bd85d9d967"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="c2d3fd1a-ac01-46a1-85ce-018ef98be751"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{buyerAuctionConsoleRankType}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="167" width="525" height="20" isRemoveLineWhenBlank="true" uuid="9b9ff2bf-8641-4a73-a0c9-ee12a8b26f5d">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="545c87a0-d837-40c9-a40d-0790373ecf8f">
+						<printWhenExpression><![CDATA[$F{isStartGate}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Consider Pre bid as first bid]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="f1e9f4f5-4fa3-455b-b7ca-986610b80c21"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{prebidAsFirstBid}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="59a596c0-ff56-405c-aaba-cf0407f1f966"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="67" width="525" height="20" isRemoveLineWhenBlank="true" uuid="13123767-1e06-4fb7-a340-915170d85ecc">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isRemoveLineWhenBlank="true" uuid="b03244fe-2492-4fea-92f3-51edb5bf67ce">
+						<printWhenExpression><![CDATA[$F{preBidBy} == "BUYER"]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierMustProvide}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isRemoveLineWhenBlank="true" uuid="f7a41a9a-003a-419c-b879-ca655fe94d4d">
+						<printWhenExpression><![CDATA[$F{preBidBy} == "BUYER"]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{isPreBidHigherPrice} == Boolean.TRUE ? " YES ":"NO"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" isRemoveLineWhenBlank="true" uuid="c64ae620-4c44-4e19-b920-4cd06a8b58b3">
+						<printWhenExpression><![CDATA[$F{preBidBy} == "BUYER"]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="507" width="525" height="20" isRemoveLineWhenBlank="true" uuid="91a4bc1b-149d-4435-9df4-eeaa40b32226">
+					<printWhenExpression><![CDATA[($F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed"))&& $F{auctionConsoleRankType}!=null]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="dee04cc7-3d73-4971-8282-97492f929f8e"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Rank]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="9092b04a-7ecf-4150-98fd-c0741dbc33cd"/>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{auctionConsoleRankType}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="02c5d48b-3dc7-41c4-bb5d-153bf6139d0e"/>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="87" width="525" height="20" isRemoveLineWhenBlank="true" uuid="e387d970-bb9b-4463-b2a1-fabaf45aa7ba">
+					<printWhenExpression><![CDATA[$F{auctionType}.contains("English") || $F{auctionType}.contains("Sealed")]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="513acc33-7396-4cee-a8ee-e8477829e43a">
+						<printWhenExpression><![CDATA[$F{isPreBidSameBidPrice}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{preBidSameBidPriceValue}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="ec8653a7-03be-474e-b97e-bb24d02084c9">
+						<printWhenExpression><![CDATA[$F{isPreBidSameBidPrice}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{isPreBidSameBidPrice} == Boolean.TRUE ? " Allowed ":"Not Allowed"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="b617511b-ef64-4bac-ad83-3294c0cc8d4c">
+						<printWhenExpression><![CDATA[$F{isPreBidSameBidPrice}!=null]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="11" y="107" width="525" height="20" isRemoveLineWhenBlank="true" uuid="e387d970-bb9b-4463-b2a1-fabaf45aa7ba"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="143" height="20" isPrintWhenDetailOverflows="true" uuid="513acc33-7396-4cee-a8ee-e8477829e43a">
+						<printWhenExpression><![CDATA[$F{preBidBy} == "BUYER"]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textElement>
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{preSetSamePreBidForAllSuppValue}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="155" y="0" width="363" height="20" isPrintWhenDetailOverflows="true" uuid="ec8653a7-03be-474e-b97e-bb24d02084c9">
+						<printWhenExpression><![CDATA[$F{preBidBy} == "BUYER"]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<textFieldExpression><![CDATA[$F{isPreSetSamePreBidForAllSupp} == Boolean.TRUE ? " Allowed ":"Not Allowed"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="144" y="0" width="11" height="20" uuid="b617511b-ef64-4bac-ad83-3294c0cc8d4c">
+						<printWhenExpression><![CDATA[$F{preBidBy} == "BUYER"]]></printWhenExpression>
+					</reportElement>
+					<box topPadding="3" leftPadding="4"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

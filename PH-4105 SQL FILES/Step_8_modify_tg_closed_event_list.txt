@@ -1,0 +1,13 @@
+-- paste this in properties >code
+BEGIN
+    REFRESH MATERIALIZED VIEW proc_test_db.closed_event_list;
+    RETURN NULL;
+END;
+
+-- original code in tg_closed_event_list
+
+BEGIN
+    NOTIFY refresh_mv, '5 REFRESH MATERIALIZED VIEW CONCURRENLTY closed_event_list';
+    RETURN NULL;
+END;
+

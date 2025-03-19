@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BuyerAuctionReport" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="ff7af7ad-e5e0-40b0-9198-9b7ed9c32082">
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="border">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="bidHistory" uuid="cad0cebf-9db7-444f-97e6-8032fdcb6643">
+		<field name="dateTime" class="java.lang.String"/>
+		<field name="bidPrice" class="java.math.BigDecimal"/>
+		<field name="companyName" class="java.lang.String"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="BidderContacts" uuid="9e54e260-1e33-48c3-b6ea-1de4c86e7357">
+		<field name="companyName" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="phno" class="java.lang.String"/>
+		<field name="mobileNo" class="java.lang.String"/>
+		<field name="email" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="auctionId" class="java.lang.String"/>
+	<field name="auctionName" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="auctionType" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="auctionStartDate" class="java.lang.String"/>
+	<field name="dateTime" class="java.lang.String"/>
+	<field name="auctionPublishDate" class="java.lang.String"/>
+	<field name="auctionEndDate" class="java.lang.String"/>
+	<field name="currencyCode" class="java.lang.String"/>
+	<field name="auctionExtension" class="java.lang.String"/>
+	<field name="totalExtension" class="java.lang.Integer"/>
+	<field name="auctionStatus" class="java.lang.String"/>
+	<field name="supplierInvited" class="java.lang.Integer"/>
+	<field name="supplierParticipated" class="java.lang.String"/>
+	<field name="totalBilds" class="java.lang.Integer"/>
+	<field name="buyerName" class="java.lang.String"/>
+	<field name="bidHistory" class="java.util.List"/>
+	<field name="biddingPrice" class="java.util.List"/>
+	<field name="ductchPrice" class="java.math.BigDecimal"/>
+	<field name="intervalType" class="java.lang.String"/>
+	<field name="interval" class="java.lang.Integer"/>
+	<field name="winner" class="java.lang.String"/>
+	<field name="winningPrice" class="java.math.BigDecimal"/>
+	<field name="winningDate" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="startPrice" class="java.math.BigDecimal"/>
+	<field name="bidContacts" class="java.util.List"/>
+	<field name="supplierBidsList" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="291" y="5" width="281" height="20" forecolor="#CCCCCC" uuid="893f93dc-5648-49d2-b0eb-0eaa25686f3b"/>
+				<box leftPadding="4" rightPadding="4"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Procurehere Supplier Auction Report]]></text>
+			</staticText>
+			<frame>
+				<reportElement positionType="Float" x="2" y="26" width="577" height="25" uuid="9d6e9527-cff9-4051-aaf6-76776c54e046"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="124" y="0" width="446" height="25" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFCC00" uuid="a50d9aee-b4ae-4f05-ab01-e34ed08140b9"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{auctionName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="124" height="25" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" backcolor="#CC0000" uuid="197fab21-b2f9-463a-bf39-c3a48f87d068"/>
+					<box topPadding="2" leftPadding="2" bottomPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{referenceNo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="8" width="140" height="20" forecolor="#CCCCCC" uuid="3cd0b8c3-dcc0-4a18-b2a9-d33ad53cdd98"/>
+				<box leftPadding="4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Private & Confidential]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="5" width="573" height="1" forecolor="#CCCCCC" uuid="b72af5cf-9e5a-45a4-93d3-9bf0787b3387"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="476" y="8" width="96" height="20" forecolor="#CCCCCC" uuid="5bc8a1ef-659c-4983-ab17-192ea67136a2"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="128" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="2" y="2" width="570" height="40" uuid="8ad540f8-6583-4097-86d5-24044ca56472"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SupplierAuctionReport_auctionDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="2" y="50" width="200" height="27" uuid="d161e882-3e6e-4838-a108-be61eac24d11"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BuyerAuctionReport_BiddingDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="86" width="100" height="1" isRemoveLineWhenBlank="true" uuid="034bf463-f204-4a5a-896d-3ca7f5139d00"/>
+			</break>
+			<break>
+				<reportElement x="0" y="45" width="100" height="1" uuid="8d2ed198-2013-4407-afcd-047ce35b9b5e"/>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="2" y="89" width="200" height="39" uuid="cc7569f6-9ae4-4f6b-8382-de2c2cbb7429"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{supplierBidsList}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BuyerAuctionReport_bidderPriceHistory.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

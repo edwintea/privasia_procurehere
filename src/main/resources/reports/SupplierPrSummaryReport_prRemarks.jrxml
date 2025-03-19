@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SupplierPrSummaryReport_prRemarks" pageWidth="595" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ee7888aa-e81f-4dfe-8525-d659a5942154">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="9"/>
+	<subDataset name="prDocuments" uuid="2b37f1fa-73a6-4859-b7d8-840b7ac46b5d">
+		<field name="fileName" class="java.lang.String"/>
+		<field name="uploadDate" class="java.util.Date"/>
+		<field name="size" class="java.lang.Double"/>
+		<field name="description" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="ApprovalDetails" uuid="3043d1a7-d64e-4606-926e-2e575e3bfe84">
+		<field name="name" class="java.lang.String"/>
+		<field name="imgPath" class="java.lang.String"/>
+		<field name="level" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="PR_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="termsAndConditions" class="java.lang.String"/>
+	<field name="documents" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="368" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="4" y="4" width="144" height="20" uuid="51aff291-d71e-4271-ac28-6a1dcfe09a8b"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[REMARK]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="4" y="28" width="561" height="41" uuid="f2411155-16f9-4cd3-bfe2-335ab761125f">
+					<printWhenExpression><![CDATA[$F{remarks}!=null]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="2" leftPadding="5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="79" width="175" height="20" uuid="dae68f04-c23e-4e69-a6af-5e58ceed084f">
+					<printWhenExpression><![CDATA[$F{termsAndConditions}!=null]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[TERMS & CONDITIONS ________________________________________________________________________________________]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="103" width="561" height="43" uuid="1300dc78-a2ec-4b35-9630-3b598d22ba31">
+					<printWhenExpression><![CDATA[$F{termsAndConditions}!=null]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="3" leftPadding="5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{termsAndConditions}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="153" width="175" height="20" uuid="3089eda5-495e-45c7-a845-f5a57107d73d"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTS]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="5" y="176" width="561" height="42" uuid="9cd38076-93ce-427a-9bc9-e9c62452449a">
+					<printWhenExpression><![CDATA[$F{documents}!=null]]></printWhenExpression>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="prDocuments" uuid="cfd5599c-b826-4e17-b6b9-fc03e6542340">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documents}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="42" width="561">
+						<textField>
+							<reportElement positionType="Float" x="32" y="1" width="23" height="25" uuid="33343ed2-a5bd-4d42-9bfe-8b9ef18fdcf6"/>
+							<textElement verticalAlignment="Middle">
+								<font size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement positionType="Float" x="55" y="1" width="302" height="25" uuid="bb0d27a7-c1d2-4fab-8c62-a81eb2089035"/>
+							<box leftPadding="3"/>
+							<textElement verticalAlignment="Middle">
+								<font size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{fileName}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement positionType="Float" x="357" y="1" width="100" height="25" uuid="d2a09d15-8309-4130-9725-8060e9e02090"/>
+							<box leftPadding="5"/>
+							<textElement verticalAlignment="Middle">
+								<font size="10"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{size}+" KB"]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement x="55" y="26" width="302" height="14" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#999999" uuid="1f1a8c13-b58e-483c-a5ca-2a5d9a08f796"/>
+							<box leftPadding="3"/>
+							<textElement>
+								<font size="8"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<line>
+				<reportElement positionType="Float" x="5" y="24" width="548" height="1" uuid="7df7611f-8c9b-4a28-8fea-e37308171a48"/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="5" y="98" width="548" height="1" uuid="b4ec039a-fe53-44f1-8338-5f354bd59672"/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="6" y="173" width="548" height="1" uuid="d72f31c6-4759-4efc-aa27-eca3c36f6780"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

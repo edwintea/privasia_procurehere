@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AuditTrailReport" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="2e3c09c9-244e-417b-89ea-2d79ca3b768e">
+	<property name="ireport.zoom" value="1.4641000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="AUDIT_TRAIL" class="java.util.Collection"/>
+	<field name="action" class="java.lang.String"/>
+	<field name="actionBy" class="java.lang.String"/>
+	<field name="actionDate" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="currentDate" class="java.lang.String"/>
+	<field name="title" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="21">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="1" width="582" height="20" uuid="72c3100c-9545-4eab-9807-09bb4fac3aac"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31">
+			<frame>
+				<reportElement positionType="Float" x="1" y="1" width="581" height="30" uuid="255d9565-9054-4718-a418-1795c312c161"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="92" height="30" isPrintWhenDetailOverflows="true" backcolor="#CCCCCC" uuid="76418497-d70a-450e-9f3c-c5ffc5993f43"/>
+					<box leftPadding="4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Action]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="281" y="0" width="118" height="30" isPrintWhenDetailOverflows="true" backcolor="#CCCCCC" uuid="6e6effd7-6d12-4b73-988e-8e6e54361071"/>
+					<box leftPadding="4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Action Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="400" y="0" width="176" height="30" isPrintWhenDetailOverflows="true" backcolor="#CCCCCC" uuid="e572169e-cd24-4d21-9220-8231f03e5afb"/>
+					<box leftPadding="4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement mode="Opaque" x="94" y="1" width="187" height="30" isPrintWhenDetailOverflows="true" backcolor="#CCCCCC" uuid="bb60d29b-521f-450d-8be1-a8905e42fb0c"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Action By]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="582" height="20" uuid="922ab347-381e-4eff-b1e7-aa012aecd4f6"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="94" y="0" width="187" height="20" isPrintWhenDetailOverflows="true" uuid="7b29a9f6-4046-4317-82aa-d8176e8a3110"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textFieldExpression><![CDATA[$F{actionBy}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="1" y="0" width="92" height="20" isPrintWhenDetailOverflows="true" uuid="0188c821-88c4-4117-ac51-858b636e09f2"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textFieldExpression><![CDATA[$F{action}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="282" y="0" width="118" height="20" isPrintWhenDetailOverflows="true" uuid="a8d3a86d-e045-42e8-9ac3-c88434154081"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textFieldExpression><![CDATA[$F{actionDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="401" y="0" width="176" height="20" isPrintWhenDetailOverflows="true" uuid="700a80d1-6513-4755-95f2-d2f8991e7c5b"/>
+					<box topPadding="2" leftPadding="3"/>
+					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22">
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="2" width="91" height="20" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6b86e0e8-4230-4d7d-a4a3-5f80b1017465"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Downloaded on : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="2" width="254" height="20" forecolor="#CCCCCC" uuid="6453b669-46b7-4982-8475-62408e0c6ecb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{currentDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="2" width="80" height="20" forecolor="#CCCCCC" uuid="3d459d63-3bc1-4b17-aedf-2d4d0f1a1146"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="538" y="2" width="40" height="20" forecolor="#CCCCCC" uuid="d31e47ee-da1d-4dfd-84c3-427036194d5f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="1" width="575" height="1" forecolor="#CCCCCC" uuid="7e054b00-ce40-44e3-b364-16a0a10d0a01"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

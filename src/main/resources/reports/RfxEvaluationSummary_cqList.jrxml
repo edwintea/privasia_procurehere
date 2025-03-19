@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSummary_cqList" pageWidth="595" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="df8a6914-74f9-49f0-a123-102f8b149388">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="CqData" uuid="6dc1945f-7cd9-4657-94bd-4224bc2b4410">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="name" class="java.lang.String"/>
+		<field name="cqItem" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="cqItemData" uuid="106b0f55-ff59-4cdd-9483-de481c882a7f">
+		<field name="itemName" class="java.lang.String"/>
+		<field name="level" class="java.lang.String"/>
+		<field name="suppliers" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="dataset1" uuid="3fc24bd9-3af0-4972-a800-5b1114218e5b"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="name" class="java.lang.String"/>
+	<field name="cqItem" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="75">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="3" y="0" width="590" height="28" uuid="affeef5f-89ec-43d7-ae9f-6e57fabb97f7"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="3" y="31" width="590" height="43" uuid="1e6d2949-392a-40a2-aff6-d0be7a9a55a0"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqItem},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RfxEvaluationSummary_cqItemList.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

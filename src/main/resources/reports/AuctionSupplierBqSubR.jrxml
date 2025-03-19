@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AuctionSupplierBqSubR" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7d9c1209-ba54-49e9-8844-67fccb9efaab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<subDataset name="supplierBq" uuid="7fde48eb-defe-491a-97c5-9407533a9b35">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="grandTotal" class="java.math.BigDecimal"/>
+		<field name="totalAfterTax" class="java.math.BigDecimal"/>
+		<field name="additionalTax" class="java.math.BigDecimal"/>
+		<field name="bqName" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="bqName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="grandTotal" class="java.math.BigDecimal"/>
+	<field name="totalAfterTax" class="java.math.BigDecimal"/>
+	<field name="additionalTax" class="java.math.BigDecimal"/>
+	<field name="bqName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="45">
+			<staticText>
+				<reportElement mode="Opaque" x="50" y="15" width="140" height="30" backcolor="#DCDCDC" uuid="86aba9e7-88ba-4d68-9efa-c5a438278168">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24335ffa-c58b-4aae-a050-d297b6b3e4bc"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Supplier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="190" y="15" width="110" height="30" backcolor="#DCDCDC" uuid="798792c3-d4f0-49bd-ae87-4236902e25f0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a402d72-d1be-4a03-aae1-b16fc645cc21"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="300" y="15" width="140" height="30" backcolor="#DCDCDC" uuid="99fb6734-b75f-4aaa-9e0a-688cf60090cc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0084d582-0623-427e-b517-4f932a772f29"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total Tax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="440" y="15" width="115" height="30" backcolor="#DCDCDC" uuid="6f2e53fa-fa67-41c8-b6f2-0637d3f9ae7b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b47d9ed-4aa4-4975-8b93-2ab8e0944346"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total Amount with Tax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="15" width="50" height="30" backcolor="#DCDCDC" uuid="bfa869c0-e04b-453a-9380-d5a17d052539"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="555" height="15" uuid="07023ed7-9fdf-4fd9-a8f3-09585eacccbd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="8">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{bqName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="50" y="0" width="140" height="25" uuid="7c5acaec-a5f0-4e02-88a4-28bb26600c90">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="24335ffa-c58b-4aae-a050-d297b6b3e4bc"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="190" y="0" width="110" height="25" uuid="0ace693b-c613-47b1-8de9-587cca031737">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a402d72-d1be-4a03-aae1-b16fc645cc21"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{grandTotal}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="300" y="0" width="140" height="25" uuid="b82e9bd2-f58c-42ec-bbdb-f3ab52ca8a74">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0084d582-0623-427e-b517-4f932a772f29"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{totalAfterTax}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="440" y="0" width="115" height="25" uuid="4b90bd73-566d-4ced-bed3-899c50a99451">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b47d9ed-4aa4-4975-8b93-2ab8e0944346"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{additionalTax}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="50" height="25" uuid="efbf0fba-a08e-4728-9665-e749e4523bd9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="5">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

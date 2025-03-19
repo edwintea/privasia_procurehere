@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fax_Publish_Event" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7c1e9c8-313b-4f71-aadb-510dcfee2c8f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="url" class="java.lang.String"/>
+	<parameter name="supplierName" class="java.lang.String"/>
+	<parameter name="buyerName" class="java.lang.String"/>
+	<parameter name="eventName" class="java.lang.String"/>
+	<parameter name="businessUnit" class="java.lang.String"/>
+	<parameter name="eventType" class="java.lang.String"/>
+	<parameter name="refrance" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="183" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="380" height="30" uuid="78a2b262-9cb7-4f30-87c3-c4c52d8aa7a8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hi  "+$P{supplierName}!=null?$P{supplierName}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="550" height="30" uuid="02a907b9-8cf3-47b3-b37d-156e981b1d30"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Greetings from Procurehere]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="0" y="165" width="550" height="18" uuid="f9b55e56-473d-447c-b203-875bae79ff36"/>
+				<textFieldExpression><![CDATA["\n\nView the full details of the event by browsing to "+($P{url}!=null?$P{url}:"")+"\n\nThank You. \nProcurehere Team"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="550" height="30" uuid="a92d46e3-9e14-4e10-9e19-561ba5b937b9"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{buyerName}!=null?$P{buyerName}:""+" has published the following event on their announcements’ portal "]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="90" width="560" height="15" uuid="c2e1177b-6852-4616-a451-a9bf37262d9a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="15" uuid="79154308-00a5-4fa2-b449-53bc831ee411">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Event Name]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="80" y="0" width="470" height="15" uuid="fb830742-5a25-47ec-ae4d-875dfe23e266">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{eventName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="105" width="560" height="15" uuid="acfd5d16-1b9b-480a-a1b5-b189ac58aa6e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="15" uuid="af326611-f187-4a59-97b0-0286d0c7a53b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Business Unit]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="80" y="0" width="470" height="15" uuid="c9528a13-6076-49a1-a1a2-fe2e472ec035">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{businessUnit}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="120" width="560" height="15" uuid="5c981f36-c789-4e1c-a69d-58ed4cd1ae99">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="15" uuid="edccabee-dd71-4a50-af24-8d1e9ae84ad4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Event Type]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="80" y="0" width="470" height="15" uuid="f7521621-0e60-413d-80c4-a06f17502354">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{eventType}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="135" width="560" height="15" uuid="a27fe3e6-1e64-4e60-a48f-a110df50952c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="15" uuid="5d9838e5-8bfd-4b01-94d6-a14d7a992345">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reference Number]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="80" y="0" width="470" height="15" uuid="3d0c5173-33fb-41f9-9bde-d3129b81c030">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{refrance}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="0" y="150" width="560" height="15" uuid="7223b568-58a6-45b4-9f10-e36fcf61f1d1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="80" height="15" uuid="368fa5e2-69df-4f75-9081-876207ec8469">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Event Status]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="80" y="0" width="470" height="15" uuid="81eef8c2-3b50-4a87-92c3-5d07ffaff417">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$P{status}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

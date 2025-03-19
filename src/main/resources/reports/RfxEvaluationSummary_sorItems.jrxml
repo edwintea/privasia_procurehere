@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSummary_bqItems" pageWidth="595" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e1f932f0-5977-4cf2-9977-cbf6b4c832ed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="sors" class="java.util.List">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="89" splitType="Stretch">
+			<textField>
+				<reportElement positionType="Float" x="0" y="4" width="595" height="35" uuid="8b1381af-0956-40d3-8fcc-1131f3df8aa2"/>
+				<box leftPadding="5" rightPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="39" width="200" height="48" uuid="94abd997-c5d3-4cc8-9563-0161a27e7da4"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sors},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RfxEvaluationSummary_sordetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="88" width="100" height="1" isRemoveLineWhenBlank="true" uuid="8441d5db-9449-48b3-98e6-1da09300242c"/>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

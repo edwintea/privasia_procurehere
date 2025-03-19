@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateSourcingSummaryBqReport" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="18c541c0-4748-461f-8de8-79cb77da0d8c">
+	<style name="style1" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{level}.contains(".0")]]></conditionExpression>
+			<style isBold="true" pdfFontName="Helvetica-Bold"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="sorItems" uuid="0e704039-4917-43ee-a448-d10879f05ad1">
+		<field name="level" class="java.lang.String"/>
+		<field name="description" class="java.lang.String"/>
+		<field name="uom" class="java.lang.String"/>
+		<field name="itemName" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="requestItems" class="java.util.List"/>
+	<field name="name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="30" splitType="Prevent">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="557" height="25" uuid="7a981bab-718a-4b7c-ba85-3ab2a0899eb0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="7" leftPadding="2" bottomPadding="7"/>
+				<textElement>
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="60" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" x="0" y="5" width="557" height="50" uuid="e89fbe43-c597-4f42-9c01-3a2e44c99edb"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="sorItems" uuid="d8677c4f-5973-4e6b-8f23-275f513cf577">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{requestItems}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="07831166-61b0-48e8-9143-320574ddb446">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="40" height="30" backcolor="#F1F1F1" uuid="b545bf82-8638-49c7-835b-8872d781cc0d"/>
+								<box leftPadding="5"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[No]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="40" height="40" uuid="83cd981b-d523-49b4-b51a-74e3230fe586"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement verticalAlignment="Top">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="360" uuid="b43be4e8-37bf-49c1-bfa0-823306e288a8">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="360" height="30" backcolor="#F1F1F1" uuid="4b5d1a5f-7f59-418f-a26e-daf13890003a"/>
+								<box leftPadding="5"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Item Name]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<frame>
+								<reportElement x="0" y="0" width="360" height="40" uuid="89ec8df2-e066-4b2b-adf5-8ae9f3601bd4">
+									<property name="net.sf.jasperreports.export.pdf.tag.h1" value="full"/>
+								</reportElement>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement style="style1" x="0" y="0" width="360" height="20" isRemoveLineWhenBlank="true" uuid="89ec8df2-e066-4b2b-adf5-8ae9f3601bd4">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box topPadding="3" leftPadding="3"/>
+									<textElement verticalAlignment="Top">
+										<font size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+								</textField>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement positionType="Float" x="0" y="20" width="360" height="20" forecolor="#CCCCCC" uuid="2168d4d7-9a01-4305-b427-ad70d5005eae">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box topPadding="3" leftPadding="3"/>
+									<textElement>
+										<font size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+								</textField>
+							</frame>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="157" uuid="bd1eb881-d76a-4e1c-92f1-570a5a51f905">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="157" height="30" backcolor="#F1F1F1" uuid="2eb4d115-ea4b-4605-bc95-28b1abd75216"/>
+								<box leftPadding="5"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[UOM]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="157" height="40" uuid="4d0cdf5e-43e2-45f8-b290-eb402192291c"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{uom}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

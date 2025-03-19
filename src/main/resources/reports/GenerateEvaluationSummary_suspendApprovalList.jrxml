@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_approvalList" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e03deefb-7af3-431b-b26b-4be162865582">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="approvalUserDetails" uuid="8ddf9c69-c0bb-46eb-a882-67e93b729b77">
+		<field name="name" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="type" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="imgPath" class="java.lang.String"/>
+	</subDataset>
+	<field name="level" class="java.lang.Integer"/>
+	<field name="active" class="java.lang.String"/>
+	<field name="approvalUsers" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="3" width="399" height="25" uuid="01d6c5fb-eb13-4208-b566-7a7be6b6d8b9"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Level"+$F{level}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement positionType="Float" x="3" y="29" width="452" height="22" uuid="208964c3-7a80-4ea5-a0b7-4177231abdf8"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="approvalUserDetails" uuid="330fc340-9015-4361-b250-6b43a8586768">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{approvalUsers}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="22" width="452">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" x="91" y="0" width="352" height="20" uuid="ec4c4a15-5db9-428e-97e6-f6b12e06aa38"/>
+							<textElement verticalAlignment="Middle">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<image>
+							<reportElement x="37" y="2" width="15" height="20" uuid="88cdde98-6452-4da3-893c-2c37c08530fa"/>
+							<imageExpression><![CDATA[$F{imgPath}+"/Approval-profile.png"]]></imageExpression>
+						</image>
+						<image onErrorType="Blank">
+							<reportElement x="17" y="2" width="14" height="19" uuid="be9008c7-43d4-4008-ad51-1fe2010a75d5"/>
+							<imageExpression><![CDATA[$F{status}.equals("APPROVED") ? $F{imgPath}+"/right-green-mark.png":($F{status}.equals("REJECTED") ? $F{imgPath}+"/cross-red-mark.png":"")]]></imageExpression>
+						</image>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary" pageWidth="595" pageHeight="1600" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="326d06d2-2282-48ea-882b-7257a2af7143">
+	<property name="ireport.zoom" value="1.0245201830476058"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="table"/>
+	<style name="table_TH" mode="Opaque" backcolor="#DCDCDC"/>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF"/>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF"/>
+	<subDataset name="ContactDetails" uuid="7d9475c9-666f-4a53-aaf0-e76c37277e85">
+		<field name="title" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="comunicationEmail" class="java.lang.String"/>
+		<field name="designation" class="java.lang.String"/>
+		<field name="contactNumber" class="java.lang.String"/>
+		<field name="mobileNumber" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="supplierDetails" uuid="fb18a5a5-98d4-49c3-b393-af38b0e3afe6">
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="email" class="java.lang.String"/>
+		<field name="contactNo" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="meetingDetails" uuid="b506e098-b790-4444-bc02-b03f780e4979">
+		<field name="title" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="remarks" class="java.lang.String"/>
+		<field name="venue" class="java.lang.String"/>
+		<field name="appointmentDateTime" class="java.util.Date"/>
+		<field name="meetingContacts" class="java.util.List"/>
+		<field name="meeingInviteSupplier" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="documentDetails" uuid="f53931aa-b910-45e6-9367-b83170cd8436">
+		<field name="fileName" class="java.lang.String"/>
+		<field name="description" class="java.lang.String"/>
+		<field name="uploadDate" class="java.util.Date"/>
+		<field name="size" class="java.lang.Double"/>
+		<field name="internal" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="EVALUATION_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="referenceId" class="java.lang.String"/>
+	<field name="eventStart" class="java.lang.String"/>
+	<field name="eventEnd" class="java.lang.String"/>
+	<field name="publishDate" class="java.lang.String"/>
+	<field name="visibility" class="java.lang.String"/>
+	<field name="validityDays" class="java.lang.Integer"/>
+	<field name="participationFee" class="java.math.BigDecimal"/>
+	<field name="category" class="java.lang.String"/>
+	<field name="eventName" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="correspondAddress" class="java.lang.String"/>
+	<field name="contacts" class="java.util.List"/>
+	<field name="baseCurrency" class="java.lang.String"/>
+	<field name="paymentTerm" class="java.lang.String"/>
+	<field name="costCenter" class="java.lang.String"/>
+	<field name="businesUnit" class="java.lang.String"/>
+	<field name="historicAmt" class="java.math.BigDecimal"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="budgetAmt" class="java.math.BigDecimal"/>
+	<field name="suppliers" class="java.util.List"/>
+	<field name="meetings" class="java.util.List"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="cqs" class="java.util.List"/>
+	<field name="bqs" class="java.util.List"/>
+	<field name="envelops" class="java.util.List"/>
+	<field name="evaluationTeam" class="java.util.List"/>
+	<field name="approvals" class="java.util.List"/>
+	<field name="timelines" class="java.util.List"/>
+	<field name="deliveryAddress" class="java.lang.String"/>
+	<field name="documents" class="java.util.List"/>
+	<field name="comments" class="java.util.List"/>
+	<field name="auctionRules" class="java.util.List"/>
+	<field name="auditDetails" class="java.util.List"/>
+	<field name="eventOwner" class="java.lang.String"/>
+	<field name="isMask" class="java.lang.Boolean"/>
+	<field name="maximumSupplierRating" class="java.math.BigDecimal"/>
+	<field name="minimumSupplierRating" class="java.math.BigDecimal"/>
+	<field name="haveUserConclusionPermaturly" class="java.lang.Boolean"/>
+	<field name="enableApprovalReminder" class="java.lang.Boolean"/>
+	<field name="reminderAfterHour" class="java.lang.Integer"/>
+	<field name="reminderCount" class="java.lang.Integer"/>
+	<field name="notifyEventOwner" class="java.lang.Boolean"/>
+	<field name="suspensionApprovals" class="java.util.List"/>
+	<field name="suspensionComments" class="java.util.List"/>
+	<field name="awardApprovals" class="java.util.List"/>
+	<field name="awardComments" class="java.util.List"/>
+	<field name="sors" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="3" y="2" width="573" height="20" uuid="6b565d72-1316-4de6-8ca4-fac70823bfd1"/>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="1" y="0" width="559" height="20" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="3ac72f6d-d1a4-4f0f-8022-f6247f49b61c"/>
+					<box leftPadding="5"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{type}+": "+$F{eventName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="3" y="22" width="573" height="20" uuid="bddb06d0-32d9-4b98-b870-6109bd084ae7"/>
+				<staticText>
+					<reportElement positionType="Float" x="135" y="0" width="87" height="20" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="4f9eeb4a-88f6-4150-8ba3-0163fc40d992"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[Event Owner :]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="224" y="0" width="340" height="20" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="089b5e40-2440-4b12-a303-1c4d52ab2697"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventOwner}+", "+$F{email}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="42" y="0" width="92" height="20" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="64bc3861-92ca-4e67-9e56-3ef7ac208e09"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{referenceId}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="16" y="0" width="24" height="20" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC" uuid="a3269f0b-22cf-414f-8230-b510a8941a26"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<text><![CDATA[ID :]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="432" y="3" width="80" height="20" forecolor="#CCCCCC" uuid="0e7e407d-0395-4587-b493-5284a81e7ade"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="512" y="3" width="40" height="20" forecolor="#CCCCCC" uuid="8d736fbc-39e6-455f-adbd-decafa90a775"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="1273" splitType="Immediate">
+			<break>
+				<reportElement positionType="Float" x="0" y="120" width="97" height="1" isRemoveLineWhenBlank="true" uuid="d29dc0ef-b807-4b68-aab3-c3c862d93e1b">
+					<printWhenExpression><![CDATA[$F{documents}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="200" width="200" height="20" uuid="eac3db84-2dd6-44f8-ab13-dc78f269b41d">
+					<printWhenExpression><![CDATA[$F{suppliers}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[List of Invited Suppliers]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 1" positionType="Float" x="3" y="220" width="360" height="50" uuid="492468c6-ed9e-49bb-adcc-38367c80ecb5">
+					<printWhenExpression><![CDATA[$F{suppliers}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="supplierDetails" uuid="50629da2-adf8-42bb-99cd-cf8070da1ab1">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{suppliers}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="160" uuid="ac6dd69b-5093-4077-b830-67244e9d2456">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="160" height="30" backcolor="#F1F1F1" uuid="4b2e84ee-1e42-411b-809a-724b43a1186e"/>
+								<box topPadding="2" leftPadding="3"/>
+								<textElement verticalAlignment="Middle">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Company Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="160" height="30" isPrintWhenDetailOverflows="true" uuid="521174f4-4691-488c-b84d-6ce5a2368933"/>
+								<box topPadding="2" leftPadding="3" bottomPadding="2"/>
+								<textElement verticalAlignment="Top">
+									<font size="9"/>
+									<paragraph lineSpacing="1_1_2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="7f152832-02ee-4064-addb-9cab720b15be">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="140" height="30" backcolor="#F1F1F1" uuid="c7aea695-16f7-4c09-875d-083c2214845e"/>
+								<box topPadding="2" leftPadding="3"/>
+								<textElement verticalAlignment="Middle">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Contact Person]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="140" height="30" uuid="3206989f-f62d-4d43-83ea-4d359791c1d5"/>
+								<box topPadding="2" leftPadding="3" bottomPadding="2"/>
+								<textElement verticalAlignment="Top">
+									<font size="9"/>
+									<paragraph lineSpacing="1_1_2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{contactName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="160" uuid="b74e1088-3ef3-45ca-8862-79b789ff9a11">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="160" height="30" isPrintWhenDetailOverflows="true" backcolor="#F1F1F1" uuid="5fb0175e-fad6-4742-8e1f-e07b2687920c"/>
+								<box topPadding="2" leftPadding="3"/>
+								<textElement verticalAlignment="Middle">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Contact Email Address]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="160" height="30" uuid="e4fb161c-dbf0-453d-8030-73807d334ae3"/>
+								<box topPadding="2" leftPadding="3" bottomPadding="2"/>
+								<textElement verticalAlignment="Top">
+									<font size="9"/>
+									<paragraph lineSpacing="1_1_2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="0b3381de-eaa7-47ee-a74a-33a38580a2bb">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="120" height="30" backcolor="#F1F1F1" uuid="aec583c4-068e-4253-b473-3d6f266e8bee"/>
+								<box topPadding="2" leftPadding="3"/>
+								<textElement verticalAlignment="Middle">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Contact Number]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="120" height="30" uuid="44fa1c09-72d5-4da6-95f7-38bcfd207e98"/>
+								<box topPadding="2" leftPadding="3" bottomPadding="2"/>
+								<textElement verticalAlignment="Top">
+									<font size="9"/>
+									<paragraph lineSpacing="1_1_2"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{contactNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<break>
+				<reportElement positionType="Float" x="0" y="270" width="99" height="1" uuid="c1a616f0-4b3d-4d9c-a901-a87fd11dc612">
+					<printWhenExpression><![CDATA[$F{meetings}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="280" width="181" height="20" isRemoveLineWhenBlank="true" uuid="070c276b-487f-47ef-a134-e276aaf0dc21">
+					<printWhenExpression><![CDATA[$F{meetings}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Meeting]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="-2" y="300" width="200" height="40" isRemoveLineWhenBlank="true" uuid="90bc6323-5b1c-479b-b633-8a676077de80">
+					<printWhenExpression><![CDATA[$F{meetings}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{meetings}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_meetingDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="340" width="99" height="1" isRemoveLineWhenBlank="true" uuid="f25676d3-7989-40a9-be72-e55972942334">
+					<printWhenExpression><![CDATA[$F{cqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="350" width="181" height="20" isRemoveLineWhenBlank="true" uuid="388a93c4-961d-430d-a94b-7532ffcbf807">
+					<printWhenExpression><![CDATA[$F{cqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Questionnaire]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="1" y="370" width="200" height="38" isRemoveLineWhenBlank="true" uuid="008d760e-1d97-4a29-8810-af888c573a95">
+					<printWhenExpression><![CDATA[$F{cqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqs}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_cqItems.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="410" width="99" height="1" isRemoveLineWhenBlank="true" uuid="af0bbefa-e8f3-47c7-9c02-c6132922f0f1">
+					<printWhenExpression><![CDATA[$F{bqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<break>
+				<reportElement positionType="Float" x="0" y="486" width="99" height="1" isRemoveLineWhenBlank="true" uuid="66a450a9-01de-4cfa-bc36-2f8497ea5cc8">
+					<printWhenExpression><![CDATA[$F{envelops}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="570" width="181" height="20" isRemoveLineWhenBlank="true" uuid="c64f33ac-e782-4b46-8632-bab328aab440">
+					<printWhenExpression><![CDATA[$F{envelops}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Envelopes]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="1" y="596" width="200" height="44" isRemoveLineWhenBlank="true" uuid="3fbe20e5-b5d1-453d-83d3-a210c7390c50">
+					<printWhenExpression><![CDATA[$F{envelops}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{envelops}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_EnvelopsDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement positionType="Float" x="2" y="640" width="563" height="1" uuid="fcce1a0c-c9f8-4eee-957e-1d2e40aec9dd">
+					<printWhenExpression><![CDATA[$F{haveUserConclusionPermaturly}==true]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<subreport>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="642" width="200" height="20" isRemoveLineWhenBlank="true" uuid="3fbe20e5-b5d1-453d-83d3-a210c7390c50">
+					<printWhenExpression><![CDATA[$F{haveUserConclusionPermaturly}==true]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{EVALUATION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_evaluationConclusion.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="662" width="99" height="1" isRemoveLineWhenBlank="true" uuid="67bce9a5-c6c3-4512-b5d0-4ac5ca9c76c1">
+					<printWhenExpression><![CDATA[$F{timelines}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="663" width="181" height="20" isRemoveLineWhenBlank="true" uuid="a042d067-688a-4624-a51a-3da2f1f7bb05">
+					<printWhenExpression><![CDATA[$F{timelines}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Event Timeline]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="1" y="683" width="200" height="37" isRemoveLineWhenBlank="true" uuid="2f328657-5601-4531-b2fc-c3c3387dd202">
+					<printWhenExpression><![CDATA[$F{timelines}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{timelines}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_timeline.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="720" width="99" height="1" isRemoveLineWhenBlank="true" uuid="4b7693f0-dff9-43c6-9b99-89292536bdcc">
+					<printWhenExpression><![CDATA[$F{evaluationTeam}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="724" width="184" height="20" isRemoveLineWhenBlank="true" uuid="03819592-c313-4cc4-9dad-1f95552be4b3">
+					<printWhenExpression><![CDATA[$F{evaluationTeam}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Event Team Members]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="2" y="744" width="200" height="36" isRemoveLineWhenBlank="true" uuid="b5271e1a-fb01-40f7-8ec0-1423d7a89cff">
+					<printWhenExpression><![CDATA[$F{evaluationTeam}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{evaluationTeam}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_teamMembers.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="780" width="99" height="1" isRemoveLineWhenBlank="true" uuid="9f212532-56e8-4bee-96ae-7a1cac27134a">
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="790" width="185" height="20" isRemoveLineWhenBlank="true" uuid="fbd45080-3112-4db7-867f-893f2d97afec">
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Approvals]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="815" width="185" height="20" isRemoveLineWhenBlank="true" uuid="fbd45080-3112-4db7-867f-893f2d97afec">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{enableApprovalReminder} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Reminder Settings:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="835" width="410" height="14" isRemoveLineWhenBlank="true" uuid="4f08ecc8-dff0-4642-b9f0-a24b57353b34">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{enableApprovalReminder} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reminder emails sent every  "+$F{reminderAfterHour} +" hours."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="850" width="415" height="14" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="4f08ecc8-dff0-4642-b9f0-a24b57353b34">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{enableApprovalReminder} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Maximum "+$F{reminderCount} +" reminder emails."]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="2" y="880" width="574" height="40" isRemoveLineWhenBlank="true" uuid="1d5d5c48-d3ab-4e46-adac-b08cf3f1c24d">
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{approvals}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_approvalList.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="130" width="200" height="20" isRemoveLineWhenBlank="true" uuid="36140d8e-7bb0-48e6-b161-93888bbf55e4">
+					<printWhenExpression><![CDATA[$F{documents}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[List of Documents]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 1" positionType="Float" x="-5" y="150" width="360" height="39" isRemoveLineWhenBlank="true" backcolor="#F1F1F1" uuid="442a3ea0-d088-4843-8fa2-f7a2bd8866b9">
+					<printWhenExpression><![CDATA[$F{documents}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="documentDetails" uuid="98718564-d0d3-4c8f-af9c-7b7a440744b7">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{documents}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="150" uuid="5a0143ab-a3ff-4894-86f8-254dc25f093b">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="150" height="30" backcolor="#F1F1F1" uuid="1962f476-4b82-45b2-94de-dd2235e3c5f5"/>
+								<box leftPadding="4"/>
+								<textElement verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Name]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="150" height="25" isPrintWhenDetailOverflows="true" uuid="ba6b5dcc-df4a-4319-857c-8aff4c731b6a"/>
+								<box topPadding="4" leftPadding="4" bottomPadding="4"/>
+								<textElement verticalAlignment="Top">
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{fileName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="bf96c9bd-6c2b-48cd-a49e-9d152c39a64d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="110" height="30" backcolor="#F1F1F1" uuid="1cfbf95f-3093-40ff-9c3b-3d69dffe6d59"/>
+								<textElement verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Description]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="110" height="25" uuid="1845fb26-13b8-444f-8544-a76ff93e8a86"/>
+								<box topPadding="4" leftPadding="4" bottomPadding="4"/>
+								<textElement>
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="669c5abf-144e-42a1-8d8f-d0c4db4695e4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="110" height="30" backcolor="#F1F1F1" uuid="f13a98b6-0762-45fa-9980-7dcf993953db"/>
+								<box leftPadding="4"/>
+								<textElement verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Date & Time]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="110" height="25" isPrintWhenDetailOverflows="true" uuid="1d2a08b1-1efa-41b5-9802-29d94c71a188"/>
+								<box topPadding="4" leftPadding="4" bottomPadding="4"/>
+								<textElement verticalAlignment="Top">
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{uploadDate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="20f934fa-a5c9-4dea-ae66-a46d820df7c5">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="90" height="30" backcolor="#F1F1F1" uuid="6bd0d68e-28cc-4a06-982c-00b239ae7dd3"/>
+								<box leftPadding="4"/>
+								<textElement verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Size]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="90" height="25" isPrintWhenDetailOverflows="true" uuid="fc4ff69e-7ad1-4b51-98a1-05f47148f70b"/>
+								<box topPadding="4" leftPadding="4" bottomPadding="4"/>
+								<textElement verticalAlignment="Top">
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{size} +" KB"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="611d0e29-8033-4619-88d9-74b74893591a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="120" height="30" backcolor="#F1F1F1" uuid="ed862474-e81d-46ff-8f36-74ec4557cfdb"/>
+								<box leftPadding="4"/>
+								<textElement verticalAlignment="Middle">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Availability]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="25">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="120" height="25" isPrintWhenDetailOverflows="true" uuid="21ed1687-3bc5-4709-896d-9faaeb074971"/>
+								<box topPadding="4" leftPadding="4" bottomPadding="4"/>
+								<textElement verticalAlignment="Top">
+									<font size="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{internal}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<break>
+				<reportElement positionType="Float" x="0" y="190" width="93" height="1" uuid="4eb3f82f-d1df-4f8a-b004-f7b8e2dcac38">
+					<printWhenExpression><![CDATA[$F{suppliers}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="6" y="0" width="282" height="35" uuid="7bda024b-fc9a-4e86-944c-92f64bb70a9a"/>
+				<subreportParameter name="EVALUATION_SUMMARY">
+					<subreportParameterExpression><![CDATA[$P{EVALUATION_SUMMARY}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{EVALUATION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_eventDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="930" width="185" height="20" isRemoveLineWhenBlank="true" uuid="652c171d-761b-44ec-8fbf-aa760c8a1d06">
+					<printWhenExpression><![CDATA[$F{comments}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Comments]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="-2" y="950" width="200" height="30" isRemoveLineWhenBlank="true" uuid="f92892ee-6a50-4ae1-9a32-d1c23d354dd9">
+					<printWhenExpression><![CDATA[$F{comments}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{comments}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_commentDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="40" width="99" height="1" isRemoveLineWhenBlank="true" uuid="664537fb-01f4-4d80-9dee-4446bc8a9548">
+					<printWhenExpression><![CDATA[$F{auctionRules}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="1" y="80" width="200" height="35" isRemoveLineWhenBlank="true" uuid="c41c1258-6e66-4756-854a-d7a5ba67c28f">
+					<printWhenExpression><![CDATA[$F{auctionRules}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{auctionRules}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_auctionRules.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="1040" width="97" height="1" isRemoveLineWhenBlank="true" uuid="4d7ada45-6e83-4ab0-8e38-bdc67a28a3f0">
+					<printWhenExpression><![CDATA[$F{auditDetails}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="6" y="1224" width="185" height="20" isRemoveLineWhenBlank="true" uuid="d6cb0771-b69c-475b-80e2-194fb7ac8d69">
+					<printWhenExpression><![CDATA[$F{auditDetails}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Event Audit]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="4" y="1244" width="200" height="29" isRemoveLineWhenBlank="true" uuid="ea59acb5-bbfa-410d-8d67-8f4e63f9c8d3">
+					<printWhenExpression><![CDATA[$F{auditDetails}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{auditDetails}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_eventAudit.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="41" width="96" height="1" isRemoveLineWhenBlank="true" uuid="f8391716-0c3e-41fb-a988-1f08b9f8e87c"/>
+			</break>
+			<subreport>
+				<reportElement x="-1" y="42" width="285" height="28" uuid="588f2f37-24b3-4e6f-aff7-bde79d9cdd8f"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{EVALUATION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_eventSettings.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="74" width="96" height="1" isRemoveLineWhenBlank="true" uuid="f8391716-0c3e-41fb-a988-1f08b9f8e87c">
+					<printWhenExpression><![CDATA[$F{documents}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement x="2" y="865" width="415" height="14" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="d6be1e4d-ff97-4a78-860c-0c7ff64ff0cd">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0 && $F{notifyEventOwner} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="false" isUnderline="false" pdfFontName="Helvetica" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Notification to Event Owner upon final reminder for each approval level.]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="1" y="1010" width="200" height="30" isRemoveLineWhenBlank="true" uuid="434cac0c-9435-4078-834f-52d05c58c9e2">
+					<printWhenExpression><![CDATA[$F{suspensionApprovals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{suspensionApprovals}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_suspendApprovalList.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="-2" y="990" width="185" height="20" isRemoveLineWhenBlank="true" uuid="0cef0694-0341-47e2-926b-50f8f1f8c14a">
+					<printWhenExpression><![CDATA[$F{suspensionApprovals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Suspend Approvals]]></text>
+			</staticText>
+			<break>
+				<reportElement positionType="Float" x="0" y="980" width="96" height="1" isRemoveLineWhenBlank="true" uuid="5c16943b-f789-403a-8949-d794cef52ebf">
+					<printWhenExpression><![CDATA[$F{approvals}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<break>
+				<reportElement positionType="Float" x="0" y="922" width="98" height="1" isRemoveLineWhenBlank="true" uuid="2b9a44b4-85ca-46f3-a88e-281f9e19c788">
+					<printWhenExpression><![CDATA[$F{envelops}.size()>0]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="1" y="1070" width="200" height="34" isRemoveLineWhenBlank="true" uuid="57ccd760-b209-4162-b657-c09a7171d89c">
+					<printWhenExpression><![CDATA[$F{suspensionComments}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{suspensionComments}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_suspendCommentDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="-1" y="1050" width="271" height="20" isRemoveLineWhenBlank="true" uuid="1b239516-2bb0-4c02-8ca5-a74b44ec0e41">
+					<printWhenExpression><![CDATA[$F{suspensionApprovals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Suspend Approval Comments]]></text>
+			</staticText>
+			<break>
+				<reportElement positionType="Float" x="0" y="1218" width="96" height="1" isRemoveLineWhenBlank="true" uuid="01a67a4a-7478-408e-bbed-8c63f2136f42">
+					<printWhenExpression><![CDATA[$F{awardApprovals}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="1109" width="185" height="20" isRemoveLineWhenBlank="true" uuid="22167043-f068-4d4c-8dd5-50bd7d8aa488">
+					<printWhenExpression><![CDATA[$F{awardApprovals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Award Approvals]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="6" y="1133" width="200" height="30" isRemoveLineWhenBlank="true" uuid="078a6223-7d09-4578-83be-86f80036109f">
+					<printWhenExpression><![CDATA[$F{awardApprovals}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{awardApprovals}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_awardApprovalList.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="1163" width="96" height="1" isRemoveLineWhenBlank="true" uuid="01a67a4a-7478-408e-bbed-8c63f2136f42">
+					<printWhenExpression><![CDATA[$F{awardApprovals}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="1166" width="271" height="20" isRemoveLineWhenBlank="true" uuid="a23728ea-e31d-4f29-b83c-45185eef35cb">
+					<printWhenExpression><![CDATA[$F{awardComments}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Award Approval Comments]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="6" y="1189" width="200" height="20" isRemoveLineWhenBlank="true" uuid="36c6140d-b6eb-4a7d-86c8-38c3e119dd83">
+					<printWhenExpression><![CDATA[$F{awardComments}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{awardComments}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_awardCommentDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="1106" width="96" height="1" isRemoveLineWhenBlank="true" uuid="ceac31ed-6587-49d2-aeb5-be61cd370c0f">
+					<printWhenExpression><![CDATA[$F{auditDetails}.size()>0&&$F{isMask}==false]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="5" y="437" width="200" height="41" isRemoveLineWhenBlank="true" uuid="bdfa51d3-8203-464c-89ca-260f4e50a505">
+					<printWhenExpression><![CDATA[$F{bqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqs}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_bqDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="410" width="181" height="20" isRemoveLineWhenBlank="true" uuid="922730db-5922-4fe3-8a04-cb60656a6d83">
+					<printWhenExpression><![CDATA[$F{bqs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Bill Of Quantity]]></text>
+			</staticText>
+			<break>
+				<reportElement x="0" y="565" width="100" height="1" uuid="543cedbc-d73a-4e9c-ae6e-bf1e38a01b0d"/>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="3" y="520" width="200" height="41" isRemoveLineWhenBlank="true" uuid="08f29ae0-936d-4ad4-8b1a-b97b5194569b">
+					<printWhenExpression><![CDATA[$F{sors}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sors}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_sorDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="-2" y="493" width="181" height="20" isRemoveLineWhenBlank="true" uuid="875b074d-75b6-45fd-af13-bd2c05a2957b">
+					<printWhenExpression><![CDATA[$F{sors}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Schedule of Rate]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

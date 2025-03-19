@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_EnvelopsDetails" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="60cd1722-76eb-4f8b-9312-c26f65e734bb">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="bqList" uuid="9d699398-af07-449a-836a-4b25133e9da6">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="cqList" uuid="c1173a3f-b1f7-46ed-8abf-3c6b78785c77">
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="EvaluatorList" uuid="18414e12-262b-4b6f-9412-54a137956493">
+		<field name="owner" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="OpenerList" uuid="f427edbc-e296-4e80-b943-d91ffb901fa5">
+		<field name="owner" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="sorList" uuid="c540f674-8c97-4c6a-bebd-8e48234d1265">
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="envlopName" class="java.lang.String"/>
+	<field name="bqs" class="java.util.List"/>
+	<field name="cqs" class="java.util.List"/>
+	<field name="imagePath" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="evaluator" class="java.util.List"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="opener" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="sequence" class="java.lang.Integer"/>
+	<field name="openerUsers" class="java.util.List"/>
+	<field name="sors" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="191" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="FixRelativeToBottom" x="6" y="39" width="262" height="30" isRemoveLineWhenBlank="true" uuid="b1d0be78-5dd4-4d73-92fa-83bd1d5aa7b6"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="cqList" uuid="97cf3cb5-705d-4673-8d21-aa97335408b1">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqs}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="262">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="262" height="30" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#F1F1F1" uuid="a3cc3302-d9a2-4953-9f28-f106f094737a"/>
+							<box leftPadding="5"/>
+							<textElement verticalAlignment="Middle">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}+" [Questionnaire]"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement positionType="Float" x="6" y="69" width="262" height="30" isRemoveLineWhenBlank="true" backcolor="#F0F0F0" uuid="0303ec43-81bf-4434-bb76-4f8cc575fee9"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="bqList" uuid="3f0cf3a2-865c-4c6e-9aa4-771147821960">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqs}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="262">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="262" height="30" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" backcolor="#F1F1F1" uuid="9a8df0e7-fc31-4c5a-b0d9-e460bfa9f3da"/>
+							<box leftPadding="5"/>
+							<textElement verticalAlignment="Middle">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}+" [Bill of Quantity]"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="6" y="130" width="154" height="20" uuid="ef7de44e-ab3d-42df-9585-92ed405bd3e3"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Evaluation Team:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="6" y="152" width="203" height="25" isRemoveLineWhenBlank="true" backcolor="#F1F1F1" uuid="f99dd63b-7165-4d1b-9393-b1165e4bf9e6"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="EvaluatorList" uuid="7b71a0fe-032e-47d7-afd8-4540a7ff2c3e">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{evaluator}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="25" width="203">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="203" height="25" isPrintWhenDetailOverflows="true" backcolor="#F1F1F1" uuid="595d4e8d-55a3-4d51-b865-b3bd8ff2b7f0"/>
+							<textElement verticalAlignment="Middle">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<frame>
+				<reportElement positionType="Float" x="281" y="39" width="310" height="20" uuid="894e7d9c-67e4-4954-bedc-9c7ef7f3a6fc"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" isPrintWhenDetailOverflows="true" uuid="83e394d6-f4ae-4574-85a9-27c682befa1c"/>
+					<box rightPadding="3"/>
+					<textElement textAlignment="Left">
+						<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Envelope Evaluation Owner:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="180" y="0" width="124" height="20" isPrintWhenDetailOverflows="true" uuid="e9d2d327-c27e-4012-b620-08e5f4233cf5"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="281" y="59" width="310" height="20" uuid="ad564d62-eb7f-4a29-925d-c1e5c68607f7"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" isPrintWhenDetailOverflows="true" uuid="74098fca-c3e8-4065-8491-a2cb7ec053c9"/>
+					<box rightPadding="3"/>
+					<textElement textAlignment="Left">
+						<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Envelope Opener:]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement positionType="Float" x="180" y="0" width="124" height="20" isRemoveLineWhenBlank="true" uuid="b80860ae-a50d-4248-89c7-d7aa04c5a198">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="OpenerList" uuid="0bef7f1d-28be-4bbc-97ad-c35e6ea97a02">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{openerUsers}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="124">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="124" height="20" isPrintWhenDetailOverflows="true" uuid="1fba8824-bdc8-4aa4-8659-a17954f7d1f6"/>
+								<textElement verticalAlignment="Top">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="1" y="3" width="586" height="20" uuid="7c6fb6c0-1797-40f5-93a0-eb057652752e"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="448" y="0" width="132" height="20" isPrintWhenDetailOverflows="true" uuid="18804c48-5a90-44a5-a73f-f6331d963bfa"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="380" y="0" width="68" height="20" isPrintWhenDetailOverflows="true" uuid="e913deb3-82c9-4226-ae0b-f7d6a4ac9bf7"/>
+					<box rightPadding="3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12" isBold="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Type :]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="27" y="0" width="333" height="20" isPrintWhenDetailOverflows="true" uuid="45dc5fc0-d933-48b5-8624-7d20dd60c8dc"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{envlopName}]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement positionType="Float" x="7" y="3" width="15" height="15" uuid="2dceef83-31bc-450e-b374-e498e829d913"/>
+					<imageExpression><![CDATA[$F{imagePath}+"/meeting_message.png"]]></imageExpression>
+				</image>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="2" y="23" width="585" height="14" uuid="5bfa6e10-254d-4643-8ee9-d6f84aa634bd"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="26" y="0" width="553" height="14" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="cefb4495-b6bc-4474-8422-8fb6433b5aaf"/>
+					<box leftPadding="3"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="281" y="79" width="310" height="20" uuid="0d88f747-b069-480f-aa69-2f7ea6a52df4"/>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="0" width="180" height="20" isPrintWhenDetailOverflows="true" uuid="2c9c9f53-aab7-4e8d-92f5-bd1c53b6cca1"/>
+					<box rightPadding="3"/>
+					<textElement textAlignment="Left">
+						<font size="12" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Envelope Opening Sequence:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="180" y="0" width="124" height="20" isPrintWhenDetailOverflows="true" uuid="61f798e1-56f3-4147-b557-eb9a8f36c16e"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sequence}!=null?$F{sequence}:"N/A"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<componentElement>
+				<reportElement positionType="Float" x="6" y="99" width="262" height="30" isRemoveLineWhenBlank="true" backcolor="#F0F0F0" uuid="d2bf278e-9872-404b-85ce-d1004bb0833d"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="sorList" uuid="51af15c7-ecd2-4792-93b3-ecd9dbba47ff">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{sors}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="30" width="262">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="262" height="30" isPrintWhenDetailOverflows="true" backcolor="#F1F1F1" uuid="0ad7967f-dd0e-4ce3-90c7-49ee8d3465f4"/>
+							<box leftPadding="5"/>
+							<textElement verticalAlignment="Middle">
+								<font size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}+" [Schedule of Rate]"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

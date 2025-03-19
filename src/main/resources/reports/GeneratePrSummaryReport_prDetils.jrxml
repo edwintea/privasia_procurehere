@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GeneratePrSummaryReport_prDetils" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="dd3344b7-2755-4a7e-a569-d978dc793142">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="58"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Crosstab Data Text" hTextAlign="Center" hImageAlign="Center"/>
+	<parameter name="PR_SUMMARY" class="java.util.Collection"/>
+	<field name="prName" class="java.lang.String"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="paymentTerm" class="java.lang.String"/>
+	<field name="termsAndConditions" class="java.lang.String"/>
+	<field name="requester" class="java.lang.String"/>
+	<field name="deliveryAddress" class="java.lang.String"/>
+	<field name="deliveryDate" class="java.lang.String"/>
+	<field name="deliveryReceiver" class="java.lang.String"/>
+	<field name="correspondAddress" class="java.lang.String"/>
+	<field name="buyerAddress" class="java.lang.String"/>
+	<field name="comanyName" class="java.lang.String"/>
+	<field name="supplierAddress" class="java.lang.String"/>
+	<field name="prNo" class="java.lang.String"/>
+	<field name="createdDate" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="baseCurrency" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="costCenter" class="java.lang.String"/>
+	<field name="businesUnit" class="java.lang.String"/>
+	<field name="totalAmount" class="java.lang.String"/>
+	<field name="receiver" class="java.lang.String"/>
+	<field name="prRefnumber" class="java.lang.String"/>
+	<field name="availableBudget" class="java.math.BigDecimal"/>
+	<field name="availableBudgetVisible" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="490" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="2" y="4" width="100" height="20" uuid="26660cfa-76b6-4f78-96cf-be7f01197a98"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[PR DETAIL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="24" width="552" height="1" uuid="339fea39-fdf2-43a6-886a-f7495ea537bc"/>
+			</line>
+			<frame>
+				<reportElement positionType="Float" x="7" y="38" width="560" height="25" uuid="69fec59c-8d39-428f-ac9f-0f6fd309c437"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="a985a34b-49c9-4bb0-af78-0d175f40f96e"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{prNo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="a9e77ca2-34b2-41aa-9064-ba7460e42df1"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[PR NO.]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="90" width="560" height="25" uuid="3fdd618d-0ce2-43f5-b6fe-b39bf8850c56"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="cf20562e-c472-49fd-96d0-ba3603f017b1"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[CREATED DATE]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="89d0b147-9f25-4674-a689-d0dc40fabebc"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{createdDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="116" width="560" height="25" uuid="04c0bdfd-9592-428a-8c03-ce1dc7a05667"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="6af1aaf1-5cc4-4c27-93fc-bc4be102f413"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[PR NAME]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="49dc2893-ce59-4e86-9828-e956709053d2"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{prName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="142" width="560" height="25" uuid="ab81a385-d6b6-4e29-a1af-a9cc113a6eac"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="9991e704-2267-4840-8b3d-2a4d95c24c85"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[PR CREATOR]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="870d77e8-d07b-4d59-9d8e-1d40ed3e60a6"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="169" width="560" height="25" uuid="0aa91e57-b56c-45bf-b4eb-e1bb68b8c4a5"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="94c83b9d-222a-47c9-87fe-a6a3f35234b4"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[REQUESTER]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="fbfa7ef9-1e10-455d-9da3-98a4f2e2affc"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{requester}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="222" width="560" height="25" uuid="97b22b93-e6bb-449f-b4b7-fca8fdd07bc4"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="34ae4ab3-c2b5-45a6-981d-a667b75cdf81"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[DECIMAL]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="da23b8da-1760-453a-bcec-53bfdc653c84"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{decimal}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="196" width="560" height="25" uuid="53e57a20-0a01-4ecb-83f5-909c3a0dc1bc"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="551c4a11-563b-4a27-b98d-582873c5f1ae"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[BASE CURRENCY]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="9efa8f18-8888-46d0-be5b-6a581415afe7"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{baseCurrency}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="248" width="560" height="25" uuid="3d4764b5-d218-44f2-bce9-c29d68069e8e"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="d96aa58b-1ef0-45e3-92fa-43281c6048f2"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[COST CENTER]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="d90ee9f3-206c-49df-908e-cefba2cf1a4a"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{costCenter}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="327" width="560" height="25" uuid="dc5b0854-853a-4aba-ba95-7aea4ad6481c"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="8630611f-65ff-46c2-a16f-2eeca001219e"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[PAYMENT TERM]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="6c7688b0-a772-4545-891a-e267e30eece4"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{paymentTerm}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="354" width="560" height="25" uuid="e29de43f-1f1c-4db6-a720-b1cebff87f64"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="20eb98af-be7c-4cd8-a80c-f57b7f33465f"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[TOTAL AMOUNT]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="0e688b31-1816-4033-80af-4111b7955c5f"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalAmount}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="380" width="560" height="25" uuid="f6bb7089-2ce0-4dc5-aa95-12f5c8e16adc"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="d9d40861-d8b9-49e1-8586-27fb69935607"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[CORRESPONDING ADDRESS]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="5ca359f3-d3bb-4d2f-8ece-f87ee916e36c"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{correspondAddress}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="406" width="560" height="25" uuid="12279658-f43c-4670-ae4f-6d0318f1a855"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="7023e26c-46ae-4e05-8891-f8a443ad0329"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[DELIVERY ADDRESS]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="45df17bc-88e4-4c4a-9599-73ac35aefb21"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{deliveryAddress}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="433" width="560" height="25" uuid="1767bef7-0ccd-483b-bb5a-0f2112466815"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="d89c8803-1d84-4033-8dd9-fcdad3d1bec5"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[DELIVERY DATE]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="82b81a4d-f293-4298-bbac-063ce2a730a9"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{deliveryDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="460" width="560" height="25" uuid="a4220a76-2d51-439b-9958-cd3a18dc93d0"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="25" isPrintWhenDetailOverflows="true" uuid="10237d2c-01c8-49c5-88d3-618946e23246"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[RECEIVER]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="e10a4978-4b66-4073-b31d-00021e33d266"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{receiver}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="64" width="560" height="25" uuid="eb8eaf14-0619-4fc5-9da9-1f53f88292f1"/>
+				<staticText>
+					<reportElement x="3" y="0" width="210" height="25" uuid="607841c2-c9c3-4460-824c-3b3f5859f232"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[PR REFERENCE NUMBER]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="214" y="0" width="346" height="25" isPrintWhenDetailOverflows="true" uuid="38ddb865-ed10-4133-b561-eac2e49afcf1"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{prRefnumber}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="7" y="274" width="560" height="24" uuid="4aa2f820-a5e4-4d9b-bfb9-5615e992e4e4"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="24" isPrintWhenDetailOverflows="true" uuid="73575709-66d9-4127-b2fe-5f676b8c76e1"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[BUSINESS UNIT]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="24" isPrintWhenDetailOverflows="true" uuid="a020df3c-ff63-4972-8895-20e975b24506"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{businesUnit}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Crosstab Data Text" positionType="Float" x="7" y="301" width="560" height="24" uuid="7d767908-e996-49a1-b79c-061200923e5a">
+					<printWhenExpression><![CDATA[$F{availableBudgetVisible} != false]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="210" height="24" isPrintWhenDetailOverflows="true" uuid="db0ffee2-01bc-40a3-945a-a374097cf828"/>
+					<box topPadding="2" leftPadding="4"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[AVAILABLE BUDGET]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="214" y="0" width="346" height="24" isPrintWhenDetailOverflows="true" uuid="247abe72-cc10-4e1c-bc57-e5bce82b3db0"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{availableBudget}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

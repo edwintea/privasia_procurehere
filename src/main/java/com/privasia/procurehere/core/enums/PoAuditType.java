@@ -1,0 +1,8 @@
+package com.privasia.procurehere.core.enums;
+
+/**
+ * @author ravi
+ */
+public enum PoAuditType {
+	SUSPENDED,CREATE, UPDATE, ACCEPTED, DECLINED, CANCELLED, READY, ORDERED, RECEIVED, DOWNLOADED, SHARED, REQUESTED, ERROR, APPROVE, REJECT,REVISE, REVISED, FINISH, REMINDER, ERP
+}

@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BidAuctionDetail" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bbb46477-1150-46ef-a7d1-ad581dc82740">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="BiddingPrice" uuid="4641868f-4643-498f-a3d4-533c67fe87df">
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="bidderName" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="remark" class="java.lang.String"/>
+		<field name="preAuctionPrice" class="java.math.BigDecimal"/>
+		<field name="preAuctionStrPrice" class="java.lang.String"/>
+		<field name="postAuctionprice" class="java.math.BigDecimal"/>
+		<field name="postAuctionStrPrice" class="java.lang.String"/>
+		<field name="saving" class="java.math.BigDecimal"/>
+		<field name="percentage" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="bidderPriceList" uuid="e3484221-d159-453d-a4c2-ad75fd59c76d">
+		<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="submitedDate" class="java.lang.String"/>
+		<field name="priceSubmission" class="java.math.BigDecimal"/>
+		<field name="priceReduction" class="java.math.BigDecimal"/>
+		<field name="percentage" class="java.math.BigDecimal"/>
+		<field name="bidderName" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="bidNumber" class="java.lang.Integer"/>
+		<field name="displayValue" class="java.lang.String"/>
+		<variable name="total_reduction" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{priceReduction}]]></variableExpression>
+		</variable>
+		<variable name="total_percentage" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{percentage}]]></variableExpression>
+		</variable>
+		<variable name="BidderName" class="java.lang.String">
+			<variableExpression><![CDATA[$F{bidderName}]]></variableExpression>
+		</variable>
+		<group name="Group1">
+			<groupExpression><![CDATA[$F{bidderName}]]></groupExpression>
+		</group>
+		<group name="Group2">
+			<groupExpression><![CDATA[$F{bidNumber}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="DisQaliferSupplier" uuid="11b739d1-319b-47b6-bcf7-30f91a98ed8d">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="remark" class="java.lang.String"/>
+		<field name="supplierName2" class="java.lang.String"/>
+		<field name="remark2" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="ipAddressDataSet" uuid="9cb15d2b-630d-4269-82eb-ae8f45dbd2c7">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="supplierCompanyName" class="java.lang.String"/>
+		<field name="ipAddress" class="java.lang.String"/>
+		<field name="supplierCompanyName1" class="java.lang.String"/>
+		<field name="ipAddress1" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<parameter name="decimal" class="java.lang.String"/>
+	<parameter name="auctionType" class="java.lang.String"/>
+	<parameter name="isMask" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="auctionStartDate" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="auctionEndDate" class="java.lang.String"/>
+	<field name="supplierCompanyName" class="java.lang.String"/>
+	<field name="revisedGrandTotal" class="java.math.BigDecimal"/>
+	<field name="remarkCompareLowestPrice" class="java.lang.String"/>
+	<field name="remarkComparerBudgetPrice" class="java.lang.String"/>
+	<field name="remarkCompareHistoricPrice" class="java.lang.String"/>
+	<field name="currencyCode" class="java.lang.String"/>
+	<field name="biddingPrice" class="java.util.List"/>
+	<field name="auctionTitle" class="java.lang.String"/>
+	<field name="disQualifiedSuppliers" class="java.util.List"/>
+	<field name="ipAddressList" class="java.util.List"/>
+	<field name="showSingleDisQaulify" class="java.lang.String"/>
+	<field name="showSingleIpAdd" class="java.lang.String"/>
+	<field name="leadSuppliergrandTotal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="92" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{isMask}!=true]]></printWhenExpression>
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="92" uuid="0bd6b2f4-0a68-426c-be75-2c89538ec420">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<rectangle>
+					<reportElement x="1" y="1" width="219" height="91" uuid="28e3a6bb-3984-4342-ae74-be1b68aeca38">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="234" y="1" width="319" height="91" uuid="bce1ec7d-49ba-4b07-a94d-3b17417f1b23">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="2" y="2" width="219" height="20" uuid="93293bb0-90be-4a64-960e-02f5d3357c4f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="10"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Leading Bid]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="234" y="72" width="319" height="20" forecolor="#0678BF" uuid="7ab40c01-ab80-4648-85ff-a57c4d30e073">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box rightPadding="8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{remarkCompareHistoricPrice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="235" y="32" width="318" height="20" forecolor="#0678BF" uuid="ffba19b6-17f7-4dd5-ac64-a7a3c0177d52">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box rightPadding="8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{remarkCompareLowestPrice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="234" y="52" width="318" height="20" forecolor="#0678BF" uuid="acc1e4ce-1eb2-45d9-8e46-1b7d231f971f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box rightPadding="8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{remarkComparerBudgetPrice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="1" y="72" width="219" height="20" forecolor="#066CBF" uuid="bf7d3f00-ec14-4b60-89fe-2cf1e9122980">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="5" rightPadding="5"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{leadSuppliergrandTotal}]]></textFieldExpression>
+					<patternExpression><![CDATA[$P{decimal}.equals("1") ? "#,###,###,##0.0" : $P{decimal}.equals("2") ? "#,###,###,##0.00" : $P{decimal}.equals("3") ? "#,###,###,##0.000" : $P{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="1" y="52" width="219" height="20" forecolor="#0678BF" uuid="eb0e8fa6-08ca-4142-91d7-f1c22b2c9d05">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box rightPadding="5">
+						<pen lineColor="#1196D9"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierCompanyName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="234" y="2" width="318" height="20" uuid="8aff2467-2ee0-4868-b6a9-c8334d572bbf">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{auctionType}.equals( "Forward English Auction" )?"Gains on Completed Bids":"Savings on Completed Bids"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="368">
+			<printWhenExpression><![CDATA[$P{isMask}!=true]]></printWhenExpression>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="7" width="555" height="350" uuid="6a5130e0-b01b-4ab1-ad49-7f0f05922e91">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<barChart>
+				<chart isShowLegend="true" renderType="draw" theme="default">
+					<reportElement positionType="Float" x="27" y="50" width="500" height="299" isPrintWhenDetailOverflows="true" uuid="3a395e13-1c96-43fc-8427-e6a2864ad329"/>
+					<chartTitle position="Bottom">
+						<titleExpression><![CDATA[$F{auctionTitle}]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="BiddingPrice" uuid="8edb97e5-ad02-48c1-9d2f-de2f5cbdff60">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{biddingPrice}, false)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["POST AUCTION PRICE ("+$F{currencyCode}+")"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bidderName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{postAuctionprice}]]></valueExpression>
+						<labelExpression><![CDATA[$F{postAuctionStrPrice}]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["PRE AUCTION PRICE ("+$F{currencyCode}+")"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bidderName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{preAuctionPrice}]]></valueExpression>
+						<labelExpression><![CDATA[$F{preAuctionStrPrice}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true" isShowTickLabels="true" isShowTickMarks="true">
+					<plot labelRotation="-45.0">
+						<seriesColor seriesOrder="0" color="#379163"/>
+						<seriesColor seriesOrder="1" color="#5DCAFC"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="-45.0">
+						<axisFormat verticalTickLabels="true"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat verticalTickLabels="false"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<staticText>
+				<reportElement x="0" y="9" width="280" height="30" uuid="4875f16a-5cf1-46a4-aa73-57b0c28d48b5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Top 5 fully completed bids]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="358" width="555" height="10" uuid="0f750792-654c-485a-8922-8c87d7bd15d9"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$F{disQualifiedSuppliers}.size()==0]]></printWhenExpression>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="40" uuid="056933d9-0ebb-4a15-a76b-6a3b9f2133cf"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="20" uuid="8544dbf3-f685-466b-815f-7e85c1d6af4f"/>
+					<box topPadding="2" leftPadding="2"/>
+					<textElement>
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Disqualification / Withdrawal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="20" width="555" height="20" isRemoveLineWhenBlank="true" backcolor="#DCDCDC" uuid="9632f341-bbe7-42b9-821b-46a9bc736e74">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[No Data]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="40" width="555" height="10" uuid="393eb019-5973-4e58-b257-b8dd3f3e58d5"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="103">
+			<printWhenExpression><![CDATA[$F{showSingleDisQaulify}.equals( "true")&&$F{disQualifiedSuppliers}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="60" width="555" height="10" uuid="89d628ac-515d-4c59-b3d3-609f6107f5d1"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="82b4d94b-3b90-4b21-882e-a000c553cb65"/>
+				<box topPadding="2" leftPadding="2"/>
+				<text><![CDATA[Disqualification / Withdrawal]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="32" width="555" height="60" uuid="7309c96f-afd0-461f-8b48-30d699d0a76f">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DisQaliferSupplier" uuid="fe009774-b7e3-42a0-b208-68b7e2b5fafb">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{disQualifiedSuppliers},false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="555" uuid="e959033a-2685-42a8-908c-4c63eb01feeb">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell style="Table 2_TD" height="60">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="555" height="30" forecolor="#0678BF" uuid="bf8a5510-a791-4e3b-a0d0-e815f8b6b57c">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="5"/>
+								<textElement verticalAlignment="Middle">
+									<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="1" y="30" width="554" height="30" forecolor="#0678BF" uuid="b698132c-ddc4-430e-8d73-9540353cd752"/>
+								<box leftPadding="5"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{remark}!=null ? $F{remark}:"N/A"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="93" width="555" height="10" uuid="592e5777-e4f1-41af-98f2-6236e77c693c"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="142">
+			<printWhenExpression><![CDATA[$F{showSingleDisQaulify}.equals( "false")&&$F{disQualifiedSuppliers}.size()>0]]></printWhenExpression>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="100" width="555" height="10" uuid="e6de65ba-3c90-4190-9fc9-642c1fcc44ce"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="faedd6b3-276c-49af-8fb8-8def923a688a"/>
+				<box topPadding="2" leftPadding="2"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Disqualification / Withdrawal]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="31" width="555" height="100" uuid="c5959686-049c-41fa-ac91-e9e95b7f40ed">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DisQaliferSupplier" uuid="60182383-a46c-4258-95e2-a4c0abe60c9f">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{disQualifiedSuppliers},false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="279" uuid="f9fe644c-dfab-4dfe-9c06-947593e2a815">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell style="Table 3_TD" height="100">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="279" height="40" forecolor="#0678BF" uuid="4d8f09fe-27c7-42ef-bbe0-0c8c37b7bead"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement>
+									<font isBold="true" pdfFontName="Helvetica-Bold"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="40" width="279" height="60" forecolor="#0678BF" uuid="d62bd277-be39-4d20-9d72-8690d0709083"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="276" uuid="94a51c5b-2a17-40ab-97fc-dcdd4e1b8e8e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:detailCell style="Table 3_TD" height="100">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="276" height="40" forecolor="#0678BF" uuid="e2a82f1e-b1fd-459f-b8a9-256eb0f97a78"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement>
+									<font isBold="true" pdfFontName="Helvetica-Bold"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{supplierName2}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="40" width="275" height="60" forecolor="#0678BF" uuid="3a3e3b46-550d-49c8-90b8-67ce98fa66d4"/>
+								<box leftPadding="3"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{remark2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="132" width="555" height="10" uuid="a0355b5f-2b34-45a2-b593-ed4820738550"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="43">
+			<printWhenExpression><![CDATA[$F{ipAddressList}.size()==0]]></printWhenExpression>
+			<frame>
+				<reportElement x="0" y="1" width="555" height="39" uuid="0f1c0772-8f7b-4f32-b2f7-1f4796fd02db"/>
+				<box>
+					<pen lineWidth="0.25"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="20" uuid="e001478d-a5f3-4de7-bd1a-9438e038faad"/>
+					<box topPadding="2" leftPadding="2"/>
+					<textElement>
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Matching IP Address]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="20" width="555" height="20" isRemoveLineWhenBlank="true" backcolor="#DCDCDC" uuid="8106a3ba-005c-48ce-aee7-908485909bde">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[No Data]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="96">
+			<printWhenExpression><![CDATA[$F{showSingleIpAdd}.equals( "true")&&$F{ipAddressList}.size()>0]]></printWhenExpression>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="92" uuid="ea0b7ea1-1e24-4e5c-b194-ffa490fdbfc6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="30" uuid="152f13a2-94ce-4e2e-b5e8-85d03d7abbeb"/>
+					<box topPadding="2" leftPadding="2">
+						<pen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Matching IP Address]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="0" y="31" width="555" height="60" uuid="cef1fae3-6202-4316-a401-e17f71addb85">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+						<property name="com.jaspersoft.studio.table.style.table_header" value="Table 4_TH"/>
+						<property name="com.jaspersoft.studio.table.style.column_header" value="Table 4_CH"/>
+						<property name="com.jaspersoft.studio.table.style.detail" value="Table 4_TD"/>
+						<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+						<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+					</reportElement>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="ipAddressDataSet" uuid="9be34a48-b95e-466f-ba28-4b86d84c27bd">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{ipAddressList},false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:column width="555" uuid="f9a1818b-b6e5-41d9-842d-098038c366bd">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+							<jr:detailCell style="Table 4_TD" height="60">
+								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+								<textField>
+									<reportElement x="1" y="30" width="554" height="30" forecolor="#0678BF" uuid="5134e567-6cf7-4ca9-8681-6ba6d95e14b4"/>
+									<box leftPadding="5"/>
+									<textElement verticalAlignment="Middle">
+										<font size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{ipAddress}]]></textFieldExpression>
+								</textField>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="555" height="30" forecolor="#0678BF" uuid="ed475582-444c-467e-83ee-2ac0b1f8d901">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box leftPadding="5"/>
+									<textElement verticalAlignment="Middle">
+										<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{supplierCompanyName}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="104">
+			<printWhenExpression><![CDATA[$F{showSingleIpAdd}.equals( "false")&&$F{ipAddressList}.size()>0]]></printWhenExpression>
+			<frame>
+				<reportElement x="1" y="0" width="554" height="100" uuid="8ce8d0c2-2879-4510-8b24-92fb258490e5"/>
+				<staticText>
+					<reportElement x="-1" y="0" width="555" height="30" uuid="aca0db79-e732-4040-8e8a-0b5c56d5330e"/>
+					<box topPadding="2" leftPadding="2">
+						<pen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Matching IP Address]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="-1" y="30" width="555" height="70" uuid="5229fa70-ae77-4203-bbe8-844d301f376c">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+						<property name="com.jaspersoft.studio.table.style.table_header" value="Table 5_TH"/>
+						<property name="com.jaspersoft.studio.table.style.column_header" value="Table 5_CH"/>
+						<property name="com.jaspersoft.studio.table.style.detail" value="Table 5_TD"/>
+						<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+						<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="ipAddressDataSet" uuid="c175d4d2-fa08-4337-bfff-52922df0d8a6">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{ipAddressList},false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:column width="279" uuid="1f6080e7-827b-4bbf-92d2-83a0a57ab4c2">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+							<jr:detailCell style="Table 5_TD" height="100">
+								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement x="0" y="40" width="279" height="60" forecolor="#0678BF" uuid="b404a3eb-fffe-4483-929a-c1242c9b2777"/>
+									<box leftPadding="3"/>
+									<textElement>
+										<font size="9" isBold="false"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{ipAddress}]]></textFieldExpression>
+								</textField>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="279" height="40" forecolor="#0678BF" uuid="12271a77-f5c5-4877-8aee-76d68be2dba5"/>
+									<box topPadding="3" leftPadding="3"/>
+									<textElement>
+										<font isBold="true" pdfFontName="Helvetica-Bold"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{supplierCompanyName}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="276" uuid="0cda013e-88a7-4beb-8f79-13c14ca87a05">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+							<jr:detailCell style="Table 5_TD" height="100">
+								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="276" height="40" forecolor="#0678BF" uuid="c8f0c8b4-bdd0-45e1-84a3-73462cd61ac4"/>
+									<box topPadding="3" leftPadding="3"/>
+									<textElement>
+										<font isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{supplierCompanyName1}]]></textFieldExpression>
+								</textField>
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement x="0" y="40" width="275" height="60" forecolor="#0678BF" uuid="a2f78acd-746e-4361-86e9-501711a48529"/>
+									<box leftPadding="3"/>
+									<textElement>
+										<font size="9" isBold="false"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{ipAddress1}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

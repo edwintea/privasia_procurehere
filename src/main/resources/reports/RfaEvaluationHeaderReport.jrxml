@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BuyerAuctionReport" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="ff7af7ad-e5e0-40b0-9198-9b7ed9c32082">
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="20"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="border">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#9ACDFC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#D4E9FC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="bidHistory" uuid="cad0cebf-9db7-444f-97e6-8032fdcb6643">
+		<parameter name="EventId" class="java.lang.String"/>
+		<field name="dateTime" class="java.lang.String"/>
+		<field name="bidPrice" class="java.math.BigDecimal"/>
+		<field name="companyName" class="java.lang.String"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="BidderContacts" uuid="9e54e260-1e33-48c3-b6ea-1de4c86e7357">
+		<field name="companyName" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="phno" class="java.lang.String"/>
+		<field name="mobileNo" class="java.lang.String"/>
+		<field name="email" class="java.lang.String"/>
+		<field name="ipnumber" class="java.lang.String"/>
+		<field name="designation" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="generatedOn" class="java.lang.String"/>
+	<field name="auctionId" class="java.lang.String"/>
+	<field name="auctionName" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="auctionType" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="auctionStartDate" class="java.lang.String"/>
+	<field name="dateTime" class="java.lang.String"/>
+	<field name="auctionPublishDate" class="java.lang.String"/>
+	<field name="auctionEndDate" class="java.lang.String"/>
+	<field name="currencyCode" class="java.lang.String"/>
+	<field name="auctionExtension" class="java.lang.String"/>
+	<field name="totalExtension" class="java.lang.Integer"/>
+	<field name="auctionStatus" class="java.lang.String"/>
+	<field name="supplierInvited" class="java.lang.Integer"/>
+	<field name="supplierParticipated" class="java.lang.String"/>
+	<field name="totalBilds" class="java.lang.Integer"/>
+	<field name="buyerName" class="java.lang.String"/>
+	<field name="bidHistory" class="java.util.List"/>
+	<field name="biddingPrice" class="java.util.List"/>
+	<field name="ductchPrice" class="java.math.BigDecimal"/>
+	<field name="intervalType" class="java.lang.String"/>
+	<field name="interval" class="java.lang.Integer"/>
+	<field name="winner" class="java.lang.String"/>
+	<field name="winningPrice" class="java.math.BigDecimal"/>
+	<field name="winningDate" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="startPrice" class="java.math.BigDecimal"/>
+	<field name="bidContacts" class="java.util.List"/>
+	<field name="supplierBidsList" class="java.util.List"/>
+	<field name="leadEvaluatorSummary" class="java.lang.String"/>
+	<field name="header" class="java.util.List"/>
+	<field name="eventDescription" class="java.lang.String"/>
+	<field name="leadEvaluater" class="java.lang.String"/>
+	<field name="leadSuppliergrandTotal" class="java.lang.String"/>
+	<field name="isMask" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="38">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement positionType="Float" x="1" y="37" width="555" height="1" forecolor="#808080" uuid="e68487c9-c6ca-453d-bb41-10f351133125">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<frame>
+				<reportElement x="0" y="20" width="555" height="15" uuid="89f18aab-8141-4800-a9c0-69760b87210f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="177" height="15" forecolor="#808080" uuid="bf97a5ff-c2e1-4922-8c7d-7cab0c2d093a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="3" bottomPadding="2"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+					<text><![CDATA[Auction Submission Report]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="355" y="0" width="200" height="15" forecolor="#808080" uuid="4ee85e79-037f-4d34-9938-dd1105a63624">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="1" bottomPadding="2" rightPadding="5"/>
+					<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA["Generated  ".concat( $P{generatedOn} )]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="167" height="20" forecolor="#808080" uuid="507a9be1-3f12-4dd1-81b2-4b52e20db583"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buyerName}!=null?$F{buyerName}.toUpperCase():""]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="48">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement x="0" y="23" width="555" height="25" uuid="2c68e079-8eb2-499a-be99-636f982e807b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="72" height="25" uuid="3a3257ca-9625-4e41-aa3b-d590ebe11a93">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="4" leftPadding="5"/>
+					<textElement textAlignment="Left">
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Event Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="72" y="0" width="8" height="25" uuid="f1e01b53-b2b0-419f-ac54-cbbf23613901">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="4"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" x="80" y="0" width="214" height="25" uuid="fb417813-ee84-4212-847d-06bb03e542f0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box topPadding="4"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{auctionName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement x="0" y="0" width="546" height="19" uuid="d3f94748-681e-4413-9d0a-d033af9ce060">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="4"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Executive Summary"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Executive Summary"]]></anchorNameExpression>
+			</textField>
+		</band>
+		<band height="25">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="25" uuid="2f1e12d9-3648-4bb3-95eb-e718b9297fd4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="72" height="25" uuid="61da0913-5933-4c6f-a866-bdad9da8c1da">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="4" leftPadding="5"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<text><![CDATA[Event ID ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="72" y="0" width="8" height="25" uuid="38d82abe-dd83-4a0b-8523-914b380a0143">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="305" y="0" width="100" height="25" uuid="03f92786-ee5d-4a2a-9c29-5f84c509c850">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box topPadding="4"/>
+					<textElement textAlignment="Right" verticalAlignment="Top"/>
+					<text><![CDATA[Event Reference #]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="405" y="0" width="8" height="25" uuid="0cae1bc0-722a-458c-ad9f-a94ed9f7b60c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top"/>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" x="80" y="0" width="214" height="25" uuid="c2f30bfa-0b25-4a13-a895-13e2d18e252d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box topPadding="4"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{auctionId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToTallestObject" x="413" y="0" width="142" height="25" uuid="27d8b114-e2d6-47ae-8767-bce69754a0bd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="4" leftPadding="2"/>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA[$F{referenceNo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="40">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="40" uuid="210bfc76-ccc2-4fba-b67e-d236d4d24c78">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="554" height="20" uuid="2058315c-35f3-4c0b-aa99-692a4a1aeaeb">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box topPadding="2" leftPadding="1"/>
+					<textFieldExpression><![CDATA[$F{eventDescription}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="20" width="555" height="20" uuid="bfa05061-dedc-49e0-bf59-b02d750e40b9">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box topPadding="2" leftPadding="1"/>
+					<textElement>
+						<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{auctionType}+" held from "+$F{auctionStartDate}+ " to "+$F{auctionEndDate}+" by "+$F{owner}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25">
+			<subreport>
+				<reportElement x="0" y="0" width="199" height="25" uuid="35a3fb4d-f584-4b50-a267-c4a7683a1bc2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$F{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auctionType">
+					<subreportParameterExpression><![CDATA[$F{auctionType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isMask">
+					<subreportParameterExpression><![CDATA[$F{isMask}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{header}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} +"AuctionSubmissionDetail.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField evaluationTime="Master">
+				<reportElement x="230" y="0" width="96" height="20" forecolor="#000000" uuid="76b39cd9-5d43-4ec7-ac8f-27b423aca0d9"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{MASTER_CURRENT_PAGE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

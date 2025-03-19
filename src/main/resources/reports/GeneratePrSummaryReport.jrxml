@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GeneratePrSummaryReport" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="589" leftMargin="3" rightMargin="3" topMargin="3" bottomMargin="3" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="bbb4e5d1-99d7-4f49-a29e-06c21332aa33">
+	<property name="ireport.zoom" value="1.3636363636363635"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="correnspondAddressDetails" uuid="631ddc98-8d95-4ce0-a754-062fb1d4a02d">
+		<field name="correspondAddress" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="PR_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="prName" class="java.lang.String"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="paymentTerm" class="java.lang.String"/>
+	<field name="termsAndConditions" class="java.lang.String"/>
+	<field name="requester" class="java.lang.String"/>
+	<field name="deliveryAddress" class="java.lang.String"/>
+	<field name="deliveryDate" class="java.util.Date"/>
+	<field name="deliveryReceiver" class="java.lang.String"/>
+	<field name="correspondAddress" class="java.lang.String"/>
+	<field name="prItems" class="java.util.List"/>
+	<field name="buyerAddress" class="java.lang.String"/>
+	<field name="comanyName" class="java.lang.String"/>
+	<field name="supplierAddress" class="java.lang.String"/>
+	<field name="prNo" class="java.lang.String"/>
+	<field name="createdDate" class="java.util.Date"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="baseCurrency" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="costCenter" class="java.lang.String"/>
+	<field name="businesUnit" class="java.lang.String"/>
+	<field name="totalAmount" class="java.lang.String"/>
+	<field name="receiver" class="java.lang.String"/>
+	<field name="supplierContact" class="java.lang.String"/>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="documents" class="java.util.List"/>
+	<field name="prDescription" class="java.lang.String"/>
+	<field name="taxnumber" class="java.lang.String"/>
+	<field name="supplierTaxNumber" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="65" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="191" y="0" width="169" height="65" forecolor="#000000" uuid="7a781b6c-2885-4be2-b3e4-d64d8472b942"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buyerAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="0" width="232" height="28" forecolor="#000000" uuid="10786e67-839c-4a0a-b839-6385b1ee61b6"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement verticalAlignment="Top">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURCHASE REQUISITION]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="3" y="0" width="187" height="43" forecolor="#000000" uuid="e071c66d-fad4-4c01-b6a2-ac7bd2639a93"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement verticalAlignment="Top">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comanyName}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="4" y="44" width="133" height="7" forecolor="#000000" backcolor="#000000" uuid="265ea3b4-031a-437f-9082-23f333a8fb12"/>
+			</rectangle>
+			<textField>
+				<reportElement x="462" y="41" width="80" height="20" forecolor="#000000" uuid="2f8eb6a5-2f62-468c-b754-d14d04e10f23"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="542" y="41" width="40" height="20" forecolor="#000000" uuid="cec4c957-3287-430d-bb33-dde7ae9de173"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="349" splitType="Stretch">
+			<break>
+				<reportElement positionType="Float" x="0" y="46" width="530" height="1" uuid="c984a701-a9ff-4784-9f1f-6efffda5b2ab"/>
+			</break>
+			<line>
+				<reportElement positionType="Float" x="9" y="122" width="545" height="1" uuid="f8e28cb7-c4e3-42a1-810b-0c21571d5e68"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="5" y="103" width="132" height="20" uuid="181d7b38-a15c-4ab2-ad81-daa37e9e6012"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER DETAIL]]></text>
+			</staticText>
+			<break>
+				<reportElement positionType="Float" x="0" y="233" width="100" height="1" uuid="1930c7fb-4f42-4de0-bb90-e49b8991abdb"/>
+			</break>
+			<staticText>
+				<reportElement positionType="Float" x="5" y="241" width="144" height="20" isRemoveLineWhenBlank="true" uuid="2dd262e1-75d2-42ab-901b-3e83650cb815">
+					<printWhenExpression><![CDATA[$F{prItems}!=null]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[PURCHASE ITEM]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="5" y="261" width="548" height="1" isRemoveLineWhenBlank="true" uuid="2af5d997-fc08-4419-873f-6a1f2ac3b79f">
+					<printWhenExpression><![CDATA[$F{prItems}!=null]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<subreport>
+				<reportElement positionType="Float" x="5" y="266" width="200" height="37" isRemoveLineWhenBlank="true" uuid="c467772f-49d1-4d33-8d5e-2adefbe4e8e3">
+					<printWhenExpression><![CDATA[$F{prItems}!=null]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{prItems}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "PrSummary_prItems.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="306" width="100" height="1" uuid="d93c18de-9182-443d-83f3-009f00425a9c"/>
+			</break>
+			<subreport>
+				<reportElement positionType="Float" x="6" y="5" width="200" height="38" uuid="a8138d21-d74c-4017-bcf0-50b6e12cd02d"/>
+				<subreportParameter name="PR_SUMMARY">
+					<subreportParameterExpression><![CDATA[$P{PR_SUMMARY}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{PR_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GeneratePrSummaryReport_prDetils.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="3" y="310" width="200" height="39" uuid="5b9da936-dfd4-4bb3-8fc5-10e52b1dd5bd"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{PR_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GeneratePrSummaryReport_prRemarks.jasper"]]></subreportExpression>
+			</subreport>
+			<frame>
+				<reportElement positionType="Float" x="9" y="127" width="540" height="25" uuid="c73fc379-0449-4160-9cca-4a8f7bfb806e"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="115" height="25" isPrintWhenDetailOverflows="true" uuid="6930e5c2-bf00-4b96-b0b1-1ead46645765"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[SUPPLIER NAME]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="118" y="0" width="330" height="25" isPrintWhenDetailOverflows="true" uuid="4048214c-f499-4816-8c1d-90370c79b99c"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="9" y="153" width="540" height="25" uuid="fb0f16f8-3272-48a4-8b38-a230acb8bee4"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="115" height="25" isPrintWhenDetailOverflows="true" uuid="1ded5261-7fe8-4f66-a4c7-892d4d99132f"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[ADDRESS]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="118" y="0" width="330" height="25" isPrintWhenDetailOverflows="true" uuid="d931f85c-ee41-4bde-a9b8-b8ef64e03306"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierAddress}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="9" y="205" width="540" height="25" uuid="9517426d-88bc-4745-bbca-cdddfcc89ac8"/>
+				<staticText>
+					<reportElement positionType="Float" x="3" y="0" width="115" height="25" uuid="510c90fb-44b5-4365-9a26-b3c2736c24ab"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[CONTACT DETAIL]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="118" y="0" width="330" height="25" isPrintWhenDetailOverflows="true" uuid="8d5181e0-f6a0-4619-9e37-e1b88873cfb9"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supplierContact}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" x="6" y="47" width="132" height="20" uuid="fd5091bb-269a-4b00-ac6b-d560173474b7"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[PR DESCRIPTION]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="9" y="67" width="545" height="1" uuid="1e732f16-6976-42f1-910d-f692dd091e8c"/>
+			</line>
+			<frame>
+				<reportElement positionType="Float" x="9" y="74" width="540" height="25" uuid="2d96b3a5-416e-4576-b2af-a8bb9310cbf8"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="3" y="0" width="518" height="25" isPrintWhenDetailOverflows="true" uuid="930f9280-2549-4506-a142-9ed2f9a8b0d0"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{prDescription}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="9" y="179" width="540" height="25" uuid="158cd4ed-b463-4160-8b24-1c8f32a7a94f"/>
+				<staticText>
+					<reportElement x="3" y="0" width="115" height="25" uuid="13401fb8-b411-4fd6-b286-95ab91e8bc0f"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<text><![CDATA[TAX]]></text>
+				</staticText>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="127" y="179" width="330" height="25" uuid="a95ec964-c416-45e4-a3d0-b70063a46f76"/>
+				<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+				<textFieldExpression><![CDATA[$F{supplierTaxNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

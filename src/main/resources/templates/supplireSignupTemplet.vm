@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <h3>Dear Admin, </h3>
+        <div>
+          Supplier <strong>${supplier.companyName} </strong> Registration request came please verify account
+        </div>
+       
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MettingAttendanceReport" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="5" bottomMargin="5" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="3376478d-3721-4574-98bb-476252c16871">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MEETING_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="eventName" class="java.lang.String"/>
+	<field name="eventId" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="eventStart" class="java.lang.String"/>
+	<field name="eventEnd" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="meetings" class="java.util.List"/>
+	<field name="suppliers" class="java.util.List"/>
+	<field name="buyerName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="103" y="2" width="359" height="25" forecolor="#999999" uuid="f80a5f52-4c6c-49d7-8f04-54be1d240795"/>
+				<box topPadding="3" leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Meeting Attendance Report]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="28" width="570" height="1" forecolor="#999999" uuid="c8908ba1-035e-4e3e-bce7-54df1f40bfd0"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="29" width="211" height="16" forecolor="#999999" uuid="171b1c1f-1c60-44d0-aca7-49396c6ff9b4"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{buyerName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="451" y="2" width="80" height="20" forecolor="#999999" uuid="40b9844b-d162-4c5d-9cb6-55639f58dd57"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="531" y="2" width="40" height="20" forecolor="#999999" uuid="ac44a617-7320-4baa-89d1-875a16e5d275"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="2" width="100" height="20" forecolor="#999999" uuid="2885f523-c760-4896-b6f7-1c4a6ad946b3"/>
+				<box leftPadding="3"/>
+				<text><![CDATA[Procurehere Ⓒ 2021]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="127" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="9" width="569" height="39" uuid="dbc222ad-5c62-4d4d-b22b-f43e0249ef79"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{MEETING_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "MettingAttendanceReport_eventDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="50" width="100" height="1" uuid="0dc285cd-a2d1-4dbd-8ef4-0009b8e717c0"/>
+			</break>
+			<staticText>
+				<reportElement x="2" y="58" width="100" height="20" uuid="487535e7-c828-4293-b913-b89953d9c2e8"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Supplier List]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="79" width="567" height="1" forecolor="#999999" uuid="e5513156-bf88-49b5-a2ee-f900ee43a98a"/>
+			</line>
+			<subreport>
+				<reportElement x="3" y="86" width="200" height="41" uuid="64a24114-3dc8-4fd4-8113-f3ee94acbaee"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{suppliers}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "MettingAttendanceReport_invitedSuppliers.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

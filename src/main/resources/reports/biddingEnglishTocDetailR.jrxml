@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bidderDisqualifiedCompleteBidsList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="83e63d61-db34-4889-9b19-a954d5bbcd61">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="border">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="BidderContacts" uuid="19e6055f-336c-4aa6-960b-4d238cc1d016">
+		<field name="companyName" class="java.lang.String"/>
+		<field name="contactName" class="java.lang.String"/>
+		<field name="phno" class="java.lang.String"/>
+		<field name="mobileNo" class="java.lang.String"/>
+		<field name="email" class="java.lang.String"/>
+		<field name="ipnumber" class="java.lang.String"/>
+		<field name="designation" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="bidHistory" uuid="219cac51-3e32-480a-88ea-ea7d3b36a9fa">
+		<parameter name="EventId" class="java.lang.String"/>
+		<field name="dateTime" class="java.lang.String"/>
+		<field name="bidPrice" class="java.math.BigDecimal"/>
+		<field name="companyName" class="java.lang.String"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="generatedOn" class="java.lang.String"/>
+	<parameter name="decimal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="auctionId" class="java.lang.String"/>
+	<field name="auctionName" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="auctionType" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="auctionStartDate" class="java.lang.String"/>
+	<field name="dateTime" class="java.lang.String"/>
+	<field name="auctionPublishDate" class="java.lang.String"/>
+	<field name="auctionEndDate" class="java.lang.String"/>
+	<field name="currencyCode" class="java.lang.String"/>
+	<field name="auctionExtension" class="java.lang.String"/>
+	<field name="totalExtension" class="java.lang.Integer"/>
+	<field name="auctionStatus" class="java.lang.String"/>
+	<field name="supplierInvited" class="java.lang.Integer"/>
+	<field name="supplierParticipated" class="java.lang.String"/>
+	<field name="totalBilds" class="java.lang.Integer"/>
+	<field name="buyerName" class="java.lang.String"/>
+	<field name="bidHistory" class="java.util.List"/>
+	<field name="biddingPrice" class="java.util.List"/>
+	<field name="ductchPrice" class="java.math.BigDecimal"/>
+	<field name="intervalType" class="java.lang.String"/>
+	<field name="interval" class="java.lang.Integer"/>
+	<field name="winner" class="java.lang.String"/>
+	<field name="winningPrice" class="java.math.BigDecimal"/>
+	<field name="winningDate" class="java.lang.String"/>
+	<field name="decimal" class="java.lang.String"/>
+	<field name="startPrice" class="java.math.BigDecimal"/>
+	<field name="bidContacts" class="java.util.List"/>
+	<field name="supplierBidsList" class="java.util.List"/>
+	<field name="bidderTotallyCompleteBidsList" class="java.util.List"/>
+	<field name="bidderPartiallyCompleteBidsList" class="java.util.List"/>
+	<field name="bidderDisqualifiedCompleteBidsList" class="java.util.List"/>
+	<field name="supplierAcceptedBids" class="java.util.List"/>
+	<field name="supplierRejectedBids" class="java.util.List"/>
+	<field name="supplierInvitedBids" class="java.util.List"/>
+	<field name="supplierActivitySummary" class="java.util.List"/>
+	<field name="topSupplierbqItem" class="java.util.List"/>
+	<field name="leadingSupplierBqRemak" class="java.lang.String"/>
+	<field name="supplierRemark" class="java.lang.String"/>
+	<field name="supplierCompanyName" class="java.lang.String"/>
+	<field name="evaluationSupplierBidsLineChartPojoList" class="java.util.List"/>
+	<field name="reverToBidSuppliers" class="java.util.List"/>
+	<field name="supplierBidHistoryTable" class="java.util.List"/>
+	<field name="evaluationSupplierBidsLineTimeChartPojoList" class="java.util.List"/>
+	<field name="leadingSecondComparison" class="java.lang.String"/>
+	<field name="netSavingList" class="java.util.List"/>
+	<field name="revisedBidSubmitted" class="java.lang.Boolean"/>
+	<field name="isMask" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="37">
+			<frame>
+				<reportElement x="1" y="20" width="554" height="15" uuid="5eb51711-9117-4298-a348-d8ecfa10a0ea">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textField>
+					<reportElement mode="Opaque" x="354" y="0" width="200" height="15" forecolor="#808080" uuid="b1597082-6b0d-4593-84fa-9738b56ef055">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="0" bottomPadding="2" rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA["Generated  ".concat( $P{generatedOn} )]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="-1" y="0" width="100" height="15" forecolor="#808080" uuid="841945ce-c587-40b4-924f-76cefffd9d3b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="3" bottomPadding="2"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+					<text><![CDATA[Auction Report]]></text>
+				</staticText>
+			</frame>
+			<line>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="36" width="555" height="1" forecolor="#808080" uuid="595e014b-f8a5-4abc-a19d-021844f70a62">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="167" height="20" forecolor="#808080" uuid="fcda55ea-1e92-4ae7-93e6-1dea8ffe0981"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buyerName}!=null?$F{buyerName}.toUpperCase():""]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="0" width="100" height="20" uuid="c0f5b931-8762-4a38-891c-0c4e8d8d268f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Event Details"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Event Details"]]></anchorNameExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="22" width="102" height="15" uuid="839b7a89-e24e-41f4-9e47-bc183799e733">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"EventDetailsSubR.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="38" width="98" height="1" uuid="c4d313fd-5098-4c31-b8a2-f5fa92051741"/>
+			</break>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="6d8786dc-613e-420a-8aba-a5ae7ef7a039">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+		<band height="44">
+			<line>
+				<reportElement x="1" y="20" width="555" height="1" uuid="e65c2d2f-a684-41a9-96ba-685a97d8db9c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<subreport>
+				<reportElement x="1" y="21" width="152" height="20" uuid="b8fd61e2-3e6f-4bb1-b660-f59b8500edf6"/>
+				<subreportParameter name="bidContacts">
+					<subreportParameterExpression><![CDATA[$F{bidContacts}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bidderTotallyCompleteBidsList">
+					<subreportParameterExpression><![CDATA[$F{bidderTotallyCompleteBidsList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bidderPartiallyCompleteBidsList">
+					<subreportParameterExpression><![CDATA[$F{bidderPartiallyCompleteBidsList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bidderDisqualifiedCompleteBidsList">
+					<subreportParameterExpression><![CDATA[$F{bidderDisqualifiedCompleteBidsList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierAcceptedBids">
+					<subreportParameterExpression><![CDATA[$F{supplierAcceptedBids}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierRejectedBids">
+					<subreportParameterExpression><![CDATA[$F{supplierRejectedBids}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierInvitedBids">
+					<subreportParameterExpression><![CDATA[$F{supplierInvitedBids}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierActivitySummary">
+					<subreportParameterExpression><![CDATA[$F{supplierActivitySummary}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="topSupplierbqItem">
+					<subreportParameterExpression><![CDATA[$F{topSupplierbqItem}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="leadingSupplierBqRemak">
+					<subreportParameterExpression><![CDATA[$F{leadingSupplierBqRemak}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierCompanyName">
+					<subreportParameterExpression><![CDATA[$F{supplierCompanyName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currencyCode">
+					<subreportParameterExpression><![CDATA[$F{currencyCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$F{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="leadingSecondComparison">
+					<subreportParameterExpression><![CDATA[$F{leadingSecondComparison}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="netSavingList">
+					<subreportParameterExpression><![CDATA[$F{netSavingList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="revisedBidSubmitted">
+					<subreportParameterExpression><![CDATA[$F{revisedBidSubmitted}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="auctionType">
+					<subreportParameterExpression><![CDATA[$F{auctionType}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="isMask">
+					<subreportParameterExpression><![CDATA[$F{isMask}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"BidEventSummarySubR.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="43" width="98" height="1" uuid="c50687cf-59e4-4f7d-902a-5b4cf7ff6f1b"/>
+			</break>
+			<textField bookmarkLevel="1">
+				<reportElement x="1" y="0" width="100" height="20" uuid="662a948e-aa02-4493-a77e-d6d1ec8c5684">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Event Summary"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Event Summary"]]></anchorNameExpression>
+			</textField>
+		</band>
+		<band height="41">
+			<subreport>
+				<reportElement x="0" y="26" width="70" height="15" uuid="a10e347c-d793-427e-b28e-13918174168a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{AUCTION_SUMMARY}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"TopBiddingLineChartSubR.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="1" y="0" width="100" height="20" uuid="a9fb4363-5499-4401-b18c-930f0582950c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Bid History"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Event Summary"]]></anchorNameExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="23" width="555" height="1" uuid="15543815-df61-4133-ac3a-3cce10b8742e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement x="1" y="2" width="119" height="15" uuid="ae743157-1f36-46e8-8943-6fa9c531fa40">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="evaluationSupplierBidsLineChartPojoList">
+					<subreportParameterExpression><![CDATA[$F{evaluationSupplierBidsLineChartPojoList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bidderDisqualifiedCompleteBidsList">
+					<subreportParameterExpression><![CDATA[$F{bidderDisqualifiedCompleteBidsList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reverToBidSuppliers">
+					<subreportParameterExpression><![CDATA[$F{reverToBidSuppliers}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierBidHistoryTable">
+					<subreportParameterExpression><![CDATA[$F{supplierBidHistoryTable}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currencyCode">
+					<subreportParameterExpression><![CDATA[$F{currencyCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$F{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="evaluationSupplierBidsLineTimeChartPojoList">
+					<subreportParameterExpression><![CDATA[$F{evaluationSupplierBidsLineTimeChartPojoList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"BidHistorySubR.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="19" width="100" height="1" uuid="cef6ba5a-48d1-4039-b540-022c7f8afa3a"/>
+			</break>
+		</band>
+		<band height="45">
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="bae258eb-1012-4fd6-be6d-2ea41a62e967">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<textField bookmarkLevel="1">
+				<reportElement x="0" y="1" width="276" height="20" uuid="8afc29dd-fcd6-4c31-a67e-26265986bf56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Itemized Last Bid for Each Supplier"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Itemized Last Bid for Each Supplier"]]></anchorNameExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="44" width="100" height="1" uuid="96945dcd-4a88-4ca2-9e78-39df68eda6f6"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="24" width="148" height="19" uuid="ad36a75c-85ff-489c-a50f-ead29f3ccea6"/>
+				<subreportParameter name="supplierRemark">
+					<subreportParameterExpression><![CDATA[$F{supplierRemark}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currencyCode">
+					<subreportParameterExpression><![CDATA[$F{currencyCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$F{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{supplierBidsList}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"BiddingHistorySubR.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Master">
+				<reportElement x="230" y="0" width="96" height="20" forecolor="#000000" uuid="77fdde90-13f9-4d5c-b8e4-b5ac43de90b4"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{MASTER_CURRENT_PAGE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

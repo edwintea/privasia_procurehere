@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<project name="procurehere" default="compile" basedir=".">
+    <description>procurehere</description>
+
+    <property name="project.name" value="procurehere"/>
+    <property name="version" value="1.0"/>
+    <property name="warfile" value="${project.name}.war"/>
+
+    <property name="web.dir" value="${basedir}/src/main/webapp"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="src.dir" value="${basedir}/src/main/java"/>
+    <property name="test.dir" value="${basedir}/src/test/java"/>
+    <property name="project.lib" value="${basedir}/target/ROOT/WEB-INF/lib"/>
+    <property name="classes.dir" value="${basedir}/src/main/webapp/WEB-INF/classes"/>
+
+    <path id="source.path">
+        <dirset dir="${src.dir}"/>
+        <dirset dir="${test.dir}"/>
+    </path>
+    <path id="class.path">
+        <dirset dir="${basedir}/target/test-classes"/>
+        <dirset dir="${basedir}/target/classes"/>
+        <fileset dir="${project.lib}" includes="**/*.jar"/>
+        <fileset dir="${basedir}/runtime" includes="**/*.jar"/>
+    </path>
+
+    <target name="init">
+        <echo>Using JAVA_HOME = ${java.home}</echo>
+        <mkdir dir="${basedir}/target/test-classes"/>
+        <mkdir dir="${basedir}/target/classes"/>
+    </target>
+
+    <target name="clean" description="clean-up">
+        <delete dir="${classes.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <delete dir="${basedir}/target/test-classes"/>
+        <mkdir dir="${basedir}/target/test-classes"/>
+        <mkdir dir="${basedir}/target/classes"/>
+        <delete dir="${basedir}/target/classes"/>
+    </target>
+
+    <target name="compile" depends="">
+        <copy todir="${basedir}/target/classes">
+            <fileset dir="${basedir}/src/main/resources">
+                <exclude name="**/*.bak"/>
+            </fileset>
+        </copy>
+        <javac source="1.8"
+               target="1.8"
+               srcdir="${src.dir}"
+               destdir="${basedir}/target/classes"
+               debug="true"
+               debuglevel="lines,source,vars"
+               includeantruntime="false"
+               encoding="UTF-8">
+            <classpath refid="class.path"/>
+            <exclude name="**/*.properties"/>
+            <exclude name="**/*.xml"/>
+        </javac>
+        <copy todir="${basedir}/target/test-classes">
+            <fileset dir="${basedir}/src/test/resources">
+                <exclude name="**/*.bak"/>
+            </fileset>
+        </copy>
+        <javac source="1.8"
+               target="1.8"
+               srcdir="${test.dir}"
+               destdir="${basedir}/target/test-classes"
+               debug="true"
+               debuglevel="lines,source,vars"
+               includeantruntime="false"
+               encoding="UTF-8">
+            <classpath refid="class.path"/>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile" description="test">
+
+    </target>
+</project>
+

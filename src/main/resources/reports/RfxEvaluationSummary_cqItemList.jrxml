@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSummary_cqItemList" pageWidth="580" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="580" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="db46d1c8-58fc-40e1-8b05-c4e153dcd78b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="itemName" class="java.lang.String"/>
+	<field name="level" class="java.lang.String"/>
+	<field name="suppliers" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="83">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="34" y="4" width="546" height="30" uuid="b61cfd1d-8b07-44b7-8c33-4f5112753333">
+					<printWhenExpression><![CDATA[$F{level}.contains(".0")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="3" y="4" width="29" height="30" uuid="972d9b21-fca9-40c6-906d-9ed5edd58784">
+					<printWhenExpression><![CDATA[$F{level}.contains(".0")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="34" y="4" width="546" height="30" uuid="b61cfd1d-8b07-44b7-8c33-4f5112753333">
+					<printWhenExpression><![CDATA[!$F{level}.contains(".0")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="3" y="4" width="29" height="30" uuid="972d9b21-fca9-40c6-906d-9ed5edd58784">
+					<printWhenExpression><![CDATA[!$F{level}.contains(".0")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="3" y="36" width="577" height="42" isRemoveLineWhenBlank="true" uuid="c1d46198-e065-4d59-965d-5a2b443ba537">
+					<printWhenExpression><![CDATA[!$F{level}.contains(".0")]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{suppliers}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RfxEvaluationSummary_cqItemSupplierList.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="82" width="100" height="1" uuid="887bb0aa-f7b7-426f-9041-1221576c5b3a">
+					<printWhenExpression><![CDATA[!$F{level}.contains(".0")]]></printWhenExpression>
+				</reportElement>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSummary_bqItemdetails" pageWidth="573" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="573" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e33c744b-8ea4-4bb0-8930-e9889afe739c">
+	<property name="ireport.zoom" value="1.8660295208389341"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="style1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{level}.contains(".0")]]></conditionExpression>
+			<style isBold="true" pdfFontName="Helvetica-Bold"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="bqItemComments" uuid="bfbd8027-84b2-4ba0-9dca-61e0fa266ec8">
+		<field name="commentBy" class="java.lang.String"/>
+		<field name="comments" class="java.lang.String"/>
+	</subDataset>
+	<field name="level" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="uom" class="java.lang.String"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<field name="decimal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="33">
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="1" y="3" width="30" height="30" uuid="a210d842-1314-4447-bf13-f8eff31a49da"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="31" y="3" width="122" height="30" uuid="e2d72821-38ff-47f7-af54-f6b2f3c6a5ff"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="153" y="3" width="162" height="30" uuid="19764a6a-7d4b-49c6-9d32-4ce96d6f9c87"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[UOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table1" positionType="Float" x="315" y="3" width="256" height="30" uuid="bc61b718-be61-4639-a4c6-6f00e1b82a29"/>
+				<box leftPadding="0" rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="1" y="0" width="570" height="28" uuid="a700177c-28a4-4454-9cbf-d17c6d5df6b3"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="style1" positionType="Float" stretchType="RelativeToBandHeight" x="30" y="0" width="122" height="27" isPrintWhenDetailOverflows="true" uuid="fd7364bc-86cc-422a-8947-712565865b7c"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="314" y="0" width="256" height="27" isPrintWhenDetailOverflows="true" uuid="a200236d-e123-4f3c-9979-9a822e6b44cb"/>
+					<box leftPadding="0" rightPadding="3">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : 
+$F{decimal}.equals("5") ? "#,###,###,##0.00000" : $F{decimal}.equals("6") ? "#,###,###,##0.000000" : 
+"#,###,###,##0.00"]]></patternExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="152" y="0" width="162" height="27" isPrintWhenDetailOverflows="true" uuid="9a9007e7-155d-4bd1-9e28-35722c62f908"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uom}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="27" isPrintWhenDetailOverflows="true" uuid="87ba3d55-a4fd-4631-a315-4b5f904eb6f8"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

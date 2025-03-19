@@ -1,0 +1,104 @@
+ SELECT DISTINCT a.id,
+    a.event_name AS eventname,
+    a.created_date AS createddate,
+    puser.login_id AS createdby,
+    a.event_type AS type,
+    a.event_start AS eventstart,
+    a.event_end AS eventend,
+    a.referance_number AS referencenumber,
+    a.business_unit_name AS unitname,
+    a.event_id AS syseventid,
+    puser.user_name AS eventuser,
+    a.tenant_id AS tenantid,
+    a.bizunitid
+   FROM ( SELECT DISTINCT e.id,
+            e.created_date,
+            e.event_end,
+            e.event_id,
+            e.event_name,
+            e.event_start,
+            e.referance_number,
+            e.status,
+            e.tenant_id,
+            e.event_owner,
+            bu.business_unit_name,
+            bu.id AS bizunitid,
+            e.created_by,
+            'Request for Tender'::text AS event_type
+           FROM proc_test_db.proc_rft_events e
+             LEFT JOIN proc_test_db.proc_business_unit bu ON e.business_unit_id::text = bu.id::text
+          WHERE e.status::text = 'FINISHED'::text
+        UNION
+         SELECT DISTINCT e.id,
+            e.created_date,
+            e.event_end,
+            e.event_id,
+            e.event_name,
+            e.event_start,
+            e.referance_number,
+            e.status,
+            e.tenant_id,
+            e.event_owner,
+            bu.business_unit_name,
+            bu.id AS bizunitid,
+            e.created_by,
+            'Request for Proposal'::text AS event_type
+           FROM proc_test_db.proc_rfp_events e
+             LEFT JOIN proc_test_db.proc_business_unit bu ON e.business_unit_id::text = bu.id::text
+          WHERE e.status::text = 'FINISHED'::text
+        UNION
+         SELECT DISTINCT e.id,
+            e.created_date,
+            e.event_end,
+            e.event_id,
+            e.event_name,
+            e.event_start,
+            e.referance_number,
+            e.status,
+            e.tenant_id,
+            e.event_owner,
+            bu.business_unit_name,
+            bu.id AS bizunitid,
+            e.created_by,
+            'Request for Information'::text AS event_type
+           FROM proc_test_db.proc_rfi_events e
+             LEFT JOIN proc_test_db.proc_business_unit bu ON e.business_unit_id::text = bu.id::text
+          WHERE e.status::text = 'FINISHED'::text
+        UNION
+         SELECT DISTINCT e.id,
+            e.created_date,
+            e.event_end,
+            e.event_id,
+            e.event_name,
+            e.event_start,
+            e.referance_number,
+            e.status,
+            e.tenant_id,
+            e.event_owner,
+            bu.business_unit_name,
+            bu.id AS bizunitid,
+            e.created_by,
+            'Request for Quotation'::text AS event_type
+           FROM proc_test_db.proc_rfq_events e
+             LEFT JOIN proc_test_db.proc_business_unit bu ON e.business_unit_id::text = bu.id::text
+          WHERE e.status::text = 'FINISHED'::text
+        UNION
+         SELECT DISTINCT e.id,
+            e.created_date,
+            e.event_end,
+            e.event_id,
+            e.event_name,
+            e.event_start,
+            e.referance_number,
+            e.status,
+            e.tenant_id,
+            e.event_owner,
+            bu.business_unit_name,
+            bu.id AS bizunitid,
+            e.created_by,
+            'Request for Auction'::text AS event_type
+           FROM proc_test_db.proc_rfa_events e
+             LEFT JOIN proc_test_db.proc_business_unit bu ON e.business_unit_id::text = bu.id::text
+          WHERE e.status::text = 'FINISHED'::text) a,
+    proc_test_db.proc_user puser
+  WHERE a.created_by::text = puser.id::text;

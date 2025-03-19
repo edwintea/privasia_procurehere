@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSummaryReport_bqLeadEvaluatorComments" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="63158d92-aa80-4557-aacb-beacc8f8259a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="leadCommentsDetails" uuid="9b7aa2bf-56c7-4564-b0f8-22170b9946c9">
+		<field name="totalItemTaxAmt" class="java.lang.String"/>
+		<field name="grandTotal" class="java.lang.String"/>
+		<field name="totalAmt" class="java.lang.String"/>
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="remark" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="name" class="java.lang.String"/>
+	<field name="leadComments" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="87" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="4" y="5" width="540" height="20" isRemoveLineWhenBlank="true" uuid="f2b79e0f-eb94-4110-8def-602c7b4f3985"/>
+				<box leftPadding="2"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table" positionType="Float" x="7" y="60" width="537" height="21" uuid="9de14c31-75eb-44a9-bb7b-8224d58f99c4"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="leadCommentsDetails" uuid="47450c6f-e70c-4b35-ac9c-e08b8ae799e7">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{leadComments}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:columnGroup width="541" uuid="84bef337-e97c-47e9-84e5-c89195d92f0a">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="541" height="30" uuid="50beb52f-3dee-45a8-8c86-46c59374455d"/>
+								<box leftPadding="3">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[ Evaluator Reviews]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="23" uuid="1fca8e86-dc87-4934-9218-c01e68d35963">
+							<jr:columnHeader height="25" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="23" height="25" uuid="e30dfade-5773-4bea-ab80-eb1fc0a34b57"/>
+									<box leftPadding="2">
+										<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									</box>
+									<textElement verticalAlignment="Middle"/>
+									<text><![CDATA[No.]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="20" rowSpan="1">
+								<textField>
+									<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="23" height="20" isPrintWhenDetailOverflows="true" uuid="622ce7c2-5a22-4dfe-b2a9-8f44d2dc0ddf"/>
+									<box topPadding="2" leftPadding="2">
+										<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									</box>
+									<textElement>
+										<font size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="144" uuid="54245057-32b1-4d77-a71d-52b51610f751">
+							<jr:columnHeader height="25" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="144" height="25" uuid="8e633dee-6782-4de3-978e-16700070754e"/>
+									<box leftPadding="2">
+										<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									</box>
+									<textElement verticalAlignment="Middle"/>
+									<text><![CDATA[supplierName]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="20" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="144" height="20" isPrintWhenDetailOverflows="true" uuid="2f0c455e-5c35-43d3-af20-ec85789e7a91"/>
+									<box topPadding="2" leftPadding="2">
+										<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									</box>
+									<textElement>
+										<font size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="374" uuid="b9dbb904-ecf5-41f4-a896-529b80f19354">
+							<jr:columnHeader height="25" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="374" height="25" uuid="20ad1874-0ea4-4ad5-9fc7-7defb64a5be6"/>
+									<box leftPadding="2">
+										<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									</box>
+									<textElement verticalAlignment="Middle"/>
+									<text><![CDATA[Review]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="20" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="374" height="20" isPrintWhenDetailOverflows="true" uuid="da98dfd9-a6fc-4fd4-a2f3-bf542376581c"/>
+									<box topPadding="2" leftPadding="2">
+										<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+										<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									</box>
+									<textElement>
+										<font size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+			<componentElement>
+				<reportElement key="table" positionType="Float" x="7" y="30" width="537" height="24" uuid="17b2f2d6-0d83-407c-9a2d-dbaf0278146f"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="leadCommentsDetails" uuid="f1bbbedc-5557-4973-9bd8-d9ae384997f2">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{leadComments}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="22" uuid="ad2eb7f8-67a3-422e-95c2-c5e010f5e26b">
+						<jr:columnHeader height="26" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="22" height="26" uuid="5a94b8c3-0262-41e6-b84f-5f546dabdf89"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[No.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="22" height="25" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="8502933c-9e36-456a-a5ea-faf92b374585"/>
+								<box topPadding="2" leftPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="124" uuid="31563ce9-f13d-493e-bde9-c22d50cde041">
+						<jr:columnHeader height="26" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="124" height="26" uuid="6069ddf4-456a-4844-b290-6ac6759587e5"/>
+								<box leftPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Supplier]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="124" height="25" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="44ee242f-2c26-4c22-a679-cdc4730d21d8"/>
+								<box topPadding="2" leftPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7d06b280-efd7-43e2-b3b9-fbc44e96f96b">
+						<jr:columnHeader height="26" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="26" uuid="5a82570e-87da-4a45-b390-889004a56c92"/>
+								<box rightPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Amount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="90" height="25" isPrintWhenDetailOverflows="true" uuid="a37434b4-034f-4866-8a88-6a7fa0be0255"/>
+								<box>
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{grandTotal}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="112" uuid="6de3d55e-d8be-4a8d-bb8b-a2d022194a9b">
+						<jr:columnHeader height="26" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="112" height="26" uuid="61ebe29d-598a-405d-8133-f09bfabe2719"/>
+								<box rightPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Total Tax Amt]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="112" height="25" isPrintWhenDetailOverflows="true" uuid="5e2424ac-939e-4183-bf3f-1ebbbe46de5e"/>
+								<box topPadding="2" rightPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{totalAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="187" uuid="bef431f0-d3e5-4140-a0be-19867414512c">
+						<jr:columnHeader height="26" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="187" height="26" uuid="d0c6734f-ce73-41ff-9b15-372830385210"/>
+								<box rightPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Total Amount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="187" height="25" isPrintWhenDetailOverflows="true" uuid="5e2424ac-939e-4183-bf3f-1ebbbe46de5e"/>
+								<box topPadding="2" rightPadding="2">
+									<pen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<topPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<leftPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+									<rightPen lineWidth="0.25" lineColor="#CCCCCC"/>
+								</box>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{totalItemTaxAmt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

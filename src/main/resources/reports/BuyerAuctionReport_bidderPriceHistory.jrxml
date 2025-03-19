@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BuyerAuctionReport_bidderPriceHistory" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="82a44fa4-afeb-4a4c-94cf-0932fbef3376">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="bidderPriceList" uuid="ea00cf5e-9501-4c28-b1b7-5507bf7ddbd0">
+		<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+		<field name="currencyCode" class="java.lang.String"/>
+		<field name="submitedDate" class="java.lang.String"/>
+		<field name="priceSubmission" class="java.math.BigDecimal"/>
+		<field name="priceReduction" class="java.math.BigDecimal"/>
+		<field name="percentage" class="java.math.BigDecimal"/>
+		<field name="bidderName" class="java.lang.String"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="bidNumber" class="java.lang.Integer"/>
+		<field name="displayValue" class="java.lang.String"/>
+		<variable name="total_reduction" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{priceReduction}]]></variableExpression>
+		</variable>
+		<variable name="total_percentage" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{percentage}]]></variableExpression>
+		</variable>
+		<variable name="BidderName" class="java.lang.String">
+			<variableExpression><![CDATA[$F{bidderName}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="AUCTION_SUMMARY" class="java.util.Collection"/>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="bqDescription" class="java.lang.String"/>
+	<field name="priceSubmissionList" class="java.util.List"/>
+	<field name="initialPrice" class="java.math.BigDecimal"/>
+	<field name="decimals" class="java.lang.String"/>
+	<field name="currencyCode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="329" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="7" y="7" width="531" height="20" uuid="325a4be6-73f1-4fb3-9422-ad5b3817f05f"/>
+				<textElement>
+					<font size="12" isBold="false" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{supplierName}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table" style="table" positionType="Float" x="7" y="269" width="531" height="50" uuid="1ce12250-8e48-40e8-b188-3ffa48048f48"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="bidderPriceList" uuid="819bdb5d-5c95-4f2d-8347-b499c85940ff">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{priceSubmissionList}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:columnGroup width="280" uuid="9a956ca7-d7f8-4a2d-a28a-ff2f44529eac">
+						<jr:column width="50" uuid="7dfb70c5-ceb0-4bdf-882a-d761611eee64">
+							<jr:columnHeader style="table_CH" height="25" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="50" height="25" uuid="c4ad28e2-eabd-49c8-b26a-666407e9b396"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+									</textElement>
+									<text><![CDATA[BID S.NO.]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table_TD" height="25" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement positionType="Float" x="0" y="0" width="50" height="25" isPrintWhenDetailOverflows="true" uuid="eb28bf5e-93fe-42a4-bb26-8fa9cc2dd53d"/>
+									<box topPadding="2" leftPadding="2"/>
+									<textElement textAlignment="Center" verticalAlignment="Top"/>
+									<textFieldExpression><![CDATA[$F{bidNumber}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="120" uuid="1a6f415e-33ee-40f7-9c59-dd2ae4297793">
+							<jr:columnHeader style="table_CH" height="25" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="120" height="25" uuid="e1ff7e8a-2456-4319-8f90-71a5af4066e5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["SUBMISION DATE"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="table_TD" height="25" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement positionType="Float" x="0" y="0" width="120" height="25" isPrintWhenDetailOverflows="true" uuid="f6beccf0-988b-4b5b-ae9b-d3051baf1c0c"/>
+									<box topPadding="2" leftPadding="0" rightPadding="2"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{submitedDate}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="110" uuid="7a6f415e-33ee-40f7-9c59-dd2ae4297793">
+							<jr:columnHeader style="table_CH" height="25" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="110" height="25" uuid="e4ff7e8a-2456-4319-8f90-71a5af4066e5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["PRICE SUBMISSION ("+ $F{currencyCode} +")"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="table_TD" height="25" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement positionType="Float" x="0" y="0" width="110" height="25" isPrintWhenDetailOverflows="true" uuid="f6beccf0-988b-4b5b-ae9b-d3051baf1c0c"/>
+									<box topPadding="2" leftPadding="0" rightPadding="2"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{priceSubmission}]]></textFieldExpression>
+									<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="150" uuid="0b9afc8b-a794-4cad-bddc-087acd81da18">
+						<jr:columnHeader style="table_CH" height="25" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="25" uuid="9da08f8d-0904-47c3-a575-ce2f1786420e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["PRICE CHANGE HISTORY (" + $F{currencyCode} +")"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="150" height="25" isPrintWhenDetailOverflows="true" uuid="692acb63-34b1-446e-a68d-e8df27982a3c"/>
+								<box topPadding="2" leftPadding="0" rightPadding="2"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{priceReduction}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="7e62233d-f704-4aac-9e0e-13efe58fed8d">
+						<jr:columnHeader style="table_CH" height="25" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="25" uuid="b40f937a-4c84-412f-bd81-4e042073a6bb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[PERCENTAGE CHANGE (%)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="25" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="0" y="0" width="140" height="25" isPrintWhenDetailOverflows="true" uuid="9871dd7c-5bab-4d82-9dba-6f1c085f5860"/>
+								<box topPadding="2" leftPadding="0" rightPadding="2"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{percentage}+" %"]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<frame>
+				<reportElement positionType="Float" x="6" y="221" width="532" height="31" uuid="333ed5bd-acf6-4bad-8327-8cd428cbb8c0"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="2" y="14" width="530" height="17" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="e02f4d2b-b5df-4b89-9545-fdf0c22d463c"/>
+					<textElement>
+						<font size="11" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Price Submission History : "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="1" y="31" width="69" height="17" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="0f6d59b1-b771-4b4b-bbcb-caa0b6c29608"/>
+					<textElement>
+						<font size="11" isUnderline="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Initial Price : "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="72" y="31" width="35" height="17" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="0f6d59b1-b771-4b4b-bbcb-caa0b6c29608"/>
+					<textElement>
+						<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["("+ $F{currencyCode} +") "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="108" y="31" width="424" height="17" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="0f6d59b1-b771-4b4b-bbcb-caa0b6c29608"/>
+					<textElement>
+						<font size="11" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{initialPrice}]]></textFieldExpression>
+					<patternExpression><![CDATA[$F{decimals}.equals("1") ? "#,###,###,##0.0" : $F{decimals}.equals("2") ? "#,###,###,##0.00" : $F{decimals}.equals("3") ? "#,###,###,##0.000" : $F{decimals}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+				</textField>
+			</frame>
+			<lineChart>
+				<chart isShowLegend="false">
+					<reportElement x="8" y="27" width="530" height="194" uuid="fb479c52-b181-480c-af5c-b81659308f02"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="bidderPriceList" uuid="515a3714-ec0b-4af1-b842-a03dd7e76e0f">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{priceSubmissionList}, false)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{bidderName}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bidNumber}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{priceSubmission}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+			<break>
+				<reportElement x="0" y="323" width="100" height="1" uuid="774a2b40-0110-4765-8ee5-dedfd3a6d285"/>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

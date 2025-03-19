@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateSourcingSummaryBqReport" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="18c541c0-4748-461f-8de8-79cb77da0d8c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="style1" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{level}.contains(".0")]]></conditionExpression>
+			<style isBold="true" pdfFontName="Helvetica-Bold"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="bqItems" uuid="0e704039-4917-43ee-a448-d10879f05ad1">
+		<field name="level" class="java.lang.String"/>
+		<field name="description" class="java.lang.String"/>
+		<field name="uom" class="java.lang.String"/>
+		<field name="quantity" class="java.math.BigDecimal"/>
+		<field name="itemName" class="java.lang.String"/>
+		<field name="priceType" class="java.lang.String"/>
+		<field name="unitPrice" class="java.math.BigDecimal"/>
+		<field name="decimal" class="java.lang.String"/>
+		<field name="unitBudgetPrice" class="java.math.BigDecimal"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="requestItems" class="java.util.List"/>
+	<field name="name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="88" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="557" height="25" uuid="7a981bab-718a-4b7c-ba85-3ab2a0899eb0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="7" leftPadding="2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table" x="0" y="25" width="557" height="50" uuid="e89fbe43-c597-4f42-9c01-3a2e44c99edb"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="bqItems" uuid="d8677c4f-5973-4e6b-8f23-275f513cf577">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{requestItems}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="07831166-61b0-48e8-9143-320574ddb446">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="40" height="30" backcolor="#F1F1F1" uuid="b545bf82-8638-49c7-835b-8872d781cc0d"/>
+								<box leftPadding="5"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[No]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="40" height="40" uuid="83cd981b-d523-49b4-b51a-74e3230fe586"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement verticalAlignment="Top">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="181" uuid="b43be4e8-37bf-49c1-bfa0-823306e288a8">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="181" height="30" backcolor="#F1F1F1" uuid="4b5d1a5f-7f59-418f-a26e-daf13890003a"/>
+								<box leftPadding="5"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Item Name]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement style="style1" stretchType="RelativeToTallestObject" x="0" y="0" width="130" height="20" uuid="89ec8df2-e066-4b2b-adf5-8ae9f3601bd4"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement verticalAlignment="Top"/>
+								<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="20" width="180" height="20" forecolor="#CCCCCC" uuid="2168d4d7-9a01-4305-b427-ad70d5005eae"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement mode="Opaque" x="130" y="1" width="51" height="13" forecolor="#FFFFFF" backcolor="#666666" uuid="b1542785-2984-48b0-bc76-e6fc110dc3ac">
+									<printWhenExpression><![CDATA[$F{priceType}!=""]]></printWhenExpression>
+								</reportElement>
+								<textElement>
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{priceType}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="49" uuid="bd1eb881-d76a-4e1c-92f1-570a5a51f905">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="49" height="30" backcolor="#F1F1F1" uuid="2eb4d115-ea4b-4605-bc95-28b1abd75216"/>
+								<box leftPadding="5"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[UOM]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="49" height="40" uuid="4d0cdf5e-43e2-45f8-b290-eb402192291c"/>
+								<box topPadding="3" leftPadding="3"/>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{uom}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="013a2e64-1e2d-4756-a41e-d3b6b510c9b1">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="70" height="30" backcolor="#F1F1F1" uuid="3e3a0676-686f-4a49-9e71-cf3314a77b2b"/>
+								<box leftPadding="5"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Quantity]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="70" height="40" uuid="f98c281e-ba49-48fb-9c72-f8bad52930d8"/>
+								<box topPadding="3" leftPadding="3" bottomPadding="0"/>
+								<textElement textAlignment="Right" verticalAlignment="Top">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="be53fc49-de4d-44b6-b945-c12b7fba6223">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="80" height="30" backcolor="#F1F1F1" uuid="359b3643-41ba-4b24-8d84-659dc0a28a76"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Unit Price]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="80" height="40" uuid="11094dca-74fd-4132-bc56-19ea405b532a"/>
+								<box topPadding="3" leftPadding="0" rightPadding="3"/>
+								<textElement textAlignment="Right">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{unitPrice}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="137" uuid="0f6def9e-9d04-4fe0-9bd3-e9598457020f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="137" height="30" backcolor="#F1F1F1" uuid="c14d6413-845f-4aaa-8316-15355f59bc1d"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="13" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Unit Budget Price]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="40">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="137" height="40" uuid="700fd89d-0dd8-48ff-805e-5d6a527de2e2"/>
+								<box topPadding="3" leftPadding="0" rightPadding="3"/>
+								<textElement textAlignment="Right">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{unitBudgetPrice}]]></textFieldExpression>
+								<patternExpression><![CDATA[$F{decimal}.equals("1") ? "#,###,###,##0.0" : $F{decimal}.equals("2") ? "#,###,###,##0.00" : $F{decimal}.equals("3") ? "#,###,###,##0.000" : $F{decimal}.equals("4") ? "#,###,###,##0.0000" : "#,###,###,##0.00"]]></patternExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

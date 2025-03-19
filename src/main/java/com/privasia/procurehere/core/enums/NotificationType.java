@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.privasia.procurehere.core.enums;
+
+/**
+ * @author Nitin Otageri
+ *
+ */
+public enum NotificationType {
+	GENERAL, EVENT_MESSAGE, RFT_EVENT, RFA_EVENT, RFP_EVENT, RFQ_EVENT, RFI_EVENT, APPROVAL_MESSAGE, FINISH_MESSAGE, REJECT_MESSAGE, CREATED_MESSAGE, REMINDER_MESSAGE, START_MESSAGE, ACCEPT_MESSAGE, EVENT_EVALUATION_MESSAGE;
+}

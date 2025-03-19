@@ -1,0 +1,355 @@
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../fonts/login-fonts/OpenSansBold.eot');
+    src: url('../fonts/login-fonts/OpenSansBold.eot') format('embedded-opentype'), url('../fonts/login-fonts/OpenSansBold.woff2') format('woff2'), url('../fonts/login-fonts/OpenSansBold.woff') format('woff'), url('../fonts/login-fonts/OpenSansBold.ttf') format('truetype'), url('../fonts/login-fonts/OpenSansBold.svg#OpenSansBold') format('svg');
+}
+
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url('../fonts/login-fonts/OpenSansRegular.eot');
+    src: url('../fonts/login-fonts/OpenSansRegular.eot') format('embedded-opentype'), url('../fonts/login-fonts/OpenSansRegular.woff2') format('woff2'), url('../fonts/login-fonts/OpenSansRegular.woff') format('woff'), url('../fonts/login-fonts/OpenSansRegular.ttf') format('truetype'), url('../fonts/login-fonts/OpenSansRegular.svg#OpenSansRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'openSansLight';
+    src: url('../fonts/login-fonts/OpenSansLight.eot');
+    src: url('../fonts/login-fonts/OpenSansLight.eot') format('embedded-opentype'), url('../fonts/login-fonts/OpenSansLight.woff2') format('woff2'), url('../fonts/login-fonts/OpenSansLight.woff') format('woff'), url('../fonts/login-fonts/OpenSansLight.ttf') format('truetype'), url('../fonts/login-fonts/OpenSansLight.svg#OpenSansLight') format('svg');
+}
+
+@font-face {
+    font-family: 'OpenSansSemibold';
+    src: url('../fonts/login-fonts/OpenSansSemibold.eot');
+    src: url('../fonts/login-fonts/OpenSansSemibold.eot') format('embedded-opentype'), url('../fonts/login-fonts/OpenSansSemibold.woff2') format('woff2'), url('../fonts/login-fonts/OpenSansSemibold.woff') format('woff'), url('../fonts/login-fonts/OpenSansSemibold.ttf') format('truetype'), url('../fonts/login-fonts/OpenSansSemibold.svg#OpenSansSemibold') format('svg');
+}
+
+
+
+
+
+@import url(httpsfonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
+
+html{height:auto !important;}
+
+
+.bg-com {
+  background: url("../../images/banner8.jpg") no-repeat scroll 0 0 / cover ; height:auto !important;
+}
+
+.login_content_area {
+  color: #fff;
+  padding: 49px 3%;
+}
+
+
+.center-vertical.saas-login{ float:left; width:100%; position: inherit;}
+.saas-login .login_logo {
+  padding-bottom: 45px;
+}
+
+.ty-ed {
+  float: left;
+  width: 100%;
+}
+
+.saas-login .dot_list_login h4 {
+  color: #6c6c6c;
+margin: 10px 0 6px;
+}
+#login-form .button-panel {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn-blue {
+  background-color: #0095d5;
+  border-color: #0095d5;
+  color: #fff;
+}
+
+#login-form .button-panel {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 0 none;
+  color: #fff;
+  padding-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.saas-login .loging_quote h4 {
+  color: #6c6c6c;
+}
+
+.saas-login .loging_quote h2 {
+  color: #6c6c6c;
+  margin-top: 0;
+}
+
+.version_text {
+  color: #6c6c6c;
+  font-family: "openSansLight";
+  margin-top: 10px;
+  padding-right: 0px !important;
+  font-size: 12px;
+}
+
+.loging_quote h4 {
+  color: #fff;
+  font-size: 27px;
+  font-weight: 300;
+  margin-bottom: 30px;
+   font-family: "openSansLight"; float:left; width:100%;
+}
+
+
+
+.dot_list_login {
+  list-style: outside none none;
+  padding-left: 45px; float:left; width:100%;
+}
+
+.dot_list_login li:first-child {
+  margin-top: 0;
+}
+.dot_list_login li {
+  margin-top: 25px;
+  position: relative;
+  z-index: 1;
+}
+.dot_list1 {
+  height: 46px;
+  left: -47px;
+  padding: 3px;
+  position: absolute;
+  top: 1px;
+  width: 43px;
+}
+
+
+
+.dot_list_login h4 {
+  color: #fff;
+  font-family: "OpenSansSemibold";
+font-size: 25px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.saas-login .dot_list_login .subtext {
+  color: #6c6c6c;
+}
+
+
+.dot_list_login .subtext {
+  font-family: "OpenSansRegular";
+ font-size: 16px;
+  font-weight: 400;
+}
+
+.saas-login #login-form {
+  background: rgba(255, 255, 255, 0.8) none no-repeat scroll 0 0;
+  border: 1px solid #9ad1ca;
+  border-radius: 3px;
+}
+
+#login-forgot .content-box-wrapper, #login-form .content-box-wrapper {
+  padding: 30px 30px 40px !important;
+}
+
+.form-group {
+  float: left;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+#login-form .form-control {
+  border-color: #8f97a6;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #6c6c6c;
+  font-size: 14px;
+  height: 52px;
+  text-transform: uppercase;
+}
+
+.saas-login .forgot_txt_row label, .saas-login .forgot_txt_row a {
+  color: #337ab7;
+}
+
+.saas-login .forgot_txt_row label, .saas-login .forgot_txt_row a {
+  color: #337ab7;
+}
+
+
+#forget-form .btn, #login-form .btn {
+  font-family: "OpenSansBold";
+  font-size: 23px;
+  font-weight: 500;
+  height: 52px;
+  line-height: 31px;
+  text-transform: uppercase;
+}
+
+
+#forget-form .btn:hover, #login-form .btn:hover {
+  color: #fff;
+}
+.saas-login .or_text {
+  color: #337ab7;
+}
+
+.or_text {
+  display: block;
+  font-family: "openSansLight";
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 0;
+  text-transform: uppercase;
+}
+
+.sign_text {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.saas-login .sign_text a {
+  color: #337ab7;
+}
+
+.sign_text a {
+  color: #fff;
+  font-family: "OpenSansBold";
+  font-weight: 500;
+}
+
+.loging_quote h2 {
+  color: #fff;
+  font-family: "openSansLight";
+  font-size: 36px;
+     margin-bottom: 15px; float: left;
+}
+
+.ty-ed .wrap {
+    border-right: 4px solid #0095D5 !important;
+    float: left;
+    margin-left: 15px;
+}
+
+.ty-ed span {
+    float: left;
+}
+
+
+@media screen and (max-width:480px){
+    
+ .loging_quote h2 {
+
+  font-size: 4vw;
+}
+   
+    .loging_quote h4 {
+ 
+  font-size: 15px;
+ 
+}
+.ty-ed .wrap {
+ 
+    margin-left: 5px !important;
+}
+
+
+.loging_quote h4 {  font-size: 3.5vw; margin-top:0 !important;}
+
+
+.dot_list_login h4{ font-size:15px;}
+
+
+ .dot_list_login .subtext{ font-size: 12px;}
+ 
+ #login-forgot .content-box-wrapper, #login-form .content-box-wrapper {
+    padding: 20px !important;
+}
+
+.sign_text {
+    font-size: 13px;
+    
+}
+
+
+    
+}
+
+
+@media screen and (min-width:481px) and (max-width:767px){
+    
+.loging_quote h2 {
+
+  font-size: 4vw;
+}
+   
+    .loging_quote h4 {
+ 
+  font-size: 15px;
+ 
+}
+.ty-ed .wrap {
+ 
+    margin-left: 5px !important;
+}
+
+
+.loging_quote h4 {  font-size: 3.5vw; margin-top:0 !important;}
+
+
+.dot_list_login h4{ font-size:15px;}
+
+
+ .dot_list_login .subtext{ font-size: 12px;}
+ 
+ #login-forgot .content-box-wrapper, #login-form .content-box-wrapper {
+    padding: 20px !important;
+}
+}
+
+
+@media screen and (min-width:768px) and (max-width:1200px){
+    
+.loging_quote h2 {
+
+  font-size: 2vw;
+}
+   
+    .loging_quote h4 {
+ 
+  font-size: 15px;
+ 
+}
+.ty-ed .wrap {
+ 
+    margin-left: 5px !important;
+}
+
+
+.loging_quote h4 {  font-size: 1.5vw; margin-top:0 !important;}
+
+
+.dot_list_login h4{ font-size:18px;}
+
+
+ .dot_list_login .subtext{ font-size: 15px;}
+ 
+ #login-forgot .content-box-wrapper, #login-form .content-box-wrapper {
+    padding: 20px !important;
+}
+
+.sign_text {
+    font-size: 14px;
+    
+}
+
+    
+}

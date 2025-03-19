@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AuctionEvaluationBqItemListSubR" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="deb17af5-298c-48f0-9494-2f063ecb4098">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="bqName" class="java.lang.String"/>
+	<parameter name="totalAfterTax" class="java.math.BigDecimal"/>
+	<parameter name="additionalTax" class="java.math.BigDecimal"/>
+	<parameter name="grandTotal" class="java.math.BigDecimal"/>
+	<parameter name="totalAfterTax1" class="java.math.BigDecimal"/>
+	<parameter name="additionalTax1" class="java.math.BigDecimal"/>
+	<parameter name="grandTotal1" class="java.math.BigDecimal"/>
+	<parameter name="totalAfterTax2" class="java.math.BigDecimal"/>
+	<parameter name="additionalTax2" class="java.math.BigDecimal"/>
+	<parameter name="grandTotal2" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="bqItems" class="java.util.List"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="supplierName" class="java.lang.String"/>
+	<field name="supplierName1" class="java.lang.String"/>
+	<field name="supplierName2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="425" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="40" uuid="df5ac928-227a-425f-85cc-11e9520a41ed"/>
+				<subreportParameter name="bqName">
+					<subreportParameterExpression><![CDATA[$P{bqName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierName">
+					<subreportParameterExpression><![CDATA[$F{supplierName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierName1">
+					<subreportParameterExpression><![CDATA[$F{supplierName1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="supplierName2">
+					<subreportParameterExpression><![CDATA[$F{supplierName2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="name">
+					<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalAfterTax">
+					<subreportParameterExpression><![CDATA[$P{totalAfterTax}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="additionalTax">
+					<subreportParameterExpression><![CDATA[$P{additionalTax}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="additionalTax1">
+					<subreportParameterExpression><![CDATA[$P{additionalTax1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="additionalTax2">
+					<subreportParameterExpression><![CDATA[$P{additionalTax2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="grandTotal">
+					<subreportParameterExpression><![CDATA[$P{grandTotal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="grandTotal1">
+					<subreportParameterExpression><![CDATA[$P{grandTotal1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="grandTotal2">
+					<subreportParameterExpression><![CDATA[$P{grandTotal2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalAfterTax1">
+					<subreportParameterExpression><![CDATA[$P{totalAfterTax1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="totalAfterTax2">
+					<subreportParameterExpression><![CDATA[$P{totalAfterTax2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqItems},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA["src/main/resources/reports/AuctionEvaluationBqItemsSubR.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

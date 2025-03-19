@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RfxEvaluationSubmissionReport_generalInfo" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="769b8b0b-1860-453f-ab96-6ed537925a3c">
+	<property name="ireport.zoom" value="1.6105100000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="217"/>
+	<style name="table1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<subDataset name="cqList" uuid="4ecb6f75-2148-4b48-80c8-67307d0bf603">
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="bqList" uuid="76a9109b-3905-47aa-bd60-4dddfee147fb">
+		<field name="name" class="java.lang.String"/>
+	</subDataset>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="eventId" class="java.lang.String"/>
+	<field name="eventName" class="java.lang.String"/>
+	<field name="owner" class="java.lang.String"/>
+	<field name="eventStart" class="java.lang.String"/>
+	<field name="eventEnd" class="java.lang.String"/>
+	<field name="envlopName" class="java.lang.String"/>
+	<field name="bqs" class="java.util.List"/>
+	<field name="cqs" class="java.util.List"/>
+	<field name="openType" class="java.lang.String"/>
+	<field name="envDescription" class="java.lang.String"/>
+	<field name="location" class="java.lang.String"/>
+	<field name="envelopOwner" class="java.lang.String"/>
+	<field name="openDate" class="java.lang.String"/>
+	<field name="envelopOpener" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="405" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="12" y="12" width="163" height="26" uuid="e2568ecc-4bd6-48a0-99a9-d1c5517b15ce"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[General Information]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="13" y="38" width="557" height="1" uuid="a9b72738-eb9d-49f6-a078-a12f266c77d0"/>
+			</line>
+			<frame>
+				<reportElement positionType="Float" x="10" y="50" width="575" height="25" uuid="c59e44d6-2c56-4c4d-8db0-483e3176c893"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="e4f31de9-2cb7-4a79-a339-74f3e2452bba"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Event ID]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="165" y="0" width="375" height="25" isPrintWhenDetailOverflows="true" uuid="041f42bf-37d5-4fa5-9f76-f4ce503e79e7"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventId}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="75" width="575" height="25" uuid="34dab90b-0098-4c58-b362-e08944f77e21"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="317f0992-e72b-4693-8a27-1c63ed0c88f3"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Reference Number]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="165" y="0" width="375" height="25" isPrintWhenDetailOverflows="true" uuid="3a8fc041-e997-4e0e-aa50-17873381ccce"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{referenceNo}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="100" width="575" height="25" uuid="1a0c9932-35b4-41d9-8f30-449939f3d09b"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="e9b3420d-d677-4df5-bd4f-78c60f883925"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Event Name]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="165" y="0" width="375" height="25" isPrintWhenDetailOverflows="true" uuid="dd57421d-76d7-4bd8-823b-59f65597450b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventName}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="125" width="575" height="25" uuid="794d77e4-bc7b-4b88-af7f-8a5f8acf349b"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="5608bfdb-33a0-445d-9e86-4f3e9dc0f6d2"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Event Owner]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="165" y="0" width="375" height="25" isPrintWhenDetailOverflows="true" uuid="ef3a4ccc-de13-412e-bec0-542caa8a9118"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="151" width="575" height="25" uuid="ff8a467a-c337-4014-a063-828f82d4e358"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="165" y="0" width="375" height="25" isPrintWhenDetailOverflows="true" uuid="189ec8de-da54-4bb5-b8a1-a984d1be900c"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventStart}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="b8aa7a6a-371c-4cff-bcf1-d83d75736875"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Event Start Date & Time]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="10" y="176" width="575" height="25" uuid="f7911093-7dbc-4391-b3a8-7bdd9e4f50ff"/>
+				<staticText>
+					<reportElement positionType="Float" x="5" y="0" width="160" height="25" isPrintWhenDetailOverflows="true" uuid="cee29e78-b651-400a-9ea2-4f681c4589e1"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Event End Date & Time]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="165" y="0" width="375" height="25" isPrintWhenDetailOverflows="true" uuid="92d9ab91-b8d7-478c-9009-841e0543d8c2"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventEnd}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="table1" positionType="Float" x="16" y="212" width="527" height="43" uuid="77772f22-4c65-4d04-8554-6e5414e0995f"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="0" width="527" height="25" isPrintWhenDetailOverflows="true" uuid="1dd9583d-b9fc-4db6-9c4f-055a8521bc0d"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="13" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{envlopName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="0" y="23" width="527" height="20" isPrintWhenDetailOverflows="true" uuid="021dccac-2a16-4c28-b58e-f884525eb9a7"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textFieldExpression><![CDATA[$F{envDescription}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="table1" positionType="Float" x="16" y="255" width="527" height="20" uuid="a9c7a1b0-08d7-49cc-aa7f-2e795b07da20"/>
+				<staticText>
+					<reportElement style="table1" positionType="Float" x="0" y="0" width="124" height="20" isPrintWhenDetailOverflows="true" uuid="448fcbdd-bc64-4d1e-919c-42464c63fad9"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Opening Type]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" x="123" y="0" width="142" height="20" isPrintWhenDetailOverflows="true" uuid="ac62a600-6ca3-4377-99ac-e112cbf0c07b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{openType}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="table1" positionType="Float" x="265" y="0" width="51" height="20" isPrintWhenDetailOverflows="true" uuid="c584439d-375c-4076-af28-3926a39b90d4"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Opener]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" x="316" y="0" width="211" height="20" isPrintWhenDetailOverflows="true" uuid="ef28b6a5-8bd0-423d-bd13-92ad142cfdfe"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{envelopOpener}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="table1" positionType="Float" x="16" y="275" width="527" height="20" uuid="ce1e53e2-aa6b-492d-a025-6b48b7d05139"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" x="123" y="0" width="142" height="20" isPrintWhenDetailOverflows="true" uuid="5b18f68b-1daa-4813-aa5c-298c88d9700b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{openDate}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="table1" positionType="Float" x="265" y="0" width="51" height="20" isPrintWhenDetailOverflows="true" uuid="40e68222-45d9-41a7-8519-354b2f363b1b"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Owner]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="table1" positionType="Float" x="316" y="0" width="211" height="20" isPrintWhenDetailOverflows="true" uuid="3d25c1d8-b7ee-4957-9b01-81f6b90ccdf5"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{envelopOwner}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="table1" positionType="Float" x="0" y="0" width="124" height="20" isPrintWhenDetailOverflows="true" uuid="7e2692eb-874a-4608-82c7-028aa7949bf5"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Opening Date & Time]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="table1" positionType="Float" x="16" y="295" width="527" height="105" uuid="c5652b22-dac7-491d-a35c-234686fc4a2e"/>
+				<staticText>
+					<reportElement x="0" y="0" width="124" height="20" uuid="1ad6cd98-8fef-4a81-bcb8-ad50374853a8"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Submission Item]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement positionType="Float" x="40" y="40" width="400" height="20" isPrintWhenDetailOverflows="true" uuid="0e740ed4-0293-4577-9281-5a6812075cbe"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="cqList" uuid="16fd94ef-811a-423f-86d6-ae4074dfc9c5">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqs}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="400">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement positionType="Float" x="25" y="0" width="280" height="20" isPrintWhenDetailOverflows="true" uuid="6cf8a7e1-d253-40a8-b6fc-d19453425ab3"/>
+								<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+								<textElement>
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="2" y="0" width="23" height="20" uuid="b5f0ba09-f666-4f06-b4ec-7ebfbb1fe790"/>
+								<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+								<textElement>
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement positionType="Float" x="40" y="82" width="400" height="20" isPrintWhenDetailOverflows="true" uuid="ba24c7f3-3482-4219-9005-7458bc47fe9a"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="bqList" uuid="b1374490-ead6-4835-b5b3-1a8b46bc9d13">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bqs}, false)]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="20" width="400">
+							<textField>
+								<reportElement positionType="Float" x="25" y="0" width="280" height="20" isPrintWhenDetailOverflows="true" uuid="d3efecc1-85ca-493b-aaf1-0e5621bb3073"/>
+								<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+								<textElement>
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="1" y="0" width="24" height="20" uuid="eda2fe8c-98b3-4ba2-8ab0-15354e2c836e"/>
+								<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+								<textElement>
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<staticText>
+					<reportElement positionType="Float" x="23" y="20" width="100" height="20" uuid="3e418181-b870-4639-b1fc-433f5ea6c1d1"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Questionnaire]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="23" y="62" width="100" height="20" uuid="d986fe11-838f-4d5a-bdfb-aed26fe57e44"/>
+					<box topPadding="2" leftPadding="4" bottomPadding="3"/>
+					<textElement>
+						<font size="11" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Bill of Quantity]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

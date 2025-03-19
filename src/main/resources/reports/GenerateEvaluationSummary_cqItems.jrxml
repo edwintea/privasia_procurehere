@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GenerateEvaluationSummary_cqItems" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="24bec328-ab90-4404-a610-4ae39de08593">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="cqItemDetails" uuid="0e647ca9-df84-4aeb-8e93-114a96bbebd0">
+		<field name="level" class="java.lang.String"/>
+		<field name="itemName" class="java.lang.String"/>
+		<field name="itemDescription" class="java.lang.String"/>
+		<field name="cqOptions" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="cqOptionDetails" uuid="8040d4e4-7cda-4f21-bd25-e72722834340">
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="name" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="cqItem" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="95" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="10" y="5" width="569" height="30" backcolor="#F1F1F1" uuid="fd2fc46c-601f-48b0-afba-ab7d77c78b2b"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="11" y="35" width="568" height="20" isRemoveLineWhenBlank="true" forecolor="#CCCCCC" uuid="e791eee7-c077-4b1a-8637-76fd92a43eff">
+					<printWhenExpression><![CDATA[$F{description}.length() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="11" y="55" width="568" height="40" uuid="a26d1025-c3af-4005-a486-1493d1be8666"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cqItem}, false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GenerateEvaluationSummary_cqItemsDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

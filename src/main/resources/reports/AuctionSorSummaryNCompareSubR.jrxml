@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AuctionSorSummaryNCompareSubR" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f85b86ef-1df6-4c16-aa5c-dd3fb0f94f6c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<subDataset name="SupplierSor" uuid="3c88f894-1345-44cb-8d8a-92affc79fdda">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<parameter name="bqName" class="java.lang.String"/>
+		<parameter name="currencyCode" class="java.lang.String"/>
+		<parameter name="decimal" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="supplierName" class="java.lang.String"/>
+		<field name="revisedBidSubmitted" class="java.lang.Boolean"/>
+		<field name="rate" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="headerBqName" class="java.lang.String"/>
+	<parameter name="currencyCode" class="java.lang.String"/>
+	<parameter name="decimal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="supplierSor" class="java.util.List"/>
+	<field name="sorName" class="java.lang.String"/>
+	<field name="topSupplierSor" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[$F{supplierSor}.size()>0]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement mode="Transparent" x="0" y="0" width="555" height="30" backcolor="#FFFFFF" uuid="1f7e518a-3336-4638-bd0d-8932c3de9db0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="10" leftPadding="4">
+					<pen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sorName}]]></textFieldExpression>
+				<anchorNameExpression><![CDATA[$F{sorName}]]></anchorNameExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="34" width="555" height="1" uuid="5011eef1-05aa-454b-b429-40bbac750395">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+		<band height="66" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="20" width="200" height="25" uuid="1b004e3a-685b-464a-8bae-ccbbe56406ac">
+					<printWhenExpression><![CDATA[$F{topSupplierSor}!=null]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="sorName">
+					<subreportParameterExpression><![CDATA[$F{sorName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$P{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currencyCode">
+					<subreportParameterExpression><![CDATA[$P{currencyCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{topSupplierSor},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"demo1SOR.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="45" width="555" height="20" uuid="a6cc5d8f-b0ee-48a1-8a2e-ded1b427f8dc">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="d5dbd5a2-3405-47f5-a16b-15edda2d32f0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<break>
+				<reportElement x="0" y="65" width="99" height="1" uuid="b6948d1d-2a12-4148-8f7f-7918d4e96c8a"/>
+			</break>
+		</band>
+		<band height="23" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="1" width="200" height="22" isRemoveLineWhenBlank="true" uuid="9fba76b9-f0e9-4875-b7ee-442b96b150e1">
+					<printWhenExpression><![CDATA[$F{supplierSor}!=null]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="decimal">
+					<subreportParameterExpression><![CDATA[$P{decimal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currencyCode">
+					<subreportParameterExpression><![CDATA[$P{currencyCode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{supplierSor},false)]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "AuctionEvaluationSummary_sorItems.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>
